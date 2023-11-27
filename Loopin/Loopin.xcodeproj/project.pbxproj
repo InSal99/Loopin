@@ -11,6 +11,8 @@
 		161AA70B2B0E1B6B008A59CE /* TermTutorialView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 161AA70A2B0E1B6B008A59CE /* TermTutorialView.swift */; };
 		161AA70D2B0E1D2B008A59CE /* PatternTutorialView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 161AA70C2B0E1D2B008A59CE /* PatternTutorialView.swift */; };
 		161AA70F2B0E1EB3008A59CE /* YarnTutorialView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 161AA70E2B0E1EB3008A59CE /* YarnTutorialView.swift */; };
+		161AA7112B14800A008A59CE /* MiniTag.swift in Sources */ = {isa = PBXBuildFile; fileRef = 161AA7102B14800A008A59CE /* MiniTag.swift */; };
+		161AA7152B1492CF008A59CE /* WrappingHStack in Frameworks */ = {isa = PBXBuildFile; productRef = 161AA7142B1492CF008A59CE /* WrappingHStack */; };
 		16BF34DA2B0B31BF0036424B /* LoopinApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16BF34D92B0B31BF0036424B /* LoopinApp.swift */; };
 		16BF34DC2B0B31BF0036424B /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16BF34DB2B0B31BF0036424B /* ContentView.swift */; };
 		16BF34DE2B0B31C00036424B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 16BF34DD2B0B31C00036424B /* Assets.xcassets */; };
@@ -59,6 +61,7 @@
 		161AA70A2B0E1B6B008A59CE /* TermTutorialView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TermTutorialView.swift; sourceTree = "<group>"; };
 		161AA70C2B0E1D2B008A59CE /* PatternTutorialView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PatternTutorialView.swift; sourceTree = "<group>"; };
 		161AA70E2B0E1EB3008A59CE /* YarnTutorialView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YarnTutorialView.swift; sourceTree = "<group>"; };
+		161AA7102B14800A008A59CE /* MiniTag.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MiniTag.swift; sourceTree = "<group>"; };
 		16BF34D62B0B31BF0036424B /* Loopin.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Loopin.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		16BF34D92B0B31BF0036424B /* LoopinApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoopinApp.swift; sourceTree = "<group>"; };
 		16BF34DB2B0B31BF0036424B /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -109,17 +112,26 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				161AA7152B1492CF008A59CE /* WrappingHStack in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		161AA7122B149246008A59CE /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		16BF34CD2B0B31BF0036424B = {
 			isa = PBXGroup;
 			children = (
 				16BF34D82B0B31BF0036424B /* Loopin */,
 				16BF34D72B0B31BF0036424B /* Products */,
+				161AA7122B149246008A59CE /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -195,6 +207,7 @@
 				16EEB2642B0BE55900C340D1 /* ProgressBar.swift */,
 				16EEB26A2B0BEB7100C340D1 /* ProjectPartInputCard.swift */,
 				161AA7082B0CD1C7008A59CE /* ImageSlider.swift */,
+				161AA7102B14800A008A59CE /* MiniTag.swift */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -240,6 +253,9 @@
 			dependencies = (
 			);
 			name = Loopin;
+			packageProductDependencies = (
+				161AA7142B1492CF008A59CE /* WrappingHStack */,
+			);
 			productName = Loopin;
 			productReference = 16BF34D62B0B31BF0036424B /* Loopin.app */;
 			productType = "com.apple.product-type.application";
@@ -268,6 +284,9 @@
 				Base,
 			);
 			mainGroup = 16BF34CD2B0B31BF0036424B;
+			packageReferences = (
+				161AA7132B1492CF008A59CE /* XCRemoteSwiftPackageReference "WrappingHStack" */,
+			);
 			productRefGroup = 16BF34D72B0B31BF0036424B /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -330,6 +349,7 @@
 				16F64E582B0B765C00EF2E15 /* ProjectsView.swift in Sources */,
 				16EEB2612B0BDB4000C340D1 /* ProjectPartCard.swift in Sources */,
 				161AA70B2B0E1B6B008A59CE /* TermTutorialView.swift in Sources */,
+				161AA7112B14800A008A59CE /* MiniTag.swift in Sources */,
 				16F64E5E2B0B800000EF2E15 /* ForumView.swift in Sources */,
 				16EEB2572B0BBE7300C340D1 /* ShortTextField.swift in Sources */,
 				16F64E642B0BAE1200EF2E15 /* SignInView.swift in Sources */,
@@ -539,6 +559,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		161AA7132B1492CF008A59CE /* XCRemoteSwiftPackageReference "WrappingHStack" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/dkk/WrappingHStack";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 2.0.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		161AA7142B1492CF008A59CE /* WrappingHStack */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 161AA7132B1492CF008A59CE /* XCRemoteSwiftPackageReference "WrappingHStack" */;
+			productName = WrappingHStack;
+		};
+/* End XCSwiftPackageProductDependency section */
 
 /* Begin XCVersionGroup section */
 		16BF34E42B0B31C00036424B /* Loopin.xcdatamodeld */ = {
