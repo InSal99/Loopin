@@ -9,6 +9,9 @@ import SwiftUI
 
 @main
 struct LoopinApp: App {
+    // register app delegate for Firebase setup
+     @UIApplicationDelegateAdaptor(AppDelegate.self) var delegate
+
     let persistenceController = PersistenceController.shared
 
     var body: some Scene {
@@ -19,3 +22,4 @@ struct LoopinApp: App {
         }
     }
 }
+
