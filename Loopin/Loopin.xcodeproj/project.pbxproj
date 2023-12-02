@@ -150,8 +150,6 @@
 			isa = PBXGroup;
 			children = (
 				16BF34D82B0B31BF0036424B /* Loopin */,
-				8FAEA3D52B1A403D009B7E67 /* GoogleService-Info.plist */,
-				16F64E562B0B74CB00EF2E15 /* Info.plist */,
 				16BF34D72B0B31BF0036424B /* Products */,
 				161AA7122B149246008A59CE /* Frameworks */,
 			);
@@ -172,6 +170,8 @@
 				8FA5AD2C2B187F8C0021F53C /* Core */,
 				16F64E532B0B57B700EF2E15 /* Features */,
 				16BF34DF2B0B31C00036424B /* Preview Content */,
+				8FAEA3D52B1A403D009B7E67 /* GoogleService-Info.plist */,
+				16F64E562B0B74CB00EF2E15 /* Info.plist */,
 			);
 			path = Loopin;
 			sourceTree = "<group>";
