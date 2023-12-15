@@ -10,6 +10,9 @@ import SwiftUI
 struct PostForumView: View {
     @Environment(\.presentationMode) var presentationMode
     
+    @State private var message = ""
+    @State private var image = ""
+    
     var body: some View {
         ZStack (alignment: .center){
             Rectangle()
@@ -20,9 +23,9 @@ struct PostForumView: View {
                 .offset(y: 40)
                 .foregroundColor(Color(.white))
             VStack {
-                LongTextField(placeholder: "tulis sesuatu...")
+                LongTextField(placeholder: "tulis sesuatu...", field: $message)
                     .padding(.top, 90)
-                ShortTextField(placeholder: "tambah gambar")
+                ShortTextField(placeholder: "tambah gambar", field: $image)
                 
                 Spacer()
                 Button(action: {

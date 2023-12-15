@@ -9,15 +9,20 @@ import SwiftUI
 
 struct SampleInfoView: View {
     @Environment(\.presentationMode) var presentationMode
+   
+    @State private var height = ""
+    @State private var width = ""
+    @State private var totalStitch = ""
+    @State private var totalRow = ""
     
     var body: some View {
         VStack(spacing: 20) {
             ProgressBar(value: 2, maximum: 3)
                 .padding()
-            ShortTextField(placeholder: "panjang sample")
-            ShortTextField(placeholder: "lebar sample")
-            ShortTextField(placeholder: "jumlah jahitan")
-            ShortTextField(placeholder: "jumlah baris")
+            ShortTextField(placeholder: "panjang sample", field: $height)
+            ShortTextField(placeholder: "lebar sample", field: $width)
+            ShortTextField(placeholder: "jumlah jahitan", field: $totalStitch)
+            ShortTextField(placeholder: "jumlah baris", field: $totalRow)
             Spacer()
             NavigationLink {
                 ProjectPartView()

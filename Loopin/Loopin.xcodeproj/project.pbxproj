@@ -54,6 +54,10 @@
 		16F64E602B0B8E5100EF2E15 /* ProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16F64E5F2B0B8E5100EF2E15 /* ProfileView.swift */; };
 		16F64E642B0BAE1200EF2E15 /* SignInView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16F64E632B0BAE1200EF2E15 /* SignInView.swift */; };
 		16F64E662B0BAF3300EF2E15 /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16F64E652B0BAF3300EF2E15 /* LoginView.swift */; };
+		8F1BA8E92B29BAC600DD92C4 /* AuthenticationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F1BA8E82B29BAC600DD92C4 /* AuthenticationService.swift */; };
+		8F1BA8EB2B29BB0600DD92C4 /* PostRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F1BA8EA2B29BB0600DD92C4 /* PostRepository.swift */; };
+		8F1BA8ED2B29BB1D00DD92C4 /* ProjectRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F1BA8EC2B29BB1D00DD92C4 /* ProjectRepository.swift */; };
+		8F1BA8EF2B29BB2F00DD92C4 /* CommentRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F1BA8EE2B29BB2F00DD92C4 /* CommentRepository.swift */; };
 		8F7E67D62B19C750005DBD9E /* ObjectPart.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F7E67D52B19C750005DBD9E /* ObjectPart.swift */; };
 		8FA5AD352B199B3B0021F53C /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FA5AD342B199B3B0021F53C /* User.swift */; };
 		8FA5AD372B199BAB0021F53C /* AppManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FA5AD362B199BAB0021F53C /* AppManager.swift */; };
@@ -115,6 +119,10 @@
 		16F64E5F2B0B8E5100EF2E15 /* ProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileView.swift; sourceTree = "<group>"; };
 		16F64E632B0BAE1200EF2E15 /* SignInView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInView.swift; sourceTree = "<group>"; };
 		16F64E652B0BAF3300EF2E15 /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
+		8F1BA8E82B29BAC600DD92C4 /* AuthenticationService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticationService.swift; sourceTree = "<group>"; };
+		8F1BA8EA2B29BB0600DD92C4 /* PostRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostRepository.swift; sourceTree = "<group>"; };
+		8F1BA8EC2B29BB1D00DD92C4 /* ProjectRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectRepository.swift; sourceTree = "<group>"; };
+		8F1BA8EE2B29BB2F00DD92C4 /* CommentRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentRepository.swift; sourceTree = "<group>"; };
 		8F7E67D52B19C750005DBD9E /* ObjectPart.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ObjectPart.swift; sourceTree = "<group>"; };
 		8FA5AD342B199B3B0021F53C /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		8FA5AD362B199BAB0021F53C /* AppManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppManager.swift; sourceTree = "<group>"; };
@@ -231,11 +239,30 @@
 		16F64E532B0B57B700EF2E15 /* Features */ = {
 			isa = PBXGroup;
 			children = (
+				8F1BA8E62B29BAA600DD92C4 /* Repositories */,
 				8FA5AD2B2B187F710021F53C /* Models */,
 				8FA5AD2A2B187F640021F53C /* ViewModels */,
 				8FAEA3E22B1ACC34009B7E67 /* Views */,
 			);
 			path = Features;
+			sourceTree = "<group>";
+		};
+		8F1BA8E62B29BAA600DD92C4 /* Repositories */ = {
+			isa = PBXGroup;
+			children = (
+				8F1BA8EA2B29BB0600DD92C4 /* PostRepository.swift */,
+				8F1BA8EC2B29BB1D00DD92C4 /* ProjectRepository.swift */,
+				8F1BA8EE2B29BB2F00DD92C4 /* CommentRepository.swift */,
+			);
+			path = Repositories;
+			sourceTree = "<group>";
+		};
+		8F1BA8E72B29BAAD00DD92C4 /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				8F1BA8E82B29BAC600DD92C4 /* AuthenticationService.swift */,
+			);
+			path = Services;
 			sourceTree = "<group>";
 		};
 		8FA5AD2A2B187F640021F53C /* ViewModels */ = {
@@ -331,6 +358,7 @@
 		8FAEA3DE2B1ACA99009B7E67 /* Network */ = {
 			isa = PBXGroup;
 			children = (
+				8F1BA8E72B29BAAD00DD92C4 /* Services */,
 			);
 			path = Network;
 			sourceTree = "<group>";
@@ -348,9 +376,9 @@
 			isa = PBXGroup;
 			children = (
 				16BF34D92B0B31BF0036424B /* LoopinApp.swift */,
-				16BF34EC2B0B33080036424B /* WelcomePage.swift */,
 				8FAEA3DC2B1ACA40009B7E67 /* AppDelegate.swift */,
 				16BF34E22B0B31C00036424B /* Persistence.swift */,
+				16BF34EC2B0B33080036424B /* WelcomePage.swift */,
 			);
 			path = Application;
 			sourceTree = "<group>";
@@ -459,17 +487,21 @@
 			buildActionMask = 2147483647;
 			files = (
 				16F64E4E2B0B3D9700EF2E15 /* PrimaryButton.swift in Sources */,
+				8F1BA8EB2B29BB0600DD92C4 /* PostRepository.swift in Sources */,
 				16F64E4B2B0B371E00EF2E15 /* TextExtension.swift in Sources */,
+				8F1BA8ED2B29BB1D00DD92C4 /* ProjectRepository.swift in Sources */,
 				16F64E5A2B0B772100EF2E15 /* SquareCard.swift in Sources */,
 				16F64E5C2B0B7BF600EF2E15 /* ForumCard.swift in Sources */,
 				16F64E552B0B57F900EF2E15 /* TutorialPage.swift in Sources */,
 				16EEB26B2B0BEB7100C340D1 /* ProjectPartInputCard.swift in Sources */,
 				161AA70F2B0E1EB3008A59CE /* YarnTutorialView.swift in Sources */,
+				8F1BA8E92B29BAC600DD92C4 /* AuthenticationService.swift in Sources */,
 				16BF34ED2B0B33080036424B /* WelcomePage.swift in Sources */,
 				8FA5AD3D2B199F8C0021F53C /* ProjectDetails.swift in Sources */,
 				16EEB2632B0BE49400C340D1 /* ProjectInfoView.swift in Sources */,
 				16EEB25F2B0BD56500C340D1 /* DetailProjectCard.swift in Sources */,
 				16BF34E62B0B31C00036424B /* Loopin.xcdatamodeld in Sources */,
+				8F1BA8EF2B29BB2F00DD92C4 /* CommentRepository.swift in Sources */,
 				16F64E602B0B8E5100EF2E15 /* ProfileView.swift in Sources */,
 				16F64E502B0B44C700EF2E15 /* SecondaryButton.swift in Sources */,
 				8F7E67D62B19C750005DBD9E /* ObjectPart.swift in Sources */,
