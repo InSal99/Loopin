@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct SignInView: View {
+struct SignUpView: View {
     @Environment(\.presentationMode) var presentationMode
     
     @State private var username = ""
@@ -37,7 +37,14 @@ struct SignInView: View {
                     ContentView()
                 } label: {
                     PrimaryButton(buttonText: "Daftar")
+                        .onTapGesture {
+                            print(username)
+                            print(email)
+                            print(phone)
+                            print(password)
+                        }
                 }
+               
                 
             }
         }
@@ -58,6 +65,6 @@ struct SignInView: View {
 
 struct SignInView_Previews: PreviewProvider {
     static var previews: some View {
-        SignInView()
+        SignUpView()
     }
 }

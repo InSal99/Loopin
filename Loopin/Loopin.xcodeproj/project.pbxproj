@@ -52,7 +52,7 @@
 		16F64E5C2B0B7BF600EF2E15 /* ForumCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16F64E5B2B0B7BF600EF2E15 /* ForumCard.swift */; };
 		16F64E5E2B0B800000EF2E15 /* ForumView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16F64E5D2B0B800000EF2E15 /* ForumView.swift */; };
 		16F64E602B0B8E5100EF2E15 /* ProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16F64E5F2B0B8E5100EF2E15 /* ProfileView.swift */; };
-		16F64E642B0BAE1200EF2E15 /* SignInView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16F64E632B0BAE1200EF2E15 /* SignInView.swift */; };
+		16F64E642B0BAE1200EF2E15 /* SignUpView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16F64E632B0BAE1200EF2E15 /* SignUpView.swift */; };
 		16F64E662B0BAF3300EF2E15 /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16F64E652B0BAF3300EF2E15 /* LoginView.swift */; };
 		8F1BA8E92B29BAC600DD92C4 /* AuthenticationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F1BA8E82B29BAC600DD92C4 /* AuthenticationService.swift */; };
 		8F1BA8EB2B29BB0600DD92C4 /* PostRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F1BA8EA2B29BB0600DD92C4 /* PostRepository.swift */; };
@@ -117,7 +117,7 @@
 		16F64E5B2B0B7BF600EF2E15 /* ForumCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForumCard.swift; sourceTree = "<group>"; };
 		16F64E5D2B0B800000EF2E15 /* ForumView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForumView.swift; sourceTree = "<group>"; };
 		16F64E5F2B0B8E5100EF2E15 /* ProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileView.swift; sourceTree = "<group>"; };
-		16F64E632B0BAE1200EF2E15 /* SignInView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInView.swift; sourceTree = "<group>"; };
+		16F64E632B0BAE1200EF2E15 /* SignUpView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpView.swift; sourceTree = "<group>"; };
 		16F64E652B0BAF3300EF2E15 /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
 		8F1BA8E82B29BAC600DD92C4 /* AuthenticationService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticationService.swift; sourceTree = "<group>"; };
 		8F1BA8EA2B29BB0600DD92C4 /* PostRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostRepository.swift; sourceTree = "<group>"; };
@@ -299,7 +299,7 @@
 		8FA5AD2E2B18CC560021F53C /* Onboarding */ = {
 			isa = PBXGroup;
 			children = (
-				16F64E632B0BAE1200EF2E15 /* SignInView.swift */,
+				16F64E632B0BAE1200EF2E15 /* SignUpView.swift */,
 				16F64E652B0BAF3300EF2E15 /* LoginView.swift */,
 			);
 			path = Onboarding;
@@ -525,7 +525,7 @@
 				161AA7112B14800A008A59CE /* MiniTag.swift in Sources */,
 				16F64E5E2B0B800000EF2E15 /* ForumView.swift in Sources */,
 				16EEB2572B0BBE7300C340D1 /* ShortTextField.swift in Sources */,
-				16F64E642B0BAE1200EF2E15 /* SignInView.swift in Sources */,
+				16F64E642B0BAE1200EF2E15 /* SignUpView.swift in Sources */,
 				16BF34DA2B0B31BF0036424B /* LoopinApp.swift in Sources */,
 				8FA5AD3B2B199EC50021F53C /* Comment.swift in Sources */,
 				8FA5AD352B199B3B0021F53C /* User.swift in Sources */,
