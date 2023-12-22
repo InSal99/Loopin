@@ -10,15 +10,36 @@ import SwiftUI
 struct PrimaryButton: View {
     let buttonText: String
     
+    let font: Font = .outfit(.regular, size: .body3)
+    let backgroundColor = Color("Guava")
+    let textColor = Color.white
+    
     var body: some View {
+//        Button(action: {
+//            action() // Call the provided action closure
+//        }) {
+//            HStack {
+//                Spacer()
+//                Text(buttonText)
+//                    .font(font)
+//                    .padding()
+//                    .foregroundColor(textColor)
+//                Spacer()
+//            }
+//            .frame(height: 68)
+//        }
+//        .background(backgroundColor)
+//        .cornerRadius(20)
+//        .padding(.horizontal)
         ZStack {
             RoundedRectangle(cornerRadius: 20, style: .continuous)
                 .frame(width: 358, height: 68)
-                .foregroundColor(Color("Guava"))
+                .foregroundColor(backgroundColor)
             Text(buttonText)
-                .font(.outfit(.medium, size: .body1))
-                .foregroundColor(.white)
+                .font(font)
+                .foregroundColor(textColor)
         }
+        
     }
 }
 

@@ -16,15 +16,23 @@ struct WelcomePage: View {
                 Text("Loopin")
                     .font(.outfit(.bold, size: .heading1))
                 Spacer()
+                
                 NavigationLink {
                     LoginView()
                 } label: {
                     PrimaryButton(buttonText: "Masuk")
+                        .onTapGesture {
+                            print("welcome view")
+                        }
                 }
+               
+                
+                
                 NavigationLink {
-                    SignInView()
+                    SignUpView()
                 } label: {
                     SecondaryButton(buttonText: "Daftar")
+                        
                 }
             }
         }

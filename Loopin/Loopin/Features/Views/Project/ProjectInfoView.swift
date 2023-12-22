@@ -9,17 +9,24 @@ import SwiftUI
 
 struct ProjectInfoView: View {
     @Environment(\.presentationMode) var presentationMode
-    
+   
+    @State private var name = ""
+    @State private var desc = ""
+    @State private var yarnType = ""
+    @State private var yarnSize = ""
+    @State private var hakpenSize = ""
+    @State private var stitchType = ""
+
     var body: some View {
         VStack(spacing: 20) {
             ProgressBar(value: 1, maximum: 3)
                 .padding()
-            ShortTextField(placeholder: "nama")
-            LongTextField(placeholder: "deskripsi proyek")
-            ShortTextField(placeholder: "jenis benang")
-            ShortTextField(placeholder: "ketebalan benang")
-            ShortTextField(placeholder: "ukuran hakpen")
-            ShortTextField(placeholder: "jenis jahitan")
+            ShortTextField(placeholder: "nama", field: $name)
+            LongTextField(placeholder: "deskripsi proyek", field: $desc)
+            ShortTextField(placeholder: "jenis benang", field: $yarnType)
+            ShortTextField(placeholder: "ketebalan benang", field: $yarnSize)
+            ShortTextField(placeholder: "ukuran hakpen", field: $hakpenSize)
+            ShortTextField(placeholder: "jenis jahitan", field: $stitchType)
             Spacer()
             NavigationLink {
                 SampleInfoView()

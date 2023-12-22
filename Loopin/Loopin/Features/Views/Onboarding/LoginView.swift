@@ -10,6 +10,9 @@ import SwiftUI
 struct LoginView: View {
     @Environment(\.presentationMode) var presentationMode
     
+    @State private var email = ""
+    @State private var password = ""
+    
     var body: some View {
         ZStack (alignment: .center){
             Rectangle()
@@ -19,10 +22,10 @@ struct LoginView: View {
                 .frame(height: 750)
                 .offset(y: 40)
                 .foregroundColor(Color(.white))
-            VStack {
-                ShortTextField(placeholder: "email@address.com")
+            VStack (spacing: 20) {
+                ShortTextField(placeholder: "email@address.com", field: $email)
                     .padding(.top, 90)
-                ShortTextField(placeholder: "password")
+                ShortTextField(placeholder: "password", field: $password)
                 Spacer()
                 NavigationLink {
                     ContentView()

@@ -10,21 +10,29 @@ import SwiftUI
 struct LongTextField: View {
     let placeholder:String
     
+    let font: Font = .outfit(.regular, size: .body3)
+    let backgroundColor = Color("Black").opacity(0.05)
+    let textColor = Color("Black")
+    
+    // The @State Object
+    @Binding var field: String
+    
     var body: some View {
-        ZStack(alignment: .topLeading) {
-            RoundedRectangle(cornerRadius: 20)
-                .frame(width: 358, height: 197)
-                .foregroundColor(Color("White"))
-            Text(placeholder)
-                .foregroundColor(Color("Black"))
-                .padding()
-                .font(.outfit(.regular, size: .body3))
-                .opacity(0.5)
-        }    }
+        TextField(placeholder, text: $field)
+            .font(font)
+            .padding()
+            .frame(height: 197)
+            .fixedSize(horizontal: false, vertical: true)
+            .foregroundColor(textColor)
+            .background(RoundedRectangle(cornerRadius: 20).fill(backgroundColor))
+            .lineLimit(nil)
+            .padding([.horizontal])
+        
+    }
 }
 
 struct LongTextField_Previews: PreviewProvider {
     static var previews: some View {
-        LongTextField(placeholder: "placeholder")
+        LongTextField(placeholder: "placeholder", field: .constant("test"))
     }
 }
