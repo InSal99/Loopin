@@ -16,9 +16,12 @@ struct LoopinApp: App {
 
     var body: some Scene {
         WindowGroup {
-            WelcomePage()
+//            WelcomePage()
+            
 //            ContentView()
 //                .environment(\.managedObjectContext, persistenceController.container.viewContext)
+            
+            ContentView()
         }
     }
 }

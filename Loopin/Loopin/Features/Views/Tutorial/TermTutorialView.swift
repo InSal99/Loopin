@@ -28,6 +28,10 @@ struct TermTutorialView: View {
                             .font(.outfit(.semiBold, size: .heading3))
                         Text(content)
                             .font(.outfit(.regular, size: .body2))
+                        Text("Langkah-langkah")
+                            .font(.outfit(.semiBold, size: .body3))
+                        Numbering(number: "1", content: "Buat simpul hidup dan masukkan pengait anda")
+                        Numbering(number: "2", content: "Buat simpul hidup dan masukkan pengait anda")
                     }
                     .padding(.top, 300)
                     .padding()
