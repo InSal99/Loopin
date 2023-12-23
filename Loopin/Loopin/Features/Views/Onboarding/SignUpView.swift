@@ -44,8 +44,6 @@ struct SignUpView: View {
                             print(password)
                         }
                 }
-               
-                
             }
         }
         .navigationTitle("Daftar")

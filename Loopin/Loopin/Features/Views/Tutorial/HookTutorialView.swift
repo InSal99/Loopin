@@ -28,12 +28,16 @@ struct HookTutorialView: View {
                             .font(.outfit(.semiBold, size: .heading3))
                         Text(content)
                             .font(.outfit(.regular, size: .body2))
-                        Spacer()
-                        NavigationLink {
-                            ProjectInfoView()
-                        } label: {
-                            PrimaryButton(buttonText: "Buat Proyek")
-                        }
+                        Text("Rekomendasi")
+                            .font(.outfit(.semiBold, size: .body3))
+                        Accordion(isOpened: false, title: "2.00 mm", content: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam eu turpis molestie, dictum est a, mattis tellus.")
+                        Accordion(isOpened: false, title: "2.00 mm", content: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam eu turpis molestie, dictum est a, mattis tellus.")
+//                        Spacer()
+//                        NavigationLink {
+//                            ProjectInfoView()
+//                        } label: {
+//                            PrimaryButton(buttonText: "Buat Proyek")
+//                        }
                     }
                     .padding(.top, 300)
                     .padding()

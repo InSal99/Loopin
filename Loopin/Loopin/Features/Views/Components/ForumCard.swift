@@ -8,10 +8,10 @@
 import SwiftUI
 
 struct ForumCard: View {
-    let sender: String = "Jeff Satur"
-    let content: String = "Lorem ipsum dolor sit amet consectetur adipiscin elit Ut et massa mi."
-    let likeCount: Int = 0
-    let commentCount: Int = 0
+    let sender: String
+    let content: String
+    let likeCount: Int
+    let commentCount: Int
     
     var body: some View {
         ZStack(alignment: .leading) {
@@ -48,6 +48,6 @@ struct ForumCard: View {
 
 struct ForumCard_Previews: PreviewProvider {
     static var previews: some View {
-        ForumCard()
+        ForumCard(sender: "Sender", content: "Content", likeCount: 0, commentCount: 0)
     }
 }
