@@ -36,11 +36,10 @@ struct ProfileView: View {
                             NavigationLink {
                                 ProjectDetailView()
                             } label: {
-                                ForumCard()
+                                ProjectCard(projectName: "Cardigan", projectDesc: "Lorem ipsum dolor sit amet consectetur adipiscin elit Ut et massa mi.")
                             }
                         }
                     }
-                    
                 }
             }
             .navigationTitle("Profile")

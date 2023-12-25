@@ -16,11 +16,18 @@ struct ForumView: View {
                 ScrollView(.vertical){
                     VStack (spacing: 15){
                         ForEach(1...5, id: \.self) { item in
-                            ForumCard()
+//                            ForumCard()
+                            NavigationLink {
+                                CommentView(postId: item)
+                            } label: {
+                                ForumCard(sender: "Marvin", content: "Lorem ipsum dolor sit amet consectetur adipiscin elit Ut et massa mi.", likeCount: 5, commentCount: 0)
+                            }
                         }
                     }
                 }
                 .navigationTitle("Forum")
+                .navigationViewStyle(StackNavigationViewStyle())
+                .navigationBarBackButtonHidden(true)
                 .toolbar {
                     ToolbarItem(placement: .navigationBarTrailing) {
                         Button(action: {
