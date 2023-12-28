@@ -12,7 +12,7 @@ import FirebaseFirestoreSwift
 struct User: Identifiable, Codable {
     //    var id: ObjectIdentifier
     
-    var id: String? 
+    @DocumentID var id: String?
     
 //    var id: String
     var username: String = ""
