@@ -8,13 +8,17 @@
 import SwiftUI
 
 struct ProfileView: View {
-    let userName: String = "Kim Kimhan"
-    let email: String = "kimkimhan@mail.com"
-    let phone: String = "0812345667890"
+    @Environment(\.presentationMode) var presentationMode
+
     @State private var showAlert = false
     @State private var navigateToWelcomePage = false
-    @Environment(\.presentationMode) var presentationMode
+    @EnvironmentObject var authViewModel: AuthenticationViewModel
+
     
+    var userName: String { authViewModel.authService.user?.username ?? "Kim Kimhan" }
+    var email: String { authViewModel.authService.user?.email ?? "kimkimhan@mail.com" }
+    var phone: String { authViewModel.authService.user?.phone ?? "0812345667890" }
+
     var body: some View {
         NavigationView {
             ScrollView(.vertical){
@@ -57,6 +61,8 @@ struct ProfileView: View {
                             title: Text("Keluar Akun"),
                             message: Text("Apakah anda yakin ingin keluar dari akun anda?"),
                             primaryButton: .default(Text("Yes")) {
+                                authViewModel.authService.signOut()
+                               
                                 navigateToWelcomePage.toggle()
                                 presentationMode.wrappedValue.dismiss()
                             },
@@ -76,6 +82,6 @@ struct ProfileView: View {
 
 struct ProfileView_Previews: PreviewProvider {
     static var previews: some View {
-        ProfileView()
+        ProfileView().environmentObject(AuthenticationViewModel())
     }
 }

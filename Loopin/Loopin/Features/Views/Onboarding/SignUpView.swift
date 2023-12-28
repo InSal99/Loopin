@@ -16,6 +16,8 @@ struct SignUpView: View {
     @State private var password = ""
     @State private var confirmPassword = ""
     
+    @EnvironmentObject var authViewModel: AuthenticationViewModel
+
     var body: some View {
         ZStack (alignment: .center){
             Rectangle()
@@ -33,21 +35,26 @@ struct SignUpView: View {
                 ShortTextField(placeholder: "password", field: $password)
                 ShortTextField(placeholder: "confirm password", field: $confirmPassword)
                 Spacer()
-                NavigationLink {
-                    ContentView()
-                } label: {
-                    PrimaryButton(buttonText: "Daftar")
-                        .onTapGesture {
-                            print(username)
-                            print(email)
-                            print(phone)
-                            print(password)
+                
+                PrimaryButton(buttonText: "Daftar")
+                    .onTapGesture {
+                        authViewModel.signUp(username: username, email: email, phone: phone, password: password, confirmPassword: confirmPassword) { isSuccess in
+                            if isSuccess {
+                                print("Daftar - berhasil")
+                            } else {
+                                print("Daftar - gagal")
+                            }
                         }
-                }
+                    }
+                
+                
             }
         }
         .navigationTitle("Daftar")
         .navigationBarBackButtonHidden(true)
+        .navigationDestination(isPresented: $authViewModel.isSignupSuccess) {
+            LoginView()
+        }
         .toolbar {
             ToolbarItem(placement: .navigationBarLeading) {
                 Button {
@@ -64,5 +71,6 @@ struct SignUpView: View {
 struct SignInView_Previews: PreviewProvider {
     static var previews: some View {
         SignUpView()
+            .environmentObject(AuthenticationViewModel())
     }
 }

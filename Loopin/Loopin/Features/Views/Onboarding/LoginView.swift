@@ -13,6 +13,8 @@ struct LoginView: View {
     @State private var email = ""
     @State private var password = ""
     
+    @EnvironmentObject var authViewModel: AuthenticationViewModel
+    
     var body: some View {
         ZStack (alignment: .center){
             Rectangle()
@@ -27,15 +29,22 @@ struct LoginView: View {
                     .padding(.top, 90)
                 ShortTextField(placeholder: "password", field: $password)
                 Spacer()
-                NavigationLink {
-                    ContentView()
-                } label: {
-                    PrimaryButton(buttonText: "Masuk")
-                }
+                
+                PrimaryButton(buttonText: "Masuk")
+                    .onTapGesture {
+                        authViewModel.signIn(email: email, password: password) { isSuccess in
+                            if isSuccess {
+                                print("Masuk - berhasil")
+                            } else {
+                                print("Masuk - gagal")
+                            }
+                        }
+                    }
             }
         }
         .navigationTitle("Masuk")
         .navigationBarBackButtonHidden(true)
+        .navigationDestination(isPresented: $authViewModel.isSigninSuccess) {ContentView()}
         .toolbar {
             ToolbarItem(placement: .navigationBarLeading) {
                 Button {
@@ -52,5 +61,6 @@ struct LoginView: View {
 struct LoginView_Previews: PreviewProvider {
     static var previews: some View {
         LoginView()
+            .environmentObject(AuthenticationViewModel())
     }
 }

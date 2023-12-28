@@ -13,15 +13,18 @@ struct LoopinApp: App {
      @UIApplicationDelegateAdaptor(AppDelegate.self) var delegate
 
     let persistenceController = PersistenceController.shared
+    @StateObject private var authViewModel = AuthenticationViewModel.shared
 
     var body: some Scene {
         WindowGroup {
-//            WelcomePage()
+            WelcomePage()
+                .environmentObject(authViewModel)
+
             
 //            ContentView()
 //                .environment(\.managedObjectContext, persistenceController.container.viewContext)
             
-            ContentView()
+//            ContentView()
         }
     }
 }
