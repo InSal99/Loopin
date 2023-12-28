@@ -9,8 +9,9 @@ import SwiftUI
 import Foundation
 
 struct WelcomePage: View {
+    
     var body: some View {
-        NavigationView {
+        NavigationStack {
             VStack {
                 Spacer()
                 Text("Loopin")
@@ -21,18 +22,12 @@ struct WelcomePage: View {
                     LoginView()
                 } label: {
                     PrimaryButton(buttonText: "Masuk")
-                        .onTapGesture {
-                            print("welcome view")
-                        }
                 }
                
-                
-                
                 NavigationLink {
                     SignUpView()
                 } label: {
                     SecondaryButton(buttonText: "Daftar")
-                        
                 }
             }
         }

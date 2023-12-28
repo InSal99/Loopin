@@ -9,7 +9,7 @@ import Foundation
 
 class AppManager {
     static let shared = AppManager()
-    
+        
     init(){}
     
 }
