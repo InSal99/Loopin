@@ -88,12 +88,12 @@ class AuthenticationService: ObservableObject {
                         self?.user = User(id: userId, username: user.username, email: user.email, phone: user.phone)
                         
                         /// DEBUG
-                        print("AuthService - sign up success with user data: \(String(describing: self?.user))")
+                        print("AuthService - sign in success with user data: \(String(describing: self?.user))")
                         
                         completion(.success(()))
                     } else {
                         /// DEBUG
-                        print("AuthService - sign up success but no user data found: \(String(describing: self?.user))")
+                        print("AuthService - sign in success but no user data found: \(String(describing: self?.user))")
                         
                         return
                     }

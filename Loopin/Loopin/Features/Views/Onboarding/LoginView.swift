@@ -28,6 +28,7 @@ struct LoginView: View {
                 ShortTextField(placeholder: "email@address.com", field: $email)
                     .padding(.top, 90)
                 ShortTextField(placeholder: "password", field: $password)
+                
                 Spacer()
                 
                 PrimaryButton(buttonText: "Masuk")
