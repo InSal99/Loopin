@@ -25,6 +25,7 @@
 		16C4D5092B36DD14007880DF /* CommentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16C4D5082B36DD14007880DF /* CommentView.swift */; };
 		16C4D50B2B36DDD0007880DF /* CommentCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16C4D50A2B36DDD0007880DF /* CommentCard.swift */; };
 		16C4D50E2B37770C007880DF /* ProjectCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16C4D50D2B37770C007880DF /* ProjectCard.swift */; };
+		16C4D5402B45855A007880DF /* CurrentProjectView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16C4D53F2B45855A007880DF /* CurrentProjectView.swift */; };
 		16EEB2572B0BBE7300C340D1 /* ShortTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16EEB2562B0BBE7300C340D1 /* ShortTextField.swift */; };
 		16EEB2592B0BC53200C340D1 /* PostForumView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16EEB2582B0BC53200C340D1 /* PostForumView.swift */; };
 		16EEB25B2B0BC66900C340D1 /* LongTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16EEB25A2B0BC66900C340D1 /* LongTextField.swift */; };
@@ -98,6 +99,7 @@
 		16C4D5082B36DD14007880DF /* CommentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentView.swift; sourceTree = "<group>"; };
 		16C4D50A2B36DDD0007880DF /* CommentCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentCard.swift; sourceTree = "<group>"; };
 		16C4D50D2B37770C007880DF /* ProjectCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectCard.swift; sourceTree = "<group>"; };
+		16C4D53F2B45855A007880DF /* CurrentProjectView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrentProjectView.swift; sourceTree = "<group>"; };
 		16EEB2562B0BBE7300C340D1 /* ShortTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShortTextField.swift; sourceTree = "<group>"; };
 		16EEB2582B0BC53200C340D1 /* PostForumView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostForumView.swift; sourceTree = "<group>"; };
 		16EEB25A2B0BC66900C340D1 /* LongTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LongTextField.swift; sourceTree = "<group>"; };
@@ -360,6 +362,7 @@
 				16EEB2662B0BE76C00C340D1 /* SampleInfoView.swift */,
 				16EEB2682B0BE82400C340D1 /* ProjectPartView.swift */,
 				16EEB26C2B0BEF7700C340D1 /* ProjectOverviewView.swift */,
+				16C4D53F2B45855A007880DF /* CurrentProjectView.swift */,
 			);
 			path = Project;
 			sourceTree = "<group>";
@@ -527,6 +530,7 @@
 				161AA70F2B0E1EB3008A59CE /* YarnTutorialView.swift in Sources */,
 				8F1BA8E92B29BAC600DD92C4 /* AuthenticationService.swift in Sources */,
 				16BF34ED2B0B33080036424B /* WelcomePage.swift in Sources */,
+				16C4D5402B45855A007880DF /* CurrentProjectView.swift in Sources */,
 				8FA5AD3D2B199F8C0021F53C /* ProjectDetails.swift in Sources */,
 				16EEB2632B0BE49400C340D1 /* ProjectInfoView.swift in Sources */,
 				16EEB25F2B0BD56500C340D1 /* DetailProjectCard.swift in Sources */,
