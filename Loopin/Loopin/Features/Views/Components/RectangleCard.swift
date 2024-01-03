@@ -8,31 +8,34 @@
 import SwiftUI
 
 struct RectangleCard: View {
-    let cardText: String = "Lorem ipsum dolor sit amet asdefcsgv  ede c s"
+    var cardImage: String
+    var cardText: String
     
     var body: some View {
         ZStack(alignment: .leading) {
-            RoundedRectangle(cornerRadius: 30)
-                .foregroundColor(Color.white)
-                .frame(width: 358, height: 120)
+            RoundedRectangle(cornerRadius: 20)
             HStack {
-                RoundedRectangle(cornerRadius: 20)
-                    .foregroundColor(Color.gray)
+                Image(cardImage)
+                    .resizable()
                     .frame(width: 100, height: 100)
                 Text(cardText)
                     .font(.outfit(.semiBold, size: .body2))
                     .foregroundColor(Color("Black"))
                     .padding(.horizontal, 10)
+                    .multilineTextAlignment(.leading)
+                    .frame(minWidth: 228, alignment: .leading)
 
             }
-            .padding(.all, 10)
+            .padding(10)
         }
+        .padding(10)
+        .foregroundColor(.white)
         .shadow(color:.black .opacity(0.05), radius: 10, x: 0, y: 4)
     }
 }
 
 struct RectangleCard_Previews: PreviewProvider {
     static var previews: some View {
-        RectangleCard()
+        RectangleCard(cardImage: "Image", cardText: "Text")
     }
 }

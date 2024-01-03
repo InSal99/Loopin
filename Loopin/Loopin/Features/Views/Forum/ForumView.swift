@@ -16,7 +16,6 @@ struct ForumView: View {
                 ScrollView(.vertical){
                     VStack (spacing: 15){
                         ForEach(1...5, id: \.self) { item in
-//                            ForumCard()
                             NavigationLink {
                                 CommentView(postId: item)
                             } label: {

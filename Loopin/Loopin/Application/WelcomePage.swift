@@ -30,8 +30,8 @@ struct WelcomePage: View {
                     SecondaryButton(buttonText: "Daftar")
                 }
             }
+            .navigationBarBackButtonHidden(true)
         }
-        .navigationBarBackButtonHidden(true)
     }
 }
 
