@@ -18,7 +18,7 @@ class AuthenticationViewModel: ObservableObject {
     
     let authService: AuthenticationService
     
-    init(authService: AuthenticationService = AuthenticationService()) {
+    init(authService: AuthenticationService = AuthenticationService.shared) {
         self.authService = authService
     }
     

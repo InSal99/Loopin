@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct CommentCard: View {
-    let sender:String
+    let sender: String
     let content: String
     
     var body: some View {

@@ -11,7 +11,8 @@ import FirebaseAuth
 import Combine
 
 class AuthenticationService: ObservableObject {
-    
+    static let shared = AuthenticationService()
+
     /// Current user that successfully signed in
     @Published var user: User?
     
@@ -99,7 +100,7 @@ class AuthenticationService: ObservableObject {
                     }
                 case .failure(let error):
                     /// DEBUG
-                    print("AuthService - sign up error fetching user data from database: \(error.localizedDescription)")
+                    print("AuthService - sign in error fetching user data from database: \(error.localizedDescription)")
 
                     completion(.failure(error))
 
