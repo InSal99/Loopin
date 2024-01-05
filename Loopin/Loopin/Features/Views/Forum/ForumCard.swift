@@ -18,6 +18,7 @@ struct ForumCard: View {
     @State var showDeleteAlert = false
     @State var isPostForumViewPresented = false
     @State var isCommentViewPresented = false
+    @State var isliked = false
     
     var body: some View {
         ZStack(alignment: .leading) {
@@ -76,15 +77,24 @@ struct ForumCard: View {
                 Text("\(postViewModel.post.time.formattedDateWithTime())")
                     .font(.outfit(.extraLight, size: .label2))
                 HStack {
-                    HStack {
-                        Image("Heart")
-                        Text("\(postViewModel.post.totLikes) likes")
-                            .font(.outfit(.regular, size: .label1))
-                    }
-                    .padding(.trailing, 9)
-                    .onTapGesture {
+                    Button(action: {
+                        isliked.toggle()
                         print("like button tapped")
-                    }
+
+                    }, label: {
+                        HStack {
+                            if isliked {
+                                Image(systemName: "heart.fill")
+                                    .foregroundColor(Color("Guava"))
+                            } else {
+                                Image("Heart")
+                            }
+                          
+                            Text("\(postViewModel.post.totLikes) likes")
+                                .font(.outfit(.regular, size: .label1))
+                        }
+                        .padding(.trailing, 9)
+                    })
                     
                     Button(action: {
                         isCommentViewPresented.toggle()
@@ -103,10 +113,8 @@ struct ForumCard: View {
                             .background(Color("White"))
 
                     }
-                    
-                   
                 }
-                .padding(.bottom, 5)
+                .padding(.vertical, 3)
             }
             .foregroundColor(Color("Black"))
             .padding(.vertical, 15)

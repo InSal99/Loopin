@@ -15,7 +15,8 @@ class PostViewModel: ObservableObject, Identifiable {
     private var cancellables: Set<AnyCancellable> = []
     
     var id = ""
-    var isAllowedToEdit = true
+    var isAllowedToEdit = false
+    var isLiked = false
     
     init(post:Post) {
         self.post = post
@@ -28,9 +29,15 @@ class PostViewModel: ObservableObject, Identifiable {
         if AuthenticationService.shared.user?.id == post.userId {
             isAllowedToEdit = true
         }
-        
+
+        self.isLiked = post.likes.contains(AuthenticationService.shared.user?.id ?? "")
     }
     
+    func updatePostLike() {
+        isLiked.toggle()
+        postRepository.update(post)
+
+    }
     func update(post:Post) {
         postRepository.update(post)
     }

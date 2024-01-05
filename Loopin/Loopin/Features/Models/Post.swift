@@ -18,6 +18,7 @@ struct Post: Identifiable, Codable {
     var time: Date
     var totLikes: Int
     var totComments: Int
+    var likes: [String] = []
 //    var commentsId: [Comment] = []
 }
 
