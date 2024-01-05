@@ -14,6 +14,8 @@ class CommentRepository: ObservableObject {
     static let shared = CommentRepository()
 
     private let path: String = "posts"
+    private let subPath: String = "comments"
+    
     private let store = Firestore.firestore()
     
     private let authenticationService = AuthenticationService.shared

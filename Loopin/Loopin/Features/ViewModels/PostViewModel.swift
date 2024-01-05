@@ -10,6 +10,8 @@ import Combine
 
 class PostViewModel: ObservableObject, Identifiable {
     private let postRepository = PostRepository.shared
+    private let authService = AuthenticationService.shared
+
     @Published var post: Post
     
     private var cancellables: Set<AnyCancellable> = []
@@ -17,6 +19,7 @@ class PostViewModel: ObservableObject, Identifiable {
     var id = ""
     var isAllowedToEdit = false
     var isLiked = false
+    
     
     init(post:Post) {
         self.post = post
@@ -26,15 +29,25 @@ class PostViewModel: ObservableObject, Identifiable {
             .assign(to: \.id, on: self)
             .store(in: &cancellables)
         
-        if AuthenticationService.shared.user?.id == post.userId {
+        if authService.user?.id == post.userId {
             isAllowedToEdit = true
         }
 
-        self.isLiked = post.likes.contains(AuthenticationService.shared.user?.id ?? "")
+        self.isLiked = post.likes.contains(authService.user?.id ?? "")
     }
     
     func updatePostLike() {
-        isLiked.toggle()
+        self.isLiked.toggle()
+        
+        guard let userId = authService.user!.id else { return }
+        
+        if isLiked {
+            post.likes.append(userId)
+        } else {
+            post.likes = post.likes.filter({ $0 != userId})
+        }
+
+        post.totLikes = post.likes.count
         postRepository.update(post)
 
     }

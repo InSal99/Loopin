@@ -18,7 +18,7 @@ struct ForumCard: View {
     @State var showDeleteAlert = false
     @State var isPostForumViewPresented = false
     @State var isCommentViewPresented = false
-    @State var isliked = false
+    @State var isLiked = false
     
     var body: some View {
         ZStack(alignment: .leading) {
@@ -76,14 +76,16 @@ struct ForumCard: View {
                 
                 Text("\(postViewModel.post.time.formattedDateWithTime())")
                     .font(.outfit(.extraLight, size: .label2))
+                
                 HStack {
                     Button(action: {
-                        isliked.toggle()
-                        print("like button tapped")
+//                        isLiked.toggle()
+                        postViewModel.updatePostLike()
+                        print("like button tapped:\(isLiked)")
 
                     }, label: {
                         HStack {
-                            if isliked {
+                            if postViewModel.isLiked {
                                 Image(systemName: "heart.fill")
                                     .foregroundColor(Color("Guava"))
                             } else {
