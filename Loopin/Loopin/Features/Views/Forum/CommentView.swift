@@ -43,13 +43,25 @@ struct CommentView: View {
             
             .background(Color("White"))
 
-            Spacer()
-            TextField("Tambahkan komentar", text: $comment)
-                .font(.outfit(.regular, size: .body2))
-                .textFieldStyle(RoundedBorderTextFieldStyle())
-                .padding()
-                .background(Color.white)
-                .ignoresSafeArea(.keyboard, edges: .bottom)
+            HStack{
+                TextField("Tambahkan komentar", text: $comment)
+                    .font(.outfit(.regular, size: .body2))
+                    .textFieldStyle(RoundedBorderTextFieldStyle())
+                    .background(Color.white)
+                    .ignoresSafeArea(.keyboard, edges: .bottom)
+                
+                Button {
+                    
+                } label: {
+                    Image(systemName: "paperplane.fill")
+                }
+                .buttonStyle(.borderedProminent)
+                
+            }
+            .padding()
+
+        
+            
         }
         .navigationTitle("Komentar")
         .navigationBarTitleDisplayMode(.inline)
