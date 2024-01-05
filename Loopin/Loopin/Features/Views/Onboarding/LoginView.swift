@@ -11,8 +11,8 @@ struct LoginView: View {
     @Environment(\.presentationMode) var presentationMode
     @State private var showAlert = false
     
-    @State private var email = ""
-    @State private var password = ""
+    @State private var email = "ok@gmail.com"
+    @State private var password = "okokok"
     
     @EnvironmentObject var authViewModel: AuthenticationViewModel
     
@@ -44,9 +44,11 @@ struct LoginView: View {
                             }
                         }
                         .alert(isPresented: $showAlert) {
-                                            // Display an alert with the alert message from the ViewModel
-                            Alert(title: Text(authViewModel.alertTitle ?? "Gagal memssuki akun"), message: Text(authViewModel.alertMessage ?? ""), dismissButton: .default(Text("OK")))
-                                        }
+                            // Display an alert with the alert message from the ViewModel
+                            Alert(title: Text(authViewModel.alertTitle ?? "Gagal memssuki akun"), message: Text(authViewModel.alertMessage ?? ""), dismissButton: .default(Text("OK")) {
+                                authViewModel.isSigninSuccess = true
+                            })
+                        }
                 }
             }
             .navigationDestination(isPresented: $authViewModel.isSigninSuccess) {

@@ -78,6 +78,9 @@
 		8FC60F722B39FB7200C8C241 /* FirebaseFirestore in Frameworks */ = {isa = PBXBuildFile; productRef = 8FC60F712B39FB7200C8C241 /* FirebaseFirestore */; };
 		8FC60F742B39FB7900C8C241 /* FirebaseFirestoreSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 8FC60F732B39FB7900C8C241 /* FirebaseFirestoreSwift */; };
 		8FC60F762B39FD4D00C8C241 /* UserRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FC60F752B39FD4D00C8C241 /* UserRepository.swift */; };
+		8FC60F7B2B3ECBEE00C8C241 /* PostViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FC60F7A2B3ECBEE00C8C241 /* PostViewModel.swift */; };
+		8FC60F7D2B3ECEA400C8C241 /* PostListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FC60F7C2B3ECEA400C8C241 /* PostListViewModel.swift */; };
+		8FC60F802B3F177B00C8C241 /* DateFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FC60F7F2B3F177B00C8C241 /* DateFormatter.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -97,7 +100,7 @@
 		16C4D5042B36C44A007880DF /* Accordion.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Accordion.swift; sourceTree = "<group>"; };
 		16C4D5062B36D6FA007880DF /* Numbering.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Numbering.swift; sourceTree = "<group>"; };
 		16C4D5082B36DD14007880DF /* CommentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentView.swift; sourceTree = "<group>"; };
-		16C4D50A2B36DDD0007880DF /* CommentCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentCard.swift; sourceTree = "<group>"; };
+		16C4D50A2B36DDD0007880DF /* CommentCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = CommentCard.swift; path = ../Components/CommentCard.swift; sourceTree = "<group>"; };
 		16C4D50D2B37770C007880DF /* ProjectCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectCard.swift; sourceTree = "<group>"; };
 		16C4D53F2B45855A007880DF /* CurrentProjectView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrentProjectView.swift; sourceTree = "<group>"; };
 		16EEB2562B0BBE7300C340D1 /* ShortTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShortTextField.swift; sourceTree = "<group>"; };
@@ -149,6 +152,9 @@
 		8FAEA3DC2B1ACA40009B7E67 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		8FC60F6F2B397B1C00C8C241 /* AuthenticationViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticationViewModel.swift; sourceTree = "<group>"; };
 		8FC60F752B39FD4D00C8C241 /* UserRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserRepository.swift; sourceTree = "<group>"; };
+		8FC60F7A2B3ECBEE00C8C241 /* PostViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostViewModel.swift; sourceTree = "<group>"; };
+		8FC60F7C2B3ECEA400C8C241 /* PostListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostListViewModel.swift; sourceTree = "<group>"; };
+		8FC60F7F2B3F177B00C8C241 /* DateFormatter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateFormatter.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -243,7 +249,6 @@
 				16F64E4F2B0B44C700EF2E15 /* SecondaryButton.swift */,
 				16F64E512B0B4D5C00EF2E15 /* RectangleCard.swift */,
 				16F64E592B0B772100EF2E15 /* SquareCard.swift */,
-				16F64E5B2B0B7BF600EF2E15 /* ForumCard.swift */,
 				16EEB2562B0BBE7300C340D1 /* ShortTextField.swift */,
 				16EEB25A2B0BC66900C340D1 /* LongTextField.swift */,
 				16EEB25E2B0BD56500C340D1 /* DetailProjectCard.swift */,
@@ -254,7 +259,6 @@
 				161AA7102B14800A008A59CE /* MiniTag.swift */,
 				16C4D5042B36C44A007880DF /* Accordion.swift */,
 				16C4D5062B36D6FA007880DF /* Numbering.swift */,
-				16C4D50A2B36DDD0007880DF /* CommentCard.swift */,
 				16C4D50D2B37770C007880DF /* ProjectCard.swift */,
 			);
 			path = Components;
@@ -295,6 +299,8 @@
 			children = (
 				8FA5AD362B199BAB0021F53C /* AppManager.swift */,
 				8FC60F6F2B397B1C00C8C241 /* AuthenticationViewModel.swift */,
+				8FC60F7A2B3ECBEE00C8C241 /* PostViewModel.swift */,
+				8FC60F7C2B3ECEA400C8C241 /* PostListViewModel.swift */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -314,6 +320,7 @@
 		8FA5AD2C2B187F8C0021F53C /* Core */ = {
 			isa = PBXGroup;
 			children = (
+				8FC60F7E2B3F176600C8C241 /* Extensions */,
 				8FAEA3DF2B1ACAFD009B7E67 /* Resources */,
 				8FAEA3DE2B1ACA99009B7E67 /* Network */,
 				16F64E492B0B36A900EF2E15 /* Utilities */,
@@ -346,6 +353,8 @@
 		8FA5AD302B18D2200021F53C /* Forum */ = {
 			isa = PBXGroup;
 			children = (
+				16C4D50A2B36DDD0007880DF /* CommentCard.swift */,
+				16F64E5B2B0B7BF600EF2E15 /* ForumCard.swift */,
 				16F64E5D2B0B800000EF2E15 /* ForumView.swift */,
 				16EEB2582B0BC53200C340D1 /* PostForumView.swift */,
 				16C4D5082B36DD14007880DF /* CommentView.swift */,
@@ -423,6 +432,14 @@
 				8FA5AD312B18D2640021F53C /* Project */,
 			);
 			path = Views;
+			sourceTree = "<group>";
+		};
+		8FC60F7E2B3F176600C8C241 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				8FC60F7F2B3F177B00C8C241 /* DateFormatter.swift */,
+			);
+			path = Extensions;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -541,6 +558,7 @@
 				16F64E502B0B44C700EF2E15 /* SecondaryButton.swift in Sources */,
 				8F7E67D62B19C750005DBD9E /* ObjectPart.swift in Sources */,
 				16EEB26D2B0BEF7700C340D1 /* ProjectOverviewView.swift in Sources */,
+				8FC60F802B3F177B00C8C241 /* DateFormatter.swift in Sources */,
 				16C4D50B2B36DDD0007880DF /* CommentCard.swift in Sources */,
 				161AA7092B0CD1C7008A59CE /* ImageSlider.swift in Sources */,
 				16BF34E32B0B31C00036424B /* Persistence.swift in Sources */,
@@ -549,6 +567,7 @@
 				16EEB25B2B0BC66900C340D1 /* LongTextField.swift in Sources */,
 				16C4D5092B36DD14007880DF /* CommentView.swift in Sources */,
 				16F64E662B0BAF3300EF2E15 /* LoginView.swift in Sources */,
+				8FC60F7D2B3ECEA400C8C241 /* PostListViewModel.swift in Sources */,
 				16F64E522B0B4D5C00EF2E15 /* RectangleCard.swift in Sources */,
 				16EEB2672B0BE76C00C340D1 /* SampleInfoView.swift in Sources */,
 				16BF34DC2B0B31BF0036424B /* ContentView.swift in Sources */,
@@ -559,6 +578,7 @@
 				8FA5AD392B199C030021F53C /* Post.swift in Sources */,
 				16F64E582B0B765C00EF2E15 /* ProjectsView.swift in Sources */,
 				16EEB2612B0BDB4000C340D1 /* ProjectPartCard.swift in Sources */,
+				8FC60F7B2B3ECBEE00C8C241 /* PostViewModel.swift in Sources */,
 				161AA70B2B0E1B6B008A59CE /* TermTutorialView.swift in Sources */,
 				161AA7112B14800A008A59CE /* MiniTag.swift in Sources */,
 				16F64E5E2B0B800000EF2E15 /* ForumView.swift in Sources */,

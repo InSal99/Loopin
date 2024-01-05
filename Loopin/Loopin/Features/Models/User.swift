@@ -18,9 +18,8 @@ struct User: Identifiable, Codable {
     var username: String = ""
     var email: String
     var phone: String = ""
-    
+    var postId: [String] = []
     var projectId : [String]?
-    var postId: [String]?
     
 //    init(username: String, email: String, phone: String) {
 //           self.username = username

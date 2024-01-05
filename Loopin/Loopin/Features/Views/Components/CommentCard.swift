@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct CommentCard: View {
-    let sender:String
+    let sender: String
     let content: String
     
     var body: some View {
@@ -19,6 +19,7 @@ struct CommentCard: View {
                     .font(.outfit(.semiBold, size: .body2))
                 Text(content)
                     .font(.outfit(.regular, size: .body2))
+                    .multilineTextAlignment(.leading)
             }
             .foregroundColor(Color("Black"))
             .padding(.vertical, 15)

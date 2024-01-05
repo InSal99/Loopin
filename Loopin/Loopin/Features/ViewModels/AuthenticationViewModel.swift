@@ -20,7 +20,7 @@ class AuthenticationViewModel: ObservableObject {
     
     let authService: AuthenticationService
     
-    init(authService: AuthenticationService = AuthenticationService()) {
+    init(authService: AuthenticationService = AuthenticationService.shared) {
         self.authService = authService
     }
     
@@ -62,7 +62,7 @@ class AuthenticationViewModel: ObservableObject {
                                         
                     switch result {
                     case .success:
-                        self?.isSigninSuccess = true
+//                        self?.isSigninSuccess = true
                         self?.alertTitle = "Berhasil masuk akun"
                         self?.alertMessage = "Data ditemukan."
                         

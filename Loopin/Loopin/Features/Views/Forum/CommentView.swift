@@ -11,39 +11,62 @@ struct CommentView: View {
     @Environment(\.presentationMode) var presentationMode
     @State var comment: String = ""
     let postId: Int
-    let commentCount: Int = 0
+    let commentCount: Int = 3
     
     var body: some View {
-        ScrollView(.vertical){
-            VStack(alignment: .leading, spacing: 25) {
-                ForumCard(sender: "Marvin", content: "Lorem ipsum dolor sit amet consectetur adipiscin elit Ut et massa mi.", likeCount: 5, commentCount: 0)
-                if(commentCount != 0) {
-                    ForEach(1...5, id: \.self) { item in
-                        CommentCard(sender: "Moonshine", content: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam eu turpis molestie, dictum est a, mattis tellus.")
-                    }
-                    Spacer()
-                    TextField("Tambahkan komentar", text: $comment)
-                        .font(.outfit(.regular, size: .body2))
-                        .textFieldStyle(RoundedBorderTextFieldStyle())
-                        .padding()
-                        .background(Color.white)
-                        .ignoresSafeArea(.keyboard, edges: .bottom)
-                } else {
+        VStack {
+            ScrollView(.vertical){
+                VStack(alignment: .leading, spacing: 25) {
+                    let post = testData[0]
+                    ForumCard(postViewModel: PostViewModel(post: post))
+
+    //                ForumCard(sender: "Marvin", content: "Lorem ipsum dolor sit amet consectetur adipiscin elit Ut et massa mi.", likeCount: 5, commentCount: 0)
                     
-                    ZStack(alignment: .center) {
-                        Rectangle()
-                            .opacity(0)
-                        Text("Belum ada komentar")
-                            .padding(.top, 200)
-                            .font(.outfit(.regular, size: .body2))
-                            .opacity(0.5)
+                    if(commentCount != 0) {
+                        ForEach(1...5, id: \.self) { item in
+                            CommentCard(sender: "Moonshine", content: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam eu turpis molestie, dictum est a, mattis tellus.")
+                        }
+                        
+                    } else {
+                        ZStack(alignment: .center) {
+                            Rectangle()
+                                .opacity(0)
+                            Text("Belum ada komentar")
+                                .padding(.top, 200)
+                                .font(.outfit(.regular, size: .body2))
+                                .opacity(0.5)
+                        }
                     }
                 }
+                .padding(.bottom)
             }
+            
+            .background(Color("White"))
+
+            HStack{
+                TextField("Tambahkan komentar", text: $comment)
+                    .font(.outfit(.regular, size: .body2))
+                    .textFieldStyle(RoundedBorderTextFieldStyle())
+                    .background(Color.white)
+                    .ignoresSafeArea(.keyboard, edges: .bottom)
+                
+                Button {
+                    
+                } label: {
+                    Image(systemName: "paperplane.fill")
+                        .foregroundColor(.white)
+                }
+                .buttonStyle(.borderedProminent)
+                
+            }
+            .padding()
+
+        
+            
         }
-        .background(Color("White"))
         .navigationTitle("Komentar")
         .navigationBarTitleDisplayMode(.inline)
+        
     }
 
     private var backButton: some View {
