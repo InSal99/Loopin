@@ -54,6 +54,7 @@ struct CommentView: View {
                     
                 } label: {
                     Image(systemName: "paperplane.fill")
+                        .foregroundColor(.white)
                 }
                 .buttonStyle(.borderedProminent)
                 
