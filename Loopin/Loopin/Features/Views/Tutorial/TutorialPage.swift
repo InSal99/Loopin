@@ -8,12 +8,19 @@
 import SwiftUI
 
 struct TutorialPage: View {
+    let tutorials: [(String, String)] = [
+        ("Tutorial-1", "Cara Memegang Hakpen"),
+        ("Tutorial-2", "Istilah Dasar Pada Proyek Crochet"),
+        ("Tutorial-3", "Cara Membaca Pola Dalam Crochet"),
+        ("Tutorial-4", "Tentang Benang Crochet")
+    ]
+    
     var body: some View {
             VStack(alignment: .leading) {
                 NavigationView {
                     ScrollView(.vertical){
                         VStack (spacing: 10){
-                            ForEach(1...5, id: \.self) { item in
+                            ForEach(1...4, id: \.self) { item in
                                 NavigationLink {
                                     switch(item) {
                                     case 1:
@@ -23,19 +30,21 @@ struct TutorialPage: View {
                                         TermTutorialView()
                                     case 3:
                                         //patterntutorialview
-                                        HookTutorialView()
+                                        PatternTutorialView()
                                     case 4:
                                         //yarntutorialview
-                                        HookTutorialView()
+                                        YarnTutorialView()
                                     default: EmptyView()
                                     }
                                 } label: {
-                                    RectangleCard()
+                                    RectangleCard(cardImage: tutorials[item - 1].0, cardText: tutorials[item - 1].1)
                                 }
                             }
                         }
                     }
+                    .background(Color("White"))
                     .navigationTitle("Tutorial")
+                    .navigationBarBackButtonHidden(true)
                 }
             }
     }

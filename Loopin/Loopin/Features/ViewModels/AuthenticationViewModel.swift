@@ -15,6 +15,8 @@ class AuthenticationViewModel: ObservableObject {
     @Published var isSigninSuccess: Bool = false
     @Published var errorMessage: String? = nil
     @Published var isError: Bool = false
+    @Published var alertTitle: String? = nil
+    @Published var alertMessage: String? = nil
     
     let authService: AuthenticationService
     
@@ -61,6 +63,8 @@ class AuthenticationViewModel: ObservableObject {
                     switch result {
                     case .success:
                         self?.isSigninSuccess = true
+                        self?.alertTitle = "Berhasil masuk akun"
+                        self?.alertMessage = "Data ditemukan."
                         
                         /// DEBUG
                         print("AuthVM - sign in success: \(self?.isSigninSuccess ?? false)")
@@ -69,6 +73,7 @@ class AuthenticationViewModel: ObservableObject {
                     case .failure(let error):
                         self?.errorMessage = error.localizedDescription
                         self?.isError = true
+                        self?.alertMessage = "Email atau password salah."
                         
                         /// DEBUG
                         print("AuthVM - sign in failed: \(self?.errorMessage ?? "error message nil")")
@@ -77,6 +82,7 @@ class AuthenticationViewModel: ObservableObject {
                     }
                 }
             } else {
+                self?.alertMessage = "Email dan password harus diisi."
                 completion(false)
             }
         }
@@ -87,18 +93,24 @@ class AuthenticationViewModel: ObservableObject {
     
     private func validateInputs(username: String? = nil, email: String, phone: String? = nil, password: String, confirmPassword: String? = nil, completion: @escaping (Bool) -> Void) {
         self.isError = false
+        self.alertMessage = nil
         
         var isValid = false
         if username != nil && username!.isEmpty {
             isValid = false
+            self.alertMessage = "Username perlu diisi."
         } else if email.isEmpty {
             isValid = false
+            self.alertMessage = "Email perlu diisi."
         } else if phone != nil && phone!.isEmpty {
             isValid = false
+            self.alertMessage = "Nomor telepon perlu diisi."
         } else if password.isEmpty {
             isValid = false
+            self.alertMessage = "Password perlu diisi"
         } else if confirmPassword != nil && confirmPassword!.isEmpty {
             isValid = false
+            self.alertMessage = "Konfirmasi password anda."
         } else {
             isValid = true
         }

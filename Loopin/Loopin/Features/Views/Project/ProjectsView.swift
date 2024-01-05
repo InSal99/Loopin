@@ -26,6 +26,7 @@ struct ProjectsView: View {
                 }
             }
             .navigationTitle("Proyek")
+            .navigationBarBackButtonHidden(true)
         }
     }
 }
