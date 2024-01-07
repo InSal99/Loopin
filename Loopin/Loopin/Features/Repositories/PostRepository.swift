@@ -16,34 +16,43 @@ class PostRepository: ObservableObject {
     private let path: String = "posts"
     private let store = Firestore.firestore()
     
-    private let authenticationService = AuthenticationService.shared
+    private weak var authenticationService = AuthenticationService.shared
     private var cancellables: Set<AnyCancellable> = []
+    private var listener: ListenerRegistration?
 
     //MARK: Card View
     @Published var posts: [Post] = []
     
     init(){
-        authenticationService.$user
-          .receive(on: DispatchQueue.main)
-          .sink { [weak self] _ in
-            self?.get()
-          }
-          .store(in: &cancellables)
+       addListeners()
     }
     
+    private func addListeners() {
+        /// Remove existing listener if any
+        listener?.remove()
+        
+        authenticationService?.$user
+            .receive(on: DispatchQueue.main)
+            .sink { [weak self] _ in
+                self?.get()
+            }
+            .store(in: &cancellables)
+    }
+    
+    
     func get() {
-      store.collection(path)
+        listener = store.collection(path)
             .order(by: "time", descending: true)
-        .addSnapshotListener { querySnapshot, error in
-          if let error = error {
-            print("Error getting cards: \(error.localizedDescription)")
-            return
-          }
-
-          self.posts = querySnapshot?.documents.compactMap { document in
-            try? document.data(as: Post.self)
-          } ?? []
-        }
+            .addSnapshotListener { querySnapshot, error in
+                if let error = error {
+                    print("Error getting cards: \(error.localizedDescription)")
+                    return
+                }
+                
+                self.posts = querySnapshot?.documents.compactMap { document in
+                    try? document.data(as: Post.self)
+                } ?? []
+            }
     }
     
     func add(_ post: Post) {

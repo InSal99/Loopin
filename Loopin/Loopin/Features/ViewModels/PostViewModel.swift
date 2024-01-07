@@ -7,10 +7,11 @@
 
 import Foundation
 import Combine
+import SwiftUI
 
 class PostViewModel: ObservableObject, Identifiable {
-    private let postRepository = PostRepository.shared
-    private let authService = AuthenticationService.shared
+    private weak var postRepository = PostRepository.shared
+    private weak var authService = AuthenticationService.shared
 
     @Published var post: Post
     
@@ -21,7 +22,8 @@ class PostViewModel: ObservableObject, Identifiable {
     var isLiked = false
     
     var commentListViewModel : CommentListViewModel?
-    
+    var presentationMode: Binding<PresentationMode>?
+
     init(post:Post) {
         self.post = post
         $post
@@ -29,11 +31,11 @@ class PostViewModel: ObservableObject, Identifiable {
             .assign(to: \.id, on: self)
             .store(in: &cancellables)
         
-        if authService.user?.id == post.userId {
+        if authService?.user?.id == post.userId {
             isAllowedToEdit = true
         }
 
-        self.isLiked = post.likes.contains(authService.user?.id ?? "")
+        self.isLiked = post.likes.contains(authService?.user?.id ?? "")
         
         if self.commentListViewModel == nil {
             self.commentListViewModel = CommentListViewModel(postId: id)
@@ -43,7 +45,7 @@ class PostViewModel: ObservableObject, Identifiable {
     func updatePostLike() {
         self.isLiked.toggle()
         
-        guard let userId = authService.user!.id else { return }
+        guard let userId = authService?.user!.id else { return }
         
         if isLiked {
             post.likes.append(userId)
@@ -52,15 +54,16 @@ class PostViewModel: ObservableObject, Identifiable {
         }
 
         post.totLikes = post.likes.count
-        postRepository.update(post)
+        postRepository?.update(post)
 
     }
     func update(post:Post) {
-        postRepository.update(post)
+        postRepository?.update(post)
     }
     func remove() {
-        postRepository.remove(post)
+        postRepository?.remove(post)
         commentListViewModel?.commentRepository?.removeCollection()
+        presentationMode?.wrappedValue.dismiss()
     }
     
 }

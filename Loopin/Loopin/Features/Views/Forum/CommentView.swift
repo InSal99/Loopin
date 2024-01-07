@@ -77,6 +77,14 @@ struct CommentView: View {
         }
         .navigationTitle("Komentar")
         .navigationBarTitleDisplayMode(.inline)
+        .onAppear {
+            // Set the presentation mode for PostViewModel
+            postViewModel.presentationMode = presentationMode
+        }
+//        .onReceive(postViewModel.commentListViewModel?.$comments) { _ in
+//            // Handle changes in comments and update the view
+//            print("okela")
+//        }
         
     }
 

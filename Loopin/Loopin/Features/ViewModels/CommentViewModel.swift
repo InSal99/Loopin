@@ -9,8 +9,8 @@ import Foundation
 import Combine
 
 class CommentViewModel: ObservableObject, Identifiable {
-    private let commentRepository : CommentRepository
-    private let authService = AuthenticationService.shared
+    private weak var commentRepository : CommentRepository?
+    private weak var authService = AuthenticationService.shared
 
     @Published var comment: Comment
     
@@ -29,14 +29,14 @@ class CommentViewModel: ObservableObject, Identifiable {
             .assign(to: \.id, on: self)
             .store(in: &cancellables)
         
-        if authService.user?.id == comment.userId {
+        if authService?.user?.id == comment.userId {
             isAllowedToEdit = true
         }
     }
     func update(comment: Comment) {
-        commentRepository.update(comment)
+        commentRepository?.update(comment)
     }
     func remove() {
-        commentRepository.remove(comment)
+        commentRepository?.remove(comment)
     }
 }

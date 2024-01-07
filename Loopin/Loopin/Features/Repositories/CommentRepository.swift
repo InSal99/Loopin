@@ -18,15 +18,23 @@ class CommentRepository: ObservableObject {
     private let path: String = "comments"
     private let store = Firestore.firestore()
     
-    private let authenticationService = AuthenticationService.shared
+    private weak var authenticationService = AuthenticationService.shared
     private var cancellables: Set<AnyCancellable> = []
-    
+    private var listener: ListenerRegistration?
+
     //MARK: Card View
     @Published var comments: [Comment] = []
     
     init(postId: String){
         self.postId = postId
-        authenticationService.$user
+        self.addListeners(postId)
+    }
+    
+    private func addListeners(_ postId: String) {
+        /// Remove existing listener if any
+        listener?.remove()
+        
+        authenticationService?.$user
             .receive(on: DispatchQueue.main)
             .sink { [weak self] _ in
                 self?.get()
@@ -37,7 +45,7 @@ class CommentRepository: ObservableObject {
     func get() {
         print("coment repo: \(postId)")
         
-        store.collection(parentPath).document(postId).collection(path)
+        listener = store.collection(parentPath).document(postId).collection(path)
             .order(by: "time", descending: true)
             .addSnapshotListener { querySnapshot, error in
                 if let error = error {
@@ -45,13 +53,13 @@ class CommentRepository: ObservableObject {
                     return
                 }
                 
-//                if let documents = querySnapshot?.documents {
-//                    print("Received documents: \(documents)")
-//                }
-//    
-//                self.comments = querySnapshot?.documents.compactMap { document in
-//                    try? document.data(as: Comment.self)
-//                } ?? []
+                //                if let documents = querySnapshot?.documents {
+                //                    print("Received documents: \(documents)")
+                //                }
+                //    
+                //                self.comments = querySnapshot?.documents.compactMap { document in
+                //                    try? document.data(as: Comment.self)
+                //                } ?? []
                 
                 self.comments = querySnapshot?.documents.compactMap { document in
                     do {
@@ -78,12 +86,12 @@ class CommentRepository: ObservableObject {
     
     func update(_ comment: Comment) {
         guard let commentId = comment.id else { return }
-
-      do {
-        try           store.collection(parentPath).document(postId).collection(path).document(commentId).setData(from: comment)
-      } catch {
-        fatalError("Unable to update card: \(error.localizedDescription).")
-      }
+        
+        do {
+            try           store.collection(parentPath).document(postId).collection(path).document(commentId).setData(from: comment)
+        } catch {
+            fatalError("Unable to update card: \(error.localizedDescription).")
+        }
     }
     
     func remove(_ comment: Comment) {
