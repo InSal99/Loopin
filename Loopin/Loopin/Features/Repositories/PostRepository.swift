@@ -33,7 +33,6 @@ class PostRepository: ObservableObject {
     
     func get() {
       store.collection(path)
-//        .whereField("userId", isEqualTo: userId)
             .order(by: "time", descending: true)
         .addSnapshotListener { querySnapshot, error in
           if let error = error {
@@ -49,8 +48,6 @@ class PostRepository: ObservableObject {
     
     func add(_ post: Post) {
         do {
-//            var newPost = post
-//            newPost.userId = authenticationService.user!.id!
             _ = try store.collection(path).addDocument(from: post)
         } catch {
             fatalError("Unable to add card: \(error.localizedDescription).")

@@ -20,10 +20,10 @@ class PostViewModel: ObservableObject, Identifiable {
     var isAllowedToEdit = false
     var isLiked = false
     
+    var commentListViewModel : CommentListViewModel?
     
     init(post:Post) {
         self.post = post
-
         $post
             .compactMap{$0.id}
             .assign(to: \.id, on: self)
@@ -34,6 +34,10 @@ class PostViewModel: ObservableObject, Identifiable {
         }
 
         self.isLiked = post.likes.contains(authService.user?.id ?? "")
+        
+        if self.commentListViewModel == nil {
+            self.commentListViewModel = CommentListViewModel(postId: id)
+        }
     }
     
     func updatePostLike() {
@@ -56,6 +60,7 @@ class PostViewModel: ObservableObject, Identifiable {
     }
     func remove() {
         postRepository.remove(post)
+        commentListViewModel?.commentRepository?.removeCollection()
     }
     
 }

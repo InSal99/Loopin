@@ -81,6 +81,8 @@
 		8FC60F7B2B3ECBEE00C8C241 /* PostViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FC60F7A2B3ECBEE00C8C241 /* PostViewModel.swift */; };
 		8FC60F7D2B3ECEA400C8C241 /* PostListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FC60F7C2B3ECEA400C8C241 /* PostListViewModel.swift */; };
 		8FC60F802B3F177B00C8C241 /* DateFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FC60F7F2B3F177B00C8C241 /* DateFormatter.swift */; };
+		8FC65C632B493046007E8D28 /* CommentViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FC65C622B493046007E8D28 /* CommentViewModel.swift */; };
+		8FC65C652B499314007E8D28 /* CommentListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FC65C642B499314007E8D28 /* CommentListViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -155,6 +157,8 @@
 		8FC60F7A2B3ECBEE00C8C241 /* PostViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostViewModel.swift; sourceTree = "<group>"; };
 		8FC60F7C2B3ECEA400C8C241 /* PostListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostListViewModel.swift; sourceTree = "<group>"; };
 		8FC60F7F2B3F177B00C8C241 /* DateFormatter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateFormatter.swift; sourceTree = "<group>"; };
+		8FC65C622B493046007E8D28 /* CommentViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentViewModel.swift; sourceTree = "<group>"; };
+		8FC65C642B499314007E8D28 /* CommentListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentListViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -300,7 +304,9 @@
 				8FA5AD362B199BAB0021F53C /* AppManager.swift */,
 				8FC60F6F2B397B1C00C8C241 /* AuthenticationViewModel.swift */,
 				8FC60F7A2B3ECBEE00C8C241 /* PostViewModel.swift */,
+				8FC65C622B493046007E8D28 /* CommentViewModel.swift */,
 				8FC60F7C2B3ECEA400C8C241 /* PostListViewModel.swift */,
+				8FC65C642B499314007E8D28 /* CommentListViewModel.swift */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -539,6 +545,7 @@
 				8FC60F762B39FD4D00C8C241 /* UserRepository.swift in Sources */,
 				8F1BA8EB2B29BB0600DD92C4 /* PostRepository.swift in Sources */,
 				16F64E4B2B0B371E00EF2E15 /* TextExtension.swift in Sources */,
+				8FC65C632B493046007E8D28 /* CommentViewModel.swift in Sources */,
 				8F1BA8ED2B29BB1D00DD92C4 /* ProjectRepository.swift in Sources */,
 				16F64E5A2B0B772100EF2E15 /* SquareCard.swift in Sources */,
 				16F64E5C2B0B7BF600EF2E15 /* ForumCard.swift in Sources */,
@@ -557,6 +564,7 @@
 				16C4D50E2B37770C007880DF /* ProjectCard.swift in Sources */,
 				16F64E502B0B44C700EF2E15 /* SecondaryButton.swift in Sources */,
 				8F7E67D62B19C750005DBD9E /* ObjectPart.swift in Sources */,
+				8FC65C652B499314007E8D28 /* CommentListViewModel.swift in Sources */,
 				16EEB26D2B0BEF7700C340D1 /* ProjectOverviewView.swift in Sources */,
 				8FC60F802B3F177B00C8C241 /* DateFormatter.swift in Sources */,
 				16C4D50B2B36DDD0007880DF /* CommentCard.swift in Sources */,
