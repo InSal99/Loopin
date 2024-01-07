@@ -10,22 +10,27 @@ import SwiftUI
 struct CommentView: View {
     @Environment(\.presentationMode) var presentationMode
     @State var comment: String = ""
-    let postId: Int
-    let commentCount: Int = 3
+    @EnvironmentObject var authViewModel: AuthenticationViewModel
+    @ObservedObject var postViewModel: PostViewModel
+    
     
     var body: some View {
         VStack {
             ScrollView(.vertical){
                 VStack(alignment: .leading, spacing: 25) {
-                    let post = testData[0]
-                    ForumCard(postViewModel: PostViewModel(post: post))
+                    
+                    ForumCard(postViewModel:postViewModel)
 
     //                ForumCard(sender: "Marvin", content: "Lorem ipsum dolor sit amet consectetur adipiscin elit Ut et massa mi.", likeCount: 5, commentCount: 0)
                     
-                    if(commentCount != 0) {
-                        ForEach(1...5, id: \.self) { item in
-                            CommentCard(sender: "Moonshine", content: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam eu turpis molestie, dictum est a, mattis tellus.")
+                    if(postViewModel.commentListViewModel!.commentViewModels.count != 0) {
+                        ForEach(postViewModel.commentListViewModel!.commentViewModels) { commentViewModel in
+                            CommentCard(commentViewModel: commentViewModel)
+                            
                         }
+//                        ForEach(1...5, id: \.self) { item in
+//                            CommentCard(sender: "Moonshine", content: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam eu turpis molestie, dictum est a, mattis tellus.")
+//                        }
                         
                     } else {
                         ZStack(alignment: .center) {
@@ -43,20 +48,26 @@ struct CommentView: View {
             
             .background(Color("White"))
 
-            HStack{
+            HStack {
                 TextField("Tambahkan komentar", text: $comment)
                     .font(.outfit(.regular, size: .body2))
-                    .textFieldStyle(RoundedBorderTextFieldStyle())
+//                    .textFieldStyle(RoundedBorderTextFieldStyle())
+                    .textFieldStyle(PlainTextFieldStyle())
                     .background(Color.white)
                     .ignoresSafeArea(.keyboard, edges: .bottom)
+                    .padding(.leading)
                 
                 Button {
-                    
+                    addComment()
                 } label: {
-                    Image(systemName: "paperplane.fill")
-                        .foregroundColor(.white)
+                    Image(systemName: "paperplane")
+                        .resizable()
+                        .scaledToFit()
+                        .frame(width: 25)
+                        .foregroundColor(.black)
                 }
-                .buttonStyle(.borderedProminent)
+                .buttonStyle(.plain)
+                .padding(.trailing)
                 
             }
             .padding()
@@ -66,6 +77,14 @@ struct CommentView: View {
         }
         .navigationTitle("Komentar")
         .navigationBarTitleDisplayMode(.inline)
+        .onAppear {
+            // Set the presentation mode for PostViewModel
+            postViewModel.presentationMode = presentationMode
+        }
+//        .onReceive(postViewModel.commentListViewModel?.$comments) { _ in
+//            // Handle changes in comments and update the view
+//            print("okela")
+//        }
         
     }
 
@@ -77,10 +96,19 @@ struct CommentView: View {
                 .foregroundColor(.black)
         }
     }
-}
-
-struct CommentView_Previews: PreviewProvider {
-    static var previews: some View {
-        CommentView(postId: 0)
+    
+    func addComment() {
+        let newComment =
+        Comment(userId: authViewModel.authService.user?.id ??
+                "-", time: Date.now, username: authViewModel.authService.user?.username ??
+                "-", content: comment)
+    
+        postViewModel.commentListViewModel?.add(newComment)
     }
 }
+
+//struct CommentView_Previews: PreviewProvider {
+//    static var previews: some View {
+//        CommentView(postViewModel: PostViewModel(post: testData[0]))
+//    }
+//}
