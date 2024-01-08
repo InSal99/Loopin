@@ -17,7 +17,7 @@ struct ContentView: View {
                 // Tab 1
                 TutorialPage()
                     .tabItem {
-                        Image(uiImage: UIImage(named: "Tutorial")!)
+                        Image(uiImage: UIImage(named: "tutorial")!)
                         Text("Tutorial")
                             .font(.outfit(.semiBold, size: .label2))
                     }
@@ -25,7 +25,7 @@ struct ContentView: View {
                 // Tab 2
                 ProjectsView()
                     .tabItem {
-                        Image(uiImage: UIImage(named: "Project")!)
+                        Image(uiImage: UIImage(named: "project")!)
                         Text("Proyek")
                             .font(.outfit(.semiBold, size: .label2))
                     }
@@ -33,7 +33,7 @@ struct ContentView: View {
                 // Tab 3
                 ForumView()
                     .tabItem {
-                        Image(uiImage: UIImage(named: "Forum")!)
+                        Image(uiImage: UIImage(named: "forum")!)
                         Text("Forum")
                             .font(.outfit(.semiBold, size: .label2))
                     }
@@ -41,7 +41,7 @@ struct ContentView: View {
                 // Tab 4
                 ProfileView()
                     .tabItem {
-                        Image(uiImage: UIImage(named: "Profile")!)
+                        Image(uiImage: UIImage(named: "profile")!)
                         Text("Profile")
                             .font(.outfit(.semiBold, size: .label2))
                     }
