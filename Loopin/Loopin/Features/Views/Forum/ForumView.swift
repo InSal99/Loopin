@@ -39,6 +39,7 @@ struct ForumView: View {
 //                            }
 //                        }
                     }
+                    .padding(.horizontal)
                     .padding(.bottom)
                 }
                 .navigationTitle("Forum")

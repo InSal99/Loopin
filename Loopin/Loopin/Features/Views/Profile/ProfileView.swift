@@ -12,9 +12,12 @@ struct ProfileView: View {
     
     @State private var showAlert = false
     @State private var navigateToWelcomePage = false
-    @EnvironmentObject var authViewModel: AuthenticationViewModel
+    @State private var isPostForumViewPresented = false
     @State private var selectedSegment = 0
-    
+
+    @EnvironmentObject var authViewModel: AuthenticationViewModel
+    @ObservedObject var postListViewModel = PostListViewModel()
+
     
     var userName: String { authViewModel.authService.user?.username ?? "Kim Kimhan" }
     var email: String { authViewModel.authService.user?.email ?? "kimkimhan@mail.com" }
@@ -32,10 +35,11 @@ struct ProfileView: View {
                         Text(phone)
                             .font(.outfit(.regular, size: .body2))
                         Picker(selection: $selectedSegment, label: Text("Daftar Proyek")) {
-                            Text("Proyek").tag(0)
-                            Text("Unggahan").tag(1)
+                            Text("Proyek Saya").tag(0)
+                            Text("Unggahan Saya").tag(1)
                         }
                         .pickerStyle(.segmented)
+                        .padding(.bottom)
                         
                         switch selectedSegment {
                         case 0:
@@ -49,9 +53,32 @@ struct ProfileView: View {
                             }
                         case 1:
                             // Content for Segment 2
-                            // Add your specific content for this segment
-                            // ...
-                            Text("view 2")
+                            
+                            if postListViewModel.postViewModels.isEmpty {
+                                HStack(alignment: .center) {
+                                    Spacer()
+                                    Button{
+                                        isPostForumViewPresented.toggle()
+                                    } label: {
+                                        Text("Buat unggahan barumu")
+                                    }
+                                    .sheet(isPresented: $isPostForumViewPresented) {
+                                        PostForumView()
+                                    }
+                                    .foregroundColor(Color("Black"))
+                                    .buttonStyle(.bordered)
+                                    Spacer()
+                                }
+                                .frame(height: UIScreen.main.bounds.height - 400)
+                                
+                            } else {
+                                ForEach(postListViewModel.postViewModels) { postViewModel in
+                                    if postViewModel.isAllowedToEdit {
+                                        ForumCard(postViewModel:postViewModel)
+                                    }
+                                }
+                            }
+                           
                         default:
                             Text("Default content")
                         }
@@ -59,6 +86,7 @@ struct ProfileView: View {
                     .padding(.horizontal)
                 }
             }
+            .padding(.bottom)
             .navigationTitle("Profile")
             .navigationBarBackButtonHidden(true)
             .toolbar {

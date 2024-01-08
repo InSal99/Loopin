@@ -37,7 +37,7 @@ struct ForumCard: View {
                     Spacer()
                     
                     if postViewModel.isAllowedToEdit {
-                        HStack (spacing: 10) {
+                        Button(action: {}) {
                             Menu {
                                 Button(action: {
                                     isPostForumViewPresented.toggle()
@@ -45,28 +45,15 @@ struct ForumCard: View {
                                     Label("Edit", systemImage: "pencil")
                                 }
                                 .padding(.horizontal, 5)
-                                .sheet(isPresented: $isPostForumViewPresented) {
-                                    PostForumView(isOnEdit: true, postToEdit: postViewModel.post)
-                                }
                                 
                                 Button(action: {
                                     showDeleteAlert.toggle()
+                                    print("heee")
                                 }) {
                                     Label("Delete", systemImage: "trash")
                                         .foregroundColor(.red)
                                 }
                                 .padding(.horizontal, 5)
-                                .alert(isPresented: $showDeleteAlert, content: {
-                                    Alert(
-                                        title: Text("Delete Post"),
-                                        message: Text("Are you sure you want to remove this post?"),
-                                        primaryButton: .destructive(Text("Delete")) {
-                                            /// Handle delete action
-                                            postViewModel.remove()
-                                        },
-                                        secondaryButton: .cancel()
-                                    )
-                                })
                             }
                         label: {
                             Image(systemName: "ellipsis.circle")
@@ -74,7 +61,10 @@ struct ForumCard: View {
                                 .scaleEffect(1.2)
                         }
                         .padding(.horizontal, 5)
+                        .padding(.leading, 8)
+                        .padding(.vertical, 5)
                         }
+                        .buttonStyle(PlainButtonStyle())
                     }
                     
                 }
@@ -109,9 +99,6 @@ struct ForumCard: View {
                     
                     Spacer()
                     
-                    //                    Button(action: {
-                    //                        isCommentViewPresented.toggle()
-                    //                    }, label: {
                     HStack {
                         Image("chat")
                         Text("\(postViewModel.commentListViewModel?.commentViewModels.count ?? 0) Comments")
@@ -137,14 +124,28 @@ struct ForumCard: View {
                     .foregroundColor(Color.white)
                 //                    .frame(width: 327)
             )
-            .padding(.horizontal)
             .shadow(color:.black .opacity(0.05), radius: 10, x: 0, y: 4)
             //        }
             //        .padding(.horizontal)
             //        .shadow(color:.black .opacity(0.05), radius: 10, x: 0, y: 4)        }
             
         }
+        .sheet(isPresented: $isPostForumViewPresented) {
+            PostForumView(isOnEdit: true, postToEdit: postViewModel.post)
+        }
+        .alert(isPresented: $showDeleteAlert) {
+            Alert(
+                title: Text("Delete Post"),
+                message: Text("Are you sure you want to remove this post?"),
+                primaryButton: .destructive(Text("Delete")) {
+                    /// Handle delete action
+                    postViewModel.remove()
+                },
+                secondaryButton: .cancel()
+            )
+        }
     }
+    
 }
 
 //struct ForumCard_Previews: PreviewProvider {
