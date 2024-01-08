@@ -9,15 +9,15 @@ import SwiftUI
 
 struct TermTutorialView: View {
     @Environment(\.presentationMode) var presentationMode
-    let title: String = "Deskripsi"
-    let content: String =  "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam eu turpis molestie, dictum est a, mattis tellus. Sed dignissim, metus nec fringilla accumsan, risus sem sollicitudin lacus, ut interdum tellus elit sed risus. Maecenas eget condimentum velit, sit amet feugiat lectus. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos."
-    let images = ["test", "test"]
+    let title: String
+    let content: String
+    let images: String
     
     var body: some View {
         NavigationView {
             ScrollView(.vertical){
                 ZStack(alignment: .top) {
-                    ImageSlider(images: images)
+                    ImageSlider(images: [images])
                         .frame(maxWidth: 390, maxHeight: 290)
                     RoundedRectangle(cornerRadius: 30)
                         .frame(minHeight: 571)
@@ -28,10 +28,6 @@ struct TermTutorialView: View {
                             .font(.outfit(.semiBold, size: .heading3))
                         Text(content)
                             .font(.outfit(.regular, size: .body2))
-                        Text("Langkah-langkah")
-                            .font(.outfit(.semiBold, size: .body3))
-                        Numbering(number: "1", content: "Buat simpul hidup dan masukkan pengait anda")
-                        Numbering(number: "2", content: "Buat simpul hidup dan masukkan pengait anda")
                     }
                     .padding(.top, 300)
                     .padding()
@@ -56,6 +52,6 @@ struct TermTutorialView: View {
 
 struct TermTutorialView_Previews: PreviewProvider {
     static var previews: some View {
-        TermTutorialView()
+        TermTutorialView(title: "title", content: "content", images: "test")
     }
 }

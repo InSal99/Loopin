@@ -1,0 +1,20 @@
+[
+  {
+    "name": "Bamboo",
+    "image": "test",
+    "weight": "10",
+    "hook": "5",
+    "characteristic": "Lorem Ipsum",
+    "recommend": ["Tas", "Dompet"],
+    "notRecommend": ["Amigurumi"]
+  },
+  {
+    "name": "Another Yarn",
+    "image": "test",
+    "weight": "8",
+    "hook": "4",
+    "characteristic": "Another Characteristic",
+    "recommend": ["Sweater", "Scarf"],
+    "notRecommend": ["Toys"]
+  }
+]

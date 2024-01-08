@@ -9,24 +9,50 @@ import SwiftUI
 
 struct ProjectsView: View {
     @State private var isProjectOverviewViewPresented = false
+    @State private var projectTemplateData: [ProjectTemplate] = []
+    @State private var selectedTemplateItem: ProjectTemplate?
+    
     var body: some View {
         NavigationView {
             ScrollView(.vertical){
                 LazyVGrid(columns: [GridItem(.adaptive(minimum: 140))], spacing: 18) {
-                    ForEach(1...10, id: \.self) { option in
-                        Button(action: {
-                            isProjectOverviewViewPresented.toggle()
-                        }, label: {
-                            SquareCard()
-                        })
-                        .sheet(isPresented: $isProjectOverviewViewPresented) {
-                            ProjectOverviewView(projectName: "Lorem Ipsum", projectDescription: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam eu turpis molestie, dictum est a, mattis tellus. Sed dignissim, metus nec fringilla accumsan, risus sem sollicitudin lacus, ut interdum tellus elit sed risus. Maecenas eget condimentum velit, sit amet feugiat lectus. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos.")
+                    ForEach(projectTemplateData) { templateItem in
+                        NavigationLink(destination: ProjectOverviewView(projectTemplate: templateItem)) {
+                            SquareCard(cardText: templateItem.name, cardImage: templateItem.image)
                         }
                     }
                 }
             }
             .navigationTitle("Proyek")
             .navigationBarBackButtonHidden(true)
+            .onAppear {
+                loadProjectTemplateData()
+            }
+        }
+    }
+    
+    func loadProjectTemplateData() {
+        projectTemplateData = load("ProjectTemplateData.json")
+    }
+    
+    func load<T: Decodable>(_ filename: String) -> T {
+        guard let file = Bundle.main.url(forResource: filename, withExtension: nil) else {
+            fatalError("Couldn't find \(filename) in the main bundle.")
+        }
+        
+        let data: Data
+        
+        do {
+            data = try Data(contentsOf: file)
+        } catch {
+            fatalError("Couldn't load \(filename) from the main bundle:\n\(error)")
+        }
+        
+        do {
+            let decoder = JSONDecoder()
+            return try decoder.decode(T.self, from: data)
+        } catch {
+            fatalError("Couldn't parse \(filename) as \(T.self):\n\(error)")
         }
     }
 }

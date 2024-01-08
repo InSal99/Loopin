@@ -1,0 +1,62 @@
+[
+  {
+    "name": "Nama Project",
+    "image": "test",
+    "description": "lorem ipsum",
+    "preparation": "Lorem Ipsum",
+    "subPart": [
+      {
+        "name": "Bagian Depan",
+        "steps": [
+          "lorem ipsum1",
+          "lorem ipsum 2"
+        ]
+      },
+      {
+        "name": "Bagian Belakang",
+        "steps": [
+          "lorem ipsum1",
+          "lorem ipsum 2"
+        ]
+      }
+    ],
+    "gauge": [
+      {
+        "length": 100,
+        "width": 200,
+        "stitch": 450,
+        "row": 310
+      }
+    ]
+  },
+  {
+    "name": "Nama Project",
+    "image": "test",
+    "description": "lorem ipsum",
+    "preparation": "Lorem Ipsum",
+    "subPart": [
+      {
+        "name": "Lengan",
+        "steps": [
+          "lorem ipsum1",
+          "lorem ipsum 2"
+        ]
+      },
+      {
+        "name": "Pergelangan",
+        "steps": [
+          "lorem ipsum1",
+          "lorem ipsum 2"
+        ]
+      }
+    ],
+    "gauge": [
+      {
+        "length": 247,
+        "width": 123,
+        "stitch": 876,
+        "row": 345
+      }
+    ]
+  }
+]
