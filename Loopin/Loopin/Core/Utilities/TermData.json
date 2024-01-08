@@ -1,0 +1,21 @@
+[
+    {
+            "title": "Hakpen",
+            "content": "Hakpen rajutan bisa terbuat dari bambu, kayu, logam, atau plastik dan ukurannya akan bertambah besar seiring dengan bertambahnya urutan abjad. Ada juga hakpen baja (renda), yang semakin tipis (ukurannya mengecil) seiring dengan bertambahnya jumlah. Ada 2 kategori hakpen yaitu hakpen tunggal, yang memiliki hakpen pada salah satu ujungnya, dan hakpen ujung ganda, yang memiliki hakpen pada kedua ujungnya).",
+            "image": "Hook"
+        },
+        {
+            "title": "Gauge",
+            "content": "Gauge hanyalah ukuran seberapa besar jahitan anda. Gauge memiliki dua bagian: jahitan dan baris. Ini berarti pengukur mengukur lebar jahitan dan tinggi jahitan Anda. Tidak semua perajut merajut dengan cara yang sama: Beberapa diantaranya cenderung merajut dengan jahitan yang lebih rapat sementara yang lain memiliki tangan yang sangat longgar, jadi menggunakan gauge akan membantu kita mencocokkan pola perancang tanpa harus mengubah gaya merajut kita.",
+            "image": "Gauge"
+        },
+        {
+            "title": "Increase",
+            "content": "Increase yang biasa disingkat (inc) adalah cara untuk menambahkan jahitan pada rajutan anda. Jika snda memiliki deretan 10 jahitan, melakukan increase akan memberi anda deretan 11 jahitan. Anda dapat membuat increase dalam single crochet, half double crochet, double crochet, dan lain lain.",
+            "image": "Increase"
+        },{
+            "title": "Decrease",
+            "content": "Decrease yang biasa disingkat (dec) adalah cara untuk mengurangi jahitan pada rajutan anda. Jika snda memiliki deretan 10 jahitan, melakukan increase akan memberi anda deretan 9 jahitan. Anda dapat membuat decrease dalam single crochet, half double crochet, double crochet, dan lain lain.",
+            "image": "Decrease"
+        }
+]

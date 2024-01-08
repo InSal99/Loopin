@@ -10,26 +10,27 @@ import WrappingHStack
 
 struct YarnTutorialView: View {
     @Environment(\.presentationMode) var presentationMode
-    let title: String = "Bamboo"
-    let content: String =  "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam eu turpis molestie, dictum est a, mattis tellus. Sed dignissim, metus nec fringilla accumsan, risus sem sollicitudin lacus, ut interdum tellus elit sed risus. Maecenas eget condimentum velit, sit amet feugiat lectus. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos."
-    let images = ["test", "test"]
-    let recommend = ["Tas", "Dompet", "Proyek"]
-    let notRecommend = ["Amigurumi", "Proyek", "Proyek"]
+    let yarn: Yarn
+//    let title: String = "Bamboo"
+//    let content: String =  "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam eu turpis molestie, dictum est a, mattis tellus. Sed dignissim, metus nec fringilla accumsan, risus sem sollicitudin lacus, ut interdum tellus elit sed risus. Maecenas eget condimentum velit, sit amet feugiat lectus. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos."
+//    let images = ["test", "test"]
+//    let recommend = ["Tas", "Dompet", "Proyek"]
+//    let notRecommend = ["Amigurumi", "Proyek", "Proyek"]
     
     var body: some View {
         NavigationView {
             ScrollView(.vertical){
                 ZStack(alignment: .top) {
-                    ImageSlider(images: images)
+                    ImageSlider(images: [yarn.image])
                         .frame(maxWidth: 390, maxHeight: 290)
                     RoundedRectangle(cornerRadius: 30)
                         .frame(minHeight: 571)
                         .foregroundColor(Color(.white))
                         .padding(.top, 273)
                     VStack(alignment: .leading, spacing: 20) {
-                        Text(title)
+                        Text(yarn.name)
                             .font(.outfit(.semiBold, size: .heading3))
-                        Text(content)
+                        Text(yarn.characteristic)
                             .font(.outfit(.regular, size: .body2))
                         Text("Rekomendasi Proyek")
                             .font(.outfit(.semiBold, size: .body3))
@@ -37,14 +38,14 @@ struct YarnTutorialView: View {
                             Text("Sangat direkomendasikan: ")
                                 .font(.outfit(.regular, size: .body2))
                             //package dependency import
-                            WrappingHStack(recommend, id: \.self) { item in
+                            WrappingHStack(yarn.recommend, id: \.self) { item in
                                     MiniTag(value: item)
                                     .padding(.bottom, 10)
                             }
                             Text("Kurang direkomendasikan: ")
                                 .font(.outfit(.regular, size: .body2))
                             //package dependency import
-                            WrappingHStack(notRecommend, id: \.self) { item in
+                            WrappingHStack(yarn.notRecommend, id: \.self) { item in
                                     MiniTag(value: item)
                                     .padding(.bottom, 10)
                             }
@@ -73,6 +74,6 @@ struct YarnTutorialView: View {
 
 struct YarnTutorialView_Previews: PreviewProvider {
     static var previews: some View {
-        YarnTutorialView()
+        YarnTutorialView(yarn: Yarn(name: "name", image: "test", weight: "weight", hook: "hook", characteristic: "characteristic", recommend: [], notRecommend: []))
     }
 }

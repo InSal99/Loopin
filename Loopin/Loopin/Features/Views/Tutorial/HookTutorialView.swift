@@ -10,8 +10,9 @@ import SwiftUI
 struct HookTutorialView: View {
     @Environment(\.presentationMode) var presentationMode
     let title: String = "Cara Memegang Hakpen"
-    let content: String =  "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam eu turpis molestie, dictum est a, mattis tellus. Sed dignissim, metus nec fringilla accumsan, risus sem sollicitudin lacus, ut interdum tellus elit sed risus. Maecenas eget condimentum velit, sit amet feugiat lectus. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos."
-    let images = ["test", "test"]
+    let content: String =  "Pegang bagian datar dari hakpen dengan jari ibu jari dan jari telunjuk Anda, lihat posisi ibu jari pada hakpen, dan tempatkan ibu jari tangan dominan anda sambil mencubit sisi belakang dengan jari telunjuk anda. Letakkan hakpen di atas jari tengah seperti memegang pensil, dengan sisa jari Anda mengarah ke telapak tangan, dan biarkan hakpen berada di jari tengah seperti memegang pensil. Gunakan jari Anda untuk mengarahkan hakpen saat merajut, cocok untuk yang suka menjaga jari dekat dengan jahitan atau meletakkan jari telunjuk di atas ikatan yang sedang dirajut. Cara memegang ini adalah metode yang baik untuk pemula."
+    let images = ["HookTutorial-1", "HookTutorial-2", "HookTutorial-3"]
+    @State private var accordionData: [[String: String]] = []
     
     var body: some View {
         NavigationView {
@@ -30,14 +31,9 @@ struct HookTutorialView: View {
                             .font(.outfit(.regular, size: .body2))
                         Text("Rekomendasi")
                             .font(.outfit(.semiBold, size: .body3))
-                        Accordion(isOpened: false, title: "2.00 mm", content: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam eu turpis molestie, dictum est a, mattis tellus.")
-                        Accordion(isOpened: false, title: "2.00 mm", content: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam eu turpis molestie, dictum est a, mattis tellus.")
-//                        Spacer()
-//                        NavigationLink {
-//                            ProjectInfoView()
-//                        } label: {
-//                            PrimaryButton(buttonText: "Buat Proyek")
-//                        }
+                        ForEach(accordionData, id: \.self) {
+                            accordionItem in Accordion(isOpened: false, title: accordionItem["title"] ?? "", content: accordionItem["content"] ?? "")
+                        }
                     }
                     .padding(.top, 300)
                     .padding()
@@ -45,8 +41,6 @@ struct HookTutorialView: View {
             }
             .ignoresSafeArea()
             .navigationBarBackButtonHidden(true)
-            
-//            .tabViewStyle(.page(indexDisplayMode: .never))
             .toolbar {
                 ToolbarItem(placement: .navigationBarLeading) {
                     Button {
@@ -57,8 +51,37 @@ struct HookTutorialView: View {
                     }
                 }
             }
+            .onAppear {
+                loadAccordionData()
+            }
         }
         .navigationBarBackButtonHidden(true)
+    }
+    
+    func loadAccordionData() {
+        accordionData = load("HookData.json")
+    }
+    
+    func load<T: Decodable>(_ filename: String) -> T {
+        guard let file = Bundle.main.url(forResource: filename, withExtension: nil)
+        else {
+            fatalError("Couldn't find \(filename) in main bundle.")
+        }
+        
+        let data: Data
+        
+        do {
+            data = try Data(contentsOf: file)
+        } catch {
+            fatalError("Couldn't load \(filename) from main bundle:\n\(error)")
+        }
+        
+        do {
+            let decoder = JSONDecoder()
+            return try decoder.decode(T.self, from: data)
+        } catch {
+            fatalError("Couldn't parse \(filename) as \(T.self):\n\(error)")
+        }
     }
 }
 

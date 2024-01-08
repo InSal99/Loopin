@@ -19,12 +19,14 @@ struct ProjectCard: View {
                 .font(.outfit(.regular, size: .body2))
         }
         .padding(.horizontal)
+        .frame(minWidth: 358, maxHeight: 100)
+        .multilineTextAlignment(.leading)
         .foregroundColor(Color("Black"))
         .padding(.vertical, 15)
         .background(
             RoundedRectangle(cornerRadius: 30)
                 .foregroundColor(Color.white)
-                .padding(.horizontal)
+//                .padding(.horizontal)
         )
         .shadow(color:.black .opacity(0.05), radius: 10, x: 0, y: 4)
     }

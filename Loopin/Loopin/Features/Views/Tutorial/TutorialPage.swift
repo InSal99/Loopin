@@ -27,13 +27,13 @@ struct TutorialPage: View {
                                         HookTutorialView()
                                     case 2:
                                         //crochettermtutorialview
-                                        TermTutorialView()
+                                        TermTutorialListView()
                                     case 3:
                                         //patterntutorialview
-                                        PatternTutorialView()
+                                        PatternTutorialListView()
                                     case 4:
                                         //yarntutorialview
-                                        YarnTutorialView()
+                                        YarnTutorialListView()
                                     default: EmptyView()
                                     }
                                 } label: {
