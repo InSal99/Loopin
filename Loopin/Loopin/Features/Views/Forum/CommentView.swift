@@ -12,6 +12,7 @@ struct CommentView: View {
     @State var comment: String = ""
     @EnvironmentObject var authViewModel: AuthenticationViewModel
     @ObservedObject var postViewModel: PostViewModel
+    @State var isLiked = false
     
     
     var body: some View {
@@ -19,7 +20,76 @@ struct CommentView: View {
             ScrollView(.vertical){
                 VStack(alignment: .leading, spacing: 25) {
                     
-                    ForumCard(postViewModel:postViewModel)
+//                    ForumCard(postViewModel:postViewModel)
+                    
+                    VStack(alignment: .leading) {
+                        HStack(alignment: .firstTextBaseline) {
+                            Text("\(postViewModel.post.username)")
+                                .font(.outfit(.semiBold, size: .body2))
+                                .padding(.vertical, 5)
+                            Spacer()
+                        }
+                        
+                        Text(postViewModel.post.content)
+                            .font(.outfit(.regular, size: .body2))
+                            .multilineTextAlignment(.leading)
+                            .padding(.bottom, 1)
+                        
+                        Text("\(postViewModel.post.time.formattedDateWithTime())")
+                            .font(.outfit(.extraLight, size: .label2))
+                        
+                        HStack {
+                            Button(action: {
+                                postViewModel.updatePostLike()
+                                print("like button tapped:\(isLiked)")
+                                
+                            }, label: {
+                                HStack {
+                                    if postViewModel.isLiked {
+                                        Image(systemName: "heart.fill")
+                                            .foregroundColor(Color("Guava"))
+                                    } else {
+                                        Image("heart")
+                                    }
+                                    
+                                    Text("\(postViewModel.post.totLikes) likes")
+                                        .font(.outfit(.regular, size: .label1))
+                                }
+                                .padding(.trailing, 9)
+                            })
+                            
+                            Spacer()
+                            
+                            //                    Button(action: {
+                            //                        isCommentViewPresented.toggle()
+                            //                    }, label: {
+                            HStack {
+                                Image("chat")
+                                Text("\(postViewModel.commentListViewModel?.commentViewModels.count ?? 0) Comments")
+                                    .font(.outfit(.regular, size: .label1))
+                            }
+                            //                    })
+                            //                    .sheet(isPresented: $isCommentViewPresented) {
+                            //                        CommentView(postViewModel: postViewModel)
+                            //                            .presentationDetents([.large])
+                            //                            .presentationDragIndicator(.visible)
+                            //                            .padding(.top, 18)
+                            //                            .background(Color("White"))
+                            
+                            //                    }
+                        }
+                        .padding(.vertical, 3)
+                    }
+                    .foregroundColor(Color("Black"))
+                    .padding(.vertical, 15)
+                    .padding(.horizontal, 20)
+                    .background(
+                        RoundedRectangle(cornerRadius: 30)
+                            .foregroundColor(Color.white)
+                        //                    .frame(width: 327)
+                    )
+                    .padding(.horizontal)
+                    .shadow(color:.black .opacity(0.05), radius: 10, x: 0, y: 4)
 
     //                ForumCard(sender: "Marvin", content: "Lorem ipsum dolor sit amet consectetur adipiscin elit Ut et massa mi.", likeCount: 5, commentCount: 0)
                     

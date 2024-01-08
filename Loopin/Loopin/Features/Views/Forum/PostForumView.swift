@@ -28,45 +28,42 @@ struct PostForumView: View {
     }
     
     var body: some View {
-        ZStack (alignment: .center){
-            Rectangle()
-                .fill(Color("Peach"))
-                .ignoresSafeArea()
-            RoundedRectangle(cornerRadius: 30)
-                .frame(height: 750)
-                .offset(y: 40)
-                .foregroundColor(Color(.white))
-            VStack {
-                LongTextField(placeholder: "tulis sesuatu...", field: $message)
-                    .padding(.top, 90)
-                ShortTextField(placeholder: "tambah gambar", field: $image)
-                
-                Spacer()
-                Button{
-                    if isOnEdit {
-                        updatePost()
-                    } else {
-                        addPost()
+        NavigationView {
+            ZStack (alignment: .center){
+//                RoundedRectangle(cornerRadius: 30)
+//                    .frame(height: 750)
+//                    .foregroundColor(Color(.white))
+                VStack {
+                    LongTextField(placeholder: "tulis sesuatu...", field: $message)
+                    ShortTextField(placeholder: "tambah gambar", field: $image)
+                    Spacer()
+                    Button{
+                        if isOnEdit {
+                            updatePost()
+                        } else {
+                            addPost()
+                        }
+                        presentationMode.wrappedValue.dismiss()
+                    } label: {
+                        PrimaryButton(buttonText: "Kirim")
                     }
-                    presentationMode.wrappedValue.dismiss()
-                } label: {
-                    PrimaryButton(buttonText: "Kirim")
+                }
+            }
+            .background(Color("White"))
+            .navigationTitle("Unggah Forum")
+            .navigationBarTitleDisplayMode(.inline)
+            .navigationBarBackButtonHidden(true)
+            .toolbar {
+                ToolbarItem(placement: .navigationBarLeading) {
+                    Button {
+                        presentationMode.wrappedValue.dismiss()
+                    } label: {
+                        Image(systemName: "chevron.left")
+                            .foregroundColor(.black)
+                    }
                 }
             }
         }
-        .navigationTitle("Unggah Forum")
-        .navigationBarBackButtonHidden(true)
-        .toolbar {
-            ToolbarItem(placement: .navigationBarLeading) {
-                Button {
-                    presentationMode.wrappedValue.dismiss()
-                } label: {
-                    Image(systemName: "chevron.left")
-                        .foregroundColor(.black)
-                }
-            }
-        }
-        
     }
     
     func addPost() {

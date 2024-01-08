@@ -8,25 +8,23 @@
 import SwiftUI
 
 struct ProjectOverviewView: View {
-    let projectName: String
-    let projectDescription: String
+    let projectTemplate: ProjectTemplate
     
     var body: some View {
         NavigationView {
-            ZStack {
-                Rectangle()
-                    .frame(width: 390)
-                    .foregroundColor(Color("Peach"))
-                ZStack {
+            ZStack (alignment: .top) {
+                ImageSlider(images: [projectTemplate.image])
+                    .frame(maxWidth: 390, maxHeight: 290)
+                ZStack (alignment: .top) {
                     RoundedRectangle(cornerRadius: 30)
-                        .frame(height: 600)
-                        .offset(y: 120)
+                        .frame(minHeight: 571)
                         .foregroundColor(Color(.white))
+                        .padding(.top, 273)
                     VStack(alignment: .leading, spacing: 20) {
                         Spacer()
-                        Text(projectName)
+                        Text(projectTemplate.name)
                             .font(.outfit(.semiBold, size: .heading3))
-                        Text(projectDescription)
+                        Text(projectTemplate.description)
                             .font(.outfit(.regular, size: .body2))
                         Spacer()
                         NavigationLink {
@@ -46,6 +44,6 @@ struct ProjectOverviewView: View {
 
 struct ProjectOverviewView_Previews: PreviewProvider {
     static var previews: some View {
-        ProjectOverviewView(projectName: "Lorem Ipsum", projectDescription: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam eu turpis molestie, dictum est a, mattis tellus. Sed dignissim, metus nec fringilla accumsan, risus sem sollicitudin lacus, ut interdum tellus elit sed risus. Maecenas eget condimentum velit, sit amet feugiat lectus. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos.  ")
+        ProjectOverviewView(projectTemplate: ProjectTemplate(name: "name", image: "test", description: "description", preparation: "preparation", subPart: [], gauge: []))
     }
 }

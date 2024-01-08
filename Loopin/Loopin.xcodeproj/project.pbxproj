@@ -10,7 +10,7 @@
 		161AA7092B0CD1C7008A59CE /* ImageSlider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 161AA7082B0CD1C7008A59CE /* ImageSlider.swift */; };
 		161AA70B2B0E1B6B008A59CE /* TermTutorialView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 161AA70A2B0E1B6B008A59CE /* TermTutorialView.swift */; };
 		161AA70D2B0E1D2B008A59CE /* PatternTutorialView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 161AA70C2B0E1D2B008A59CE /* PatternTutorialView.swift */; };
-		161AA70F2B0E1EB3008A59CE /* YarnTutorialView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 161AA70E2B0E1EB3008A59CE /* YarnTutorialView.swift */; };
+		161AA70F2B0E1EB3008A59CE /* YarnTutorialListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 161AA70E2B0E1EB3008A59CE /* YarnTutorialListView.swift */; };
 		161AA7112B14800A008A59CE /* MiniTag.swift in Sources */ = {isa = PBXBuildFile; fileRef = 161AA7102B14800A008A59CE /* MiniTag.swift */; };
 		161AA7152B1492CF008A59CE /* WrappingHStack in Frameworks */ = {isa = PBXBuildFile; productRef = 161AA7142B1492CF008A59CE /* WrappingHStack */; };
 		16BF34DA2B0B31BF0036424B /* LoopinApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16BF34D92B0B31BF0036424B /* LoopinApp.swift */; };
@@ -60,6 +60,21 @@
 		16F64E602B0B8E5100EF2E15 /* ProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16F64E5F2B0B8E5100EF2E15 /* ProfileView.swift */; };
 		16F64E642B0BAE1200EF2E15 /* SignUpView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16F64E632B0BAE1200EF2E15 /* SignUpView.swift */; };
 		16F64E662B0BAF3300EF2E15 /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16F64E652B0BAF3300EF2E15 /* LoginView.swift */; };
+		16FBA1DC2B4BC763001AEBDB /* YarnData.json in Resources */ = {isa = PBXBuildFile; fileRef = 16FBA1DB2B4BC763001AEBDB /* YarnData.json */; };
+		16FBA1DE2B4BC77B001AEBDB /* Yarn.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16FBA1DD2B4BC77B001AEBDB /* Yarn.swift */; };
+		16FBA1E02B4BC7FB001AEBDB /* PatternData.json in Resources */ = {isa = PBXBuildFile; fileRef = 16FBA1DF2B4BC7FB001AEBDB /* PatternData.json */; };
+		16FBA1E22B4BC849001AEBDB /* Pattern.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16FBA1E12B4BC849001AEBDB /* Pattern.swift */; };
+		16FBA1E42B4BC877001AEBDB /* PatternContent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16FBA1E32B4BC877001AEBDB /* PatternContent.swift */; };
+		16FBA1E62B4BC8B5001AEBDB /* TermTutorialListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16FBA1E52B4BC8B5001AEBDB /* TermTutorialListView.swift */; };
+		16FBA1E82B4BC926001AEBDB /* YarnTutorialView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16FBA1E72B4BC926001AEBDB /* YarnTutorialView.swift */; };
+		16FBA1EA2B4BCA42001AEBDB /* HookData.json in Resources */ = {isa = PBXBuildFile; fileRef = 16FBA1E92B4BCA42001AEBDB /* HookData.json */; };
+		16FBA1EC2B4BCA77001AEBDB /* TermData.json in Resources */ = {isa = PBXBuildFile; fileRef = 16FBA1EB2B4BCA77001AEBDB /* TermData.json */; };
+		16FBA1EE2B4BCAD5001AEBDB /* PatternTutorialListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16FBA1ED2B4BCAD5001AEBDB /* PatternTutorialListView.swift */; };
+		16FBA1F02B4BCD48001AEBDB /* Hook.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16FBA1EF2B4BCD48001AEBDB /* Hook.swift */; };
+		16FBA1F22B4BD43C001AEBDB /* ProjectTemplateData.json in Resources */ = {isa = PBXBuildFile; fileRef = 16FBA1F12B4BD43C001AEBDB /* ProjectTemplateData.json */; };
+		16FBA1F42B4BD495001AEBDB /* ProjectTemplate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16FBA1F32B4BD495001AEBDB /* ProjectTemplate.swift */; };
+		16FBA1F62B4BD54D001AEBDB /* SubPart.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16FBA1F52B4BD54D001AEBDB /* SubPart.swift */; };
+		16FBA1F82B4BD59C001AEBDB /* Gauges.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16FBA1F72B4BD59C001AEBDB /* Gauges.swift */; };
 		8F1BA8E92B29BAC600DD92C4 /* AuthenticationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F1BA8E82B29BAC600DD92C4 /* AuthenticationService.swift */; };
 		8F1BA8EB2B29BB0600DD92C4 /* PostRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F1BA8EA2B29BB0600DD92C4 /* PostRepository.swift */; };
 		8F1BA8EF2B29BB2F00DD92C4 /* CommentRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F1BA8EE2B29BB2F00DD92C4 /* CommentRepository.swift */; };
@@ -89,7 +104,7 @@
 		161AA7082B0CD1C7008A59CE /* ImageSlider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageSlider.swift; sourceTree = "<group>"; };
 		161AA70A2B0E1B6B008A59CE /* TermTutorialView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TermTutorialView.swift; sourceTree = "<group>"; };
 		161AA70C2B0E1D2B008A59CE /* PatternTutorialView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PatternTutorialView.swift; sourceTree = "<group>"; };
-		161AA70E2B0E1EB3008A59CE /* YarnTutorialView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YarnTutorialView.swift; sourceTree = "<group>"; };
+		161AA70E2B0E1EB3008A59CE /* YarnTutorialListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YarnTutorialListView.swift; sourceTree = "<group>"; };
 		161AA7102B14800A008A59CE /* MiniTag.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MiniTag.swift; sourceTree = "<group>"; };
 		16BF34D62B0B31BF0036424B /* Loopin.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Loopin.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		16BF34D92B0B31BF0036424B /* LoopinApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoopinApp.swift; sourceTree = "<group>"; };
@@ -140,6 +155,21 @@
 		16F64E5F2B0B8E5100EF2E15 /* ProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileView.swift; sourceTree = "<group>"; };
 		16F64E632B0BAE1200EF2E15 /* SignUpView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpView.swift; sourceTree = "<group>"; };
 		16F64E652B0BAF3300EF2E15 /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
+		16FBA1DB2B4BC763001AEBDB /* YarnData.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = YarnData.json; sourceTree = "<group>"; };
+		16FBA1DD2B4BC77B001AEBDB /* Yarn.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Yarn.swift; sourceTree = "<group>"; };
+		16FBA1DF2B4BC7FB001AEBDB /* PatternData.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = PatternData.json; sourceTree = "<group>"; };
+		16FBA1E12B4BC849001AEBDB /* Pattern.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Pattern.swift; sourceTree = "<group>"; };
+		16FBA1E32B4BC877001AEBDB /* PatternContent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PatternContent.swift; sourceTree = "<group>"; };
+		16FBA1E52B4BC8B5001AEBDB /* TermTutorialListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TermTutorialListView.swift; sourceTree = "<group>"; };
+		16FBA1E72B4BC926001AEBDB /* YarnTutorialView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YarnTutorialView.swift; sourceTree = "<group>"; };
+		16FBA1E92B4BCA42001AEBDB /* HookData.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = HookData.json; sourceTree = "<group>"; };
+		16FBA1EB2B4BCA77001AEBDB /* TermData.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = TermData.json; sourceTree = "<group>"; };
+		16FBA1ED2B4BCAD5001AEBDB /* PatternTutorialListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PatternTutorialListView.swift; sourceTree = "<group>"; };
+		16FBA1EF2B4BCD48001AEBDB /* Hook.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Hook.swift; sourceTree = "<group>"; };
+		16FBA1F12B4BD43C001AEBDB /* ProjectTemplateData.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = ProjectTemplateData.json; sourceTree = "<group>"; };
+		16FBA1F32B4BD495001AEBDB /* ProjectTemplate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectTemplate.swift; sourceTree = "<group>"; };
+		16FBA1F52B4BD54D001AEBDB /* SubPart.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubPart.swift; sourceTree = "<group>"; };
+		16FBA1F72B4BD59C001AEBDB /* Gauges.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Gauges.swift; sourceTree = "<group>"; };
 		8F1BA8E82B29BAC600DD92C4 /* AuthenticationService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticationService.swift; sourceTree = "<group>"; };
 		8F1BA8EA2B29BB0600DD92C4 /* PostRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostRepository.swift; sourceTree = "<group>"; };
 		8F1BA8EE2B29BB2F00DD92C4 /* CommentRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentRepository.swift; sourceTree = "<group>"; };
@@ -242,6 +272,11 @@
 			isa = PBXGroup;
 			children = (
 				16F64E4A2B0B371E00EF2E15 /* TextExtension.swift */,
+				16FBA1E92B4BCA42001AEBDB /* HookData.json */,
+				16FBA1EB2B4BCA77001AEBDB /* TermData.json */,
+				16FBA1DF2B4BC7FB001AEBDB /* PatternData.json */,
+				16FBA1DB2B4BC763001AEBDB /* YarnData.json */,
+				16FBA1F12B4BD43C001AEBDB /* ProjectTemplateData.json */,
 			);
 			path = Utilities;
 			sourceTree = "<group>";
@@ -263,6 +298,7 @@
 				161AA7102B14800A008A59CE /* MiniTag.swift */,
 				16C4D5042B36C44A007880DF /* Accordion.swift */,
 				16C4D5062B36D6FA007880DF /* Numbering.swift */,
+				16F64E5B2B0B7BF600EF2E15 /* ForumCard.swift */,
 				16C4D50D2B37770C007880DF /* ProjectCard.swift */,
 			);
 			path = Components;
@@ -319,6 +355,13 @@
 				8FA5AD3A2B199EC50021F53C /* Comment.swift */,
 				8FA5AD3C2B199F8C0021F53C /* ProjectDetails.swift */,
 				8F7E67D52B19C750005DBD9E /* ObjectPart.swift */,
+				16FBA1DD2B4BC77B001AEBDB /* Yarn.swift */,
+				16FBA1E12B4BC849001AEBDB /* Pattern.swift */,
+				16FBA1E32B4BC877001AEBDB /* PatternContent.swift */,
+				16FBA1EF2B4BCD48001AEBDB /* Hook.swift */,
+				16FBA1F32B4BD495001AEBDB /* ProjectTemplate.swift */,
+				16FBA1F52B4BD54D001AEBDB /* SubPart.swift */,
+				16FBA1F72B4BD59C001AEBDB /* Gauges.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -351,7 +394,10 @@
 				16EEB26E2B0C8DAE00C340D1 /* HookTutorialView.swift */,
 				161AA70A2B0E1B6B008A59CE /* TermTutorialView.swift */,
 				161AA70C2B0E1D2B008A59CE /* PatternTutorialView.swift */,
-				161AA70E2B0E1EB3008A59CE /* YarnTutorialView.swift */,
+				161AA70E2B0E1EB3008A59CE /* YarnTutorialListView.swift */,
+				16FBA1E52B4BC8B5001AEBDB /* TermTutorialListView.swift */,
+				16FBA1E72B4BC926001AEBDB /* YarnTutorialView.swift */,
+				16FBA1ED2B4BCAD5001AEBDB /* PatternTutorialListView.swift */,
 			);
 			path = Tutorial;
 			sourceTree = "<group>";
@@ -360,7 +406,6 @@
 			isa = PBXGroup;
 			children = (
 				16C4D50A2B36DDD0007880DF /* CommentCard.swift */,
-				16F64E5B2B0B7BF600EF2E15 /* ForumCard.swift */,
 				16F64E5D2B0B800000EF2E15 /* ForumView.swift */,
 				16EEB2582B0BC53200C340D1 /* PostForumView.swift */,
 				16C4D5082B36DD14007880DF /* CommentView.swift */,
@@ -520,6 +565,10 @@
 				16F64E412B0B367C00EF2E15 /* Outfit-Light.ttf in Resources */,
 				16F64E432B0B367C00EF2E15 /* Outfit-ExtraLight.ttf in Resources */,
 				16BF34E12B0B31C00036424B /* Preview Assets.xcassets in Resources */,
+				16FBA1DC2B4BC763001AEBDB /* YarnData.json in Resources */,
+				16FBA1E02B4BC7FB001AEBDB /* PatternData.json in Resources */,
+				16FBA1EC2B4BCA77001AEBDB /* TermData.json in Resources */,
+				16FBA1EA2B4BCA42001AEBDB /* HookData.json in Resources */,
 				16F64E442B0B367C00EF2E15 /* Outfit-Thin.ttf in Resources */,
 				16BF34DE2B0B31C00036424B /* Assets.xcassets in Resources */,
 				8FAEA3D62B1A403D009B7E67 /* GoogleService-Info.plist in Resources */,
@@ -528,6 +577,7 @@
 				16F64E452B0B367C00EF2E15 /* Outfit-Medium.ttf in Resources */,
 				16F64E472B0B367C00EF2E15 /* Outfit-Regular.ttf in Resources */,
 				16F64E422B0B367C00EF2E15 /* Outfit-Black.ttf in Resources */,
+				16FBA1F22B4BD43C001AEBDB /* ProjectTemplateData.json in Resources */,
 				16F64E482B0B367C00EF2E15 /* Outfit-Bold.ttf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -542,6 +592,7 @@
 				8FC60F702B397B1C00C8C241 /* AuthenticationViewModel.swift in Sources */,
 				16F64E4E2B0B3D9700EF2E15 /* PrimaryButton.swift in Sources */,
 				16C4D5072B36D6FA007880DF /* Numbering.swift in Sources */,
+				16FBA1E62B4BC8B5001AEBDB /* TermTutorialListView.swift in Sources */,
 				8FC60F762B39FD4D00C8C241 /* UserRepository.swift in Sources */,
 				8F1BA8EB2B29BB0600DD92C4 /* PostRepository.swift in Sources */,
 				16F64E4B2B0B371E00EF2E15 /* TextExtension.swift in Sources */,
@@ -549,8 +600,10 @@
 				16F64E5A2B0B772100EF2E15 /* SquareCard.swift in Sources */,
 				16F64E5C2B0B7BF600EF2E15 /* ForumCard.swift in Sources */,
 				16F64E552B0B57F900EF2E15 /* TutorialPage.swift in Sources */,
+				16FBA1E42B4BC877001AEBDB /* PatternContent.swift in Sources */,
 				16EEB26B2B0BEB7100C340D1 /* ProjectPartInputCard.swift in Sources */,
-				161AA70F2B0E1EB3008A59CE /* YarnTutorialView.swift in Sources */,
+				16FBA1DE2B4BC77B001AEBDB /* Yarn.swift in Sources */,
+				161AA70F2B0E1EB3008A59CE /* YarnTutorialListView.swift in Sources */,
 				8F1BA8E92B29BAC600DD92C4 /* AuthenticationService.swift in Sources */,
 				16BF34ED2B0B33080036424B /* WelcomePage.swift in Sources */,
 				16C4D5402B45855A007880DF /* CurrentProjectView.swift in Sources */,
@@ -561,9 +614,12 @@
 				8F1BA8EF2B29BB2F00DD92C4 /* CommentRepository.swift in Sources */,
 				16F64E602B0B8E5100EF2E15 /* ProfileView.swift in Sources */,
 				16C4D50E2B37770C007880DF /* ProjectCard.swift in Sources */,
+				16FBA1F62B4BD54D001AEBDB /* SubPart.swift in Sources */,
 				16F64E502B0B44C700EF2E15 /* SecondaryButton.swift in Sources */,
 				8F7E67D62B19C750005DBD9E /* ObjectPart.swift in Sources */,
 				8FC65C652B499314007E8D28 /* CommentListViewModel.swift in Sources */,
+				16FBA1F02B4BCD48001AEBDB /* Hook.swift in Sources */,
+				16FBA1F42B4BD495001AEBDB /* ProjectTemplate.swift in Sources */,
 				16EEB26D2B0BEF7700C340D1 /* ProjectOverviewView.swift in Sources */,
 				8FC60F802B3F177B00C8C241 /* DateFormatter.swift in Sources */,
 				16C4D50B2B36DDD0007880DF /* CommentCard.swift in Sources */,
@@ -594,9 +650,13 @@
 				16F64E642B0BAE1200EF2E15 /* SignUpView.swift in Sources */,
 				16BF34DA2B0B31BF0036424B /* LoopinApp.swift in Sources */,
 				8FA5AD3B2B199EC50021F53C /* Comment.swift in Sources */,
+				16FBA1E82B4BC926001AEBDB /* YarnTutorialView.swift in Sources */,
+				16FBA1F82B4BD59C001AEBDB /* Gauges.swift in Sources */,
 				8FA5AD352B199B3B0021F53C /* User.swift in Sources */,
 				16EEB26F2B0C8DAE00C340D1 /* HookTutorialView.swift in Sources */,
 				16EEB2652B0BE55900C340D1 /* ProgressBar.swift in Sources */,
+				16FBA1EE2B4BCAD5001AEBDB /* PatternTutorialListView.swift in Sources */,
+				16FBA1E22B4BC849001AEBDB /* Pattern.swift in Sources */,
 				16EEB25D2B0BD2E600C340D1 /* ProjectDetailView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -728,7 +788,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"Loopin/Preview Content\"";
-				DEVELOPMENT_TEAM = Y9B3P2YJJC;
+				DEVELOPMENT_TEAM = 934K9APAT3;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Loopin/Info.plist;
@@ -758,7 +818,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"Loopin/Preview Content\"";
-				DEVELOPMENT_TEAM = Y9B3P2YJJC;
+				DEVELOPMENT_TEAM = 934K9APAT3;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Loopin/Info.plist;

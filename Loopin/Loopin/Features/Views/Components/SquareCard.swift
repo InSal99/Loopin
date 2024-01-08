@@ -8,7 +8,8 @@
 import SwiftUI
 
 struct SquareCard: View {
-    let cardText: String = "Lorem ipsum"
+    let cardText: String
+    let cardImage: String
     
     var body: some View {
         ZStack(alignment: .leading) {
@@ -16,8 +17,8 @@ struct SquareCard: View {
                 .foregroundColor(Color.white)
                 .frame(width: 172, height: 191)
             VStack {
-                RoundedRectangle(cornerRadius: 20)
-                    .foregroundColor(Color.gray)
+                Image(cardImage)
+                    .resizable()
                     .frame(width: 152, height: 137)
                 Text(cardText)
                     .font(.outfit(.semiBold, size: .body2))
@@ -33,6 +34,6 @@ struct SquareCard: View {
 
 struct SquareCard_Previews: PreviewProvider {
     static var previews: some View {
-        SquareCard()
+        SquareCard(cardText: "Title", cardImage: "test")
     }
 }

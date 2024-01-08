@@ -17,14 +17,16 @@ struct ProjectCard: View {
                 .font(.outfit(.semiBold, size: .body2))
             Text(projectDesc)
                 .font(.outfit(.regular, size: .body2))
+                .multilineTextAlignment(.leading)
         }
         .padding(.horizontal)
+        .frame(minWidth: 358, maxHeight: 100)
         .foregroundColor(Color("Black"))
         .padding(.vertical, 15)
         .background(
             RoundedRectangle(cornerRadius: 30)
                 .foregroundColor(Color.white)
-                .padding(.horizontal)
+//                .padding(.horizontal)
         )
         .shadow(color:.black .opacity(0.05), radius: 10, x: 0, y: 4)
     }

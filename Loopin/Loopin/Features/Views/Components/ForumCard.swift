@@ -8,16 +8,16 @@
 import SwiftUI
 
 struct ForumCard: View {
-//    let sender: String
-//    let content: String
-//    let likeCount: Int
-//    let commentCount: Int
+    //    let sender: String
+    //    let content: String
+    //    let likeCount: Int
+    //    let commentCount: Int
     
     @StateObject var postViewModel: PostViewModel
-
+    
     @State var showDeleteAlert = false
     @State var isPostForumViewPresented = false
-//    @State var isCommentViewPresented = false
+    //    @State var isCommentViewPresented = false
     @State var isLiked = false
     
     var body: some View {
@@ -38,37 +38,43 @@ struct ForumCard: View {
                     
                     if postViewModel.isAllowedToEdit {
                         HStack (spacing: 10) {
-                            Button(action: {
-                                isPostForumViewPresented.toggle()
-                            }, label: {
-                                Image(systemName: "pencil")
-                                    .foregroundColor(.black)
-                            })
-                            .padding(.horizontal, 5)
-                            .sheet(isPresented: $isPostForumViewPresented) {
-                                PostForumView(isOnEdit: true, postToEdit: postViewModel.post)
+                            Menu {
+                                Button(action: {
+                                    isPostForumViewPresented.toggle()
+                                }) {
+                                    Label("Edit", systemImage: "pencil")
+                                }
+                                .padding(.horizontal, 5)
+                                .sheet(isPresented: $isPostForumViewPresented) {
+                                    PostForumView(isOnEdit: true, postToEdit: postViewModel.post)
+                                }
+                                
+                                Button(action: {
+                                    showDeleteAlert.toggle()
+                                }) {
+                                    Label("Delete", systemImage: "trash")
+                                        .foregroundColor(.red)
+                                }
+                                .padding(.horizontal, 5)
+                                .alert(isPresented: $showDeleteAlert, content: {
+                                    Alert(
+                                        title: Text("Delete Post"),
+                                        message: Text("Are you sure you want to remove this post?"),
+                                        primaryButton: .destructive(Text("Delete")) {
+                                            /// Handle delete action
+                                            postViewModel.remove()
+                                        },
+                                        secondaryButton: .cancel()
+                                    )
+                                })
                             }
-                            
-                            Button(action: {
-                                showDeleteAlert.toggle()
-                            }) {
-                                Image(systemName: "trash")
-                                    .foregroundColor(.red)
-                            }
-                            .padding(.horizontal, 5)
-                            .alert(isPresented: $showDeleteAlert, content: {
-                                Alert(
-                                    title: Text("Delete Post"),
-                                    message: Text("Are you sure you want to remove this post?"),
-                                    primaryButton: .destructive(Text("Delete")) {
-                                        /// Handle delete action
-                                        postViewModel.remove()
-                                    },
-                                    secondaryButton: .cancel()
-                                )
-                            })
+                        label: {
+                            Image(systemName: "ellipsis.circle")
+                                .foregroundColor(.black)
+                                .scaleEffect(1.2)
                         }
-                        
+                        .padding(.horizontal, 5)
+                        }
                     }
                     
                 }
@@ -103,15 +109,15 @@ struct ForumCard: View {
                     
                     Spacer()
                     
-//                    Button(action: {
-                        //                        isCommentViewPresented.toggle()
-//                    }, label: {
-                        HStack {
-                            Image("chat")
-                            Text("\(postViewModel.commentListViewModel?.commentViewModels.count ?? 0) Comments")
-                                .font(.outfit(.regular, size: .label1))
-                        }
-//                    })
+                    //                    Button(action: {
+                    //                        isCommentViewPresented.toggle()
+                    //                    }, label: {
+                    HStack {
+                        Image("chat")
+                        Text("\(postViewModel.commentListViewModel?.commentViewModels.count ?? 0) Comments")
+                            .font(.outfit(.regular, size: .label1))
+                    }
+                    //                    })
                     //                    .sheet(isPresented: $isCommentViewPresented) {
                     //                        CommentView(postViewModel: postViewModel)
                     //                            .presentationDetents([.large])
