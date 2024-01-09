@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct ProjectOverviewView: View {
-    let projectTemplate: ProjectTemplate
+    let projectTemplate: Project
     
     var body: some View {
         NavigationView {
@@ -44,6 +44,6 @@ struct ProjectOverviewView: View {
 
 struct ProjectOverviewView_Previews: PreviewProvider {
     static var previews: some View {
-        ProjectOverviewView(projectTemplate: ProjectTemplate(name: "name", image: "test", description: "description", preparation: "preparation", subPart: [], gauge: []))
+        ProjectOverviewView(projectTemplate: Project(name: "name", image: "test", description: "description", preparation: "preparation", yarntType: "yarn type", yarnWeight: "yarn weight", hookSize: "hook size", stitchType: "stitch type", subPart: [], sample: []))
     }
 }

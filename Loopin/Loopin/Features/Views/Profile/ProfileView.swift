@@ -12,11 +12,26 @@ struct ProfileView: View {
     
     @State private var showAlert = false
     @State private var navigateToWelcomePage = false
-    @State private var isPostForumViewPresented = false
     @State private var selectedSegment = 0
-
+    
     @EnvironmentObject var authViewModel: AuthenticationViewModel
     @ObservedObject var postListViewModel = PostListViewModel()
+
+    let userProjects: [Project] = 
+    //Disimpan di firebase
+    [
+        Project(name: "Cardigan", image: "test", description: "lerem ipsum", preparation: "lorem ipsum", yarntType: "Bamboo", yarnWeight: "chunky", hookSize: "D", stitchType: "Double Crochet", subPart: [
+            SubPart(name: "Bagian depan", steps: [], gauge: Gauges(length: 10, width: 34, stitch: 65, row: 50)),
+            SubPart(name: "Bagian depan", steps: [
+                Step(title: "step title", content: "step content"),
+                Step(title: "step title", content: "step content")
+            ], gauge: Gauges(length: 10, width: 34, stitch: 65, row: 50))
+        ], sample: []),
+        Project(name: "Cardigan", image: "test", description: "lerem ipsum", preparation: "lorem ipsum", yarntType: "Bamboo", yarnWeight: "chunky", hookSize: "D", stitchType: "Double Crochet", subPart: [
+                SubPart(name: "Bagian depan", steps: [], gauge: Gauges(length: 10, width: 34, stitch: 65, row: 50))
+        ], sample: [])
+    ]
+    let userPosts: [Post] = []
 
     
     var userName: String { authViewModel.authService.user?.username ?? "Kim Kimhan" }
@@ -44,33 +59,33 @@ struct ProfileView: View {
                         switch selectedSegment {
                         case 0:
                             // Content for Segment 1
-                            ForEach(1...5, id: \.self) { item in
-                                NavigationLink {
-                                    ProjectDetailView()
-                                } label: {
-                                    ProjectCard(projectName: "Cardigan", projectDesc: "Lorem ipsum dolor sit amet consectetur adipiscin elit Ut et massa mi.")
+                            if !userProjects.isEmpty {
+                                ForEach(userProjects) { selectedProject in
+                                    NavigationLink(destination: ProjectDetailView(selectedProject: selectedProject)) {
+                                        ProjectCard(projectName: selectedProject.name, projectDesc: selectedProject.description)
+                                    }
+                                }
+                            } else {
+                                ZStack(alignment: .center) {
+                                    Rectangle()
+                                        .opacity(0)
+                                    Text("Belum ada proyek")
+                                        .padding(.top, 200)
+                                        .font(.outfit(.regular, size: .body2))
+                                        .opacity(0.5)
                                 }
                             }
                         case 1:
                             // Content for Segment 2
-                            
                             if postListViewModel.postViewModels.isEmpty {
-                                HStack(alignment: .center) {
-                                    Spacer()
-                                    Button{
-                                        isPostForumViewPresented.toggle()
-                                    } label: {
-                                        Text("Buat unggahan barumu")
-                                    }
-                                    .sheet(isPresented: $isPostForumViewPresented) {
-                                        PostForumView()
-                                    }
-                                    .foregroundColor(Color("Black"))
-                                    .buttonStyle(.bordered)
-                                    Spacer()
+                                ZStack(alignment: .center) {
+                                    Rectangle()
+                                        .opacity(0)
+                                        Text("Belum ada unggahan")
+                                            .padding(.top, 200)
+                                            .font(.outfit(.regular, size: .body2))
+                                            .opacity(0.5)
                                 }
-                                .frame(height: UIScreen.main.bounds.height - 400)
-                                
                             } else {
                                 ForEach(postListViewModel.postViewModels) { postViewModel in
                                     if postViewModel.isAllowedToEdit {

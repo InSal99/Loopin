@@ -9,8 +9,8 @@ import SwiftUI
 
 struct ProjectsView: View {
     @State private var isProjectOverviewViewPresented = false
-    @State private var projectTemplateData: [ProjectTemplate] = []
-    @State private var selectedTemplateItem: ProjectTemplate?
+    @State private var projectTemplateData: [Project] = []
+    @State private var selectedTemplateItem: Project?
     
     var body: some View {
         NavigationView {

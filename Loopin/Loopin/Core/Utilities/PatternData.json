@@ -5,6 +5,44 @@
     "abbreviation": "sl",
     "content": [
       {
+        "image": "SlipKnot-1",
+        "description": "lorem ipsum"
+      },
+      {
+        "image": "SlipKnot-2",
+        "description": "lorem ipsum"
+      },
+      {
+        "image": "SlipKnot-3",
+        "description": "lorem ipsum"
+      }
+    ]
+  },
+  {
+    "name": "Single Crochet",
+    "symbol": "SingleCrochet-Symbol",
+    "abbreviation": "sc",
+    "content": [
+      {
+        "image": "SingleCrochet-1",
+        "description": "lorem ipsum"
+      },
+      {
+        "image": "SingleCrochet-2",
+        "description": "lorem ipsum"
+      },
+      {
+        "image": "SingleCrochet-3",
+        "description": "lorem ipsum"
+      }
+    ]
+  },
+  {
+    "name": "Half Double Crochet",
+    "symbol": "test",
+    "abbreviation": "sc",
+    "content": [
+      {
         "image": "test",
         "description": "lorem ipsum"
       },
@@ -19,7 +57,7 @@
     ]
   },
   {
-    "name": "Single Chain",
+    "name": "Double Crochet",
     "symbol": "test",
     "abbreviation": "sc",
     "content": [

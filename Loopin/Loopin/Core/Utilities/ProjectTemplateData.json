@@ -4,6 +4,11 @@
     "image": "test",
     "description": "lorem ipsum",
     "preparation": "Lorem Ipsum",
+    "yarnType": "",
+    "yarnWeight": "",
+    "hookSize": "",
+    "hookSize": "",
+    "stitchType": "",
     "subPart": [
       {
         "name": "Bagian Depan",
@@ -34,6 +39,11 @@
     "image": "test",
     "description": "lorem ipsum",
     "preparation": "Lorem Ipsum",
+    "yarnType": "",
+    "yarnWeight": "",
+    "hookSize": "",
+    "hookSize": "",
+    "stitchType": "",
     "subPart": [
       {
         "name": "Lengan",

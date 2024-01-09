@@ -8,5 +8,6 @@
 import Foundation
 struct SubPart: Decodable, Hashable {
     let name: String
-    let steps: [String]
+    let steps: [Step]
+    let gauge: Gauges
 }

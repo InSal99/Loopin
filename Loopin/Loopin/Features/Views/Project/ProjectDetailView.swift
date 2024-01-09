@@ -9,31 +9,32 @@ import SwiftUI
 
 struct ProjectDetailView: View {
     @Environment(\.presentationMode) var presentationMode
-    let projectDescription:String = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam eu turpis molestie, dictum est a, mattis tellus. Sed dignissim, metus nec fringilla accumsan, risus sem sollicitudin lacus, ut interdum tellus elit sed risus. "
+    let selectedProject: Project
     
     var body: some View {
         NavigationView {
             ScrollView(.vertical){
                 VStack(alignment: .leading, spacing: 25) {
-                    Text(projectDescription)
+                    Text(selectedProject.description)
                         .font(.outfit(.regular, size: .body2))
                         .padding(.horizontal)
                     VStack(spacing: 10) {
-                        DetailProjectCard(placeholder1: "Jenis Benang", placeolder2: "Katun")
-                        DetailProjectCard(placeholder1: "Ketebalan Benang", placeolder2: "Worsted")
-                        DetailProjectCard(placeholder1: "Ukuran Hakpen", placeolder2: "5")
-                        DetailProjectCard(placeholder1: "Jenis Tusukan", placeolder2: "Single Crochet")
+                        DetailProjectCard(placeholder1: "Jenis Benang", placeolder2: selectedProject.yarntType)
+                        DetailProjectCard(placeholder1: "Ketebalan Benang", placeolder2: selectedProject.yarnWeight)
+                        DetailProjectCard(placeholder1: "Ukuran Hakpen", placeolder2: selectedProject.hookSize)
+                        DetailProjectCard(placeholder1: "Jenis Tusukan", placeolder2: selectedProject.stitchType)
                     }
                     Text("Bagian Proyek")
                         .font(.outfit(.semiBold, size: .body3))
                         .padding(.horizontal)
                     VStack(spacing: 10) {
-                        ForEach(1...5, id: \.self) { item in
-                            ProjectPartCard(placeholder1: "Panjang", placeholder2: 70, placeholder3: 10)
+                        ForEach(selectedProject.subPart, id: \.self) { subPartItem in
+                            ProjectPartCard(subPart: subPartItem)
                         }
                     }
                     NavigationLink {
                         //ongoing project
+                        CurrentProjectView(currentProject: selectedProject)
                     } label: {
                         PrimaryButton(buttonText: "Mulai Proyek")
                     }
@@ -62,6 +63,6 @@ struct ProjectDetailView: View {
 
 struct ProjectDetailView_Previews: PreviewProvider {
     static var previews: some View {
-        ProjectDetailView()
+        ProjectDetailView(selectedProject: Project(name: "name", image: "test", description: "description", preparation: "preparation", yarntType: "yarn type", yarnWeight: "yarn weight", hookSize: "hook size", stitchType: "stitch type", subPart: [], sample: []))
     }
 }
