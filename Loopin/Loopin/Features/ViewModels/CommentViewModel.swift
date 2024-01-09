@@ -32,11 +32,23 @@ class CommentViewModel: ObservableObject, Identifiable {
         if authService?.user?.id == comment.userId {
             isAllowedToEdit = true
         }
+        
+        // DEBUG
+//        withUnsafePointer(to: &self.commentRepository) { pointer in
+//            print("Comment VM untuk post id \(commentRepository.postId) with address \(pointer)")
+//
+//        }
     }
+    
     func update(comment: Comment) {
-        commentRepository?.update(comment)
+        DispatchQueue.main.async {
+            self.commentRepository?.update(comment)
+        }
     }
+    
     func remove() {
-        commentRepository?.remove(comment)
+        DispatchQueue.main.async {
+            self.commentRepository?.remove(self.comment)
+        }
     }
 }

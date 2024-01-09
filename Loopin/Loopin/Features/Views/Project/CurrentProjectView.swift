@@ -59,6 +59,6 @@ struct CurrentProjectView: View {
 
 struct CurrentProjectView_Previews: PreviewProvider {
     static var previews: some View {
-        CurrentProjectView(currentProject: Project(name: "name", image: "test", description: "description", preparation: "preparation", yarntType: "yarn type", yarnWeight: "yarn weight", hookSize: "hook size", stitchType: "stitch type", subPart: [], gauge: []))
+        CurrentProjectView(currentProject: Project(name: "name", image: "test", description: "description", preparation: "preparation", yarntType: "yarn type", yarnWeight: "yarn weight", hookSize: "hook size", stitchType: "stitch type", subPart: [], sample: []))
     }
 }

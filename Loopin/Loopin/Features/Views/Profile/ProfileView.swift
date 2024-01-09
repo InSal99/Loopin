@@ -12,9 +12,11 @@ struct ProfileView: View {
     
     @State private var showAlert = false
     @State private var navigateToWelcomePage = false
+    @State private var selectedSegment = 0
+    
     @EnvironmentObject var authViewModel: AuthenticationViewModel
     @ObservedObject var postListViewModel = PostListViewModel()
-    @State private var selectedSegment = 0
+
     let userProjects: [Project] = 
     //Disimpan di firebase
     [
@@ -24,13 +26,13 @@ struct ProfileView: View {
                 Step(title: "step title", content: "step content"),
                 Step(title: "step title", content: "step content")
             ], gauge: Gauges(length: 10, width: 34, stitch: 65, row: 50))
-        ], gauge: []),
+        ], sample: []),
         Project(name: "Cardigan", image: "test", description: "lerem ipsum", preparation: "lorem ipsum", yarntType: "Bamboo", yarnWeight: "chunky", hookSize: "D", stitchType: "Double Crochet", subPart: [
                 SubPart(name: "Bagian depan", steps: [], gauge: Gauges(length: 10, width: 34, stitch: 65, row: 50))
-            ], gauge: [])
+        ], sample: [])
     ]
     let userPosts: [Post] = []
-    
+
     
     var userName: String { authViewModel.authService.user?.username ?? "Kim Kimhan" }
     var email: String { authViewModel.authService.user?.email ?? "kimkimhan@mail.com" }
@@ -48,10 +50,11 @@ struct ProfileView: View {
                         Text(phone)
                             .font(.outfit(.regular, size: .body2))
                         Picker(selection: $selectedSegment, label: Text("Daftar Proyek")) {
-                            Text("Proyek").tag(0)
-                            Text("Unggahan").tag(1)
+                            Text("Proyek Saya").tag(0)
+                            Text("Unggahan Saya").tag(1)
                         }
                         .pickerStyle(.segmented)
+                        .padding(.bottom)
                         
                         switch selectedSegment {
                         case 0:
@@ -74,20 +77,23 @@ struct ProfileView: View {
                             }
                         case 1:
                             // Content for Segment 2
-                            // Add your specific content for this segment
-                            // ...
-                            if !userPosts.isEmpty {
-                                //list user post
-                            } else {
+                            if postListViewModel.postViewModels.isEmpty {
                                 ZStack(alignment: .center) {
                                     Rectangle()
                                         .opacity(0)
-                                    Text("Belum ada unggahan")
-                                        .padding(.top, 200)
-                                        .font(.outfit(.regular, size: .body2))
-                                        .opacity(0.5)
+                                        Text("Belum ada unggahan")
+                                            .padding(.top, 200)
+                                            .font(.outfit(.regular, size: .body2))
+                                            .opacity(0.5)
+                                }
+                            } else {
+                                ForEach(postListViewModel.postViewModels) { postViewModel in
+                                    if postViewModel.isAllowedToEdit {
+                                        ForumCard(postViewModel:postViewModel)
+                                    }
                                 }
                             }
+                           
                         default:
                             Text("Default content")
                         }
@@ -95,6 +101,7 @@ struct ProfileView: View {
                     .padding(.horizontal)
                 }
             }
+            .padding(.bottom)
             .navigationTitle("Profile")
             .navigationBarBackButtonHidden(true)
             .toolbar {

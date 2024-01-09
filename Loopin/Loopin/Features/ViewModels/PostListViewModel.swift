@@ -29,7 +29,8 @@ class PostListViewModel: ObservableObject {
     func add(_ post: Post) {
         postRepository.add(post)
     }
-    func update(_ post: Post) {
-        postRepository.update(post)
-    }
+//    func update(_ post: Post) {
+//        postRepository.update(post)
+//        postRepository.objectWillChange.send()
+//    }
 }
