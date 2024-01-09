@@ -131,7 +131,7 @@ struct ForumCard: View {
             
         }
         .sheet(isPresented: $isPostForumViewPresented) {
-            PostForumView(isOnEdit: true, postToEdit: postViewModel.post)
+            PostForumView(isOnEdit: true, postToEdit: postViewModel)
         }
         .alert(isPresented: $showDeleteAlert) {
             Alert(

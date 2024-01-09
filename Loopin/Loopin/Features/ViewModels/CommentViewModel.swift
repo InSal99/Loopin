@@ -39,10 +39,16 @@ class CommentViewModel: ObservableObject, Identifiable {
 //
 //        }
     }
+    
     func update(comment: Comment) {
-        commentRepository?.update(comment)
+        DispatchQueue.main.async {
+            self.commentRepository?.update(comment)
+        }
     }
+    
     func remove() {
-        commentRepository?.remove(comment)
+        DispatchQueue.main.async {
+            self.commentRepository?.remove(self.comment)
+        }
     }
 }
