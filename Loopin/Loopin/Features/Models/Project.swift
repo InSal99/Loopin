@@ -6,12 +6,16 @@
 //
 
 import Foundation
-struct ProjectTemplate: Identifiable, Decodable {
+struct Project: Identifiable, Decodable {
     let id = UUID()
     let name: String
     let image: String
     let description: String
     let preparation: String
+    let yarntType: String
+    let yarnWeight: String
+    let hookSize: String
+    let stitchType: String
     let subPart: [SubPart]
-    let gauge: [Gauges]
+    let sample: [Gauges]
 }

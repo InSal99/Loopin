@@ -1,62 +1,320 @@
+
 [
-  {
-    "name": "Nama Project",
-    "image": "test",
-    "description": "lorem ipsum",
-    "preparation": "Lorem Ipsum",
-    "subPart": [
-      {
-        "name": "Bagian Depan",
-        "steps": [
-          "lorem ipsum1",
-          "lorem ipsum 2"
+    {
+        "type": "Selimut",
+        "name": "Selimut",
+        "image": "Project-Blanket",
+        "description": "Percantik ruang tamu Anda dengan selimut rajut yang mudah untuk pemula ini. Selimut sederhana dengan satu jahitan berulang ini dibuat dengan menggunakan benang katun dengan ketebalan worsted.",
+        "preparation": "Lorem Ipsum",
+        "yarnType": "Katun",
+        "yarnWeight": "Worsted",
+        "hookSize": "H / 5.0",
+        "hookSize": "H / 5.0",
+        "stitchType": "Single Crochet",
+        "subParts": [
+            {
+                "name": "Badan Selimut",
+                "steps": [
+                    {
+                        "text": "Dimulai dengan membuat # chain",
+                        "nums": [4],
+                        "guidances": []
+                    },
+                    {
+                        "text": "Baris 1: dc di ch ke-3 dari hakpen, ch 2, sc di ch berikutnya. *Lewati 2 ch, 2 dc di ch berikutnya, ch 2, sc di ch berikutnya. Ulangi dari * di seluruh baris, putar.",
+                        "nums": [],
+                        "guidances": [
+                            "Project-Blanket-Step1"
+                        ]
+                    },
+                    {
+                        "text": "Baris 2: ch 2, lewati jahitan pertama, buat (2 dc, 2 ch, dan 1 sc di ruang rantai). *Lewati 3 jahitan berikutnya dan buat (2 dc, 2 ch, dan 1 sc di ruang rantai). Ulangi dari * di seluruh baris, putar.",
+                        "nums": [],
+                        "guidances": [
+                            "Project-Blanket-Step2"
+                        ]
+                    },
+                    {
+                        "text": "Ulangi pola pada baris 2 hingga mencapai baris #",
+                        "nums": [8],
+                        "guidances": []
+                    },
+                    {
+                        "text": "Tutup jahitan dengan slip knot dan ikat ujung benang",
+                        "nums": [],
+                        "guidances": []
+                    }
+                ],
+                "gauge":
+                {
+                    "length": 10,
+                    "width": 10,
+                    "stitch": 4,
+                    "row": 8
+                }
+            }
+        ],
+        "samples": [
+            {
+                "length": 100,
+                "width": 200,
+                "stitch": 450,
+                "row": 310
+            }
         ]
-      },
-      {
-        "name": "Bagian Belakang",
-        "steps": [
-          "lorem ipsum1",
-          "lorem ipsum 2"
+    },
+    {
+        "type": "Syal",
+        "name": "Syal",
+        "image": "Project-Shawl",
+        "description": "Syal Rumbai untuk pemula adalah syal yang cantik dan sangat mudah untuk dirajut yang dikerjakan secara datar dengan jahitan dasar dan diakhiri dengan rumbai yang indah.  Dijahit dengan hakpen yang berukuran besar, membuat syal ini dapat diselesaikan dengan cepat.  Ukurannya yang besar dan benangnya yang halus dan lembut membuat syal ini sangat nyaman dan ide hadiah yang bagus juga!",
+        "preparation": "Lorem Ipsum",
+        "yarnType": "Akrilik",
+        "yarnWeight": "Bulky",
+        "hookSize": "K / 6.5",
+        "hookSize": "K / 6.5",
+        "stitchType": "Double Crochet",
+        "subParts": [
+            {
+                "name": "Badan Syal",
+                "steps": [
+                    {
+                        "text": "Dimulai dengan membuat # chain",
+                        "nums": [24],
+                        "guidances": []
+                    },
+                    {
+                        "text": "Baris 1: Pada ch ke-4 dari hakpen, buatlah dc. Lakukan satu dc di setiap ch hingga ujung baris.",
+                        "nums": [],
+                        "guidances": [
+                            "Project-Shawl-Step1",
+                            "Project-Shawl-Step2",
+                            "Project-Shawl-Step3",
+                            "Project-Shawl-Step4"
+                        ]
+                    },
+                    {
+                        "text": "Baris 2: Ch 3 dan putar (dihitung sebagai dc).  Buatlah sebuah dc pada jahitan berikutnya dan pada setiap jahitan. Akhiri baris dengan membuat dc di chain paling atas dari rantai putaran.",
+                        "nums": [],
+                        "guidances": [
+                            "Project-Shawl-Step5",
+                            "Project-Shawl-Step7"
+                        ]
+                    },
+                    {
+                        "text": "Ulangi baris 2 hingga syal memiliki panjang yang diinginkan.",
+                        "nums": [],
+                        "guidances": []
+                    },
+                    {
+                        "text": "Tutup jahitan dengan slip knot dan ikat ujung benang",
+                        "nums": [],
+                        "guidances": []
+                    }
+                ],
+                "gauge":
+                {
+                    "length": 193,
+                    "width": 21.6,
+                    "stitch": 24,
+                    "row": 72
+                }
+                
+            },
+            {
+                "name": "Rumbai",
+                "steps": [
+                    {
+                        "text": "Potong benang dengan panjang dua kali ukuran rumbai yang diinginkan",
+                        "nums": [],
+                        "guidances": []
+                    },
+                    {
+                        "text": "Ambil titik tengah panjang benang dan sisipkan pada setiap jahitan menggunakan hakpen",
+                        "nums": [],
+                        "guidances": []
+                    },
+                    {
+                        "text": "Ikat benang dengan membuat simpul",
+                        "nums": [],
+                        "guidances": [
+                            "Project-Shawl-Step7"
+                        ]
+                    }
+                    {
+                        "text": "Ulangi langkah pada semua jahitan pada ujung syal",
+                        "nums": [],
+                        "guidances": []
+                    }
+                ],
+                "gauge":
+                {
+                    "length": 193,
+                    "width": 21.6,
+                    "stitch": 24,
+                    "row": 72
+                }
+            }
+        ],
+        "samples": [
+            {
+                "length": 247,
+                "width": 123,
+                "stitch": 876,
+                "row": 345
+            }
         ]
-      }
-    ],
-    "gauge": [
-      {
-        "length": 100,
-        "width": 200,
-        "stitch": 450,
-        "row": 310
-      }
-    ]
-  },
-  {
-    "name": "Nama Project",
-    "image": "test",
-    "description": "lorem ipsum",
-    "preparation": "Lorem Ipsum",
-    "subPart": [
-      {
-        "name": "Lengan",
-        "steps": [
-          "lorem ipsum1",
-          "lorem ipsum 2"
+    },
+    {
+        "type": "Sweater",
+        "name": "Sweater",
+        "image": "Project-Sweater",
+        "description": "Pola sweater rajutan pemula ini sangat serbaguna karena dapat dipakai sepanjang tahun dan merupakan sweater yang mudah untuk dipakai. Jahitannya yang sederhana memberikan sweater ini kesan modern dan minimalis yang cocok untuk dijadikan koleksi di lemari pakaian anda. Bagus dan nyaman dipakai, sweater ini hanya menggunakan satu jahitan yang membuatnya menjadi proyek yang bagus untuk pemula.",
+        "preparation": "Lorem Ipsum",
+        "yarnType": "Katun",
+        "yarnWeight": "Light",
+        "hookSize": "H / 5.0",
+        "hookSize": "H / 5.0",
+        "stitchType": "Single Crochet",
+        "subParts": [
+            {
+                "name": "Badan Sweater (Depan dan Belakang)",
+                "steps": [
+                    {
+                        "text": "Dimulai dengan membuat # chain",
+                        "nums": [72],
+                        "guidances": []
+                    },
+                    {
+                        "text": "Baris 1: 1 sc pada ch ke-2 dari hakpen dan di setiap ch di sepanjang # jahitan. Ch 1, putar.",
+                        "nums": [71],
+                        "guidances": []
+                    },
+                    {
+                        "text": "Baris 2: 1 sc di setiap bagian simpul sebanyak #jahitan",
+                        "nums": [71],
+                        "guidances": []
+                    },
+                    {
+                        "text": "Ulangi pola pada baris 2 hingga mencapai baris #",
+                        "nums": [77],
+                        "guidances": []
+                    }
+                ],
+                "gauge":
+                {
+                    "length": 53,
+                    "width": 40.6,
+                    "stitch": 72,
+                    "row": 77
+                }
+            },
+            {
+                "name": "Lengan (Kanan dan Kiri)",
+                "steps": [
+                    {
+                        "text": "Dimulai dengan membuat # chain. Kemudian buat sl ke chain pertama",
+                        "nums": [30],
+                        "guidances": []
+                    },
+                    {
+                        "text": "Buat 1 sc di sepanjang # jahitan. Sl st ke dalam jahitan pertama, ch 1.",
+                        "nums": [30],
+                        "guidances": []
+                    },
+                    {
+                        "text": "Ulangi pola hingga mencapai panjang lengan yang diinginkan",
+                        "nums": [],
+                        "guidances": []
+                    },
+                    {
+                        "text": "Letakkan bagian depan di atas panel belakang. Jahit kedua bagian menjadi satu mengikuti panduan gambar.",
+                        "nums": [],
+                        "guidances": [
+                            "Project-Sweater-Step1"
+                        ]
+                    }
+                ],
+                "gauge":
+                {
+                    "length": 53,
+                    "width": 40.6,
+                    "stitch": 72,
+                    "row": 77
+                }
+            },
+            {
+                "name": "Pinggiran Badan",
+                "steps": [
+                    {
+                        "text": "Sematkan benang pada bagian bawah sweater, ch 1.",
+                        "nums": [],
+                        "guidances": []
+                    },
+                    {
+                        "text": "Putaran 1: Sc di setiap jahitan secara merata. Sl st ke st pertama, ch 1.",
+                        "nums": [],
+                        "guidances": []
+                    },
+                    {
+                        "text": "Putaran 2-6: Sc di setiap st. Sl st ke st pertama, ch 1.",
+                        "nums": [],
+                        "guidances": []
+                    },
+                    {
+                        "text": "Tutup jahitan dengan sl sepanjang baris, lalu potong ujung benang",
+                        "nums": [],
+                        "guidances": []
+                    }
+                ],
+                "gauge":
+                {
+                    "length": 53,
+                    "width": 40.6,
+                    "stitch": 72,
+                    "row": 77
+                }
+            },
+            {
+                "name": "Garis Leher",
+                "steps": [
+                    {
+                        "text": "Sematkan benang di garis leher sweater, ch 1.",
+                        "nums": [],
+                        "guidances": []
+                    },
+                    {
+                        "text": "Putaran 1: Buatlah sc di sekeliling garis leher.",
+                        "nums": [],
+                        "guidances": []
+                    },
+                    {
+                        "text": "Putaran 2-4: 1 sc di simpul belakang setiap st. Sl st ke st pertama, ch 1.",
+                        "nums": [],
+                        "guidances": []
+                    },
+                    {
+                        "text": "Tutup jahitan dengan sl sepanjang baris, lalu potong ujung benang",
+                        "nums": [],
+                        "guidances": []
+                    }
+                ],
+                "gauge":
+                {
+                    "length": 53,
+                    "width": 40.6,
+                    "stitch": 72,
+                    "row": 77
+                }
+            }
+        ],
+        "samples": [
+            {
+                "length": 100,
+                "width": 200,
+                "stitch": 450,
+                "row": 310
+            }
         ]
-      },
-      {
-        "name": "Pergelangan",
-        "steps": [
-          "lorem ipsum1",
-          "lorem ipsum 2"
-        ]
-      }
-    ],
-    "gauge": [
-      {
-        "length": 247,
-        "width": 123,
-        "stitch": 876,
-        "row": 345
-      }
-    ]
-  }
+    }
 ]

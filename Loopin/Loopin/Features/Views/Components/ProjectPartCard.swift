@@ -8,9 +8,7 @@
 import SwiftUI
 
 struct ProjectPartCard: View {
-    let placeholder1: String
-    let placeholder2: Int
-    let placeholder3: Int
+    let subPart: SubPart
     
     var body: some View {
         ZStack(alignment: .leading) {
@@ -21,25 +19,25 @@ struct ProjectPartCard: View {
                 Text("nama bagian")
                     .font(.outfit(.medium, size: .body2))
                 HStack {
-                    Text(placeholder1)
+                    Text("Lebar")
                         .font(.outfit(.ligth, size: .body2))
                     Spacer()
-                    Text("\(placeholder2) row")
+                    Text("\(subPart.gauge.stitch) st")
                         .font(.outfit(.regular, size: .body2))
                         .multilineTextAlignment(.trailing)
-                    Text("\(placeholder3) cm")
+                    Text("\(subPart.gauge.width) cm")
                         .font(.outfit(.regular, size: .body2))
                         .multilineTextAlignment(.trailing)
                         .frame(width: 61)
                 }
                 HStack {
-                    Text(placeholder1)
+                    Text("Panjang")
                         .font(.outfit(.ligth, size: .body2))
                     Spacer()
-                    Text("\(placeholder2) st")
+                    Text("\(subPart.gauge.row) row")
                         .font(.outfit(.regular, size: .body2))
                         .multilineTextAlignment(.trailing)
-                    Text("\(placeholder3) cm")
+                    Text("\(subPart.gauge.length) cm")
                         .font(.outfit(.regular, size: .body2))
                         .multilineTextAlignment(.trailing)
                         .frame(width: 61)
@@ -53,6 +51,6 @@ struct ProjectPartCard: View {
 
 struct ProjectPartCard_Previews: PreviewProvider {
     static var previews: some View {
-        ProjectPartCard(placeholder1: "lorem ipsum", placeholder2: 70, placeholder3: 30)
+        ProjectPartCard(subPart: SubPart(name: "name", steps: [], gauge: Gauges(length: 0, width: 0, stitch: 0, row: 0)))
     }
 }

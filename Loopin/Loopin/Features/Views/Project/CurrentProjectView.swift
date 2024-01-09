@@ -9,37 +9,32 @@ import SwiftUI
 
 struct CurrentProjectView: View {
     @Environment(\.presentationMode) var presentationMode
-    let title: String = "Nama Bagian"
-    let content: String =  "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam eu turpis molestie, dictum est a, mattis tellus. Sed dignissim, metus nec fringilla accumsan, risus sem sollicitudin lacus, ut interdum tellus elit sed risus. Maecenas eget condimentum velit, sit amet feugiat lectus. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos."
-    let images = ["test", "test"]
+    let currentProject: Project
     
     var body: some View {
         NavigationView {
             ScrollView(.vertical){
                 ZStack(alignment: .top) {
-                    ImageSlider(images: images)
+                    ImageSlider(images: [currentProject.image])
                         .frame(maxWidth: 390, maxHeight: 290)
                     RoundedRectangle(cornerRadius: 30)
                         .frame(minHeight: 571)
                         .foregroundColor(Color(.white))
                         .padding(.top, 273)
                     VStack(alignment: .leading, spacing: 20) {
-                        Text(title)
+                        Text(currentProject.name)
                             .font(.outfit(.semiBold, size: .heading3))
                         Text("Persiapan")
                             .font(.outfit(.semiBold, size: .body3))
-                        Text(content)
+                        Text(currentProject.preparation)
                             .font(.outfit(.regular, size: .body2))
-                        Text("Rekomendasi")
-                            .font(.outfit(.semiBold, size: .body3))
-                        Accordion(isOpened: false, title: "1. Mulai dengan benang hijau", content: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam eu turpis molestie, dictum est a, mattis tellus.")
-                        Accordion(isOpened: false, title: "2. Lorem ipsum dolor sit amet", content: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam eu turpis molestie, dictum est a, mattis tellus.")
-//                        Spacer()
-//                        NavigationLink {
-//                            ProjectInfoView()
-//                        } label: {
-//                            PrimaryButton(buttonText: "Buat Proyek")
-//                        }
+                        ForEach(currentProject.subPart, id: \.self) { subPartItem in
+                            Text(subPartItem.name)
+                                .font(.outfit(.semiBold, size: .body3))
+                            ForEach(subPartItem.steps, id: \.self) { stepItem in
+                                Accordion(isOpened: false, title: stepItem.title, content: stepItem.content)
+                            }
+                        }
                     }
                     .padding(.top, 300)
                     .padding()
@@ -47,8 +42,6 @@ struct CurrentProjectView: View {
             }
             .ignoresSafeArea()
             .navigationBarBackButtonHidden(true)
-            
-//            .tabViewStyle(.page(indexDisplayMode: .never))
             .toolbar {
                 ToolbarItem(placement: .navigationBarLeading) {
                     Button {
@@ -66,6 +59,6 @@ struct CurrentProjectView: View {
 
 struct CurrentProjectView_Previews: PreviewProvider {
     static var previews: some View {
-        CurrentProjectView()
+        CurrentProjectView(currentProject: Project(name: "name", image: "test", description: "description", preparation: "preparation", yarntType: "yarn type", yarnWeight: "yarn weight", hookSize: "hook size", stitchType: "stitch type", subPart: [], sample: []))
     }
 }
