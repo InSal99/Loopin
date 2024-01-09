@@ -12,19 +12,19 @@ import Combine
 
 class PostRepository: ObservableObject {
     static let shared = PostRepository()
-
+    
     private let path: String = "posts"
     private let store = Firestore.firestore()
     
     private weak var authenticationService = AuthenticationService.shared
     private var cancellables: Set<AnyCancellable> = []
     private var listener: ListenerRegistration?
-
+    
     //MARK: Card View
     @Published var posts: [Post] = []
     
     init(){
-       addListeners()
+        addListeners()
     }
     
     private func addListeners() {
@@ -38,7 +38,6 @@ class PostRepository: ObservableObject {
             }
             .store(in: &cancellables)
     }
-    
     
     func get() {
         listener = store.collection(path)
@@ -64,22 +63,23 @@ class PostRepository: ObservableObject {
     }
     
     func update(_ post: Post) {
-      guard let postId = post.id else { return }
+        guard let postId = post.id else { return }
+        
+        do {
+            try store.collection(path).document(postId).setData(from: post)
+        } catch {
+            fatalError("Unable to update card: \(error.localizedDescription).")
+        }
 
-      do {
-        try store.collection(path).document(postId).setData(from: post)
-      } catch {
-        fatalError("Unable to update card: \(error.localizedDescription).")
-      }
     }
     
     func remove(_ post: Post) {
         guard let postId = post.id else { return }
-
+        
         store.collection(path).document(postId).delete { error in
-          if let error = error {
-            print("Unable to remove card: \(error.localizedDescription)")
-          }
+            if let error = error {
+                print("Unable to remove card: \(error.localizedDescription)")
+            }
         }
     }
     

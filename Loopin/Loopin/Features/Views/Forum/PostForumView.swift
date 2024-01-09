@@ -14,15 +14,15 @@ struct PostForumView: View {
     @State private var image: String
     @State private var isOnEdit: Bool
     
-    var postToEdit: Post?
+    var postModelToEdit: PostViewModel?
     
     @EnvironmentObject var authViewModel: AuthenticationViewModel
     @ObservedObject var postListViewModel = PostListViewModel()
     
-    init(isOnEdit: Bool? = nil, postToEdit: Post? = nil) {
-        self.postToEdit = postToEdit
-        _message = State(initialValue: postToEdit?.content ?? "")
-        _image = State(initialValue: postToEdit?.content ?? "")
+    init(isOnEdit: Bool? = nil, postToEdit: PostViewModel? = nil) {
+        self.postModelToEdit = postToEdit
+        _message = State(initialValue: postToEdit?.post.content ?? "")
+        _image = State(initialValue: postToEdit?.post.content ?? "")
         _isOnEdit = State(initialValue: isOnEdit ?? false)
 
     }
@@ -79,9 +79,9 @@ struct PostForumView: View {
     }
     
     func updatePost() {
-        guard var post = postToEdit else { return }
+        guard var post = postModelToEdit?.post else { return }
         post.content = message
-        postListViewModel.update(post)
+        postModelToEdit?.update(post: post)
     }
     
     

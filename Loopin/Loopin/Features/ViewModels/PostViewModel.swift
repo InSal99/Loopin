@@ -58,6 +58,7 @@ class PostViewModel: ObservableObject, Identifiable {
 
     }
     func update(post:Post) {
+        self.post.content = post.content
         postRepository?.update(post)
     }
     func remove() {

@@ -11,7 +11,7 @@ struct CommentCard: View {
 //    let sender: String
 //    let content: String
     
-    @StateObject var commentViewModel: CommentViewModel
+    @ObservedObject var commentViewModel: CommentViewModel
     @State var showDeleteAlert = false
     @State var isPostForumViewPresented = false
     
