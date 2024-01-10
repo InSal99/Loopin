@@ -7,8 +7,8 @@
 
 import Foundation
 struct Gauges: Decodable, Hashable {
-    let length: Int
-    let width: Int
+    let length: Double
+    let width: Double
     let stitch: Int
     let row: Int
 }
