@@ -1,72 +1,143 @@
 [
-  {
-    "name": "Nama Project",
-    "image": "test",
-    "description": "lorem ipsum",
-    "preparation": "Lorem Ipsum",
-    "yarnType": "",
-    "yarnWeight": "",
-    "hookSize": "",
-    "hookSize": "",
-    "stitchType": "",
-    "subPart": [
-      {
-        "name": "Bagian Depan",
-        "steps": [
-          "lorem ipsum1",
-          "lorem ipsum 2"
+    {
+        "type": "Cardigan",
+        "name": "Nama Project",
+        "image": "test",
+        "description": "lorem ipsum",
+        "preparation": "Lorem Ipsum",
+        "yarnType": "",
+        "yarnWeight": "",
+        "hookSize": "",
+        "hookSize": "",
+        "stitchType": "",
+        "subParts": [
+            {
+                "name": "Bagian Depan",
+                "steps": [
+                    {
+                        "text": "Mulai dengan benang merah",
+                        "nums": [],
+                        "guidances": []
+                    },
+                    {
+                        "text": "Buat # single chain dalam magic ringh",
+                        "nums": [9],
+                        "guidances": [
+                            "imageName"
+                        ]
+                    }
+                ],
+                "gauge":
+                {
+                    "length": 247,
+                    "width": 123,
+                    "stitch": 876,
+                    "row": 345
+                }
+            },
+            {
+                "name": "Bagian Belakang",
+                "steps": [
+                    {
+                        "text": "Mulai dengan benang merah",
+                        "nums": [],
+                        "guidances": []
+                    },
+                    {
+                        "text": "Mulai dengan benang merah",
+                        "nums": [],
+                        "guidances": [
+                            "imageName"
+                        ]
+                    }
+                ],
+                "gauge":
+                {
+                    "length": 247,
+                    "width": 123,
+                    "stitch": 876,
+                    "row": 345
+                }
+            }
+        ],
+        "samples": [
+            {
+                "length": 100,
+                "width": 200,
+                "stitch": 450,
+                "row": 310
+            }
         ]
-      },
-      {
-        "name": "Bagian Belakang",
-        "steps": [
-          "lorem ipsum1",
-          "lorem ipsum 2"
+    },
+    {
+        "type": "Syal",
+        "name": "Nama Project",
+        "image": "test",
+        "description": "lorem ipsum",
+        "preparation": "Lorem Ipsum",
+        "yarnType": "",
+        "yarnWeight": "",
+        "hookSize": "",
+        "hookSize": "",
+        "stitchType": "",
+        "subParts": [
+            {
+                "name": "Lengan",
+                "steps": [
+                    {
+                        "text": "Mulai dengan benang merah",
+                        "nums": [],
+                        "guidances": []
+                    },
+                    {
+                        "text": "Mulai dengan benang merah",
+                        "nums": [],
+                        "guidances": [
+                            "imageName"
+                        ]
+                    }
+                ],
+                "gauge":
+                {
+                    "length": 247,
+                    "width": 123,
+                    "stitch": 876,
+                    "row": 345
+                }
+                
+            },
+            {
+                "name": "Pergelangan",
+                "steps": [
+                    {
+                        "text": "Mulai dengan benang merah",
+                        "nums": [],
+                        "guidances": []
+                    },
+                    {
+                        "text": "Mulai dengan benang merah",
+                        "nums": [],
+                        "guidances": [
+                            "imageName"
+                        ]
+                    }
+                ],
+                "gauge":
+                {
+                    "length": 247,
+                    "width": 123,
+                    "stitch": 876,
+                    "row": 345
+                }
+            }
+        ],
+        "samples": [
+            {
+                "length": 247,
+                "width": 123,
+                "stitch": 876,
+                "row": 345
+            }
         ]
-      }
-    ],
-    "gauge": [
-      {
-        "length": 100,
-        "width": 200,
-        "stitch": 450,
-        "row": 310
-      }
-    ]
-  },
-  {
-    "name": "Nama Project",
-    "image": "test",
-    "description": "lorem ipsum",
-    "preparation": "Lorem Ipsum",
-    "yarnType": "",
-    "yarnWeight": "",
-    "hookSize": "",
-    "hookSize": "",
-    "stitchType": "",
-    "subPart": [
-      {
-        "name": "Lengan",
-        "steps": [
-          "lorem ipsum1",
-          "lorem ipsum 2"
-        ]
-      },
-      {
-        "name": "Pergelangan",
-        "steps": [
-          "lorem ipsum1",
-          "lorem ipsum 2"
-        ]
-      }
-    ],
-    "gauge": [
-      {
-        "length": 247,
-        "width": 123,
-        "stitch": 876,
-        "row": 345
-      }
-    ]
-  }
+    }
 ]
