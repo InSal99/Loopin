@@ -1,20 +1,47 @@
 [
   {
-    "name": "Bamboo",
-    "image": "test",
-    "weight": "10",
-    "hook": "5",
-    "characteristic": "Lorem Ipsum",
-    "recommend": ["Tas", "Dompet"],
-    "notRecommend": ["Amigurumi"]
-  },
-  {
-    "name": "Another Yarn",
-    "image": "test",
+    "name": "Katun",
+    "image": "Cotton",
     "weight": "8",
     "hook": "4",
-    "characteristic": "Another Characteristic",
-    "recommend": ["Sweater", "Scarf"],
-    "notRecommend": ["Toys"]
+    "characteristic": "Benang katun, memiliki tekstur yang lembut di kulit, sangat ideal untuk berbagai proyek seperti syal, ponco, dan atasan. Benang ini membuat Anda tetap hangat dalam cuaca dingin dan dapat dipadukan dengan sutra, linen, atau wol untuk tampilan yang berbeda. Menggabungkan katun dengan jenis benang lain menghasilkan hasil yang tahan lama dan tahan kotoran. Keserbagunaannya membuatnya cocok untuk berbagai macam proyek, termasuk untuk anak-anak, karena dapat dicuci pada suhu 60 derajat.",
+    "recommend": ["Sweater", "Syal", "Selimut", "Selimut"],
+    "notRecommend": ["Beanie", "Topi", "Kaos kaki"]
+  },
+  {
+    "name": "Wol",
+    "image": "Wool",
+    "weight": "8",
+    "hook": "4",
+    "characteristic": "Wol adalah salah satu benang yang paling populer, wol sangat cocok untuk pakaian rajut musim dingin dan musim panas karena daya tahannya, ketahanannya terhadap kelembapan, sirkulasi udara, dan sifatnya yang menyerap kelembapan. Namun, wol cenderung menggumpal seiring berjalannya waktu.",
+    "recommend": ["Sweater", "Scarf", "Kaos kaki", "Topi"],
+    "notRecommend": ["Pakaian bayi"]
+  },
+  {
+    "name": "Akrilik",
+    "image": "Acrylic",
+    "weight": "8",
+    "hook": "4",
+    "characteristic": "Benang akrilik memiliki keunggulan praktis, menawarkan perawatan yang mudah dan harga yang terjangkau. Hal ini menjadikan benang ini menjadi pilihan yang sangat baik untuk hadiah, khususnya bagi mereka yang suka dengan bahan yang tidak memerlukan banyak perawatan. Dibandingkan dengan wol, benang akrilik lebih ramah di kantong dan mudah didapatkan. Komposisi sintetisnya membuatnya tahan terhadap hama, sebuah keunggulan yang berbeda dari serat hewani. Selain itu, benang akrilik modern berkualitas tinggi dapat menghasilkan tekstur yang lembut dan nyaman, sehingga cocok bahkan untuk orang yang memiliki kulit sensitif.",
+    "recommend": ["Selimut", "Amigurumi", "Bantal"],
+    "notRecommend": ["Topi", "Kaos kaki"]
+  },
+  {
+    "name": "Alpaka",
+    "image": "Alpaca",
+    "weight": "8",
+    "hook": "4",
+    "characteristic": "Benang alpaka menawarkan kelembutan yang mewah tanpa harga yang mahal seperti benang kasmir, yak, atau Qiviut. Bersifat antialergi dan ideal untuk orang yang sensitif, perlu dicatat bahwa benang alpaka murni dapat menjadi tantangan bagi pemula karena sulitnya mendapatkan jahitan yang seragam. Untuk pemula, campuran dengan wol dan serat alami lainnya direkomendasikan untuk menambah daya tahan dan kemudahan dalam merajut.",
+    "recommend": ["Sarung tangan", "Bando", "Kaos kaki", "Topi", "Syal"],
+    "notRecommend": ["Amigurumi", "Pakaian bayi"]
+  },
+  {
+    "name": "Kasmir",
+    "image": "Cashmere",
+    "weight": "8",
+    "hook": "4",
+    "characteristic": "Benang kasmir merupakan tantangan bagi para pemula karena kelembutannya, harganya, dan sulitnya memperlihatkan jahitan. Bahan campuran yang murah kurang lembut, menjadikan benang wol merino atau alpaka sebagai pilihan yang lebih baik. Kelembutan dan kelicinan kasmir, yang biasanya terdiri dari dua helai, dapat menyulitkan, dan tidak dapat memperlihatkan jahitan dengan baik. Untuk pemula, disarankan untuk memulai dengan bahan yang lebih lembut seperti merino atau alpaka dan mengeksplorasi bahan-bahan yang lebih mewah di tahap berikutnya, untuk menghindari pengeluaran yang berlebihan pada proyek awal.",
+    "recommend": ["Sweater", "Scarf", "Sarung tangan"],
+    "notRecommend": ["Kaos kaki", "Selimut"]
   }
 ]

@@ -6,15 +6,15 @@
     "content": [
       {
         "image": "SlipKnot-1",
-        "description": "lorem ipsum"
+        "description": "Pegang benang di tempat benang dililitkan, dan lilitkan hakpen di sekeliling benang"
       },
       {
         "image": "SlipKnot-2",
-        "description": "lorem ipsum"
+        "description": "Tarik benang yang mengait menggunakan hakpen hingga membentuk simpul baru"
       },
       {
         "image": "SlipKnot-3",
-        "description": "lorem ipsum"
+        "description": "Jika berbentuk seperti gambar maka slip knot berhasil dibuat"
       }
     ]
   },
@@ -25,53 +25,53 @@
     "content": [
       {
         "image": "SingleCrochet-1",
-        "description": "lorem ipsum"
+        "description": "Ambil jahitan dari simpul belakang dan kaitkan benang hingga membentuk simpul baru"
       },
       {
         "image": "SingleCrochet-2",
-        "description": "lorem ipsum"
+        "description": "Tarik benang yang mengait menggunakan hakpen hingga membentuk simpul baru"
       },
       {
         "image": "SingleCrochet-3",
-        "description": "lorem ipsum"
+        "description": "Jika berbentuk seperti gambar maka single crochet berhasil dibuat"
       }
     ]
   },
   {
     "name": "Half Double Crochet",
-    "symbol": "test",
-    "abbreviation": "sc",
+    "symbol": "HDC-Symbol",
+    "abbreviation": "hdc",
     "content": [
       {
-        "image": "test",
-        "description": "lorem ipsum"
+        "image": "HDC-1",
+        "description": "putar benang 1 kali pada hakpen dan kaitkan benang pada 2 chain setelah jahitan awal"
       },
       {
-        "image": "test",
-        "description": "lorem ipsum"
+        "image": "HDC-2",
+        "description": "Tarik benang yang mengait menggunakan hakpen hingga membentuk simpul baru"
       },
       {
-        "image": "test",
-        "description": "lorem ipsum"
+        "image": "HDC-3",
+        "description": "Jika berbentuk seperti gambar maka half double crochet berhasil dibuat"
       }
     ]
   },
   {
     "name": "Double Crochet",
-    "symbol": "test",
-    "abbreviation": "sc",
+    "symbol": "DC-Symbol",
+    "abbreviation": "dc",
     "content": [
       {
-        "image": "test",
-        "description": "lorem ipsum"
+        "image": "DC-1",
+        "description": "putar benang 1 kali pada hakpen dan kaitkan benang pada 2 chain setelah jahitan awal"
       },
       {
-        "image": "test",
-        "description": "lorem ipsum"
+        "image": "DC-2",
+        "description": "Tarik benang yang mengait menggunakan hakpen hingga membentuk simpul baru, kemudian tarik kembali menjadi simpul baru"
       },
       {
-        "image": "test",
-        "description": "lorem ipsum"
+        "image": "DC-3",
+        "description": "Jika berbentuk seperti gambar maka double crochet berhasil dibuat"
       }
     ]
   }
