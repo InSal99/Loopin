@@ -76,6 +76,7 @@
 		16FBA1F62B4BD54D001AEBDB /* SubPart.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16FBA1F52B4BD54D001AEBDB /* SubPart.swift */; };
 		16FBA1F82B4BD59C001AEBDB /* Gauges.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16FBA1F72B4BD59C001AEBDB /* Gauges.swift */; };
 		16FBA1FA2B4D26C7001AEBDB /* Step.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16FBA1F92B4D26C7001AEBDB /* Step.swift */; };
+		16FBA1FC2B4FB6F4001AEBDB /* AccordionWithPicture.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16FBA1FB2B4FB6F4001AEBDB /* AccordionWithPicture.swift */; };
 		8F1BA8E92B29BAC600DD92C4 /* AuthenticationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F1BA8E82B29BAC600DD92C4 /* AuthenticationService.swift */; };
 		8F1BA8EB2B29BB0600DD92C4 /* PostRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F1BA8EA2B29BB0600DD92C4 /* PostRepository.swift */; };
 		8F1BA8EF2B29BB2F00DD92C4 /* CommentRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F1BA8EE2B29BB2F00DD92C4 /* CommentRepository.swift */; };
@@ -172,6 +173,7 @@
 		16FBA1F52B4BD54D001AEBDB /* SubPart.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubPart.swift; sourceTree = "<group>"; };
 		16FBA1F72B4BD59C001AEBDB /* Gauges.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Gauges.swift; sourceTree = "<group>"; };
 		16FBA1F92B4D26C7001AEBDB /* Step.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Step.swift; sourceTree = "<group>"; };
+		16FBA1FB2B4FB6F4001AEBDB /* AccordionWithPicture.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccordionWithPicture.swift; sourceTree = "<group>"; };
 		8F1BA8E82B29BAC600DD92C4 /* AuthenticationService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticationService.swift; sourceTree = "<group>"; };
 		8F1BA8EA2B29BB0600DD92C4 /* PostRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostRepository.swift; sourceTree = "<group>"; };
 		8F1BA8EE2B29BB2F00DD92C4 /* CommentRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentRepository.swift; sourceTree = "<group>"; };
@@ -303,6 +305,7 @@
 				16F64E5B2B0B7BF600EF2E15 /* ForumCard.swift */,
 				16C4D50A2B36DDD0007880DF /* CommentCard.swift */,
 				16C4D50D2B37770C007880DF /* ProjectCard.swift */,
+				16FBA1FB2B4FB6F4001AEBDB /* AccordionWithPicture.swift */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -617,6 +620,7 @@
 				16BF34E62B0B31C00036424B /* Loopin.xcdatamodeld in Sources */,
 				8F1BA8EF2B29BB2F00DD92C4 /* CommentRepository.swift in Sources */,
 				16F64E602B0B8E5100EF2E15 /* ProfileView.swift in Sources */,
+				16FBA1FC2B4FB6F4001AEBDB /* AccordionWithPicture.swift in Sources */,
 				16C4D50E2B37770C007880DF /* ProjectCard.swift in Sources */,
 				16FBA1F62B4BD54D001AEBDB /* SubPart.swift in Sources */,
 				16F64E502B0B44C700EF2E15 /* SecondaryButton.swift in Sources */,

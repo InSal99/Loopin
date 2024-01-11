@@ -11,13 +11,15 @@ struct TermTutorialView: View {
     @Environment(\.presentationMode) var presentationMode
     let title: String
     let content: String
-    let images: String
+    let image: String
     
     var body: some View {
         NavigationView {
             ScrollView(.vertical){
                 ZStack(alignment: .top) {
-                    ImageSlider(images: [images])
+                    Image(image)
+                        .resizable()
+                        .aspectRatio(contentMode: .fill)
                         .frame(maxWidth: 390, maxHeight: 290)
                     RoundedRectangle(cornerRadius: 30)
                         .frame(minHeight: 571)
@@ -52,6 +54,6 @@ struct TermTutorialView: View {
 
 struct TermTutorialView_Previews: PreviewProvider {
     static var previews: some View {
-        TermTutorialView(title: "title", content: "content", images: "test")
+        TermTutorialView(title: "title", content: "content", image: "test")
     }
 }

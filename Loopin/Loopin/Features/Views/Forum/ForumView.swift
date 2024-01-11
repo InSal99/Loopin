@@ -45,6 +45,7 @@ struct ForumView: View {
                 .navigationTitle("Forum")
                 .navigationViewStyle(StackNavigationViewStyle())
                 .navigationBarBackButtonHidden(true)
+                .background(Color("White"))
                 .toolbar {
                     ToolbarItem(placement: .navigationBarTrailing) {
                         Button(action: {

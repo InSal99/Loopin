@@ -25,6 +25,7 @@ struct ProjectsView: View {
             }
             .navigationTitle("Proyek")
             .navigationBarBackButtonHidden(true)
+            .background(Color("White"))
             .onAppear {
                 loadProjectTemplateData()
             }

@@ -44,8 +44,8 @@ struct TutorialPage: View {
                     }
                     .background(Color("White"))
                     .navigationTitle("Tutorial")
-                    .navigationBarBackButtonHidden(true)
                 }
+                .navigationBarBackButtonHidden(true)
             }
     }
 }

@@ -147,6 +147,7 @@ struct CommentView: View {
         }
         .navigationTitle("Komentar")
         .navigationBarTitleDisplayMode(.inline)
+        .background(Color("White"))
         .onAppear {
             // Set the presentation mode for PostViewModel
             postViewModel.presentationMode = presentationMode

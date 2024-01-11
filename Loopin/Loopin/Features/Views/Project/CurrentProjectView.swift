@@ -33,7 +33,7 @@ struct CurrentProjectView: View {
                             Text(subPartItem.name)
                                 .font(.outfit(.semiBold, size: .body3))
                             ForEach(subPartItem.steps, id: \.self) { stepItem in
-                                Accordion(isOpened: false, title: stepItem.text, content: stepItem.text)
+                                AccordionWithPicture(isOpened: false, title: stepItem.text, content: stepItem.guidances)
                             }
                         }
                         

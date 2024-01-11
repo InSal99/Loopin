@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import UIKit
 
 struct ProfileView: View {
     @Environment(\.presentationMode) var presentationMode
@@ -24,7 +25,7 @@ struct ProfileView: View {
             SubPart(name: "Bagian depan", steps: [], gauge: Gauges(length: 10, width: 34, stitch: 65, row: 50)),
             SubPart(name: "Bagian depan", steps: [
                 Step(text: "step title", nums: [], guidances: []),
-                Step(text: "step title", nums: [], guidances: []),
+                Step(text: "step title", nums: [], guidances: ["test", "test"]),
             ], gauge: Gauges(length: 10, width: 34, stitch: 65, row: 50))
         ], samples: []),
         Project(type: "Cardigan", name: "Cardiganku", image: "test", description: "lerem ipsum", preparation: "lorem ipsum", yarnType: "Bamboo", yarnWeight: "chunky", hookSize: "D", stitchType: "Double Crochet", subParts: [
@@ -32,6 +33,13 @@ struct ProfileView: View {
         ], samples: [])
     ]
     let userPosts: [Post] = []
+    
+    init() {
+        UISegmentedControl.appearance().backgroundColor = .lightGray.withAlphaComponent(0.01)
+       UISegmentedControl.appearance().setDividerImage(UIImage(), forLeftSegmentState: .normal, rightSegmentState: .normal, barMetrics: .default)
+       UISegmentedControl.appearance().selectedSegmentTintColor = UIColor(named: "Guava")
+       UISegmentedControl.appearance().setTitleTextAttributes([.foregroundColor: UIColor.white], for: .selected)
+    }
 
     
     var userName: String { authViewModel.authService.user?.username ?? "Kim Kimhan" }
@@ -104,6 +112,7 @@ struct ProfileView: View {
             .padding(.bottom)
             .navigationTitle("Profile")
             .navigationBarBackButtonHidden(true)
+            .background(Color("White"))
             .toolbar {
                 ToolbarItem(placement: .navigationBarTrailing) {
                     Button(action: {

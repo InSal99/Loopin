@@ -10,13 +10,20 @@ import SwiftUI
 struct ProjectPartView: View {
     @Environment(\.presentationMode) var presentationMode
     @State private var showAlert = false
+    @State private var inputWidths: [String] = Array(repeating: "", count: 3)
+    @State private var inputLengths: [String] = Array(repeating: "", count: 3)
+
     
     var body: some View {
         VStack(spacing: 20) {
             ProgressBar(value: 3, maximum: 3)
                 .padding()
             ForEach(1...3, id: \.self) { item in
-                ProjectPartInputCard(placeholder1: "Panjang", placeholder2: 70)
+                ProjectPartInputCard(
+                    subPart: SubPart(name: "name", steps: [], gauge: Gauges(length: 0, width: 0, stitch: 0, row: 0)),
+                    inputWidth: $inputWidths[item - 1], 
+                    inputLength: $inputLengths[item - 1]
+                )
             }
             Spacer()
             Button(action: {

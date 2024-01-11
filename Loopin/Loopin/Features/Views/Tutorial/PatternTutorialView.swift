@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import UIKit
 
 struct PatternTutorialView: View {
     @Environment(\.presentationMode) var presentationMode
@@ -27,36 +28,42 @@ struct PatternTutorialView: View {
                     Spacer()
                     Spacer()
                     HStack(content: {
-                        Image("test")
+                        Image(pattern.symbol)
                             .resizable()
-                            .aspectRatio(contentMode: .fit)
+                            .aspectRatio(contentMode: .fill)
                             .frame(width: 50)
-                        Text("abb")
+                        Text(pattern.abbreviation)
                             .font(.outfit(.medium, size: .heading2))
                             .padding(.horizontal, 20)
                     })
                     TabView {
-                        ForEach(1...3, id: \.self) { content in
+                        ForEach(pattern.content, id: \.self) { contentItem in
                             VStack (spacing: 50) {
-                                Image("test")
+                                Image(contentItem.image)
                                     .resizable()
                                     .aspectRatio(contentMode: .fit)
                                     .frame(width: 300)
                                     .cornerRadius(30)
-                                Text("lorem ipsum")
+                                Text(contentItem.description)
                                     .font(.outfit(.regular, size: .body2))
+                                    .multilineTextAlignment(.center)
                             }
                         }
                     }
                     .frame(maxWidth: 345, maxHeight: 800)
                     .tabViewStyle(PageTabViewStyle(indexDisplayMode: .always))
                     .background(Color("White"))
+                    .onAppear {
+                        UIPageControl.appearance().currentPageIndicatorTintColor = UIColor(Color("Guava"))
+                        UIPageControl.appearance().pageIndicatorTintColor = UIColor(Color("Peach"))
+                    }
                     Spacer()
                     Spacer()
                 }
             }
             .navigationTitle(pattern.name)
             .navigationBarTitleDisplayMode(.inline)
+            .navigationBarBackButtonHidden(true)
             .toolbar {
                 ToolbarItem(placement: .navigationBarLeading) {
                     Button {
