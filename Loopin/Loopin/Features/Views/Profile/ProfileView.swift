@@ -20,16 +20,16 @@ struct ProfileView: View {
     let userProjects: [Project] = 
     //Disimpan di firebase
     [
-        Project(name: "Cardigan", image: "test", description: "lerem ipsum", preparation: "lorem ipsum", yarntType: "Bamboo", yarnWeight: "chunky", hookSize: "D", stitchType: "Double Crochet", subPart: [
+        Project(type: "Cardigan", name: "Cardiganku", image: "test", description: "lerem ipsum", preparation: "lorem ipsum", yarnType: "Bamboo", yarnWeight: "chunky", hookSize: "D", stitchType: "Double Crochet", subParts: [
             SubPart(name: "Bagian depan", steps: [], gauge: Gauges(length: 10, width: 34, stitch: 65, row: 50)),
             SubPart(name: "Bagian depan", steps: [
-                Step(title: "step title", content: "step content"),
-                Step(title: "step title", content: "step content")
+                Step(text: "step title", nums: [], guidances: []),
+                Step(text: "step title", nums: [], guidances: []),
             ], gauge: Gauges(length: 10, width: 34, stitch: 65, row: 50))
-        ], sample: []),
-        Project(name: "Cardigan", image: "test", description: "lerem ipsum", preparation: "lorem ipsum", yarntType: "Bamboo", yarnWeight: "chunky", hookSize: "D", stitchType: "Double Crochet", subPart: [
-                SubPart(name: "Bagian depan", steps: [], gauge: Gauges(length: 10, width: 34, stitch: 65, row: 50))
-        ], sample: [])
+        ], samples: []),
+        Project(type: "Cardigan", name: "Cardiganku", image: "test", description: "lerem ipsum", preparation: "lorem ipsum", yarnType: "Bamboo", yarnWeight: "chunky", hookSize: "D", stitchType: "Double Crochet", subParts: [
+            SubPart(name: "Bagian depan", steps: [], gauge: Gauges(length: 10, width: 34, stitch: 65, row: 50))
+        ], samples: [])
     ]
     let userPosts: [Post] = []
 

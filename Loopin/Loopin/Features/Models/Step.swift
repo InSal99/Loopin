@@ -7,6 +7,7 @@
 
 import Foundation
 struct Step: Decodable, Hashable {
-    let title: String
-    let content: String
+    let text: String
+    let nums: [Int]
+    let guidances: [String]
 }

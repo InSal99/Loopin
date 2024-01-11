@@ -28,13 +28,22 @@ struct CurrentProjectView: View {
                             .font(.outfit(.semiBold, size: .body3))
                         Text(currentProject.preparation)
                             .font(.outfit(.regular, size: .body2))
-                        ForEach(currentProject.subPart, id: \.self) { subPartItem in
+                        
+                        ForEach(currentProject.subParts, id: \.self) { subPartItem in
                             Text(subPartItem.name)
                                 .font(.outfit(.semiBold, size: .body3))
                             ForEach(subPartItem.steps, id: \.self) { stepItem in
-                                Accordion(isOpened: false, title: stepItem.title, content: stepItem.content)
+                                Accordion(isOpened: false, title: stepItem.text, content: stepItem.text)
                             }
                         }
+                        
+//                        ForEach(currentProject.subPart, id: \.self) { subPartItem in
+//                            Text(subPartItem.name)
+//                                .font(.outfit(.semiBold, size: .body3))
+//                            ForEach(subPartItem.steps, id: \.self) { stepItem in
+//                                Accordion(isOpened: false, title: stepItem.title, content: stepItem.content)
+//                            }
+//                        }
                     }
                     .padding(.top, 300)
                     .padding()
@@ -59,6 +68,7 @@ struct CurrentProjectView: View {
 
 struct CurrentProjectView_Previews: PreviewProvider {
     static var previews: some View {
-        CurrentProjectView(currentProject: Project(name: "name", image: "test", description: "description", preparation: "preparation", yarntType: "yarn type", yarnWeight: "yarn weight", hookSize: "hook size", stitchType: "stitch type", subPart: [], sample: []))
+        CurrentProjectView(
+            currentProject: Project(type:"tipe", name: "name", image: "test", description: "description", preparation: "preparation", yarnType: "yarn type", yarnWeight: "yarn weight", hookSize: "hook size", stitchType: "stitch type", subParts: [], samples: []))
     }
 }

@@ -9,7 +9,6 @@
         "yarnType": "Katun",
         "yarnWeight": "Worsted",
         "hookSize": "H / 5.0",
-        "hookSize": "H / 5.0",
         "stitchType": "Single Crochet",
         "subParts": [
             {
@@ -71,7 +70,6 @@
         "preparation": "Lorem Ipsum",
         "yarnType": "Akrilik",
         "yarnWeight": "Bulky",
-        "hookSize": "K / 6.5",
         "hookSize": "K / 6.5",
         "stitchType": "Double Crochet",
         "subParts": [
@@ -140,7 +138,7 @@
                         "guidances": [
                             "Project-Shawl-Step7"
                         ]
-                    }
+                    },
                     {
                         "text": "Ulangi langkah pada semua jahitan pada ujung syal",
                         "nums": [],
@@ -173,7 +171,6 @@
         "preparation": "Lorem Ipsum",
         "yarnType": "Katun",
         "yarnWeight": "Light",
-        "hookSize": "H / 5.0",
         "hookSize": "H / 5.0",
         "stitchType": "Single Crochet",
         "subParts": [
