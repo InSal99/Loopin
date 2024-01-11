@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct TermTutorialListView: View {
-    //    @State private var isTermViewPresented = false
+    @Environment(\.presentationMode) var presentationMode
     @State private var termData: [[String: String]] = []
     @State private var selectedTermItem: [String: String]?
     
@@ -17,7 +17,7 @@ struct TermTutorialListView: View {
             ScrollView(.vertical) {
                 LazyVGrid(columns: [GridItem(.adaptive(minimum: 140))], spacing: 18) {
                     ForEach(termData, id: \.self) { termItem in
-                        NavigationLink(destination: TermTutorialView(title: termItem["title"] ?? "", content: termItem["content"] ?? "", images: termItem["image"] ?? "")) {
+                        NavigationLink(destination: TermTutorialView(title: termItem["title"] ?? "", content: termItem["content"] ?? "", image: termItem["image"] ?? "")) {
                             SquareCard(cardText: termItem["title"] ?? "", cardImage: termItem["image"] ?? "")
                         }
                         //                        Button(action: {
@@ -34,11 +34,24 @@ struct TermTutorialListView: View {
                     }
                 }
             }
-            .navigationBarBackButtonHidden(true)
+            .background(Color("White"))
+            .navigationTitle("Daftar Istilah")
+            .navigationBarTitleDisplayMode(.inline)
             .onAppear {
                 loadTermData()
             }
+            .toolbar {
+                ToolbarItem(placement: .navigationBarLeading) {
+                    Button {
+                        presentationMode.wrappedValue.dismiss()
+                    } label: {
+                        Image(systemName: "chevron.left")
+                            .foregroundColor(.black)
+                    }
+                }
+            }
         }
+        .navigationBarBackButtonHidden(true)
     }
     
     func loadTermData() {
@@ -68,6 +81,6 @@ struct TermTutorialListView: View {
 }
 
 
-//#Preview {
-//    TermTutorialListView()
-//}
+#Preview {
+    TermTutorialListView()
+}

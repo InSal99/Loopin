@@ -11,17 +11,14 @@ import WrappingHStack
 struct YarnTutorialView: View {
     @Environment(\.presentationMode) var presentationMode
     let yarn: Yarn
-//    let title: String = "Bamboo"
-//    let content: String =  "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam eu turpis molestie, dictum est a, mattis tellus. Sed dignissim, metus nec fringilla accumsan, risus sem sollicitudin lacus, ut interdum tellus elit sed risus. Maecenas eget condimentum velit, sit amet feugiat lectus. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos."
-//    let images = ["test", "test"]
-//    let recommend = ["Tas", "Dompet", "Proyek"]
-//    let notRecommend = ["Amigurumi", "Proyek", "Proyek"]
     
     var body: some View {
         NavigationView {
             ScrollView(.vertical){
                 ZStack(alignment: .top) {
-                    ImageSlider(images: [yarn.image])
+                    Image(yarn.image)
+                        .resizable()
+                        .aspectRatio(contentMode: .fill)
                         .frame(maxWidth: 390, maxHeight: 290)
                     RoundedRectangle(cornerRadius: 30)
                         .frame(minHeight: 571)

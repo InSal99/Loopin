@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct YarnTutorialListView: View {
-//    @State private var isYarnViewPresented = false
+    @Environment(\.presentationMode) var presentationMode
     @State private var yarnData: [Yarn] = []
     @State private var selectedYarnItem: Yarn?
     
@@ -20,25 +20,27 @@ struct YarnTutorialListView: View {
                         NavigationLink(destination: YarnTutorialView(yarn: yarnItem)) {
                             SquareCard(cardText: yarnItem.name, cardImage: yarnItem.image)
                         }
-                        //                        Button(action: {
-                        //                            selectedYarnItem = yarnItem
-                        //                            isYarnViewPresented.toggle()
-                        //                        }, label: {
-                        //                            SquareCard(cardText: yarnItem.name, cardImage: yarnItem.image )
-                        //                        })
-                        //                        .sheet(isPresented: $isYarnViewPresented) {
-                        //                            if let selectedYarnItem = selectedYarnItem {
-                        //                                YarnTutorialView(yarn: selectedYarnItem)
-                        //                            }
-                        //                        }
                     }
                 }
             }
-            .navigationBarBackButtonHidden(true)
+            .background(Color("White"))
+            .navigationTitle("Daftar Benang")
+            .navigationBarTitleDisplayMode(.inline)
             .onAppear {
                 loadPatternData()
             }
+            .toolbar {
+                ToolbarItem(placement: .navigationBarLeading) {
+                    Button {
+                        presentationMode.wrappedValue.dismiss()
+                    } label: {
+                        Image(systemName: "chevron.left")
+                            .foregroundColor(.black)
+                    }
+                }
+            }
         }
+        .navigationBarBackButtonHidden(true)
     }
     
     func loadPatternData() {
@@ -67,6 +69,6 @@ struct YarnTutorialListView: View {
     }
 }
 
-//#Preview {
-//    YarnTutorialListView()
-//}
+#Preview {
+    YarnTutorialListView()
+}

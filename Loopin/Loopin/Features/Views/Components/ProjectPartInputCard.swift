@@ -8,32 +8,58 @@
 import SwiftUI
 
 struct ProjectPartInputCard: View {
-    let placeholder1: String
-    let placeholder2: Int
+    let subPart: SubPart
+    
+    // The @State Object
+    @Binding var inputWidth: String
+    @Binding var inputLength: String
+    let placeholder:String = "...."
     
     var body: some View {
         ZStack(alignment: .leading) {
             RoundedRectangle(cornerRadius: 20)
-                .frame(width: 358, height: 90)
+                .frame(width: 358, height: 105)
                 .foregroundColor(Color("White"))
             VStack(alignment: .leading) {
                 Text("nama bagian")
                     .font(.outfit(.medium, size: .body2))
                 HStack {
-                    Text(placeholder1)
+                    Text("Lebar")
                         .font(.outfit(.ligth, size: .body2))
                     Spacer()
-                    Text("\(placeholder2) cm")
-                        .font(.outfit(.regular, size: .body2))
-                        .multilineTextAlignment(.trailing)
+                    HStack {
+                        TextField(placeholder, text: $inputWidth)
+                            .font(.outfit(.regular, size: .body2))
+                            .frame(maxWidth: 52)
+                            .multilineTextAlignment(.trailing)
+                        Text("cm")
+                            .font(.outfit(.regular, size: .body2))
+                            .multilineTextAlignment(.trailing)
+                            .padding(.trailing, 13)
+                    }
+                    .background(
+                        RoundedRectangle(cornerRadius: 7)
+                            .foregroundColor(.white)
+                    )
                 }
                 HStack {
-                    Text(placeholder1)
+                    Text("Panjang")
                         .font(.outfit(.ligth, size: .body2))
                     Spacer()
-                    Text("\(placeholder2) cm")
-                        .font(.outfit(.regular, size: .body2))
-                        .multilineTextAlignment(.trailing)
+                    HStack {
+                        TextField(placeholder, text: $inputLength)
+                            .font(.outfit(.regular, size: .body2))
+                            .frame(maxWidth: 52)
+                            .multilineTextAlignment(.trailing)
+                        Text("cm")
+                            .font(.outfit(.regular, size: .body2))
+                            .multilineTextAlignment(.trailing)
+                            .padding(.trailing, 13)
+                    }
+                    .background(
+                        RoundedRectangle(cornerRadius: 7)
+                            .foregroundColor(.white)
+                    )
                 }
             }
             .padding(.horizontal)
@@ -44,6 +70,6 @@ struct ProjectPartInputCard: View {
 
 struct ProjectPartInputCard_Previews: PreviewProvider {
     static var previews: some View {
-        ProjectPartInputCard(placeholder1: "Panjang", placeholder2: 70)
+        ProjectPartInputCard(subPart: SubPart(name: "name", steps: [], gauge: Gauges(length: 0, width: 0, stitch: 0, row: 0)), inputWidth: .constant(""), inputLength: .constant(""))
     }
 }

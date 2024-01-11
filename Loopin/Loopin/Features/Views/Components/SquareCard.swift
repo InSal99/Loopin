@@ -20,6 +20,7 @@ struct SquareCard: View {
                 Image(cardImage)
                     .resizable()
                     .frame(width: 152, height: 137)
+                    .cornerRadius(25)
                 Text(cardText)
                     .font(.outfit(.semiBold, size: .body2))
                     .foregroundColor(Color("Black"))

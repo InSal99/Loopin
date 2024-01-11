@@ -9,7 +9,7 @@ import SwiftUI
 import SwiftUI
 
 struct PatternTutorialListView: View {
-//    @State private var isPatternViewPresented = false
+    @Environment(\.presentationMode) var presentationMode
     @State private var patternData: [Pattern] = []
     @State private var selectedPatternItem: Pattern?
     
@@ -36,10 +36,24 @@ struct PatternTutorialListView: View {
                 }
             }
             .navigationBarBackButtonHidden(true)
+            .background(Color("White"))
+            .navigationTitle("Daftar Pola")
+            .navigationBarTitleDisplayMode(.inline)
             .onAppear {
                 loadPatternData()
             }
+            .toolbar {
+                ToolbarItem(placement: .navigationBarLeading) {
+                    Button {
+                        presentationMode.wrappedValue.dismiss()
+                    } label: {
+                        Image(systemName: "chevron.left")
+                            .foregroundColor(.black)
+                    }
+                }
+            }
         }
+        .navigationBarBackButtonHidden(true)
     }
     
     func loadPatternData() {
@@ -69,6 +83,6 @@ struct PatternTutorialListView: View {
 }
 
 
-//#Preview {
-//    PatternTutorialListView()
-//}
+#Preview {
+    PatternTutorialListView()
+}
