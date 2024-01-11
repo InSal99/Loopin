@@ -9,7 +9,9 @@ import SwiftUI
 
 struct SampleInfoView: View {
     @Environment(\.presentationMode) var presentationMode
-   
+    
+    var project: Project
+
     @State private var height = ""
     @State private var width = ""
     @State private var totalStitch = ""
@@ -25,7 +27,7 @@ struct SampleInfoView: View {
             ShortTextField(placeholder: "jumlah baris", field: $totalRow)
             Spacer()
             NavigationLink {
-                ProjectPartView()
+                ProjectPartView(project: project)
             } label: {
                 PrimaryButton(buttonText: "Lanjut")
             }
@@ -47,6 +49,6 @@ struct SampleInfoView: View {
 
 struct SampleInfoView_Previews: PreviewProvider {
     static var previews: some View {
-        SampleInfoView()
+        SampleInfoView(project: Project(type: "Cardigan", name: "name", image: "test", description: "description", preparation: "preparation", yarnType: "yarn type", yarnWeight: "yarn weight", hookSize: "hook size", stitchType: "stitch type", subParts: [], samples: []))
     }
 }

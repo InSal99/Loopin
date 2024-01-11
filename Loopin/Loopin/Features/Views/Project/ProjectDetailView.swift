@@ -61,8 +61,8 @@ struct ProjectDetailView: View {
     }
 }
 
-struct ProjectDetailView_Previews: PreviewProvider {
-    static var previews: some View {
-        ProjectDetailView(selectedProject:  Project(type:"tipe", name: "name", image: "test", description: "description", preparation: "preparation", yarnType: "yarn type", yarnWeight: "yarn weight", hookSize: "hook size", stitchType: "stitch type", subParts: [], samples: []))
-    }
-}
+//struct ProjectDetailView_Previews: PreviewProvider {
+//    static var previews: some View {
+//        ProjectDetailView(selectedProject:  Project(type:"tipe", name: "name", image: "test", description: "description", preparation: "preparation", yarnType: "yarn type", yarnWeight: "yarn weight", hookSize: "hook size", stitchType: "stitch type", subParts: [], samples: []))
+//    }
+//}

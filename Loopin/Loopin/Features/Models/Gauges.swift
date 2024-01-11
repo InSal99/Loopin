@@ -6,9 +6,9 @@
 //
 
 import Foundation
-struct Gauges: Decodable, Hashable {
-    let length: Double
-    let width: Double
-    let stitch: Int
-    let row: Int
+struct Gauges: Codable, Hashable {
+    var length: Double
+    var width: Double
+    var stitch: Int
+    var row: Int
 }

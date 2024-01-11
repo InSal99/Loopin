@@ -1,15 +1,14 @@
 //
-//  ProjectTemplateData.swift
+//  ProjectTemplateJSON.swift
 //  Loopin
 //
-//  Created by Intan Saliya Utomo on 08/01/24.
+//  Created by Celine Margaretha on 11/01/24.
 //
-import Foundation
-import FirebaseFirestore
-import FirebaseFirestoreSwift
 
-struct Project: Identifiable, Codable {
-    @DocumentID var id: String?
+import Foundation
+struct ProjectTemplateJSON: Identifiable, Codable {
+    let id = UUID()
+    
     var type: String
     var name: String
     var image: String

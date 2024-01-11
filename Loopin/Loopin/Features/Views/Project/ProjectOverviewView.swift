@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct ProjectOverviewView: View {
-    let projectTemplate: Project
+    let projectTemplate: ProjectTemplateJSON
     
     var body: some View {
         NavigationView {
@@ -28,7 +28,18 @@ struct ProjectOverviewView: View {
                             .font(.outfit(.regular, size: .body2))
                         Spacer()
                         NavigationLink {
-                            ProjectInfoView()
+                            ProjectInfoView(project:
+                                    Project(
+                                        type: projectTemplate.type,
+                                        name: projectTemplate.name,
+                                        image: projectTemplate.image,
+                                        description: projectTemplate.description,
+                                        preparation: projectTemplate.preparation,
+                                        yarnType: projectTemplate.yarnType,
+                                        yarnWeight: projectTemplate.yarnWeight,
+                                        hookSize: projectTemplate.hookSize,
+                                        stitchType: projectTemplate.stitchType)
+                            )
                         } label: {
                             PrimaryButton(buttonText: "Buat Proyek")
                         }
@@ -44,6 +55,6 @@ struct ProjectOverviewView: View {
 
 struct ProjectOverviewView_Previews: PreviewProvider {
     static var previews: some View {
-        ProjectOverviewView(projectTemplate: Project(type: "Cardigan", name: "name", image: "test", description: "description", preparation: "preparation", yarnType: "yarn type", yarnWeight: "yarn weight", hookSize: "hook size", stitchType: "stitch type", subParts: [], samples: []))
+        ProjectOverviewView(projectTemplate: ProjectTemplateJSON(type: "Cardigan", name: "name", image: "test", description: "description", preparation: "preparation", yarnType: "yarn type", yarnWeight: "yarn weight", hookSize: "hook size", stitchType: "stitch type", subParts: [], samples: []))
     }
 }

@@ -19,7 +19,6 @@ struct LoopinApp: App {
         WindowGroup {
             WelcomePage()
                 .environmentObject(authViewModel)
-
             
 //            ContentView()
 //                .environment(\.managedObjectContext, persistenceController.container.viewContext)

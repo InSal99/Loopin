@@ -6,8 +6,8 @@
 //
 
 import Foundation
-struct SubPart: Decodable, Hashable {
-    let name: String
-    let steps: [Step]
-    let gauge: Gauges
+struct SubPart: Codable, Hashable {
+    var name: String
+    var steps: [Step] = []
+    var gauge: Gauges
 }

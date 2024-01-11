@@ -8,8 +8,8 @@
 import SwiftUI
 
 struct SquareCard: View {
-    let cardText: String
-    let cardImage: String
+    var cardText: String
+    var cardImage: String
     
     var body: some View {
         ZStack(alignment: .leading) {
