@@ -9,9 +9,10 @@ import SwiftUI
 
 struct ProjectsView: View {
     @State private var isProjectOverviewViewPresented = false
-    @State private var projectTemplateData: [Project] = []
-    @State private var selectedTemplateItem: Project?
+    @State private var projectTemplateData: [ProjectTemplateJSON] = []
+//    @State private var selectedTemplateItem: Project?
     
+  
     var body: some View {
         NavigationView {
             ScrollView(.vertical){
@@ -33,7 +34,7 @@ struct ProjectsView: View {
     }
     
     func loadProjectTemplateData() {
-        projectTemplateData = load("ProjectTemplateData.json")
+        self.projectTemplateData = load("ProjectTemplateData.json")
     }
     
     func load<T: Decodable>(_ filename: String) -> T {
@@ -54,6 +55,22 @@ struct ProjectsView: View {
             return try decoder.decode(T.self, from: data)
         } catch {
             fatalError("Couldn't parse \(filename) as \(T.self):\n\(error)")
+        }
+    }
+    
+    func loadT<T: Decodable>(_ filename: String) -> T {
+        guard let file = Bundle.main.url(forResource: filename, withExtension: nil) else {
+            fatalError("Couldn't find \(filename) in the main bundle.")
+        }
+        
+        do {
+            let data = try Data(contentsOf: file)
+            let decoder = JSONDecoder()
+            let loadedData = try decoder.decode(T.self, from: data)
+            
+            return loadedData
+        } catch {
+            fatalError("Error loading or decoding \(filename): \(error)")
         }
     }
 }

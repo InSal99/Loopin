@@ -80,12 +80,17 @@
 		8F1BA8E92B29BAC600DD92C4 /* AuthenticationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F1BA8E82B29BAC600DD92C4 /* AuthenticationService.swift */; };
 		8F1BA8EB2B29BB0600DD92C4 /* PostRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F1BA8EA2B29BB0600DD92C4 /* PostRepository.swift */; };
 		8F1BA8EF2B29BB2F00DD92C4 /* CommentRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F1BA8EE2B29BB2F00DD92C4 /* CommentRepository.swift */; };
+		8F404E242B4ED5F900F7145C /* ProjectRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F404E232B4ED5F900F7145C /* ProjectRepository.swift */; };
+		8F404E262B4EE37000F7145C /* JSONFileHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F404E252B4EE37000F7145C /* JSONFileHandler.swift */; };
+		8F404E282B4EE90100F7145C /* ProjectViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F404E272B4EE90100F7145C /* ProjectViewModel.swift */; };
+		8F404E2A2B4EE90C00F7145C /* ProjectListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F404E292B4EE90C00F7145C /* ProjectListViewModel.swift */; };
 		8F7E67D62B19C750005DBD9E /* ObjectPart.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F7E67D52B19C750005DBD9E /* ObjectPart.swift */; };
 		8FA5AD352B199B3B0021F53C /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FA5AD342B199B3B0021F53C /* User.swift */; };
 		8FA5AD372B199BAB0021F53C /* AppManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FA5AD362B199BAB0021F53C /* AppManager.swift */; };
 		8FA5AD392B199C030021F53C /* Post.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FA5AD382B199C030021F53C /* Post.swift */; };
 		8FA5AD3B2B199EC50021F53C /* Comment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FA5AD3A2B199EC50021F53C /* Comment.swift */; };
 		8FA5AD3D2B199F8C0021F53C /* ProjectDetails.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FA5AD3C2B199F8C0021F53C /* ProjectDetails.swift */; };
+		8FAE74B62B5003B700E48454 /* ProjectTemplateJSON.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FAE74B52B5003B700E48454 /* ProjectTemplateJSON.swift */; };
 		8FAEA3D62B1A403D009B7E67 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 8FAEA3D52B1A403D009B7E67 /* GoogleService-Info.plist */; };
 		8FAEA3D92B1A41A3009B7E67 /* FirebaseAnalytics in Frameworks */ = {isa = PBXBuildFile; productRef = 8FAEA3D82B1A41A3009B7E67 /* FirebaseAnalytics */; };
 		8FAEA3DB2B1A41A3009B7E67 /* FirebaseAuth in Frameworks */ = {isa = PBXBuildFile; productRef = 8FAEA3DA2B1A41A3009B7E67 /* FirebaseAuth */; };
@@ -177,12 +182,17 @@
 		8F1BA8E82B29BAC600DD92C4 /* AuthenticationService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticationService.swift; sourceTree = "<group>"; };
 		8F1BA8EA2B29BB0600DD92C4 /* PostRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostRepository.swift; sourceTree = "<group>"; };
 		8F1BA8EE2B29BB2F00DD92C4 /* CommentRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentRepository.swift; sourceTree = "<group>"; };
+		8F404E232B4ED5F900F7145C /* ProjectRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectRepository.swift; sourceTree = "<group>"; };
+		8F404E252B4EE37000F7145C /* JSONFileHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JSONFileHandler.swift; sourceTree = "<group>"; };
+		8F404E272B4EE90100F7145C /* ProjectViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectViewModel.swift; sourceTree = "<group>"; };
+		8F404E292B4EE90C00F7145C /* ProjectListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectListViewModel.swift; sourceTree = "<group>"; };
 		8F7E67D52B19C750005DBD9E /* ObjectPart.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ObjectPart.swift; sourceTree = "<group>"; };
 		8FA5AD342B199B3B0021F53C /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		8FA5AD362B199BAB0021F53C /* AppManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppManager.swift; sourceTree = "<group>"; };
 		8FA5AD382B199C030021F53C /* Post.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Post.swift; sourceTree = "<group>"; };
 		8FA5AD3A2B199EC50021F53C /* Comment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Comment.swift; sourceTree = "<group>"; };
 		8FA5AD3C2B199F8C0021F53C /* ProjectDetails.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectDetails.swift; sourceTree = "<group>"; };
+		8FAE74B52B5003B700E48454 /* ProjectTemplateJSON.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectTemplateJSON.swift; sourceTree = "<group>"; };
 		8FAEA3D52B1A403D009B7E67 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		8FAEA3DC2B1ACA40009B7E67 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		8FC1407F2B4AA955008AAE90 /* CommentManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentManager.swift; sourceTree = "<group>"; };
@@ -327,6 +337,7 @@
 				8F1BA8EA2B29BB0600DD92C4 /* PostRepository.swift */,
 				8F1BA8EE2B29BB2F00DD92C4 /* CommentRepository.swift */,
 				8FC60F752B39FD4D00C8C241 /* UserRepository.swift */,
+				8F404E232B4ED5F900F7145C /* ProjectRepository.swift */,
 			);
 			path = Repositories;
 			sourceTree = "<group>";
@@ -349,6 +360,8 @@
 				8FC60F7C2B3ECEA400C8C241 /* PostListViewModel.swift */,
 				8FC65C642B499314007E8D28 /* CommentListViewModel.swift */,
 				8FC1407F2B4AA955008AAE90 /* CommentManager.swift */,
+				8F404E272B4EE90100F7145C /* ProjectViewModel.swift */,
+				8F404E292B4EE90C00F7145C /* ProjectListViewModel.swift */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -366,9 +379,11 @@
 				16FBA1E32B4BC877001AEBDB /* PatternContent.swift */,
 				16FBA1EF2B4BCD48001AEBDB /* Hook.swift */,
 				16FBA1F32B4BD495001AEBDB /* Project.swift */,
+				8FAE74B52B5003B700E48454 /* ProjectTemplateJSON.swift */,
 				16FBA1F52B4BD54D001AEBDB /* SubPart.swift */,
 				16FBA1F72B4BD59C001AEBDB /* Gauges.swift */,
 				16FBA1F92B4D26C7001AEBDB /* Step.swift */,
+				8F404E252B4EE37000F7145C /* JSONFileHandler.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -596,6 +611,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				8FC60F702B397B1C00C8C241 /* AuthenticationViewModel.swift in Sources */,
+				8FAE74B62B5003B700E48454 /* ProjectTemplateJSON.swift in Sources */,
+				8F404E242B4ED5F900F7145C /* ProjectRepository.swift in Sources */,
 				16F64E4E2B0B3D9700EF2E15 /* PrimaryButton.swift in Sources */,
 				16C4D5072B36D6FA007880DF /* Numbering.swift in Sources */,
 				16FBA1E62B4BC8B5001AEBDB /* TermTutorialListView.swift in Sources */,
@@ -604,12 +621,14 @@
 				16F64E4B2B0B371E00EF2E15 /* TextExtension.swift in Sources */,
 				8FC65C632B493046007E8D28 /* CommentViewModel.swift in Sources */,
 				16F64E5A2B0B772100EF2E15 /* SquareCard.swift in Sources */,
+				8F404E2A2B4EE90C00F7145C /* ProjectListViewModel.swift in Sources */,
 				16F64E5C2B0B7BF600EF2E15 /* ForumCard.swift in Sources */,
 				16F64E552B0B57F900EF2E15 /* TutorialPage.swift in Sources */,
 				16FBA1E42B4BC877001AEBDB /* PatternContent.swift in Sources */,
 				16EEB26B2B0BEB7100C340D1 /* ProjectPartInputCard.swift in Sources */,
 				16FBA1DE2B4BC77B001AEBDB /* Yarn.swift in Sources */,
 				161AA70F2B0E1EB3008A59CE /* YarnTutorialListView.swift in Sources */,
+				8F404E282B4EE90100F7145C /* ProjectViewModel.swift in Sources */,
 				8F1BA8E92B29BAC600DD92C4 /* AuthenticationService.swift in Sources */,
 				16BF34ED2B0B33080036424B /* WelcomePage.swift in Sources */,
 				16FBA1FA2B4D26C7001AEBDB /* Step.swift in Sources */,
@@ -618,6 +637,7 @@
 				16EEB2632B0BE49400C340D1 /* ProjectInfoView.swift in Sources */,
 				16EEB25F2B0BD56500C340D1 /* DetailProjectCard.swift in Sources */,
 				16BF34E62B0B31C00036424B /* Loopin.xcdatamodeld in Sources */,
+				8F404E262B4EE37000F7145C /* JSONFileHandler.swift in Sources */,
 				8F1BA8EF2B29BB2F00DD92C4 /* CommentRepository.swift in Sources */,
 				16F64E602B0B8E5100EF2E15 /* ProfileView.swift in Sources */,
 				16FBA1FC2B4FB6F4001AEBDB /* AccordionWithPicture.swift in Sources */,

@@ -10,6 +10,8 @@ import SwiftUI
 struct ProjectInfoView: View {
     @Environment(\.presentationMode) var presentationMode
    
+    var project: Project
+
     @State private var name = ""
     @State private var desc = ""
     @State private var yarnType = ""
@@ -29,7 +31,7 @@ struct ProjectInfoView: View {
             ShortTextField(placeholder: "jenis jahitan", field: $stitchType)
             Spacer()
             NavigationLink {
-                SampleInfoView()
+                SampleInfoView(project: project)
             } label: {
                 PrimaryButton(buttonText: "Lanjut")
             }
@@ -51,6 +53,6 @@ struct ProjectInfoView: View {
 
 struct ProjectInfoView_Previews: PreviewProvider {
     static var previews: some View {
-        ProjectInfoView()
+        ProjectInfoView(project: Project(type: "Cardigan", name: "name", image: "test", description: "description", preparation: "preparation", yarnType: "yarn type", yarnWeight: "yarn weight", hookSize: "hook size", stitchType: "stitch type", subParts: [], samples: []))
     }
 }

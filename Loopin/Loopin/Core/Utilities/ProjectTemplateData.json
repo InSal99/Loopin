@@ -16,31 +16,36 @@
                 "steps": [
                     {
                         "text": "Dimulai dengan membuat # chain",
-                        "nums": [4],
+                        "nums": 4,
+                        "isStitch": true,
                         "guidances": []
                     },
                     {
                         "text": "Baris 1: dc di ch ke-3 dari hakpen, ch 2, sc di ch berikutnya. *Lewati 2 ch, 2 dc di ch berikutnya, ch 2, sc di ch berikutnya. Ulangi dari * di seluruh baris, putar.",
-                        "nums": [],
+                        "nums": 0,
+                        "isStitch": false,
                         "guidances": [
                             "Project-Blanket-Step1"
                         ]
                     },
                     {
                         "text": "Baris 2: ch 2, lewati jahitan pertama, buat (2 dc, 2 ch, dan 1 sc di ruang rantai). *Lewati 3 jahitan berikutnya dan buat (2 dc, 2 ch, dan 1 sc di ruang rantai). Ulangi dari * di seluruh baris, putar.",
-                        "nums": [],
+                        "nums": 0,
+                        "isStitch": false,
                         "guidances": [
                             "Project-Blanket-Step2"
                         ]
                     },
                     {
                         "text": "Ulangi pola pada baris 2 hingga mencapai baris #",
-                        "nums": [8],
+                        "nums": 8,
+                        "isStitch": false,
                         "guidances": []
                     },
                     {
                         "text": "Tutup jahitan dengan slip knot dan ikat ujung benang",
-                        "nums": [],
+                        "nums": 0,
+                        "isStitch": false,
                         "guidances": []
                     }
                 ],
@@ -78,12 +83,14 @@
                 "steps": [
                     {
                         "text": "Dimulai dengan membuat # chain",
-                        "nums": [24],
+                        "nums": 24,
+                        "isStitch": true,
                         "guidances": []
                     },
                     {
                         "text": "Baris 1: Pada ch ke-4 dari hakpen, buatlah dc. Lakukan satu dc di setiap ch hingga ujung baris.",
-                        "nums": [],
+                        "nums": 0,
+                        "isStitch": false,
                         "guidances": [
                             "Project-Shawl-Step1",
                             "Project-Shawl-Step2",
@@ -93,7 +100,8 @@
                     },
                     {
                         "text": "Baris 2: Ch 3 dan putar (dihitung sebagai dc).  Buatlah sebuah dc pada jahitan berikutnya dan pada setiap jahitan. Akhiri baris dengan membuat dc di chain paling atas dari rantai putaran.",
-                        "nums": [],
+                        "nums": 0,
+                        "isStitch": false,
                         "guidances": [
                             "Project-Shawl-Step5",
                             "Project-Shawl-Step7"
@@ -101,12 +109,14 @@
                     },
                     {
                         "text": "Ulangi baris 2 hingga syal memiliki panjang yang diinginkan.",
-                        "nums": [],
+                        "nums": 0,
+                        "isStitch": false,
                         "guidances": []
                     },
                     {
                         "text": "Tutup jahitan dengan slip knot dan ikat ujung benang",
-                        "nums": [],
+                        "nums": 0,
+                        "isStitch": false,
                         "guidances": []
                     }
                 ],
@@ -124,24 +134,28 @@
                 "steps": [
                     {
                         "text": "Potong benang dengan panjang dua kali ukuran rumbai yang diinginkan",
-                        "nums": [],
+                        "nums": 0,
+                        "isStitch": false,
                         "guidances": []
                     },
                     {
                         "text": "Ambil titik tengah panjang benang dan sisipkan pada setiap jahitan menggunakan hakpen",
-                        "nums": [],
+                        "nums": 0,
+                        "isStitch": false,
                         "guidances": []
                     },
                     {
                         "text": "Ikat benang dengan membuat simpul",
-                        "nums": [],
+                        "nums": 0,
+                        "isStitch": false,
                         "guidances": [
                             "Project-Shawl-Step7"
                         ]
                     },
                     {
                         "text": "Ulangi langkah pada semua jahitan pada ujung syal",
-                        "nums": [],
+                        "nums": 0,
+                        "isStitch": false,
                         "guidances": []
                     }
                 ],
@@ -179,22 +193,26 @@
                 "steps": [
                     {
                         "text": "Dimulai dengan membuat # chain",
-                        "nums": [72],
+                        "nums": 72,
+                        "isStitch": true,
                         "guidances": []
                     },
                     {
                         "text": "Baris 1: 1 sc pada ch ke-2 dari hakpen dan di setiap ch di sepanjang # jahitan. Ch 1, putar.",
-                        "nums": [71],
+                        "nums": 71,
+                        "isStitch": true,
                         "guidances": []
                     },
                     {
                         "text": "Baris 2: 1 sc di setiap bagian simpul sebanyak #jahitan",
-                        "nums": [71],
+                        "nums": 71,
+                        "isStitch": false,
                         "guidances": []
                     },
                     {
                         "text": "Ulangi pola pada baris 2 hingga mencapai baris #",
-                        "nums": [77],
+                        "nums": 77,
+                        "isStitch": false,
                         "guidances": []
                     }
                 ],
@@ -211,22 +229,26 @@
                 "steps": [
                     {
                         "text": "Dimulai dengan membuat # chain. Kemudian buat sl ke chain pertama",
-                        "nums": [30],
+                        "nums": 30,
+                        "isStitch": true,
                         "guidances": []
                     },
                     {
                         "text": "Buat 1 sc di sepanjang # jahitan. Sl st ke dalam jahitan pertama, ch 1.",
-                        "nums": [30],
+                        "nums": 30,
+                        "isStitch": true,
                         "guidances": []
                     },
                     {
                         "text": "Ulangi pola hingga mencapai panjang lengan yang diinginkan",
-                        "nums": [],
+                        "nums": 0,
+                        "isStitch": false,
                         "guidances": []
                     },
                     {
                         "text": "Letakkan bagian depan di atas panel belakang. Jahit kedua bagian menjadi satu mengikuti panduan gambar.",
-                        "nums": [],
+                        "nums": 0,
+                        "isStitch": false,
                         "guidances": [
                             "Project-Sweater-Step1"
                         ]
@@ -245,22 +267,26 @@
                 "steps": [
                     {
                         "text": "Sematkan benang pada bagian bawah sweater, ch 1.",
-                        "nums": [],
+                        "nums": 0,
+                        "isStitch": false,
                         "guidances": []
                     },
                     {
                         "text": "Putaran 1: Sc di setiap jahitan secara merata. Sl st ke st pertama, ch 1.",
-                        "nums": [],
+                        "nums": 0,
+                        "isStitch": false,
                         "guidances": []
                     },
                     {
                         "text": "Putaran 2-6: Sc di setiap st. Sl st ke st pertama, ch 1.",
-                        "nums": [],
+                        "nums": 0,
+                        "isStitch": false,
                         "guidances": []
                     },
                     {
                         "text": "Tutup jahitan dengan sl sepanjang baris, lalu potong ujung benang",
-                        "nums": [],
+                        "nums": 0,
+                        "isStitch": false,
                         "guidances": []
                     }
                 ],
@@ -277,22 +303,26 @@
                 "steps": [
                     {
                         "text": "Sematkan benang di garis leher sweater, ch 1.",
-                        "nums": [],
+                        "nums": 0,
+                        "isStitch": false,
                         "guidances": []
                     },
                     {
                         "text": "Putaran 1: Buatlah sc di sekeliling garis leher.",
-                        "nums": [],
+                        "nums": 0,
+                        "isStitch": false,
                         "guidances": []
                     },
                     {
                         "text": "Putaran 2-4: 1 sc di simpul belakang setiap st. Sl st ke st pertama, ch 1.",
-                        "nums": [],
+                        "nums": 0,
+                        "isStitch": false,
                         "guidances": []
                     },
                     {
                         "text": "Tutup jahitan dengan sl sepanjang baris, lalu potong ujung benang",
-                        "nums": [],
+                        "nums": 0,
+                        "isStitch": false,
                         "guidances": []
                     }
                 ],

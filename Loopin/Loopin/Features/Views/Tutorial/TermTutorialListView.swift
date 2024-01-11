@@ -81,6 +81,6 @@ struct TermTutorialListView: View {
 }
 
 
-#Preview {
-    TermTutorialListView()
-}
+//#Preview {
+//    TermTutorialListView()
+//}

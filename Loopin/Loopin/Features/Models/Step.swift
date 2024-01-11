@@ -6,8 +6,9 @@
 //
 
 import Foundation
-struct Step: Decodable, Hashable {
-    let text: String
-    let nums: [Int]
-    let guidances: [String]
+struct Step: Codable, Hashable {
+    var text: String
+    var nums: Int
+    var isStitch: Bool
+    var guidances: [String] = []
 }

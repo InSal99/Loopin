@@ -63,6 +63,6 @@ struct AccordionWithPicture: View {
     }
 }
 
-#Preview {
-    AccordionWithPicture(title: "title", content: ["content"])
-}
+//#Preview {
+//    AccordionWithPicture(title: "title", content: ["content"])
+//}

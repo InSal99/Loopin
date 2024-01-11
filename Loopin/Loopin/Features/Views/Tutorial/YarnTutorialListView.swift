@@ -69,6 +69,6 @@ struct YarnTutorialListView: View {
     }
 }
 
-#Preview {
-    YarnTutorialListView()
-}
+//#Preview {
+//    YarnTutorialListView()
+//}

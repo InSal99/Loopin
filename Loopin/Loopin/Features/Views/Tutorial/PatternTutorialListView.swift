@@ -83,6 +83,6 @@ struct PatternTutorialListView: View {
 }
 
 
-#Preview {
-    PatternTutorialListView()
-}
+//#Preview {
+//    PatternTutorialListView()
+//}
