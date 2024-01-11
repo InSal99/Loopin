@@ -30,7 +30,7 @@ struct PatternTutorialView: View {
                     HStack(content: {
                         Image(pattern.symbol)
                             .resizable()
-                            .aspectRatio(contentMode: .fill)
+                            .aspectRatio(contentMode: .fit)
                             .frame(width: 50)
                         Text(pattern.abbreviation)
                             .font(.outfit(.medium, size: .heading2))

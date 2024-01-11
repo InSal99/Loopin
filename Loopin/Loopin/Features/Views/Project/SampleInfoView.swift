@@ -27,7 +27,7 @@ struct SampleInfoView: View {
             ShortTextField(placeholder: "jumlah baris", field: $totalRow)
             Spacer()
             NavigationLink {
-                ProjectPartView(project: project)
+                ProjectPartView(project: project, index: project.subParts.count, inputWidths: Array(repeating: "", count: project.subParts.count), inputLengths: Array(repeating: "", count: project.subParts.count))
             } label: {
                 PrimaryButton(buttonText: "Lanjut")
             }
