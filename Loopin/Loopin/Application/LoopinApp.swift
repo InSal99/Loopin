@@ -17,6 +17,8 @@ struct LoopinApp: App {
 
     var body: some Scene {
         WindowGroup {
+//            CobaImageView()
+            
             WelcomePage()
                 .environmentObject(authViewModel)
             

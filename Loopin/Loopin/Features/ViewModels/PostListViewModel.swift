@@ -6,6 +6,8 @@
 //
 
 import Combine
+import Foundation
+import UIKit
 
 class PostListViewModel: ObservableObject {
 
@@ -28,6 +30,10 @@ class PostListViewModel: ObservableObject {
     
     func add(_ post: Post) {
         postRepository.add(post)
+    }
+    
+    func add(_ post: Post, withImages imageDatas: [UIImage]) {
+           postRepository.add(post, withImages: imageDatas)
     }
 //    func update(_ post: Post) {
 //        postRepository.update(post)

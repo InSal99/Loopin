@@ -8,6 +8,7 @@
 //import Foundation
 import FirebaseFirestore
 import FirebaseFirestoreSwift
+import FirebaseStorage
 import Combine
 
 class PostRepository: ObservableObject {
@@ -59,6 +60,85 @@ class PostRepository: ObservableObject {
             _ = try store.collection(path).addDocument(from: post)
         } catch {
             fatalError("Unable to add card: \(error.localizedDescription).")
+        }
+    }
+    
+    func add(_ post: Post, withImages imageDatas: [UIImage]) {
+        // Upload images to Firebase Storage
+           uploadImages(imageDatas) { imagePaths in
+               // Once images are uploaded, add post to Firestore with image paths
+               var newPost = post
+               newPost.images = imagePaths
+//               newPost.time = Date()
+               
+               self.add(newPost)
+           }
+        
+//        let imageRef = Storage.storage().reference().child("images").child(UUID().uuidString)
+//
+//                _ = imageRef.putData(imageDatas[0], metadata: nil) { _, error in
+//                    if let error = error {
+//                        print("Error uploading image to storage: \(error.localizedDescription)")
+//                        return
+//                    }
+//
+//                    imageRef.downloadURL { url, error in
+//                        if let error = error {
+//                            print("Error getting download URL: \(error.localizedDescription)")
+//                            return
+//                        }
+//
+//                        var newPost = post
+//                        newPost.images.append(imageRef.fullPath)
+//                        newPost.time = Date()
+//
+//                        _ = try? self.store.collection(self.path).addDocument(from: newPost)
+//                    }
+//                }
+    
+    }
+    
+    private func uploadImages(_ images: [UIImage], completion: @escaping ([String]) -> Void) {
+        var uploadedImagePaths: [String] = []
+
+        let group = DispatchGroup()
+
+        for image in images {
+            group.enter()
+
+            // Convert UIImage to Data (JPEG representation)
+            if let imageData = image.jpegData(compressionQuality: 0.8) {
+                let imageRef = Storage.storage().reference().child("images").child(UUID().uuidString)
+
+                _ = imageRef.putData(imageData, metadata: nil) { _, error in
+                    defer {
+                        group.leave()
+                    }
+
+                    if let error = error {
+                        print("Error uploading image to storage: \(error.localizedDescription)")
+                        return
+                    }
+
+                    imageRef.downloadURL { url, error in
+                        if let error = error {
+                            print("Error getting download URL: \(error.localizedDescription)")
+                            return
+                        }
+
+                        if let downloadURL = url {
+                            uploadedImagePaths.append(downloadURL.absoluteString)
+                        }
+                    }
+                }
+            } else {
+                // Handle conversion failure if needed
+                group.leave()
+            }
+        }
+
+        group.notify(queue: .main) {
+            completion(uploadedImagePaths)
         }
     }
     

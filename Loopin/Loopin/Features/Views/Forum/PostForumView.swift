@@ -14,6 +14,8 @@ struct PostForumView: View {
     @State private var image: String
     @State private var isOnEdit: Bool
     
+    @State private var selectedImage: UIImage? = nil
+    
     var postModelToEdit: PostViewModel?
     
     @EnvironmentObject var authViewModel: AuthenticationViewModel
@@ -24,18 +26,22 @@ struct PostForumView: View {
         _message = State(initialValue: postToEdit?.post.content ?? "")
         _image = State(initialValue: postToEdit?.post.content ?? "")
         _isOnEdit = State(initialValue: isOnEdit ?? false)
-
+        
     }
     
     var body: some View {
         NavigationView {
             ZStack (alignment: .center){
-//                RoundedRectangle(cornerRadius: 30)
-//                    .frame(height: 750)
-//                    .foregroundColor(Color(.white))
+                //                RoundedRectangle(cornerRadius: 30)
+                //                    .frame(height: 750)
+                //                    .foregroundColor(Color(.white))
                 VStack {
+                    CobaImageView(selectedImage: $selectedImage) {
+                        print("image clear")
+                    }
                     LongTextField(placeholder: "tulis sesuatu...", field: $message)
-                    ShortTextField(placeholder: "tambah gambar", field: $image)
+//                    ShortTextField(placeholder: "tambah gambar", field: $image)
+                    
                     Spacer()
                     Button{
                         if isOnEdit {
@@ -75,7 +81,11 @@ struct PostForumView: View {
             totLikes: 0,
             totComments: 0
         )
-        postListViewModel.add(newPost)
+        if let selectedImage = selectedImage {
+            postListViewModel.add(newPost, withImages: [selectedImage])
+        } else {
+            postListViewModel.add(newPost)
+        }
     }
     
     func updatePost() {
