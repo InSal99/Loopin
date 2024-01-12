@@ -1,5 +1,5 @@
 //
-//  CobaImage.swift
+//  ImagePickerView.swift
 //  Loopin
 //
 //  Created by Celine Margaretha on 12/01/24.

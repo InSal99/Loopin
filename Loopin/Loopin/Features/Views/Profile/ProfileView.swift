@@ -18,22 +18,6 @@ struct ProfileView: View {
     @EnvironmentObject var authViewModel: AuthenticationViewModel
     @ObservedObject var postListViewModel = PostListViewModel()
     @ObservedObject var projectListViewModel = ProjectListViewModel.shared
-
-    let userProjects: [Project] =
-    //Disimpan di firebase
-    [
-        Project(type: "Cardigan", name: "Cardiganku", image: "test", description: "lerem ipsum", preparation: "lorem ipsum", yarnType: "Bamboo", yarnWeight: "chunky", hookSize: "D", stitchType: "Double Crochet", subParts: [
-            SubPart(name: "Bagian depan", steps: [], gauge: Gauges(length: 10, width: 34, stitch: 65, row: 50)),
-            SubPart(name: "Bagian depan", steps: [
-                Step(text: "step title", nums: 0, isStitch: false, guidances: []),
-                Step(text: "step title", nums: 0, isStitch: false, guidances: ["test", "test"]),
-            ], gauge: Gauges(length: 10, width: 34, stitch: 65, row: 50))
-        ], sample: Gauges(length: 6, width: 6, stitch: 6, row: 6)),
-        Project(type: "Cardigan", name: "Cardiganku", image: "test", description: "lerem ipsum", preparation: "lorem ipsum", yarnType: "Bamboo", yarnWeight: "chunky", hookSize: "D", stitchType: "Double Crochet", subParts: [
-            SubPart(name: "Bagian depan", steps: [], gauge: Gauges(length: 10, width: 34, stitch: 65, row: 50))
-        ], sample: Gauges(length: 6, width: 6, stitch: 6, row: 6))
-    ]
-//    let userPosts: [Post] = []
     
     init() {
         UISegmentedControl.appearance().backgroundColor = .lightGray.withAlphaComponent(0.01)
@@ -51,8 +35,6 @@ struct ProfileView: View {
             ScrollView(.vertical){
                 VStack (alignment: .leading, spacing: 35){
                     VStack (alignment: .leading){
-                        Text(userName)
-                            .font(.outfit(.medium, size: .body1))
                         Text(email)
                             .font(.outfit(.regular, size: .body2))
                         Text(phone)
@@ -80,7 +62,7 @@ struct ProfileView: View {
                             } else {
                                 ForEach(projectListViewModel.projectViewModels) { projectViewModel in
                                     NavigationLink(destination: ProjectDetailView(selectedProject: projectViewModel.project)) {
-                                        ProjectCard(projectName: projectViewModel.project.name, projectDesc: projectViewModel.project.description)
+                                        ProjectCard(projectViewModel: projectViewModel)
                                     }
                                 }
                             }
@@ -127,7 +109,7 @@ struct ProfileView: View {
                 }
             }
             .padding(.bottom)
-            .navigationTitle("Profile")
+            .navigationTitle("\(userName)")
             .navigationBarBackButtonHidden(true)
             .background(Color("White"))
             .toolbar {

@@ -98,6 +98,21 @@ class PostRepository: ObservableObject {
     
     }
     
+    // MARK: STILL NOT WORKING
+    func deleteImageSource(filePath: String) {
+        let storage = Storage.storage().reference()
+
+        let fileRef = storage.child("\(filePath)")
+
+        fileRef.delete { error in
+            if let error = error {
+                print("Error deleting file: \(error.localizedDescription)")
+            } else {
+                print("File deleted successfully.")
+            }
+        }
+    }
+    
     func uploadImageToFirebase(image: UIImage, completion: @escaping (Result<URL, Error>) -> Void) {
         guard let imageData = image.jpegData(compressionQuality: 0.8) else {
             completion(.failure(NSError(domain: "YourAppDomain", code: 0, userInfo: [NSLocalizedDescriptionKey: "Failed to convert image to JPEG data"])))
@@ -139,6 +154,10 @@ class PostRepository: ObservableObject {
     
     func remove(_ post: Post) {
         guard let postId = post.id else { return }
+        
+        for image in post.images {
+            deleteImageSource(filePath: image)
+        }
         
         store.collection(path).document(postId).delete { error in
             if let error = error {

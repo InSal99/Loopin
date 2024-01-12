@@ -33,4 +33,7 @@ class ProjectListViewModel: ObservableObject {
             completion(isSuccess)
         }
     }
+    func remove(_ project: Project) {
+        projectRepository.remove(project)
+    }
 }

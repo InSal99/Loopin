@@ -95,11 +95,12 @@
 		8FAE74BA2B513CE400E48454 /* GaugeCounter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FAE74B92B513CE400E48454 /* GaugeCounter.swift */; };
 		8FAE74BC2B51405D00E48454 /* FirebaseStorage in Frameworks */ = {isa = PBXBuildFile; productRef = 8FAE74BB2B51405D00E48454 /* FirebaseStorage */; };
 		8FAE74BE2B5140A700E48454 /* ImageViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FAE74BD2B5140A700E48454 /* ImageViewModel.swift */; };
-		8FAE74C02B5140E600E48454 /* CobaImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FAE74BF2B5140E600E48454 /* CobaImage.swift */; };
+		8FAE74C02B5140E600E48454 /* ImagePickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FAE74BF2B5140E600E48454 /* ImagePickerView.swift */; };
 		8FAE74C22B51411500E48454 /* ImagePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FAE74C12B51411500E48454 /* ImagePicker.swift */; };
 		8FAE74C42B5186CA00E48454 /* ImageConverter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FAE74C32B5186CA00E48454 /* ImageConverter.swift */; };
 		8FAE74C72B51A15D00E48454 /* SDWebImageSwiftUI in Frameworks */ = {isa = PBXBuildFile; productRef = 8FAE74C62B51A15D00E48454 /* SDWebImageSwiftUI */; };
 		8FAE74C92B51CDE900E48454 /* ForumCardWithNavigation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FAE74C82B51CDE900E48454 /* ForumCardWithNavigation.swift */; };
+		8FAE74CB2B51E2DB00E48454 /* EditProjectView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FAE74CA2B51E2DB00E48454 /* EditProjectView.swift */; };
 		8FAEA3D62B1A403D009B7E67 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 8FAEA3D52B1A403D009B7E67 /* GoogleService-Info.plist */; };
 		8FAEA3D92B1A41A3009B7E67 /* FirebaseAnalytics in Frameworks */ = {isa = PBXBuildFile; productRef = 8FAEA3D82B1A41A3009B7E67 /* FirebaseAnalytics */; };
 		8FAEA3DB2B1A41A3009B7E67 /* FirebaseAuth in Frameworks */ = {isa = PBXBuildFile; productRef = 8FAEA3DA2B1A41A3009B7E67 /* FirebaseAuth */; };
@@ -205,10 +206,11 @@
 		8FAE74B72B51189400E48454 /* GaugeFormatter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GaugeFormatter.swift; sourceTree = "<group>"; };
 		8FAE74B92B513CE400E48454 /* GaugeCounter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GaugeCounter.swift; sourceTree = "<group>"; };
 		8FAE74BD2B5140A700E48454 /* ImageViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageViewModel.swift; sourceTree = "<group>"; };
-		8FAE74BF2B5140E600E48454 /* CobaImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CobaImage.swift; sourceTree = "<group>"; };
+		8FAE74BF2B5140E600E48454 /* ImagePickerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagePickerView.swift; sourceTree = "<group>"; };
 		8FAE74C12B51411500E48454 /* ImagePicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagePicker.swift; sourceTree = "<group>"; };
 		8FAE74C32B5186CA00E48454 /* ImageConverter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageConverter.swift; sourceTree = "<group>"; };
 		8FAE74C82B51CDE900E48454 /* ForumCardWithNavigation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForumCardWithNavigation.swift; sourceTree = "<group>"; };
+		8FAE74CA2B51E2DB00E48454 /* EditProjectView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditProjectView.swift; sourceTree = "<group>"; };
 		8FAEA3D52B1A403D009B7E67 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		8FAEA3DC2B1ACA40009B7E67 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		8FC1407F2B4AA955008AAE90 /* CommentManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentManager.swift; sourceTree = "<group>"; };
@@ -448,6 +450,7 @@
 		8FA5AD302B18D2200021F53C /* Forum */ = {
 			isa = PBXGroup;
 			children = (
+				8FAE74BF2B5140E600E48454 /* ImagePickerView.swift */,
 				8FAE74C82B51CDE900E48454 /* ForumCardWithNavigation.swift */,
 				16F64E5D2B0B800000EF2E15 /* ForumView.swift */,
 				16EEB2582B0BC53200C340D1 /* PostForumView.swift */,
@@ -466,6 +469,7 @@
 				16EEB2682B0BE82400C340D1 /* ProjectPartView.swift */,
 				16EEB26C2B0BEF7700C340D1 /* ProjectOverviewView.swift */,
 				16C4D53F2B45855A007880DF /* CurrentProjectView.swift */,
+				8FAE74CA2B51E2DB00E48454 /* EditProjectView.swift */,
 			);
 			path = Project;
 			sourceTree = "<group>";
@@ -524,7 +528,6 @@
 				8FA5AD302B18D2200021F53C /* Forum */,
 				8FA5AD322B18D27E0021F53C /* Profile */,
 				8FA5AD312B18D2640021F53C /* Project */,
-				8FAE74BF2B5140E600E48454 /* CobaImage.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -694,6 +697,7 @@
 				16EEB2672B0BE76C00C340D1 /* SampleInfoView-UNUSED.swift in Sources */,
 				16BF34DC2B0B31BF0036424B /* ContentView.swift in Sources */,
 				16EEB2692B0BE82400C340D1 /* ProjectPartView.swift in Sources */,
+				8FAE74CB2B51E2DB00E48454 /* EditProjectView.swift in Sources */,
 				161AA70D2B0E1D2B008A59CE /* PatternTutorialView.swift in Sources */,
 				16C4D5052B36C44A007880DF /* Accordion.swift in Sources */,
 				8FA5AD372B199BAB0021F53C /* AppManager.swift in Sources */,
@@ -705,7 +709,7 @@
 				8FAE74BE2B5140A700E48454 /* ImageViewModel.swift in Sources */,
 				161AA70B2B0E1B6B008A59CE /* TermTutorialView.swift in Sources */,
 				161AA7112B14800A008A59CE /* MiniTag.swift in Sources */,
-				8FAE74C02B5140E600E48454 /* CobaImage.swift in Sources */,
+				8FAE74C02B5140E600E48454 /* ImagePickerView.swift in Sources */,
 				16F64E5E2B0B800000EF2E15 /* ForumView.swift in Sources */,
 				16EEB2572B0BBE7300C340D1 /* ShortTextField.swift in Sources */,
 				16F64E642B0BAE1200EF2E15 /* SignUpView.swift in Sources */,

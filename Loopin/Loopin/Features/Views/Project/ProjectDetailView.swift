@@ -15,9 +15,6 @@ struct ProjectDetailView: View {
         NavigationView {
             ScrollView(.vertical){
                 VStack(alignment: .leading, spacing: 25) {
-                    Text(selectedProject.type)
-                        .font(.outfit(.semiBold, size: .body2))
-                        .padding(.horizontal)
                     Text(selectedProject.description)
                         .font(.outfit(.regular, size: .body2))
                         .padding(.horizontal)
@@ -27,22 +24,25 @@ struct ProjectDetailView: View {
                         DetailProjectCard(placeholder1: "Ukuran Hakpen", placeolder2: selectedProject.hookSize)
                         DetailProjectCard(placeholder1: "Jenis Tusukan", placeolder2: selectedProject.stitchType)
                     }
-                    Text("Bagian Proyek")
-                        .font(.outfit(.semiBold, size: .body3))
-                        .padding(.horizontal)
-                    VStack(spacing: 10) {
-                        ForEach(selectedProject.subParts, id: \.self) { subPartItem in
-                            ProjectPartCard(subPart: subPartItem)
+                    VStack(alignment: .leading, spacing: 15) {
+                        Text("Bagian Proyek")
+                            .font(.outfit(.semiBold, size: .body3))
+                            .padding(.horizontal)
+                        VStack(spacing: 10) {
+                            ForEach(selectedProject.subParts, id: \.self) { subPartItem in
+                                ProjectPartCard(subPart: subPartItem)
+                            }
                         }
                     }
-                    NavigationLink {
-                        ///ongoing project
-                        CurrentProjectView(currentProject: selectedProject)
-                    } label: {
-                        PrimaryButton(buttonText: "Mulai Proyek")
-                    }
-                    .padding(.horizontal)
                 }
+                NavigationLink {
+                    ///ongoing project
+                    CurrentProjectView(currentProject: selectedProject)
+                } label: {
+                    PrimaryButton(buttonText: "Mulai Proyek")
+                }
+                .padding(.horizontal)
+                .padding(.top)
             }
             .background(Color("White"))
             .navigationViewStyle(StackNavigationViewStyle())
