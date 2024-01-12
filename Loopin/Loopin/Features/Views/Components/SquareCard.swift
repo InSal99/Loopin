@@ -19,8 +19,9 @@ struct SquareCard: View {
             VStack {
                 Image(cardImage)
                     .resizable()
-                    .aspectRatio(contentMode: .fill)
-                    .frame(maxWidth: 152, minHeight: 137)
+//                    .aspectRatio(contentMode: .fill)
+                    .scaledToFill()
+                    .frame(maxWidth: 152, maxHeight: 137)
                     .cornerRadius(25)
                 Text(cardText)
                     .font(.outfit(.semiBold, size: .body2))

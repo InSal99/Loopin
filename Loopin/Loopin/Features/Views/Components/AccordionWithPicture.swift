@@ -22,6 +22,7 @@ struct AccordionWithPicture: View {
                 HStack() {
                     Text(title)
                     .font(.outfit(.semiBold, size: .body2))
+                    .multilineTextAlignment(.leading)
                     Spacer()
                     Image(systemName: "chevron.right")
                 }
@@ -60,6 +61,18 @@ struct AccordionWithPicture: View {
             }
         }
         .foregroundColor(Color("Black"))
+    }
+}
+
+struct AccordionWithPicture_Previews: PreviewProvider {
+    static var previews: some View {
+        Group {
+                   AccordionWithPicture(title: "title", content: ["content"])
+                       .environment(\.colorScheme, .light)
+                   AccordionWithPicture(title: "title", content: ["content"])
+                       .environment(\.colorScheme, .dark)
+               }
+//        AccordionWithPicture(title: "title", content: ["content"])
     }
 }
 
