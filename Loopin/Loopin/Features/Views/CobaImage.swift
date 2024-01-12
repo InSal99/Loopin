@@ -9,25 +9,35 @@ import Foundation
 import SwiftUI
 import Firebase
 
-struct CobaImageView: View {
+struct ImagePickerView: View {
     @Binding var selectedImage: UIImage?
     @State private var sourceType: ImagePicker.SourceType = .photoLibrary
     @State private var showImagePicker = false
     var onClear: () -> Void
     
     var body: some View {
-        VStack {
-            if let image = selectedImage {
-                Image(uiImage: image)
-                    .resizable()
-                    .scaledToFit()
-                    .frame(height: 200)
-            } else {
-                Text("No image selected")
-            }
+        ZStack (alignment: .center) {
             
-            HStack() {
-                VStack() {
+            VStack(alignment: .center){
+                if let image = selectedImage {
+                    Image(uiImage: image)
+                        .resizable()
+                        .scaledToFill()
+                        .clipped()
+                    
+                } else {
+                    Spacer()
+                    Text("No image selected")
+                    Spacer()
+                }
+            }
+            .frame(maxWidth: UIScreen.main.bounds.width - 10, maxHeight: UIScreen.main.bounds.width)
+            .background(Color("Black").opacity(0.05))
+            .cornerRadius(10)
+            .padding(5)
+           
+            VStack() {
+                HStack() {
                     Button(action: {}) {
                         Menu {
                             Button(action: {
@@ -38,7 +48,6 @@ struct CobaImageView: View {
                                 Text("Photo Library")
                             }
                             .padding(.horizontal, 5)
-                           
                             
                             Button(action: {
                                 selectedImage = nil // Reset any previous selection
@@ -48,12 +57,10 @@ struct CobaImageView: View {
                                 Text("Camera")
                             }
                             .padding(.horizontal, 5)
-//                            .sheet(isPresented: $showImagePicker) {
-//                                ImagePicker(selectedImage: $selectedImage, sourceType: sourceType)
-//                            }
                         }
                     label: {
-                        Text("Choose Photo").tag(ImagePicker.SourceType.camera)
+                        Text("Choose Photo")
+                            .foregroundColor(.gray)
                         
                     }
                     .padding(.horizontal, 5)
@@ -61,21 +68,28 @@ struct CobaImageView: View {
                     .padding(.vertical, 5)
                     }
                     .buttonStyle(PlainButtonStyle())
+                    
+                    
+                    Spacer()
+                    
+                    Button() {
+                        selectedImage = nil
+                        onClear() // Notify the parent view
+                    } label: {
+                        Image(systemName: "trash")
+                            .foregroundColor(.gray)
+                    }
+                    .disabled(selectedImage == nil)
                 }
                 Spacer()
-                Button("Clear") {
-                    selectedImage = nil
-                    onClear() // Notify the parent view
-                }
-                .disabled(selectedImage == nil)
             }
-            .sheet(isPresented: $showImagePicker) {
-                ImagePicker(selectedImage: $selectedImage, sourceType: sourceType)
-            }
-            
+            .padding()
         }
         .padding()
-        
+        .frame(maxWidth: UIScreen.main.bounds.width, maxHeight: UIScreen.main.bounds.width)
+        .sheet(isPresented: $showImagePicker) {
+            ImagePicker(selectedImage: $selectedImage, sourceType: sourceType)
+        }
         //            Button("Upload Image") {
         //                imageViewModel.uploadImage { result in
         //                    switch result {

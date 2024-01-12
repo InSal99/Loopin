@@ -36,9 +36,12 @@ struct PostForumView: View {
                 //                    .frame(height: 750)
                 //                    .foregroundColor(Color(.white))
                 VStack {
-                    CobaImageView(selectedImage: $selectedImage) {
-                        print("image clear")
+                    if !isOnEdit {
+                        ImagePickerView(selectedImage: $selectedImage) {
+                            print("image clear")
+                        }
                     }
+                  
                     LongTextField(placeholder: "tulis sesuatu...", field: $message)
 //                    ShortTextField(placeholder: "tambah gambar", field: $image)
                     

@@ -64,17 +64,18 @@ class PostRepository: ObservableObject {
     }
     
     func add(_ post: Post, withImages imageDatas: [UIImage]) {
-        // Upload images to Firebase Storage
-           uploadImages(imageDatas) { imagePaths in
-               // Once images are uploaded, add post to Firestore with image paths
-               var newPost = post
-               newPost.images.append(contentsOf: imagePaths)
-//               newPost.time = Date()
-               
-               self.add(newPost)
-           }
         
-//        let imageRef = Storage.storage().reference().child("images").child(UUID().uuidString)
+        uploadImageToFirebase(image: imageDatas[0]) { result in
+            switch result {
+            case .success(let downloadURL):
+//                print("Image uploaded successfully. Download URL: \(downloadURL.description)")
+                var newPost = post
+                newPost.images.append(downloadURL.description)
+                self.add(newPost)
+            case .failure(let error):
+                print("Error uploading image: \(error.localizedDescription)")
+            }
+//        let imageRef = Storage.storage().reference().child(UUID().uuidString)
 //
 //                _ = imageRef.putData(imageDatas[0], metadata: nil) { _, error in
 //                    if let error = error {
@@ -90,58 +91,41 @@ class PostRepository: ObservableObject {
 //
 //                        var newPost = post
 //                        newPost.images.append(imageRef.fullPath)
-//                        newPost.time = Date()
 //
 //                        _ = try? self.store.collection(self.path).addDocument(from: newPost)
 //                    }
-//                }
+                }
     
     }
     
-    private func uploadImages(_ images: [UIImage], completion: @escaping ([String]) -> Void) {
-        var uploadedImagePaths: [String] = []
+    func uploadImageToFirebase(image: UIImage, completion: @escaping (Result<URL, Error>) -> Void) {
+        guard let imageData = image.jpegData(compressionQuality: 0.8) else {
+            completion(.failure(NSError(domain: "YourAppDomain", code: 0, userInfo: [NSLocalizedDescriptionKey: "Failed to convert image to JPEG data"])))
+            return
+        }
 
-        let group = DispatchGroup()
+        let storageRef = Storage.storage().reference().child("Images").child(UUID().uuidString + ".jpeg")
 
-        for image in images {
-            group.enter()
+        // Assuming imageData is the binary data of your image
+        let metadata = StorageMetadata()
+        metadata.contentType = "image/jpeg"
 
-            // Convert UIImage to Data (JPEG representation)
-            if let imageData = image.jpegData(compressionQuality: 0.8) {
-                let imageRef = Storage.storage().reference().child("images").child(UUID().uuidString)
-
-                _ = imageRef.putData(imageData, metadata: nil) { _, error in
-                    defer {
-                        group.leave()
-                    }
-
+        storageRef.putData(imageData, metadata: metadata) { (metadata, error) in
+            if let error = error {
+                completion(.failure(error))
+            } else {
+                storageRef.downloadURL { (url, error) in
                     if let error = error {
-                        print("Error uploading image to storage: \(error.localizedDescription)")
-                        return
-                    }
-
-                    imageRef.downloadURL { url, error in
-                        if let error = error {
-                            print("Error getting download URL: \(error.localizedDescription)")
-                            return
-                        }
-
-                        if let downloadURL = url {
-                            uploadedImagePaths.append(downloadURL.absoluteString)
-                        }
+                        completion(.failure(error))
+                    } else if let url = url {
+                        completion(.success(url))
                     }
                 }
-            } else {
-                // Handle conversion failure if needed
-                group.leave()
+               
             }
         }
-
-        group.notify(queue: .main) {
-            completion(uploadedImagePaths)
-        }
     }
-    
+        
     func update(_ post: Post) {
         guard let postId = post.id else { return }
         

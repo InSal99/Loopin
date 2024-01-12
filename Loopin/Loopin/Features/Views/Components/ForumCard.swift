@@ -6,130 +6,130 @@
 //
 
 import SwiftUI
+import SDWebImageSwiftUI
+import FirebaseStorage
 
 struct ForumCard: View {
-    //    let sender: String
-    //    let content: String
-    //    let likeCount: Int
-    //    let commentCount: Int
     
     @StateObject var postViewModel: PostViewModel
     
     @State var showDeleteAlert = false
     @State var isPostForumViewPresented = false
-    //    @State var isCommentViewPresented = false
     @State var isLiked = false
     
+    @State var imageURL = ""
+    
     var body: some View {
-        NavigationLink {
-            CommentView(postViewModel: postViewModel)
-        } label: {
-            //        ZStack(alignment: .leading) {
-            //            RoundedRectangle(cornerRadius: 30)
-            //                .foregroundColor(Color.white)
-            //                .frame(width: 358, height: 130)
-            VStack(alignment: .leading) {
-                HStack(alignment: .firstTextBaseline) {
-                    Text("\(postViewModel.post.username)")
-                        .font(.outfit(.semiBold, size: .body2))
-                        .padding(.vertical, 5)
-                    
-                    Spacer()
-                    
-                    if postViewModel.isAllowedToEdit {
-                        Button(action: {}) {
-                            Menu {
-                                Button(action: {
-                                    isPostForumViewPresented.toggle()
-                                }) {
-                                    Label("Edit", systemImage: "pencil")
-                                }
-                                .padding(.horizontal, 5)
-                                
-                                Button(action: {
-                                    showDeleteAlert.toggle()
-                                    print("heee")
-                                }) {
-                                    Label("Delete", systemImage: "trash")
-                                        .foregroundColor(.red)
-                                }
-                                .padding(.horizontal, 5)
+        VStack(alignment: .leading) {
+            HStack(alignment: .firstTextBaseline) {
+                Text("\(postViewModel.post.username)")
+                    .font(.outfit(.semiBold, size: .body2))
+                    .padding(.vertical, 5)
+                
+                Spacer()
+                
+                if postViewModel.isAllowedToEdit {
+                    Button(action: {}) {
+                        Menu {
+                            Button(action: {
+                                isPostForumViewPresented.toggle()
+                            }) {
+                                Label("Edit", systemImage: "pencil")
                             }
-                        label: {
-                            Image(systemName: "ellipsis.circle")
-                                .foregroundColor(.black)
-                                .scaleEffect(1.2)
+                            .padding(.horizontal, 5)
+                            
+                            Button(action: {
+                                showDeleteAlert.toggle()
+                                print("heee")
+                            }) {
+                                Label("Delete", systemImage: "trash")
+                                    .foregroundColor(.red)
+                            }
+                            .padding(.horizontal, 5)
                         }
-                        .padding(.horizontal, 5)
-                        .padding(.leading, 8)
-                        .padding(.vertical, 5)
-                        }
-                        .buttonStyle(PlainButtonStyle())
+                    label: {
+                        Image(systemName: "ellipsis.circle")
+                            .foregroundColor(.black)
+                            .scaleEffect(1.2)
                     }
-                    
+                    .padding(.horizontal, 5)
+                    .padding(.leading, 8)
+                    .padding(.vertical, 5)
+                    }
+                    .buttonStyle(PlainButtonStyle())
                 }
                 
-                Text(postViewModel.post.content)
-                    .font(.outfit(.regular, size: .body2))
-                    .multilineTextAlignment(.leading)
-                    .padding(.bottom, 1)
-                
-                Text("\(postViewModel.post.time.formattedDateWithTime())")
-                    .font(.outfit(.extraLight, size: .label2))
-                
-                HStack {
-                    Button(action: {
-                        postViewModel.updatePostLike()
-                        print("like button tapped:\(isLiked)")
-                        
-                    }, label: {
-                        HStack {
-                            if postViewModel.isLiked {
-                                Image(systemName: "heart.fill")
-                                    .foregroundColor(Color("Guava"))
-                            } else {
-                                Image("heart")
-                            }
-                            
-                            Text("\(postViewModel.post.totLikes) likes")
-                                .font(.outfit(.regular, size: .label1))
-                        }
-                        .padding(.trailing, 9)
-                    })
+            }
+            
+            if imageURL != "" {
+                VStack(alignment: .center){
                     
-                    Spacer()
+                    if let imageURL = URL(string: postViewModel.post.images[0]) {
+                        AnimatedImage(url: imageURL)
+                            .resizable()
+                            .scaledToFill()
+                            .frame(maxWidth: UIScreen.main.bounds.width - 15, maxHeight: UIScreen.main.bounds.width - 15)
+                            .clipped()
+                            .cornerRadius(10)
+                            .padding()
+                    } else {
+                        Image(systemName: "photo")
+                            .resizable()
+                            .scaledToFill()
+                            .cornerRadius(10)
+                            .frame(height: 60)
+                            .foregroundColor(.gray)
+                    }
+                }
+            }
+            
+            Text(postViewModel.post.content)
+                .font(.outfit(.regular, size: .body2))
+                .multilineTextAlignment(.leading)
+                .padding(.bottom, 1)
+            
+            Text("\(postViewModel.post.time.formattedDateWithTime())")
+                .font(.outfit(.extraLight, size: .label2))
+            
+            HStack {
+                Button(action: {
+                    postViewModel.updatePostLike()
+                    print("like button tapped:\(isLiked)")
                     
+                }, label: {
                     HStack {
-                        Image("chat")
-                        Text("\(postViewModel.commentListViewModel?.commentViewModels.count ?? 0) Comments")
+                        if postViewModel.isLiked {
+                            Image(systemName: "heart.fill")
+                                .foregroundColor(Color("Guava"))
+                        } else {
+                            Image("heart")
+                        }
+                        
+                        Text("\(postViewModel.post.totLikes) likes")
                             .font(.outfit(.regular, size: .label1))
                     }
-                    //                    })
-                    //                    .sheet(isPresented: $isCommentViewPresented) {
-                    //                        CommentView(postViewModel: postViewModel)
-                    //                            .presentationDetents([.large])
-                    //                            .presentationDragIndicator(.visible)
-                    //                            .padding(.top, 18)
-                    //                            .background(Color("White"))
-                    
-                    //                    }
+                    .padding(.trailing, 9)
+                })
+                
+                Spacer()
+                
+                HStack {
+                    Image("chat")
+                    Text("\(postViewModel.commentListViewModel?.commentViewModels.count ?? 0) Comments")
+                        .font(.outfit(.regular, size: .label1))
                 }
-                .padding(.vertical, 3)
             }
-            .foregroundColor(Color("Black"))
-            .padding(.vertical, 15)
-            .padding(.horizontal, 20)
-            .background(
-                RoundedRectangle(cornerRadius: 30)
-                    .foregroundColor(Color.white)
-                //                    .frame(width: 327)
-            )
-            .shadow(color:.black .opacity(0.05), radius: 10, x: 0, y: 4)
-            //        }
-            //        .padding(.horizontal)
-            //        .shadow(color:.black .opacity(0.05), radius: 10, x: 0, y: 4)        }
-            
+            .padding(.vertical, 3)
         }
+        .foregroundColor(Color("Black"))
+        .padding(.vertical, 15)
+        .padding(.horizontal, 20)
+        .background(
+            RoundedRectangle(cornerRadius: 30)
+                .foregroundColor(Color.white)
+            //                    .frame(width: 327)
+        )
+        .shadow(color:.black .opacity(0.05), radius: 10, x: 0, y: 4)
         .sheet(isPresented: $isPostForumViewPresented) {
             PostForumView(isOnEdit: true, postToEdit: postViewModel)
         }
@@ -144,9 +144,21 @@ struct ForumCard: View {
                 secondaryButton: .cancel()
             )
         }
+        .onAppear {
+            if !postViewModel.post.images.isEmpty {
+                let storage = Storage.storage().reference()
+                
+                //                print("STORAGE \(storage.bucket)")
+                //                print("STORAGE \(storage.child("\(URL(string: postViewModel.post.images[0])!)"))")
+                self.imageURL = "\(storage.child("\(URL(string: postViewModel.post.images[0])!)"))"
+                //                print(self.imageURL)
+            }
+        }
     }
     
+    
 }
+
 
 //struct ForumCard_Previews: PreviewProvider {
 //    static var previews: some View {
