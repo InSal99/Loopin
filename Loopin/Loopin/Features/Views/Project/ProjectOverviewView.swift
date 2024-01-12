@@ -8,25 +8,37 @@
 import SwiftUI
 
 struct ProjectOverviewView: View {
+    @Environment(\.presentationMode) var presentationMode
     let projectTemplate: ProjectTemplateJSON
     
     var body: some View {
         NavigationView {
-            ZStack (alignment: .top) {
-                ImageSlider(images: [projectTemplate.image])
-                    .frame(maxWidth: 390, maxHeight: 290)
-                ZStack (alignment: .top) {
+            ScrollView(.vertical){
+                ZStack(alignment: .top) {
+                    Image(projectTemplate.image)
+                        .resizable()
+                        .aspectRatio(contentMode: .fill)
+                        .frame(maxWidth: 390, maxHeight: 290)
                     RoundedRectangle(cornerRadius: 30)
                         .frame(minHeight: 571)
                         .foregroundColor(Color(.white))
-                        .padding(.top, 273)
+                        .padding(.top, 243)
+                        .padding()
                     VStack(alignment: .leading, spacing: 20) {
                         Spacer()
                         Text(projectTemplate.type)
+
                             .font(.outfit(.semiBold, size: .heading3))
+                            .padding(.horizontal)
                         Text(projectTemplate.description)
                             .font(.outfit(.regular, size: .body2))
-                        Spacer()
+                            .padding(.horizontal)
+                        VStack(spacing: 10) {
+                            DetailProjectCard(placeholder1: "Jenis Benang", placeolder2: projectTemplate.yarnType)
+                            DetailProjectCard(placeholder1: "Ketebalan Benang", placeolder2: projectTemplate.yarnWeight)
+                            DetailProjectCard(placeholder1: "Ukuran Hakpen", placeolder2: projectTemplate.hookSize)
+                            DetailProjectCard(placeholder1: "Jenis Tusukan", placeolder2: projectTemplate.stitchType)
+                        }
                         NavigationLink {
                             ProjectInfoView(project:
                                     Project(
@@ -41,17 +53,31 @@ struct ProjectOverviewView: View {
                                         stitchType: projectTemplate.stitchType,
                                         subParts: projectTemplate.subParts,
                                         samples: projectTemplate.samples)
+
                             )
                         } label: {
                             PrimaryButton(buttonText: "Buat Proyek")
                         }
-                        
+                        .padding(.horizontal)
+                        .padding(.top, 50)
                     }
+                    .padding(.top, 280)
                     .padding()
                 }
             }
             .ignoresSafeArea()
+            .toolbar {
+                ToolbarItem(placement: .navigationBarLeading) {
+                    Button {
+                        presentationMode.wrappedValue.dismiss()
+                    } label: {
+                        Image(systemName: "chevron.left")
+                            .foregroundColor(.black)
+                    }
+                }
+            }
         }
+        .navigationBarBackButtonHidden(true)
     }
 }
 

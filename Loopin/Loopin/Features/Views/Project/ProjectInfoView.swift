@@ -14,21 +14,22 @@ struct ProjectInfoView: View {
 
     @State private var name = ""
     @State private var desc = ""
-    @State private var yarnType = "0"
-    @State private var yarnSize = "0"
-    @State private var hakpenSize = "0"
-    @State private var stitchType = "0"
 
+//    @State private var yarnType = ""
+//    @State private var yarnSize = ""
+//    @State private var hakpenSize = ""
+//    @State private var stitchType = ""
+    
     var body: some View {
         VStack(spacing: 20) {
-            ProgressBar(value: 1, maximum: 3)
+            ProgressBar(value: 1, maximum: 2)
                 .padding()
             ShortTextField(placeholder: "nama", field: $project.name)
             LongTextField(placeholder: "deskripsi proyek", field: $project.description)
-            ShortTextField(placeholder: "jenis benang", field: $yarnType)
-            ShortTextField(placeholder: "ketebalan benang", field: $yarnSize)
-            ShortTextField(placeholder: "ukuran hakpen", field: $hakpenSize)
-            ShortTextField(placeholder: "jenis jahitan", field: $stitchType)
+//            ShortTextField(placeholder: "jenis benang", field: $yarnType)
+//            ShortTextField(placeholder: "ketebalan benang", field: $yarnSize)
+//            ShortTextField(placeholder: "ukuran hakpen", field: $hakpenSize)
+//            ShortTextField(placeholder: "jenis jahitan", field: $stitchType)
             Spacer()
             NavigationLink {
                 ProjectPartView(project: $project)
@@ -37,6 +38,18 @@ struct ProjectInfoView: View {
             }
             
 
+//            NavigationLink {
+////                SampleInfoView(project: project)
+//                ProjectPartView(project: project, index: project.subParts.count, inputWidths: Array(repeating: "", count: project.subParts.count), inputLengths: Array(repeating: "", count: project.subParts.count))
+//            } label: {
+//                PrimaryButton(buttonText: "Lanjut")
+//            }
+//            .onAppear(perform: {
+//                print("name \(project.name)")
+//                print("sample \(project.samples.count)")
+//                print("count \(project.subParts.count)")
+//            })
+            
         }
         .navigationTitle("Info Proyek")
         .navigationBarBackButtonHidden(true)
