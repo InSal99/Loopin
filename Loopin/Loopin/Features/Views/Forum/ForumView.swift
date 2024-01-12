@@ -21,7 +21,8 @@ struct ForumView: View {
 //                                CommentView(postId: 1)
 //                                CommentView(postViewModel: postViewModel)
 //                            } label: {
-                                ForumCard(postViewModel:postViewModel)
+//                                ForumCard(postViewModel:postViewModel)
+                                ForumCardWithNavigation(postViewModel:postViewModel)
                                 
 //                                ForumCard(sender: "Marvin", content: "Lorem ipsum dolor sit amet consectetur adipiscin elit Ut et massa mi.", likeCount: 5, commentCount: 0)
 //                            }

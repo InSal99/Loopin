@@ -10,7 +10,7 @@ import Combine
 import SwiftUI
 
 class ProjectViewModel: ObservableObject, Identifiable {
-    private weak var postRepository = ProjectRepository.shared
+    private weak var projectRepository = ProjectRepository.shared
     private weak var authService = AuthenticationService.shared
 
     @Published var project: Project
@@ -34,14 +34,12 @@ class ProjectViewModel: ObservableObject, Identifiable {
     }
     
    
-//    func update(post:Project) {
-//        self.project.content = post.content
-//        postRepository?.update(post)
-//    }
-//    func remove() {
-//        postRepository?.remove(post)
-//        commentListViewModel?.commentRepository?.removeCollection()
-//        presentationMode?.wrappedValue.dismiss()
-//    }
+    func update(project:Project) {
+        projectRepository?.update(project)
+    }
+    
+    func remove() {
+        projectRepository?.remove(project)
+    }
     
 }

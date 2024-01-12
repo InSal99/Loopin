@@ -22,7 +22,7 @@ struct ProjectPartInputCard: View {
                 .frame(width: 358, height: 105)
                 .foregroundColor(Color("White"))
             VStack(alignment: .leading) {
-                Text("nama bagian")
+                Text(subPart.name)
                     .font(.outfit(.medium, size: .body2))
                 HStack {
                     Text("Panjang")

@@ -9,6 +9,9 @@ import SwiftUI
 
 struct CurrentProjectView: View {
     @Environment(\.presentationMode) var presentationMode
+    @State var showDeleteAlert = false
+    @State var isPostForumViewPresented = false
+    
     let currentProject: Project
     
     var body: some View {
@@ -41,8 +44,6 @@ struct CurrentProjectView: View {
                                 } else {
                                     AccordionWithPicture(isOpened: false, step: stepItem, multiplier: GaugeCounter.getMultiplierValueInRow(length: multiplier.length, sample: currentProject.sample))
                                 }
-//                                AccordionWithPicture(isOpened: false, step: stepItem, multiplier: multiplier)
-//                                AccordionWithPicture(isOpened: false, step: stepItem, title: stepItem.text, content: stepItem.guidances)
                             }
                         }
                         
@@ -50,6 +51,7 @@ struct CurrentProjectView: View {
                     .padding(.top, 300)
                     .padding()
                 }
+                .padding(.bottom, 20)
             }
             .ignoresSafeArea()
             .navigationBarBackButtonHidden(true)
@@ -65,6 +67,7 @@ struct CurrentProjectView: View {
             }
         }
         .navigationBarBackButtonHidden(true)
+        
     }
 }
 

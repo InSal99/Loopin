@@ -67,4 +67,5 @@ class PostViewModel: ObservableObject, Identifiable {
         presentationMode?.wrappedValue.dismiss()
     }
     
+    
 }

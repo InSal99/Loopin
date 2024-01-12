@@ -76,5 +76,20 @@ class ProjectRepository: ObservableObject {
         }
     }
     
+    func update(_ project: Project) {
+        do {
+            try database.collection(parentPath).document((authenticationService?.user?.id)!).collection(path).document(project.id!).setData(from: project)
+        } catch {
+            fatalError("Unable to update card: \(error.localizedDescription).")
+        }
+    }
+    
+    func remove(_ project: Project) {
+        database.collection(parentPath).document((authenticationService?.user?.id)!).collection(path).document(project.id!).delete { error in
+            if let error = error {
+                print("Unable to remove card: \(error.localizedDescription)")
+            }
+        }
+    }
     
 }

@@ -8,84 +8,52 @@
 import SwiftUI
 
 struct AccordionWithPicture: View {
-    @State var isOpened: Bool = true
+    @State var isOpened: Bool = false
     let step: Step
     let multiplier: Int
     
     var body: some View {
         
-        if step.guidances.isEmpty {
-            let num = step.nums * multiplier
-            Button {
-            } label: {
-                HStack() {
-                    Text(step.text.replacingOccurrences(of: "#", with: "\(num)"))
-                        .font(.outfit(.semiBold, size: .body2))
-                        .multilineTextAlignment(.leading)
-                }
-                .padding(.horizontal, 15)
-                .background(
-                    RoundedRectangle(cornerRadius: 20)
-                        .opacity(0.05)
-                        .frame(width: 342, height: 44)
-                )
-                .padding(.horizontal, 16)
-                .padding(.vertical, 10)
-            }
-            .foregroundColor(Color("Black"))
-            .disabled(true)
-        } else {
-            Button {
-                withAnimation(.spring()) {
-                    isOpened.toggle()
-                }
-            } label: {
-                if !isOpened {
+        
+        VStack(alignment: .leading) {
+                Button {
+                    withAnimation(.spring()) {
+                        isOpened.toggle()
+                    }
+                } label: {
                     HStack() {
                         Text(step.text.replacingOccurrences(of: "#", with: "\(step.nums * multiplier)"))
                             .font(.outfit(.semiBold, size: .body2))
                             .multilineTextAlignment(.leading)
-                        Spacer()
-                        Image(systemName: "chevron.right")
-                    }
-                    .padding(.horizontal, 15)
-                    .background(
-                        RoundedRectangle(cornerRadius: 20)
-                            .opacity(0.05)
-                            .frame(width: 342, height: 44)
-                    )
-                    .padding(.horizontal, 16)
-                    .padding(.vertical, 10)
-                } else {
-                    VStack(alignment: .leading) {
-                        HStack() {
-                            Text(step.text.replacingOccurrences(of: "#", with: "\(step.nums * multiplier)"))
-                                .font(.outfit(.semiBold, size: .body2))
-                                .multilineTextAlignment(.leading)
-                            
+                        
+                        if !step.guidances.isEmpty {
                             Spacer()
-                            Image(systemName: "chevron.down")
+                            Image(systemName: isOpened ? "chevron.down": "chevron.right")
                         }
-                        ScrollView(.horizontal) {
-                            HStack() {
-                                ForEach(step.guidances.indices) { item in
-                                    SquareCard(cardText: "\(item + 1)", cardImage: step.guidances[item])
-                                }
+                    }
+                }
+                .disabled(step.guidances.isEmpty ? true : false)
+                
+                if !isOpened {
+                    ScrollView(.horizontal) {
+                        HStack() {
+                            ForEach(step.guidances.indices) { item in
+                                SquareCard(cardText: "\(item + 1)", cardImage: step.guidances[item])
                             }
                         }
                     }
-                    .padding(.horizontal, 15)
-                    .padding(.vertical, 10)
-                    .background(
-                        RoundedRectangle(cornerRadius: 20)
-                            .opacity(0.05)
-                            .frame(width: 342)
-                    )
-                    .padding(.horizontal, 16)
                 }
-            }
-            .foregroundColor(Color("Black"))
         }
+        .padding(.horizontal, 15)
+        .padding(.vertical, 10)
+        .background(
+            RoundedRectangle(cornerRadius: 20)
+                .opacity(0.05)
+                .frame(width: UIScreen.main.bounds.width - 20)
+                .frame(minHeight: 10)
+        )
+        .foregroundColor(Color("Black"))
+        
     }
 }
 
