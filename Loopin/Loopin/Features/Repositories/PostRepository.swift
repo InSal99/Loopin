@@ -68,7 +68,7 @@ class PostRepository: ObservableObject {
            uploadImages(imageDatas) { imagePaths in
                // Once images are uploaded, add post to Firestore with image paths
                var newPost = post
-               newPost.images = imagePaths
+               newPost.images.append(contentsOf: imagePaths)
 //               newPost.time = Date()
                
                self.add(newPost)
