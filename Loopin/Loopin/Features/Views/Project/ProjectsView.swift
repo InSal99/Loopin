@@ -19,7 +19,7 @@ struct ProjectsView: View {
                 LazyVGrid(columns: [GridItem(.adaptive(minimum: 140))], spacing: 18) {
                     ForEach(projectTemplateData) { templateItem in
                         NavigationLink(destination: ProjectOverviewView(projectTemplate: templateItem)) {
-                            SquareCard(cardText: templateItem.name, cardImage: templateItem.image)
+                            SquareCard(cardText: templateItem.type, cardImage: templateItem.image)
                         }
                     }
                 }

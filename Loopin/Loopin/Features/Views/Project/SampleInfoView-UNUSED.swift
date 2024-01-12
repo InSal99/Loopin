@@ -10,7 +10,7 @@ import SwiftUI
 struct SampleInfoView: View {
     @Environment(\.presentationMode) var presentationMode
     
-    var project: Project
+    @State var project: Project
 
     @State private var height = ""
     @State private var width = ""
@@ -27,7 +27,7 @@ struct SampleInfoView: View {
             ShortTextField(placeholder: "jumlah baris", field: $totalRow)
             Spacer()
             NavigationLink {
-                ProjectPartView(project: project)
+//                ProjectPartView(project: project)
             } label: {
                 PrimaryButton(buttonText: "Lanjut")
             }
