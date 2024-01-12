@@ -28,10 +28,10 @@ struct ProfileView: View {
                 Step(text: "step title", nums: 0, isStitch: false, guidances: []),
                 Step(text: "step title", nums: 0, isStitch: false, guidances: ["test", "test"]),
             ], gauge: Gauges(length: 10, width: 34, stitch: 65, row: 50))
-        ], samples: []),
+        ], sample: Gauges(length: 6, width: 6, stitch: 6, row: 6)),
         Project(type: "Cardigan", name: "Cardiganku", image: "test", description: "lerem ipsum", preparation: "lorem ipsum", yarnType: "Bamboo", yarnWeight: "chunky", hookSize: "D", stitchType: "Double Crochet", subParts: [
             SubPart(name: "Bagian depan", steps: [], gauge: Gauges(length: 10, width: 34, stitch: 65, row: 50))
-        ], samples: [])
+        ], sample: Gauges(length: 6, width: 6, stitch: 6, row: 6))
     ]
 //    let userPosts: [Post] = []
     

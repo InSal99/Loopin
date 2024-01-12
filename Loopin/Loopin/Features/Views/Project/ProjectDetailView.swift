@@ -15,6 +15,9 @@ struct ProjectDetailView: View {
         NavigationView {
             ScrollView(.vertical){
                 VStack(alignment: .leading, spacing: 25) {
+                    Text(selectedProject.type)
+                        .font(.outfit(.semiBold, size: .body2))
+                        .padding(.horizontal)
                     Text(selectedProject.description)
                         .font(.outfit(.regular, size: .body2))
                         .padding(.horizontal)
@@ -33,7 +36,7 @@ struct ProjectDetailView: View {
                         }
                     }
                     NavigationLink {
-                        //ongoing project
+                        ///ongoing project
                         CurrentProjectView(currentProject: selectedProject)
                     } label: {
                         PrimaryButton(buttonText: "Mulai Proyek")
@@ -43,7 +46,7 @@ struct ProjectDetailView: View {
             }
             .background(Color("White"))
             .navigationViewStyle(StackNavigationViewStyle())
-            .navigationTitle("Detail Proyek")
+            .navigationTitle("\(selectedProject.name)")
             .navigationBarTitleDisplayMode(.automatic)
             .navigationBarBackButtonHidden(true)
             .toolbar {
@@ -63,6 +66,6 @@ struct ProjectDetailView: View {
 
 //struct ProjectDetailView_Previews: PreviewProvider {
 //    static var previews: some View {
-//        ProjectDetailView(selectedProject:  Project(type:"tipe", name: "name", image: "test", description: "description", preparation: "preparation", yarnType: "yarn type", yarnWeight: "yarn weight", hookSize: "hook size", stitchType: "stitch type", subParts: [], samples: []))
+//        ProjectDetailView(selectedProject:  Project(type:"tipe", name: "name", image: "test", description: "description", preparation: "preparation", yarnType: "yarn type", yarnWeight: "yarn weight", hookSize: "hook size", stitchType: "stitch type", subParts: [], sample: Gauges(length: 6, width: 6, stitch: 6, row: 6)))
 //    }
 //}

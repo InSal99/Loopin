@@ -32,18 +32,20 @@ struct CurrentProjectView: View {
                         ForEach(currentProject.subParts, id: \.self) { subPartItem in
                             Text(subPartItem.name)
                                 .font(.outfit(.semiBold, size: .body3))
+                            
+                            let multiplier = subPartItem.gauge
+                            
                             ForEach(subPartItem.steps, id: \.self) { stepItem in
-                                AccordionWithPicture(isOpened: false, title: stepItem.text, content: stepItem.guidances)
+                                if stepItem.isStitch {
+                                    AccordionWithPicture(isOpened: false, step: stepItem, multiplier: GaugeCounter.getMultiplierValueInStitch(width: multiplier.width, sample: currentProject.sample))
+                                } else {
+                                    AccordionWithPicture(isOpened: false, step: stepItem, multiplier: GaugeCounter.getMultiplierValueInRow(length: multiplier.length, sample: currentProject.sample))
+                                }
+//                                AccordionWithPicture(isOpened: false, step: stepItem, multiplier: multiplier)
+//                                AccordionWithPicture(isOpened: false, step: stepItem, title: stepItem.text, content: stepItem.guidances)
                             }
                         }
                         
-//                        ForEach(currentProject.subPart, id: \.self) { subPartItem in
-//                            Text(subPartItem.name)
-//                                .font(.outfit(.semiBold, size: .body3))
-//                            ForEach(subPartItem.steps, id: \.self) { stepItem in
-//                                Accordion(isOpened: false, title: stepItem.title, content: stepItem.content)
-//                            }
-//                        }
                     }
                     .padding(.top, 300)
                     .padding()
@@ -69,6 +71,6 @@ struct CurrentProjectView: View {
 //struct CurrentProjectView_Previews: PreviewProvider {
 //    static var previews: some View {
 //        CurrentProjectView(
-//            currentProject: Project(type:"tipe", name: "name", image: "test", description: "description", preparation: "preparation", yarnType: "yarn type", yarnWeight: "yarn weight", hookSize: "hook size", stitchType: "stitch type", subParts: [], samples: []))
+//            currentProject: Project(type:"tipe", name: "name", image: "test", description: "description", preparation: "preparation", yarnType: "yarn type", yarnWeight: "yarn weight", hookSize: "hook size", stitchType: "stitch type", subParts: [], sample: Gauges(length: 6, width: 6, stitch: 6, row: 6)))
 //    }
 //}

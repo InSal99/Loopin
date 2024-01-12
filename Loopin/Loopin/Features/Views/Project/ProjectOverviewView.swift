@@ -52,7 +52,7 @@ struct ProjectOverviewView: View {
                                         hookSize: projectTemplate.hookSize,
                                         stitchType: projectTemplate.stitchType,
                                         subParts: projectTemplate.subParts,
-                                        samples: projectTemplate.samples)
+                                        sample: projectTemplate.sample)
 
                             )
                         } label: {
@@ -83,6 +83,6 @@ struct ProjectOverviewView: View {
 
 struct ProjectOverviewView_Previews: PreviewProvider {
     static var previews: some View {
-        ProjectOverviewView(projectTemplate: ProjectTemplateJSON(type: "Cardigan", name: "name", image: "test", description: "description", preparation: "preparation", yarnType: "yarn type", yarnWeight: "yarn weight", hookSize: "hook size", stitchType: "stitch type", subParts: [], samples: []))
+        ProjectOverviewView(projectTemplate: ProjectTemplateJSON(type: "Cardigan", name: "name", image: "test", description: "description", preparation: "preparation", yarnType: "yarn type", yarnWeight: "yarn weight", hookSize: "hook size", stitchType: "stitch type", subParts: [], sample: Gauges(length: 6, width: 6, stitch: 6, row: 6)))
     }
 }
