@@ -14,7 +14,7 @@ struct ProjectPartInputCard: View {
     @Binding var inputWidth: String
     @Binding var inputLength: String
     
-    let placeholder:String = "...."
+    let placeholder:String = "..."
     
     var body: some View {
         ZStack(alignment: .leading) {
@@ -24,29 +24,6 @@ struct ProjectPartInputCard: View {
             VStack(alignment: .leading) {
                 Text("nama bagian")
                     .font(.outfit(.medium, size: .body2))
-                HStack {
-                    Text("Lebar")
-                        .font(.outfit(.ligth, size: .body2))
-                    Spacer()
-                    HStack {
-                        TextField(placeholder, text: $inputWidth)
-                            .font(.outfit(.regular, size: .body2))
-                            .frame(maxWidth: 52)
-                            .multilineTextAlignment(.trailing)
-                            .onChange(of: inputWidth) { newValue in
-                                // Update the inputWidth binding with the converted integer value
-                                inputWidth = String(Double(newValue) ?? 0)
-                            }
-                        Text("cm")
-                            .font(.outfit(.regular, size: .body2))
-                            .multilineTextAlignment(.trailing)
-                            .padding(.trailing, 13)
-                    }
-                    .background(
-                        RoundedRectangle(cornerRadius: 7)
-                            .foregroundColor(.white)
-                    )
-                }
                 HStack {
                     Text("Panjang")
                         .font(.outfit(.ligth, size: .body2))
@@ -70,6 +47,30 @@ struct ProjectPartInputCard: View {
                             .foregroundColor(.white)
                     )
                 }
+                HStack {
+                    Text("Lebar")
+                        .font(.outfit(.ligth, size: .body2))
+                    Spacer()
+                    HStack {
+                        TextField(placeholder, text: $inputWidth)
+                            .font(.outfit(.regular, size: .body2))
+                            .frame(maxWidth: 52)
+                            .multilineTextAlignment(.trailing)
+                            .onChange(of: inputWidth) { newValue in
+                                // Update the inputWidth binding with the converted integer value
+                                inputWidth = String(Double(newValue) ?? 0)
+                            }
+                        Text("cm")
+                            .font(.outfit(.regular, size: .body2))
+                            .multilineTextAlignment(.trailing)
+                            .padding(.trailing, 13)
+                    }
+                    .background(
+                        RoundedRectangle(cornerRadius: 7)
+                            .foregroundColor(.white)
+                    )
+                }
+                
             }
             .padding(.horizontal)
         }

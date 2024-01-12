@@ -9,22 +9,19 @@ import SwiftUI
 
 struct AccordionWithPicture: View {
     @State var isOpened: Bool = true
-    let title: String
-    let content: [String]
+    let step: Step
+    let multiplier: Int
     
     var body: some View {
-        Button {
-            withAnimation(.spring()) {
-                            isOpened.toggle()
-                        }
-        } label: {
-            if !isOpened {
+        
+        if step.guidances.isEmpty {
+            let num = step.nums * multiplier
+            Button {
+            } label: {
                 HStack() {
-                    Text(title)
-                    .font(.outfit(.semiBold, size: .body2))
-                    .multilineTextAlignment(.leading)
-                    Spacer()
-                    Image(systemName: "chevron.right")
+                    Text(step.text.replacingOccurrences(of: "#", with: "\(num)"))
+                        .font(.outfit(.semiBold, size: .body2))
+                        .multilineTextAlignment(.leading)
                 }
                 .padding(.horizontal, 15)
                 .background(
@@ -34,47 +31,74 @@ struct AccordionWithPicture: View {
                 )
                 .padding(.horizontal, 16)
                 .padding(.vertical, 10)
-            } else {
-                VStack(alignment: .leading) {
+            }
+            .foregroundColor(Color("Black"))
+            .disabled(true)
+        } else {
+            Button {
+                withAnimation(.spring()) {
+                    isOpened.toggle()
+                }
+            } label: {
+                if !isOpened {
                     HStack() {
-                        Text(title)
-                        .font(.outfit(.semiBold, size: .body2))
+                        Text(step.text.replacingOccurrences(of: "#", with: "\(step.nums * multiplier)"))
+                            .font(.outfit(.semiBold, size: .body2))
+                            .multilineTextAlignment(.leading)
                         Spacer()
-                        Image(systemName: "chevron.down")
+                        Image(systemName: "chevron.right")
                     }
-                    ScrollView(.horizontal) {
+                    .padding(.horizontal, 15)
+                    .background(
+                        RoundedRectangle(cornerRadius: 20)
+                            .opacity(0.05)
+                            .frame(width: 342, height: 44)
+                    )
+                    .padding(.horizontal, 16)
+                    .padding(.vertical, 10)
+                } else {
+                    VStack(alignment: .leading) {
                         HStack() {
-                            ForEach(content.indices) { item in
-                                SquareCard(cardText: "\(item + 1)", cardImage: content[item])
+                            Text(step.text.replacingOccurrences(of: "#", with: "\(step.nums * multiplier)"))
+                                .font(.outfit(.semiBold, size: .body2))
+                                .multilineTextAlignment(.leading)
+                            
+                            Spacer()
+                            Image(systemName: "chevron.down")
+                        }
+                        ScrollView(.horizontal) {
+                            HStack() {
+                                ForEach(step.guidances.indices) { item in
+                                    SquareCard(cardText: "\(item + 1)", cardImage: step.guidances[item])
+                                }
                             }
                         }
                     }
+                    .padding(.horizontal, 15)
+                    .padding(.vertical, 10)
+                    .background(
+                        RoundedRectangle(cornerRadius: 20)
+                            .opacity(0.05)
+                            .frame(width: 342)
+                    )
+                    .padding(.horizontal, 16)
                 }
-                .padding(.horizontal, 15)
-                .padding(.vertical, 10)
-                .background(
-                    RoundedRectangle(cornerRadius: 20)
-                        .opacity(0.05)
-                        .frame(width: 342)
-                )
-                .padding(.horizontal, 16)
             }
+            .foregroundColor(Color("Black"))
         }
-        .foregroundColor(Color("Black"))
     }
 }
 
-struct AccordionWithPicture_Previews: PreviewProvider {
-    static var previews: some View {
-        Group {
-                   AccordionWithPicture(title: "title", content: ["content"])
-                       .environment(\.colorScheme, .light)
-                   AccordionWithPicture(title: "title", content: ["content"])
-                       .environment(\.colorScheme, .dark)
-               }
-//        AccordionWithPicture(title: "title", content: ["content"])
-    }
-}
+//struct AccordionWithPicture_Previews: PreviewProvider {
+//    static var previews: some View {
+//        Group {
+//            AccordionWithPicture(step: Step(text: "", nums: 0, isStitch: true), title: "title", content: ["content"])
+//            AccordionWithPicture(step: Step(text: "", nums: 0, isStitch: true), title: "title", content: ["content"])
+//
+//               }
+////        AccordionWithPicture(title: "title", content: ["content"])
+//    }
+//}
 
 //#Preview {
 //    AccordionWithPicture(title: "title", content: ["content"])

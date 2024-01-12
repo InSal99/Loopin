@@ -51,21 +51,20 @@
                 ],
                 "gauge":
                 {
-                    "length": 10,
-                    "width": 10,
-                    "stitch": 4,
-                    "row": 8
+                    "length": 0,
+                    "width": 0,
+                    "stitch": 0,
+                    "row": 0
                 }
             }
         ],
-        "samples": [
-            {
-                "length": 100,
-                "width": 200,
-                "stitch": 450,
-                "row": 310
-            }
-        ]
+        "sample": {
+            "length": 10,
+            "width": 10,
+            "stitch": 4,
+            "row": 8
+        }
+        
     },
     {
         "type": "Syal",
@@ -168,14 +167,13 @@
                 }
             }
         ],
-        "samples": [
-            {
-                "length": 247,
-                "width": 123,
-                "stitch": 876,
-                "row": 345
-            }
-        ]
+        "sample": {
+            "length": 193,
+            "width": 21.6,
+            "stitch": 24,
+            "row": 72
+        }
+        
     },
     {
         "type": "Sweater",
@@ -218,10 +216,10 @@
                 ],
                 "gauge":
                 {
-                    "length": 53,
-                    "width": 40.6,
-                    "stitch": 72,
-                    "row": 77
+                    "length": 0,
+                    "width": 0,
+                    "stitch": 0,
+                    "row": 0
                 }
             },
             {
@@ -256,10 +254,10 @@
                 ],
                 "gauge":
                 {
-                    "length": 53,
-                    "width": 40.6,
-                    "stitch": 72,
-                    "row": 77
+                    "length": 0,
+                    "width": 0,
+                    "stitch": 0,
+                    "row": 0
                 }
             },
             {
@@ -292,10 +290,10 @@
                 ],
                 "gauge":
                 {
-                    "length": 53,
-                    "width": 40.6,
-                    "stitch": 72,
-                    "row": 77
+                    "length": 0,
+                    "width": 0,
+                    "stitch": 0,
+                    "row": 0
                 }
             },
             {
@@ -328,20 +326,18 @@
                 ],
                 "gauge":
                 {
-                    "length": 53,
-                    "width": 40.6,
-                    "stitch": 72,
-                    "row": 77
+                    "length": 0,
+                    "width": 0,
+                    "stitch": 0,
+                    "row": 0
                 }
             }
         ],
-        "samples": [
-            {
-                "length": 100,
-                "width": 200,
-                "stitch": 450,
-                "row": 310
-            }
-        ]
+        "sample": {
+            "length": 53,
+            "width": 40.6,
+            "stitch": 72,
+            "row": 77
+        }
     }
 ]

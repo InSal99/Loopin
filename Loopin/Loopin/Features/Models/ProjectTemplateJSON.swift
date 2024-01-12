@@ -19,5 +19,5 @@ struct ProjectTemplateJSON: Identifiable, Codable {
     var hookSize: String
     var stitchType: String
     var subParts: [SubPart] = []
-    var samples: [Gauges] = []
+    var sample: Gauges
 }

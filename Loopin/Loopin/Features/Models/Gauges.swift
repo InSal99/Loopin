@@ -12,3 +12,5 @@ struct Gauges: Codable, Hashable {
     var stitch: Int
     var row: Int
 }
+
+

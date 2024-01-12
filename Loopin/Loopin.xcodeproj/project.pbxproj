@@ -91,6 +91,8 @@
 		8FA5AD3B2B199EC50021F53C /* Comment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FA5AD3A2B199EC50021F53C /* Comment.swift */; };
 		8FA5AD3D2B199F8C0021F53C /* ProjectDetails.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FA5AD3C2B199F8C0021F53C /* ProjectDetails.swift */; };
 		8FAE74B62B5003B700E48454 /* ProjectTemplateJSON.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FAE74B52B5003B700E48454 /* ProjectTemplateJSON.swift */; };
+		8FAE74B82B51189400E48454 /* GaugeFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FAE74B72B51189400E48454 /* GaugeFormatter.swift */; };
+		8FAE74BA2B513CE400E48454 /* GaugeCounter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FAE74B92B513CE400E48454 /* GaugeCounter.swift */; };
 		8FAEA3D62B1A403D009B7E67 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 8FAEA3D52B1A403D009B7E67 /* GoogleService-Info.plist */; };
 		8FAEA3D92B1A41A3009B7E67 /* FirebaseAnalytics in Frameworks */ = {isa = PBXBuildFile; productRef = 8FAEA3D82B1A41A3009B7E67 /* FirebaseAnalytics */; };
 		8FAEA3DB2B1A41A3009B7E67 /* FirebaseAuth in Frameworks */ = {isa = PBXBuildFile; productRef = 8FAEA3DA2B1A41A3009B7E67 /* FirebaseAuth */; };
@@ -193,6 +195,8 @@
 		8FA5AD3A2B199EC50021F53C /* Comment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Comment.swift; sourceTree = "<group>"; };
 		8FA5AD3C2B199F8C0021F53C /* ProjectDetails.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectDetails.swift; sourceTree = "<group>"; };
 		8FAE74B52B5003B700E48454 /* ProjectTemplateJSON.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectTemplateJSON.swift; sourceTree = "<group>"; };
+		8FAE74B72B51189400E48454 /* GaugeFormatter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GaugeFormatter.swift; sourceTree = "<group>"; };
+		8FAE74B92B513CE400E48454 /* GaugeCounter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GaugeCounter.swift; sourceTree = "<group>"; };
 		8FAEA3D52B1A403D009B7E67 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		8FAEA3DC2B1ACA40009B7E67 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		8FC1407F2B4AA955008AAE90 /* CommentManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentManager.swift; sourceTree = "<group>"; };
@@ -384,6 +388,7 @@
 				16FBA1F72B4BD59C001AEBDB /* Gauges.swift */,
 				16FBA1F92B4D26C7001AEBDB /* Step.swift */,
 				8F404E252B4EE37000F7145C /* JSONFileHandler.swift */,
+				8FAE74B92B513CE400E48454 /* GaugeCounter.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -510,6 +515,7 @@
 			isa = PBXGroup;
 			children = (
 				8FC60F7F2B3F177B00C8C241 /* DateFormatter.swift */,
+				8FAE74B72B51189400E48454 /* GaugeFormatter.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -618,6 +624,7 @@
 				16FBA1E62B4BC8B5001AEBDB /* TermTutorialListView.swift in Sources */,
 				8FC60F762B39FD4D00C8C241 /* UserRepository.swift in Sources */,
 				8F1BA8EB2B29BB0600DD92C4 /* PostRepository.swift in Sources */,
+				8FAE74BA2B513CE400E48454 /* GaugeCounter.swift in Sources */,
 				16F64E4B2B0B371E00EF2E15 /* TextExtension.swift in Sources */,
 				8FC65C632B493046007E8D28 /* CommentViewModel.swift in Sources */,
 				16F64E5A2B0B772100EF2E15 /* SquareCard.swift in Sources */,
@@ -642,6 +649,7 @@
 				16F64E602B0B8E5100EF2E15 /* ProfileView.swift in Sources */,
 				16FBA1FC2B4FB6F4001AEBDB /* AccordionWithPicture.swift in Sources */,
 				16C4D50E2B37770C007880DF /* ProjectCard.swift in Sources */,
+				8FAE74B82B51189400E48454 /* GaugeFormatter.swift in Sources */,
 				16FBA1F62B4BD54D001AEBDB /* SubPart.swift in Sources */,
 				16F64E502B0B44C700EF2E15 /* SecondaryButton.swift in Sources */,
 				8F7E67D62B19C750005DBD9E /* ObjectPart.swift in Sources */,

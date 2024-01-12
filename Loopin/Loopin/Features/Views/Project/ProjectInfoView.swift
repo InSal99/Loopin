@@ -46,7 +46,7 @@ struct ProjectInfoView: View {
 //            }
 //            .onAppear(perform: {
 //                print("name \(project.name)")
-//                print("sample \(project.samples.count)")
+//                print("sample \(project.sample.count)")
 //                print("count \(project.subParts.count)")
 //            })
             
@@ -73,6 +73,6 @@ struct ProjectInfoView: View {
 
 struct ProjectInfoView_Previews: PreviewProvider {
     static var previews: some View {
-        ProjectInfoView(project: Project(type: "Cardigan", name: "name", image: "test", description: "description", preparation: "preparation", yarnType: "yarn type", yarnWeight: "yarn weight", hookSize: "hook size", stitchType: "stitch type", subParts: [], samples: []))
+        ProjectInfoView(project: Project(type: "Cardigan", name: "name", image: "test", description: "description", preparation: "preparation", yarnType: "yarn type", yarnWeight: "yarn weight", hookSize: "hook size", stitchType: "stitch type", subParts: [], sample: Gauges(length: 6, width: 6, stitch: 6, row: 6)))
     }
 }

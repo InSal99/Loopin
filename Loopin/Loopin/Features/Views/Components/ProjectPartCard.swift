@@ -16,7 +16,7 @@ struct ProjectPartCard: View {
                 .frame(width: 358, height: 90)
                 .foregroundColor(Color.white)
             VStack(alignment: .leading) {
-                Text("nama bagian")
+                Text("\(subPart.name)")
                     .font(.outfit(.medium, size: .body2))
                 HStack {
                     Text("Lebar")
