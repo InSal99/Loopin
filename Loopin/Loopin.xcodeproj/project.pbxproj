@@ -34,7 +34,7 @@
 		16EEB2612B0BDB4000C340D1 /* ProjectPartCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16EEB2602B0BDB4000C340D1 /* ProjectPartCard.swift */; };
 		16EEB2632B0BE49400C340D1 /* ProjectInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16EEB2622B0BE49400C340D1 /* ProjectInfoView.swift */; };
 		16EEB2652B0BE55900C340D1 /* ProgressBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16EEB2642B0BE55900C340D1 /* ProgressBar.swift */; };
-		16EEB2672B0BE76C00C340D1 /* SampleInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16EEB2662B0BE76C00C340D1 /* SampleInfoView.swift */; };
+		16EEB2672B0BE76C00C340D1 /* SampleInfoView-UNUSED.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16EEB2662B0BE76C00C340D1 /* SampleInfoView-UNUSED.swift */; };
 		16EEB2692B0BE82400C340D1 /* ProjectPartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16EEB2682B0BE82400C340D1 /* ProjectPartView.swift */; };
 		16EEB26B2B0BEB7100C340D1 /* ProjectPartInputCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16EEB26A2B0BEB7100C340D1 /* ProjectPartInputCard.swift */; };
 		16EEB26D2B0BEF7700C340D1 /* ProjectOverviewView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16EEB26C2B0BEF7700C340D1 /* ProjectOverviewView.swift */; };
@@ -135,7 +135,7 @@
 		16EEB2602B0BDB4000C340D1 /* ProjectPartCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectPartCard.swift; sourceTree = "<group>"; };
 		16EEB2622B0BE49400C340D1 /* ProjectInfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectInfoView.swift; sourceTree = "<group>"; };
 		16EEB2642B0BE55900C340D1 /* ProgressBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgressBar.swift; sourceTree = "<group>"; };
-		16EEB2662B0BE76C00C340D1 /* SampleInfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SampleInfoView.swift; sourceTree = "<group>"; };
+		16EEB2662B0BE76C00C340D1 /* SampleInfoView-UNUSED.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SampleInfoView-UNUSED.swift"; sourceTree = "<group>"; };
 		16EEB2682B0BE82400C340D1 /* ProjectPartView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectPartView.swift; sourceTree = "<group>"; };
 		16EEB26A2B0BEB7100C340D1 /* ProjectPartInputCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectPartInputCard.swift; sourceTree = "<group>"; };
 		16EEB26C2B0BEF7700C340D1 /* ProjectOverviewView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectOverviewView.swift; sourceTree = "<group>"; };
@@ -440,7 +440,7 @@
 				16F64E572B0B765C00EF2E15 /* ProjectsView.swift */,
 				16EEB25C2B0BD2E600C340D1 /* ProjectDetailView.swift */,
 				16EEB2622B0BE49400C340D1 /* ProjectInfoView.swift */,
-				16EEB2662B0BE76C00C340D1 /* SampleInfoView.swift */,
+				16EEB2662B0BE76C00C340D1 /* SampleInfoView-UNUSED.swift */,
 				16EEB2682B0BE82400C340D1 /* ProjectPartView.swift */,
 				16EEB26C2B0BEF7700C340D1 /* ProjectOverviewView.swift */,
 				16C4D53F2B45855A007880DF /* CurrentProjectView.swift */,
@@ -660,7 +660,7 @@
 				16F64E662B0BAF3300EF2E15 /* LoginView.swift in Sources */,
 				8FC60F7D2B3ECEA400C8C241 /* PostListViewModel.swift in Sources */,
 				16F64E522B0B4D5C00EF2E15 /* RectangleCard.swift in Sources */,
-				16EEB2672B0BE76C00C340D1 /* SampleInfoView.swift in Sources */,
+				16EEB2672B0BE76C00C340D1 /* SampleInfoView-UNUSED.swift in Sources */,
 				16BF34DC2B0B31BF0036424B /* ContentView.swift in Sources */,
 				16EEB2692B0BE82400C340D1 /* ProjectPartView.swift in Sources */,
 				161AA70D2B0E1D2B008A59CE /* PatternTutorialView.swift in Sources */,

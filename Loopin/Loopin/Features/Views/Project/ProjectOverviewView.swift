@@ -22,7 +22,7 @@ struct ProjectOverviewView: View {
                         .padding(.top, 273)
                     VStack(alignment: .leading, spacing: 20) {
                         Spacer()
-                        Text(projectTemplate.name)
+                        Text(projectTemplate.type)
                             .font(.outfit(.semiBold, size: .heading3))
                         Text(projectTemplate.description)
                             .font(.outfit(.regular, size: .body2))
@@ -33,12 +33,14 @@ struct ProjectOverviewView: View {
                                         type: projectTemplate.type,
                                         name: projectTemplate.name,
                                         image: projectTemplate.image,
-                                        description: projectTemplate.description,
+                                        description: "",
                                         preparation: projectTemplate.preparation,
                                         yarnType: projectTemplate.yarnType,
                                         yarnWeight: projectTemplate.yarnWeight,
                                         hookSize: projectTemplate.hookSize,
-                                        stitchType: projectTemplate.stitchType)
+                                        stitchType: projectTemplate.stitchType,
+                                        subParts: projectTemplate.subParts,
+                                        samples: projectTemplate.samples)
                             )
                         } label: {
                             PrimaryButton(buttonText: "Buat Proyek")
