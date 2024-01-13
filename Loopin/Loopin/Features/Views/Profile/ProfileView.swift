@@ -125,13 +125,13 @@ struct ProfileView: View {
                         Alert(
                             title: Text("Keluar Akun"),
                             message: Text("Apakah anda yakin ingin keluar dari akun anda?"),
-                            primaryButton: .default(Text("Yes")) {
+                            primaryButton: .destructive(Text("Ya")) {
                                 authViewModel.authService.signOut()
                                 
                                 navigateToWelcomePage.toggle()
                                 presentationMode.wrappedValue.dismiss()
                             },
-                            secondaryButton: .cancel()
+                            secondaryButton: .default(Text("Batal"))
                         )
                     }
                     .background(

@@ -43,13 +43,13 @@ struct CommentCard: View {
                         .padding(5)
                         .alert(isPresented: $showDeleteAlert, content: {
                             Alert(
-                                title: Text("Delete Comment"),
-                                message: Text("Are you sure you want to remove this comment?"),
-                                primaryButton: .destructive(Text("Delete")) {
+                                title: Text("Hapus Komentar"),
+                                message: Text("Apakah anda yakin ingin menghapus komentar?"),
+                                primaryButton: .destructive(Text("Hapus")) {
                                     // Handle delete action
                                     commentViewModel.remove()
                                 },
-                                secondaryButton: .cancel()
+                                secondaryButton: .default(Text("Batal"))
                             )
                         })
                     }

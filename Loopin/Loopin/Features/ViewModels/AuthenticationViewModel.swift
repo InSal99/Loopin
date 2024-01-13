@@ -32,6 +32,8 @@ class AuthenticationViewModel: ObservableObject {
                     switch result {
                     case .success:
                         self?.isSignupSuccess = true
+                        self?.alertTitle = "Berhasil mendaftarkan akun"
+                        self?.alertMessage = "Data disimpan."
                         
                         /// DEBUG
                         print("AuthVM - sign up success: \(self?.isSignupSuccess ?? false)")
@@ -40,6 +42,8 @@ class AuthenticationViewModel: ObservableObject {
                     case .failure(let error):
                         self?.errorMessage = error.localizedDescription
                         self?.isError = true
+                        self?.alertTitle = "Gagal mendaftarkan akun"
+                        self?.alertMessage = "Data gagal disimpan."
                         
                         /// DEBUG
                         print("AuthVM - sign up failed: \(self?.errorMessage ?? "error message nil")")
@@ -117,7 +121,7 @@ class AuthenticationViewModel: ObservableObject {
         
         if !isValid {
             self.isError = true
-            self.errorMessage = "Please fill in all the fields."
+            self.errorMessage = "Semua data perlu diisi."
         }
         
         completion(isValid)

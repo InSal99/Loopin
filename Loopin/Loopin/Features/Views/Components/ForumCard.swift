@@ -135,13 +135,13 @@ struct ForumCard: View {
         }
         .alert(isPresented: $showDeleteAlert) {
             Alert(
-                title: Text("Delete Post"),
-                message: Text("Are you sure you want to remove this post?"),
-                primaryButton: .destructive(Text("Delete")) {
+                title: Text("Menghapus Unggahan"),
+                message: Text("Apakah anda yakin ingin menghapus unggahan?"),
+                primaryButton: .destructive(Text("Hapus")) {
                     /// Handle delete action
                     postViewModel.remove()
                 },
-                secondaryButton: .cancel()
+                secondaryButton: .default(Text("Batal"))
             )
         }
         .onAppear {

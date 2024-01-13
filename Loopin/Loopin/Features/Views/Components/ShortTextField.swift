@@ -24,6 +24,7 @@ struct ShortTextField: View {
                 .padding()
                 .background(RoundedRectangle(cornerRadius: 20).fill(backgroundColor))
                 .foregroundColor(textColor)
+                .multilineTextAlignment(.leading)
                 .frame(height: 55)
                 .padding([.horizontal])
         } else {
@@ -32,6 +33,7 @@ struct ShortTextField: View {
                 .padding()
                 .background(RoundedRectangle(cornerRadius: 20).fill(backgroundColor))
                 .foregroundColor(textColor)
+                .multilineTextAlignment(.leading)
                 .frame(height: 55)
                 .padding([.horizontal])
         }

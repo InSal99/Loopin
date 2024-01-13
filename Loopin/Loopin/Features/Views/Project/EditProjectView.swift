@@ -59,8 +59,8 @@ struct EditProjectView: View {
     }
 }
 
-//struct EditProjectView_Previews: PreviewProvider {
-//    static var previews: some View {
-//        EditProjectView(message: <#String#>, image: <#String#>, isOnEdit: <#Bool#>, projectToEdit: <#ProjectViewModel#>)
-//    }
-//}
+struct EditProjectView_Previews: PreviewProvider {
+    static var previews: some View {
+        EditProjectView(projectToEdit: ProjectViewModel(project: Project(type: "type", name: "name", image: "test", description: "description", preparation: "preparation", yarnType: "yarnType", yarnWeight: "yarnWeight", hookSize: "hookSize", stitchType: "stitchType", sample: Gauges(length: 0, width: 0, stitch: 0, row: 0))))
+    }
+}
