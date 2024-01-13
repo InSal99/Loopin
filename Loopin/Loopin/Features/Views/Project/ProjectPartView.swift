@@ -73,9 +73,7 @@ struct ProjectPartView: View {
 //                            inputWidth: $inputWidths[item],
 //                            inputLength: $inputLengths[item]
 //                        )
-            NavigationLink(destination: ProfileView(), isActive: $navigateToProfile) {
-                       EmptyView()
-                   }
+          
             Spacer()
             Button(action: {
                 showAlert = true
@@ -93,12 +91,8 @@ struct ProjectPartView: View {
                         }
                         navigateToProfile = true
 
-                        
-//                        DispatchQueue.main.async {
                         presentationMode.wrappedValue.dismiss()
-//                        }
-                        
-                        
+                        ProfileView()
                     },
                     secondaryButton: .destructive(Text("Batal"))
                 )
