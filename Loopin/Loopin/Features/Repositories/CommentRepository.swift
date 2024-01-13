@@ -46,7 +46,7 @@ class CommentRepository: ObservableObject {
 //        print("coment repo: \(postId)")
         
         listener = store.collection(parentPath).document(postId).collection(path)
-            .order(by: "time", descending: true)
+            .order(by: "time", descending: false)
             .addSnapshotListener { querySnapshot, error in
                 if let error = error {
                     print("Error getting cards: \(error.localizedDescription)")
