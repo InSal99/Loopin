@@ -42,6 +42,7 @@ struct ForumView: View {
                     }
                     .padding(.horizontal)
                     .padding(.bottom)
+                    
                 }
                 .navigationTitle("Forum")
                 .navigationViewStyle(StackNavigationViewStyle())
@@ -57,7 +58,7 @@ struct ForumView: View {
                         })
                         .sheet(isPresented: $isPostForumViewPresented) {
                             PostForumView()
-                        }
+                        }.edgesIgnoringSafeArea(.bottom)
                     }
                 }
             }

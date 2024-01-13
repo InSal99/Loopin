@@ -37,7 +37,7 @@ struct ImagePicker: UIViewControllerRepresentable {
         case camera
     }
 
-    var sourceType: SourceType = .photoLibrary
+    @Binding var sourceType: SourceType 
 
     func makeCoordinator() -> Coordinator {
         return Coordinator(parent: self)

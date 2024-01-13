@@ -61,6 +61,11 @@ struct ForumCard: View {
                 
             }
             
+            Text(postViewModel.post.content)
+                .font(.outfit(.regular, size: .body2))
+                .multilineTextAlignment(.leading)
+                .padding(.bottom, 1)
+            
             if imageURL != "" {
                 VStack(alignment: .center){
                     
@@ -68,25 +73,20 @@ struct ForumCard: View {
                         AnimatedImage(url: imageURL)
                             .resizable()
                             .scaledToFill()
-                            .frame(maxWidth: UIScreen.main.bounds.width - 15, maxHeight: UIScreen.main.bounds.width - 15)
-                            .clipped()
+                            .frame(maxWidth: UIScreen.main.bounds.width, maxHeight: UIScreen.main.bounds.width)
                             .cornerRadius(10)
-                            .padding()
+                            .clipped()
                     } else {
                         Image(systemName: "photo")
                             .resizable()
                             .scaledToFill()
                             .cornerRadius(10)
-                            .frame(height: 60)
+                            .frame(maxWidth: UIScreen.main.bounds.width, maxHeight: UIScreen.main.bounds.width)
                             .foregroundColor(.gray)
                     }
                 }
             }
             
-            Text(postViewModel.post.content)
-                .font(.outfit(.regular, size: .body2))
-                .multilineTextAlignment(.leading)
-                .padding(.bottom, 1)
             
             Text("\(postViewModel.post.time.formattedDateWithTime())")
                 .font(.outfit(.extraLight, size: .label2))
