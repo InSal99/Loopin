@@ -9,8 +9,8 @@ import SwiftUI
 
 struct AccordionWithPicture: View {
     @State var isOpened: Bool = false
-    let step: Step
-    let multiplier: Int
+    @State var step: Step
+    @State var multiplier: Int
     
     var body: some View {
         

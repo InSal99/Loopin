@@ -88,8 +88,9 @@ struct ImagePickerView: View {
         .padding()
         .frame(maxWidth: UIScreen.main.bounds.width, maxHeight: UIScreen.main.bounds.width)
         .sheet(isPresented: $showImagePicker) {
-            ImagePicker(selectedImage: $selectedImage, sourceType: sourceType)
-        }
+            ImagePicker(selectedImage: $selectedImage, sourceType: $sourceType)
+                
+        }.edgesIgnoringSafeArea(.bottom)
         //            Button("Upload Image") {
         //                imageViewModel.uploadImage { result in
         //                    switch result {

@@ -43,14 +43,12 @@ struct CommentView: View {
                 }
                 .padding(.bottom)
             }
-            
             .background(Color("White"))
 
             HStack {
                 TextField("Tambahkan komentar", text: $comment)
                     .font(.outfit(.regular, size: .body2))
                     .textFieldStyle(PlainTextFieldStyle())
-                    .background(Color.white)
                     .ignoresSafeArea(.keyboard, edges: .bottom)
                     .padding(.leading)
                 
@@ -68,11 +66,12 @@ struct CommentView: View {
                 
             }
             .padding()
+            .background(Color.white)
+
             
         }
         .navigationTitle("Komentar")
         .navigationBarTitleDisplayMode(.inline)
-        .background(Color("White"))
         .onAppear {
             // Set the presentation mode for PostViewModel
             postViewModel.presentationMode = presentationMode

@@ -13,6 +13,7 @@ struct LoginView: View {
     
     @State private var email = ""
     @State private var password = ""
+    @State private var isSignInSuccess = false
     
     @EnvironmentObject var authViewModel: AuthenticationViewModel
     
@@ -31,7 +32,9 @@ struct LoginView: View {
                         .padding(.top, 90)
                     ShortTextField(placeholder: "password", field: $password)
                     Spacer()
-                    
+                }
+                VStack {
+                    Spacer()
                     PrimaryButton(buttonText: "Masuk")
                         .onTapGesture {
                             authViewModel.signIn(email: email, password: password) { isSuccess in
@@ -46,12 +49,13 @@ struct LoginView: View {
                         .alert(isPresented: $showAlert) {
                             // Display an alert with the alert message from the ViewModel
                             Alert(title: Text(authViewModel.alertTitle ?? "Gagal memssuki akun"), message: Text(authViewModel.alertMessage ?? ""), dismissButton: .default(Text("OK")) {
-                                authViewModel.isSigninSuccess = true
+                                
+                                isSignInSuccess = authViewModel.isSigninSuccess
                             })
                         }
                 }
             }
-            .navigationDestination(isPresented: $authViewModel.isSigninSuccess) {
+            .navigationDestination(isPresented: $isSignInSuccess) {
                 ContentView()
                 
             }
