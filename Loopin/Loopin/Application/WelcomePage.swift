@@ -14,12 +14,12 @@ struct WelcomePage: View {
         NavigationStack {
             VStack {
                 Spacer()
-                Image("Loopin-Logo2")
+                Image("Loopin-logo")
                     .resizable()
                     .aspectRatio(contentMode: .fit)
-                    .frame(height: 200)
-                    .padding(50)
-                
+                    .frame(width: 200)
+                Text("Loopin")
+                    .font(.outfit(.bold, size: .heading1))
                 Spacer()
                 
                 NavigationLink {
