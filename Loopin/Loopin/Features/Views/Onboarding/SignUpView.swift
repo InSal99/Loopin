@@ -10,6 +10,7 @@ import SwiftUI
 struct SignUpView: View {
     @Environment(\.presentationMode) var presentationMode
     @State private var showAlert = false
+    @State private var isSignUpSuccess = false
     
     @State private var username = ""
     @State private var email = ""
@@ -42,6 +43,7 @@ struct SignUpView: View {
                         .onTapGesture {
                             authViewModel.signUp(username: username, email: email, phone: phone, password: password, confirmPassword: confirmPassword) { isSuccess in
                                 if isSuccess {
+                                    showAlert = true
                                     print("Daftar - berhasil")
                                 } else {
                                     showAlert = true
@@ -51,11 +53,13 @@ struct SignUpView: View {
                         }
                         .alert(isPresented: $showAlert) {
                                             // Display an alert with the alert message from the ViewModel
-                                            Alert(title: Text("Data belum terisi"), message: Text(authViewModel.alertMessage ?? ""), dismissButton: .default(Text("OK")))
+                            Alert(title: Text(authViewModel.alertTitle ?? "Gagal mendaftarkan akun"), message: Text(authViewModel.alertMessage ?? ""), dismissButton: .default(Text("OK")){
+                                isSignUpSuccess = authViewModel.isSignupSuccess
+                            })
                                         }
                 }
             }
-            .navigationDestination(isPresented: $authViewModel.isSignupSuccess) {
+            .navigationDestination(isPresented: $isSignUpSuccess) {
                 LoginView()
             }
         }

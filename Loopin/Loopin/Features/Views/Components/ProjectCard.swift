@@ -41,7 +41,7 @@ struct ProjectCard: View {
                         showDeleteAlert.toggle()
                         print("heee")
                     }) {
-                        Label("Delete", systemImage: "trash")
+                        Label("Hapus", systemImage: "trash")
                             .foregroundColor(.red)
                     }
                     .padding(.horizontal, 5)
@@ -72,13 +72,13 @@ struct ProjectCard: View {
         }
         .alert(isPresented: $showDeleteAlert) {
             Alert(
-                title: Text("Delete Post"),
-                message: Text("Are you sure you want to remove this post?"),
-                primaryButton: .destructive(Text("Delete")) {
+                title: Text("Hapus Unggahan"),
+                message: Text("Apakah anda yakin ingin menghapus unggahan?"),
+                primaryButton: .destructive(Text("Hapus")) {
                     /// Handle delete action
                     projectViewModel.remove() 
                 },
-                secondaryButton: .cancel()
+                secondaryButton: .default(Text("Batal"))
             )
         }
     }

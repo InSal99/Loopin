@@ -202,9 +202,9 @@
                         "guidances": []
                     },
                     {
-                        "text": "Baris 2: 1 sc di setiap bagian simpul sebanyak #jahitan",
+                        "text": "Baris 2: 1 sc di setiap bagian simpul sebanyak # jahitan",
                         "nums": 71,
-                        "isStitch": false,
+                        "isStitch": true,
                         "guidances": []
                     },
                     {

@@ -48,7 +48,7 @@ struct LoginView: View {
                         }
                         .alert(isPresented: $showAlert) {
                             // Display an alert with the alert message from the ViewModel
-                            Alert(title: Text(authViewModel.alertTitle ?? "Gagal memssuki akun"), message: Text(authViewModel.alertMessage ?? ""), dismissButton: .default(Text("OK")) {
+                            Alert(title: Text(authViewModel.alertTitle ?? "Gagal memasuki akun"), message: Text(authViewModel.alertMessage ?? ""), dismissButton: .default(Text("OK")) {
                                 
                                 isSignInSuccess = authViewModel.isSigninSuccess
                             })
