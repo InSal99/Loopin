@@ -10,6 +10,8 @@ import SwiftUI
 struct ProjectOverviewView: View {
     @Environment(\.presentationMode) var presentationMode
     let projectTemplate: ProjectTemplateJSON
+    @State private var navigateToProfile = false
+    @State private var isChildViewPresented = false
     
     var body: some View {
         NavigationView {
@@ -39,27 +41,55 @@ struct ProjectOverviewView: View {
                             DetailProjectCard(placeholder1: "Ukuran Hakpen", placeolder2: projectTemplate.hookSize)
                             DetailProjectCard(placeholder1: "Jenis Tusukan", placeolder2: projectTemplate.stitchType)
                         }
-                        NavigationLink {
-                            ProjectInfoView(project:
-                                    Project(
-                                        type: projectTemplate.type,
-                                        name: projectTemplate.name,
-                                        image: projectTemplate.image,
-                                        description: "",
-                                        preparation: projectTemplate.preparation,
-                                        yarnType: projectTemplate.yarnType,
-                                        yarnWeight: projectTemplate.yarnWeight,
-                                        hookSize: projectTemplate.hookSize,
-                                        stitchType: projectTemplate.stitchType,
-                                        subParts: projectTemplate.subParts,
-                                        sample: projectTemplate.sample)
-
-                            )
+                        
+                        Button() {
+                            isChildViewPresented.toggle()
                         } label: {
                             PrimaryButton(buttonText: "Buat Proyek")
-                        }
-                        .padding(.horizontal)
-                        .padding(.top, 50)
+                        }.padding(.horizontal)
+                            .padding(.top, 50)
+                            .sheet(isPresented: $isChildViewPresented) {
+                                CreateProjectView(dismissParent: {
+                                    isChildViewPresented = false
+                                    presentationMode.wrappedValue.dismiss()
+                                }, project:
+                                                    Project(
+                                                        type: projectTemplate.type,
+                                                        name: projectTemplate.name,
+                                                        image: projectTemplate.image,
+                                                        description: "",
+                                                        preparation: projectTemplate.preparation,
+                                                        yarnType: projectTemplate.yarnType,
+                                                        yarnWeight: projectTemplate.yarnWeight,
+                                                        hookSize: projectTemplate.hookSize,
+                                                        stitchType: projectTemplate.stitchType,
+                                                        subParts: projectTemplate.subParts,
+                                                        sample: projectTemplate.sample),
+                                                  navigateToProfile: $navigateToProfile
+                                )
+                            }
+                    
+//                        NavigationLink {
+//                            ProjectInfoView(project:
+//                                    Project(
+//                                        type: projectTemplate.type,
+//                                        name: projectTemplate.name,
+//                                        image: projectTemplate.image,
+//                                        description: "",
+//                                        preparation: projectTemplate.preparation,
+//                                        yarnType: projectTemplate.yarnType,
+//                                        yarnWeight: projectTemplate.yarnWeight,
+//                                        hookSize: projectTemplate.hookSize,
+//                                        stitchType: projectTemplate.stitchType,
+//                                        subParts: projectTemplate.subParts,
+//                                        sample: projectTemplate.sample)
+//
+//                            )
+//                        } label: {
+//                            PrimaryButton(buttonText: "Buat Proyek")
+//                        }
+//                        .padding(.horizontal)
+//                        .padding(.top, 50)
                     }
                     .padding(.top, 280)
                     .padding()

@@ -105,6 +105,7 @@
 		8FAEA3D92B1A41A3009B7E67 /* FirebaseAnalytics in Frameworks */ = {isa = PBXBuildFile; productRef = 8FAEA3D82B1A41A3009B7E67 /* FirebaseAnalytics */; };
 		8FAEA3DB2B1A41A3009B7E67 /* FirebaseAuth in Frameworks */ = {isa = PBXBuildFile; productRef = 8FAEA3DA2B1A41A3009B7E67 /* FirebaseAuth */; };
 		8FAEA3DD2B1ACA40009B7E67 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FAEA3DC2B1ACA40009B7E67 /* AppDelegate.swift */; };
+		8FB9052A2B53122C00277182 /* CreateProjectView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FB905292B53122C00277182 /* CreateProjectView.swift */; };
 		8FC140802B4AA955008AAE90 /* CommentManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FC1407F2B4AA955008AAE90 /* CommentManager.swift */; };
 		8FC60F702B397B1C00C8C241 /* AuthenticationViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FC60F6F2B397B1C00C8C241 /* AuthenticationViewModel.swift */; };
 		8FC60F722B39FB7200C8C241 /* FirebaseFirestore in Frameworks */ = {isa = PBXBuildFile; productRef = 8FC60F712B39FB7200C8C241 /* FirebaseFirestore */; };
@@ -213,6 +214,7 @@
 		8FAE74CA2B51E2DB00E48454 /* EditProjectView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditProjectView.swift; sourceTree = "<group>"; };
 		8FAEA3D52B1A403D009B7E67 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		8FAEA3DC2B1ACA40009B7E67 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		8FB905292B53122C00277182 /* CreateProjectView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateProjectView.swift; sourceTree = "<group>"; };
 		8FC1407F2B4AA955008AAE90 /* CommentManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentManager.swift; sourceTree = "<group>"; };
 		8FC60F6F2B397B1C00C8C241 /* AuthenticationViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticationViewModel.swift; sourceTree = "<group>"; };
 		8FC60F752B39FD4D00C8C241 /* UserRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserRepository.swift; sourceTree = "<group>"; };
@@ -468,6 +470,7 @@
 				16EEB2662B0BE76C00C340D1 /* SampleInfoView-UNUSED.swift */,
 				16EEB2682B0BE82400C340D1 /* ProjectPartView.swift */,
 				16EEB26C2B0BEF7700C340D1 /* ProjectOverviewView.swift */,
+				8FB905292B53122C00277182 /* CreateProjectView.swift */,
 				16C4D53F2B45855A007880DF /* CurrentProjectView.swift */,
 				8FAE74CA2B51E2DB00E48454 /* EditProjectView.swift */,
 			);
@@ -702,6 +705,7 @@
 				16C4D5052B36C44A007880DF /* Accordion.swift in Sources */,
 				8FA5AD372B199BAB0021F53C /* AppManager.swift in Sources */,
 				8FC140802B4AA955008AAE90 /* CommentManager.swift in Sources */,
+				8FB9052A2B53122C00277182 /* CreateProjectView.swift in Sources */,
 				8FA5AD392B199C030021F53C /* Post.swift in Sources */,
 				16F64E582B0B765C00EF2E15 /* ProjectsView.swift in Sources */,
 				16EEB2612B0BDB4000C340D1 /* ProjectPartCard.swift in Sources */,
