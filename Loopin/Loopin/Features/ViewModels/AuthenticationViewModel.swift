@@ -31,9 +31,10 @@ class AuthenticationViewModel: ObservableObject {
                 self?.authService.signUp(username: username, email: email, phone: phone, password: password) { result in
                     switch result {
                     case .success:
-                        self?.isSignupSuccess = true
+//                        self?.isSignupSuccess = true
                         self?.alertTitle = "Berhasil mendaftarkan akun"
                         self?.alertMessage = "Data disimpan."
+                        self?.errorMessage = nil
                         
                         /// DEBUG
                         print("AuthVM - sign up success: \(self?.isSignupSuccess ?? false)")
@@ -43,8 +44,8 @@ class AuthenticationViewModel: ObservableObject {
                         self?.errorMessage = error.localizedDescription
                         self?.isError = true
                         self?.alertTitle = "Gagal mendaftarkan akun"
-                        self?.alertMessage = "Data gagal disimpan."
-                        
+                        self?.alertMessage = "Data gagal disimpan. Coba gunakan akun lain"
+
                         /// DEBUG
                         print("AuthVM - sign up failed: \(self?.errorMessage ?? "error message nil")")
 
@@ -66,10 +67,11 @@ class AuthenticationViewModel: ObservableObject {
                                         
                     switch result {
                     case .success:
-                        self?.isSigninSuccess = true
+//                        self?.isSigninSuccess = true
                         self?.alertTitle = "Berhasil masuk akun"
                         self?.alertMessage = "Data ditemukan."
-                        
+                        self?.errorMessage = nil
+
                         /// DEBUG
                         print("AuthVM - sign in success: \(self?.isSigninSuccess ?? false)")
                         
@@ -77,8 +79,9 @@ class AuthenticationViewModel: ObservableObject {
                     case .failure(let error):
                         self?.errorMessage = error.localizedDescription
                         self?.isError = true
+                        self?.alertTitle = "Gagal masuk akun"
                         self?.alertMessage = "Email atau password salah."
-                        
+
                         /// DEBUG
                         print("AuthVM - sign in failed: \(self?.errorMessage ?? "error message nil")")
                         
@@ -86,7 +89,8 @@ class AuthenticationViewModel: ObservableObject {
                     }
                 }
             } else {
-                self?.alertMessage = "Email dan password harus diisi."
+                
+//                self?.alertMessage = "Email dan password kurang tepat"
                 completion(false)
             }
         }
@@ -109,12 +113,18 @@ class AuthenticationViewModel: ObservableObject {
         } else if phone != nil && phone!.isEmpty {
             isValid = false
             self.alertMessage = "Nomor telepon perlu diisi."
-        } else if password.isEmpty {
+        } else if password.isEmpty || password.count < 3 {
             isValid = false
             self.alertMessage = "Password perlu diisi"
+        } else if password.count < 3 {
+            isValid = false
+            self.alertMessage = "Password minimal 6 karakter"
         } else if confirmPassword != nil && confirmPassword!.isEmpty {
             isValid = false
             self.alertMessage = "Konfirmasi password anda."
+        }else if confirmPassword != password {
+            isValid = false
+            self.alertMessage = "Konfirmasi password harus sama dengan password"
         } else {
             isValid = true
         }

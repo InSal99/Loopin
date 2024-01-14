@@ -13,7 +13,7 @@ struct LoginView: View {
     
     @State private var email = ""
     @State private var password = ""
-    @State private var isSignInSuccess = false
+//    @State private var isSignInSuccess = false
     
     @EnvironmentObject var authViewModel: AuthenticationViewModel
     
@@ -50,12 +50,16 @@ struct LoginView: View {
                             // Display an alert with the alert message from the ViewModel
                             Alert(title: Text(authViewModel.alertTitle ?? "Gagal memasuki akun"), message: Text(authViewModel.alertMessage ?? ""), dismissButton: .default(Text("OK")) {
                                 
-                                isSignInSuccess = authViewModel.isSigninSuccess
+                                if authViewModel.errorMessage == nil {
+                                    authViewModel.isSigninSuccess = true
+                                }
+                                showAlert = false
+
                             })
                         }
                 }
             }
-            .navigationDestination(isPresented: $isSignInSuccess) {
+            .navigationDestination(isPresented: $authViewModel.isSigninSuccess) {
                 ContentView()
                 
             }
