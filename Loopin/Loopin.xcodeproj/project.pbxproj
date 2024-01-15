@@ -77,6 +77,9 @@
 		16FBA1F82B4BD59C001AEBDB /* Gauges.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16FBA1F72B4BD59C001AEBDB /* Gauges.swift */; };
 		16FBA1FA2B4D26C7001AEBDB /* Step.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16FBA1F92B4D26C7001AEBDB /* Step.swift */; };
 		16FBA1FC2B4FB6F4001AEBDB /* AccordionWithPicture.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16FBA1FB2B4FB6F4001AEBDB /* AccordionWithPicture.swift */; };
+		16FBA2042B5526FA001AEBDB /* Term.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16FBA2032B5526FA001AEBDB /* Term.swift */; };
+		16FBA2062B5527A4001AEBDB /* JSONDataViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16FBA2052B5527A4001AEBDB /* JSONDataViewModel.swift */; };
+		16FBA2082B5527E1001AEBDB /* TermViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16FBA2072B5527E1001AEBDB /* TermViewModel.swift */; };
 		8F1BA8E92B29BAC600DD92C4 /* AuthenticationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F1BA8E82B29BAC600DD92C4 /* AuthenticationService.swift */; };
 		8F1BA8EB2B29BB0600DD92C4 /* PostRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F1BA8EA2B29BB0600DD92C4 /* PostRepository.swift */; };
 		8F1BA8EF2B29BB2F00DD92C4 /* CommentRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F1BA8EE2B29BB2F00DD92C4 /* CommentRepository.swift */; };
@@ -190,6 +193,9 @@
 		16FBA1F72B4BD59C001AEBDB /* Gauges.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Gauges.swift; sourceTree = "<group>"; };
 		16FBA1F92B4D26C7001AEBDB /* Step.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Step.swift; sourceTree = "<group>"; };
 		16FBA1FB2B4FB6F4001AEBDB /* AccordionWithPicture.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccordionWithPicture.swift; sourceTree = "<group>"; };
+		16FBA2032B5526FA001AEBDB /* Term.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Term.swift; sourceTree = "<group>"; };
+		16FBA2052B5527A4001AEBDB /* JSONDataViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JSONDataViewModel.swift; sourceTree = "<group>"; };
+		16FBA2072B5527E1001AEBDB /* TermViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TermViewModel.swift; sourceTree = "<group>"; };
 		8F1BA8E82B29BAC600DD92C4 /* AuthenticationService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticationService.swift; sourceTree = "<group>"; };
 		8F1BA8EA2B29BB0600DD92C4 /* PostRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostRepository.swift; sourceTree = "<group>"; };
 		8F1BA8EE2B29BB2F00DD92C4 /* CommentRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentRepository.swift; sourceTree = "<group>"; };
@@ -375,6 +381,8 @@
 		8FA5AD2A2B187F640021F53C /* ViewModels */ = {
 			isa = PBXGroup;
 			children = (
+				16FBA2072B5527E1001AEBDB /* TermViewModel.swift */,
+				16FBA2052B5527A4001AEBDB /* JSONDataViewModel.swift */,
 				8FA5AD362B199BAB0021F53C /* AppManager.swift */,
 				8FC60F6F2B397B1C00C8C241 /* AuthenticationViewModel.swift */,
 				8FC60F7A2B3ECBEE00C8C241 /* PostViewModel.swift */,
@@ -392,6 +400,7 @@
 		8FA5AD2B2B187F710021F53C /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				16FBA2032B5526FA001AEBDB /* Term.swift */,
 				8FA5AD342B199B3B0021F53C /* User.swift */,
 				8FA5AD382B199C030021F53C /* Post.swift */,
 				8FA5AD3A2B199EC50021F53C /* Comment.swift */,
@@ -648,6 +657,7 @@
 				8FAE74B62B5003B700E48454 /* ProjectTemplateJSON.swift in Sources */,
 				8F404E242B4ED5F900F7145C /* ProjectRepository.swift in Sources */,
 				8FAE74C22B51411500E48454 /* ImagePicker.swift in Sources */,
+				16FBA2062B5527A4001AEBDB /* JSONDataViewModel.swift in Sources */,
 				16F64E4E2B0B3D9700EF2E15 /* PrimaryButton.swift in Sources */,
 				16C4D5072B36D6FA007880DF /* Numbering.swift in Sources */,
 				16FBA1E62B4BC8B5001AEBDB /* TermTutorialListView.swift in Sources */,
@@ -689,6 +699,7 @@
 				8FC60F802B3F177B00C8C241 /* DateFormatter.swift in Sources */,
 				16C4D50B2B36DDD0007880DF /* CommentCard.swift in Sources */,
 				161AA7092B0CD1C7008A59CE /* ImageSlider.swift in Sources */,
+				16FBA2042B5526FA001AEBDB /* Term.swift in Sources */,
 				16BF34E32B0B31C00036424B /* Persistence.swift in Sources */,
 				8FAEA3DD2B1ACA40009B7E67 /* AppDelegate.swift in Sources */,
 				16EEB2592B0BC53200C340D1 /* PostForumView.swift in Sources */,
@@ -716,6 +727,7 @@
 				8FAE74C02B5140E600E48454 /* ImagePickerView.swift in Sources */,
 				16F64E5E2B0B800000EF2E15 /* ForumView.swift in Sources */,
 				16EEB2572B0BBE7300C340D1 /* ShortTextField.swift in Sources */,
+				16FBA2082B5527E1001AEBDB /* TermViewModel.swift in Sources */,
 				16F64E642B0BAE1200EF2E15 /* SignUpView.swift in Sources */,
 				16BF34DA2B0B31BF0036424B /* LoopinApp.swift in Sources */,
 				8FA5AD3B2B199EC50021F53C /* Comment.swift in Sources */,

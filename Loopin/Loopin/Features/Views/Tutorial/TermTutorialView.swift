@@ -9,15 +9,13 @@ import SwiftUI
 
 struct TermTutorialView: View {
     @Environment(\.presentationMode) var presentationMode
-    let title: String
-    let content: String
-    let image: String
+    let term: Term
     
     var body: some View {
         NavigationView {
             ScrollView(.vertical){
                 ZStack(alignment: .top) {
-                    Image(image)
+                    Image(term.image)
                         .resizable()
                         .aspectRatio(contentMode: .fill)
                         .frame(maxWidth: 390, maxHeight: 290)
@@ -26,9 +24,9 @@ struct TermTutorialView: View {
                         .foregroundColor(Color(.white))
                         .padding(.top, 273)
                     VStack(alignment: .leading, spacing: 20) {
-                        Text(title)
+                        Text(term.title)
                             .font(.outfit(.semiBold, size: .heading3))
-                        Text(content)
+                        Text(term.content)
                             .font(.outfit(.regular, size: .body2))
                     }
                     .padding(.top, 300)
@@ -54,6 +52,6 @@ struct TermTutorialView: View {
 
 struct TermTutorialView_Previews: PreviewProvider {
     static var previews: some View {
-        TermTutorialView(title: "title", content: "content", image: "test")
+        TermTutorialView(term: Term(title: "title", content: "content", image: "test"))
     }
 }

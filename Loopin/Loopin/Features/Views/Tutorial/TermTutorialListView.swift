@@ -9,16 +9,16 @@ import SwiftUI
 
 struct TermTutorialListView: View {
     @Environment(\.presentationMode) var presentationMode
-    @State private var termData: [[String: String]] = []
-    @State private var selectedTermItem: [String: String]?
+    @State private var termData: [Term] = []
+    @State private var selectedTermItem: Term?
     
     var body: some View {
         NavigationView {
             ScrollView(.vertical) {
                 LazyVGrid(columns: [GridItem(.adaptive(minimum: 140))], spacing: 18) {
                     ForEach(termData, id: \.self) { termItem in
-                        NavigationLink(destination: TermTutorialView(title: termItem["title"] ?? "", content: termItem["content"] ?? "", image: termItem["image"] ?? "")) {
-                            SquareCard(cardText: termItem["title"] ?? "", cardImage: termItem["image"] ?? "")
+                        NavigationLink(destination: TermTutorialView(term: termItem)) {
+                            SquareCard(cardText: termItem.title, cardImage: termItem.image)
                         }
                         //                        Button(action: {
                         //                            selectedTermItem = termItem
@@ -55,28 +55,8 @@ struct TermTutorialListView: View {
     }
     
     func loadTermData() {
-        termData = load("TermData.json")
-    }
-    
-    func load<T: Decodable>(_ filename: String) -> T {
-        guard let file = Bundle.main.url(forResource: filename, withExtension: nil) else {
-            fatalError("Couldn't find \(filename) in the main bundle.")
-        }
-        
-        let data: Data
-        
-        do {
-            data = try Data(contentsOf: file)
-        } catch {
-            fatalError("Couldn't load \(filename) from the main bundle:\n\(error)")
-        }
-        
-        do {
-            let decoder = JSONDecoder()
-            return try decoder.decode(T.self, from: data)
-        } catch {
-            fatalError("Couldn't parse \(filename) as \(T.self):\n\(error)")
-        }
+        let viewModel = JSONDataViewModel()
+        termData = viewModel.loadTermData()
     }
 }
 

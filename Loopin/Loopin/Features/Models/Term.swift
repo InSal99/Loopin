@@ -6,3 +6,9 @@
 //
 
 import Foundation
+struct Term: Identifiable, Hashable, Decodable {
+    let id = UUID()
+    let title: String
+    let content: String
+    let image: String
+}

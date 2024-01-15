@@ -6,7 +6,7 @@
 //
 
 import Foundation
-struct Hook: Identifiable, Decodable {
+struct Hook: Identifiable, Hashable, Decodable {
     let id = UUID()
     let title: String
     let content: String

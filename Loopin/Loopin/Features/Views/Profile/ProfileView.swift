@@ -96,7 +96,7 @@ struct ProfileView: View {
                             } else {
                                 ForEach(postListViewModel.postViewModels) { postViewModel in
                                     if postViewModel.isAllowedToEdit {
-                                        ForumCard(postViewModel:postViewModel)
+                                        ForumCardWithNavigation(postViewModel:postViewModel)
                                     }
                                 }
                             }

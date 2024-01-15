@@ -32,4 +32,20 @@ struct JSONDataViewModel {
     func loadHookData() -> [Hook] {
         return load("HookData.json")
     }
+    
+    func loadTermData() -> [Term] {
+        return load("TermData.json")
+    }
+    
+    func loadPatternData() -> [Pattern] {
+        return load("PatternData.json")
+    }
+    
+    func loadYarnData() -> [Yarn] {
+        return load("YarnData.json")
+    }
+    
+    func loadProjectTemplateData() -> [ProjectTemplateJSON] {
+        return load("ProjectTemplateData.json")
+    }
 }
