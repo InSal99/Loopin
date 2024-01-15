@@ -117,6 +117,7 @@ class AuthenticationService: ObservableObject {
         } catch {
             print("AuthService - sign up error: \(error.localizedDescription)")
         }
+        self.user = nil
     }
     
     private func addListeners() {
