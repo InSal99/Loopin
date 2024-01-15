@@ -26,7 +26,7 @@ struct ProfileView: View {
        UISegmentedControl.appearance().setTitleTextAttributes([.foregroundColor: UIColor.white], for: .selected)
     }
     
-    var userName: String { authViewModel.authService.user?.username ?? "-" }
+    var userName: String { authViewModel.authService.user?.username ?? "Kim Kimhan" }
     var email: String { authViewModel.authService.user?.email ?? "kimkimhan@mail.com" }
     var phone: String { authViewModel.authService.user?.phone ?? "0812345667890" }
     
