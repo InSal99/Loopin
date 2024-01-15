@@ -89,10 +89,7 @@ class AuthenticationViewModel: ObservableObject {
                     }
                 }
             } else {
-                self?.alertTitle = "Gagal masuk akun"
-                self?.alertMessage = "Email atau password salah."
-                self?.errorMessage = " "
-
+                
 //                self?.alertMessage = "Email dan password kurang tepat"
                 completion(false)
             }
@@ -125,7 +122,7 @@ class AuthenticationViewModel: ObservableObject {
         } else if confirmPassword != nil && confirmPassword!.isEmpty {
             isValid = false
             self.alertMessage = "Konfirmasi password anda."
-        } else if confirmPassword != nil && confirmPassword != password {
+        }else if confirmPassword != password {
             isValid = false
             self.alertMessage = "Konfirmasi password harus sama dengan password"
         } else {
@@ -134,7 +131,6 @@ class AuthenticationViewModel: ObservableObject {
         
         if !isValid {
             self.isError = true
-            self.alertTitle = "Gagal masuk akun"
             self.errorMessage = "Semua data perlu diisi."
         }
         
