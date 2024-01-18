@@ -42,7 +42,7 @@ struct ContentView: View {
                 ProfileView()
                     .tabItem {
                         Image(uiImage: UIImage(named: "profile")!)
-                        Text("Profile")
+                        Text("Profil")
                             .font(.outfit(.semiBold, size: .label2))
                     }
             }

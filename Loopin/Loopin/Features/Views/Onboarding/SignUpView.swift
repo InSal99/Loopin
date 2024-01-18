@@ -14,7 +14,7 @@ struct SignUpView: View {
     
     @State private var username = ""
     @State private var email = ""
-    @State private var phone = ""
+    @State private var phone = "0"
     @State private var password = ""
     @State private var confirmPassword = ""
     
@@ -34,7 +34,7 @@ struct SignUpView: View {
                     ShortTextField(placeholder: "username", field: $username)
                         .padding(.top, 90)
                     ShortTextField(placeholder: "email@address.com", field: $email)
-                    ShortTextField(placeholder: "phone", field: $phone)
+//                    ShortTextField(placeholder: "phone", field: $phone)
                     ShortTextField(placeholder: "password", field: $password)
                     ShortTextField(placeholder: "confirm password", field: $confirmPassword)
                     Spacer()

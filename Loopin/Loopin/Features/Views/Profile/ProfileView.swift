@@ -26,9 +26,9 @@ struct ProfileView: View {
        UISegmentedControl.appearance().setTitleTextAttributes([.foregroundColor: UIColor.white], for: .selected)
     }
     
-    var userName: String { authViewModel.authService.user?.username ?? "Kim Kimhan" }
-    var email: String { authViewModel.authService.user?.email ?? "kimkimhan@mail.com" }
-    var phone: String { authViewModel.authService.user?.phone ?? "0812345667890" }
+    var userName: String { authViewModel.authService.user?.username ?? "-" }
+    var email: String { authViewModel.authService.user?.email ?? "-" }
+    var phone: String { authViewModel.authService.user?.phone ?? "-" }
     
     var body: some View {
         NavigationView {
@@ -37,8 +37,8 @@ struct ProfileView: View {
                     VStack (alignment: .leading){
                         Text(email)
                             .font(.outfit(.regular, size: .body2))
-                        Text(phone)
-                            .font(.outfit(.regular, size: .body2))
+//                        Text(phone)
+//                            .font(.outfit(.regular, size: .body2))
                         Picker(selection: $selectedSegment, label: Text("Daftar Proyek")) {
                             Text("Proyek Saya").tag(0)
                             Text("Unggahan Saya").tag(1)
