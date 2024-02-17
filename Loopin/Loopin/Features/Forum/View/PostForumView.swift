@@ -19,7 +19,8 @@ struct PostForumView: View {
     var postModelToEdit: PostViewModel?
     
     @EnvironmentObject var authViewModel: AuthenticationViewModel
-    @ObservedObject var postListViewModel = PostListViewModel()
+    
+    @ObservedObject var postListViewModel = PostListViewModel.shared
     
     init(isOnEdit: Bool? = nil, postToEdit: PostViewModel? = nil) {
         self.postModelToEdit = postToEdit
@@ -96,9 +97,6 @@ struct PostForumView: View {
         post.content = message
         postModelToEdit?.update(post: post)
     }
-    
-    
-    
 }
 
 

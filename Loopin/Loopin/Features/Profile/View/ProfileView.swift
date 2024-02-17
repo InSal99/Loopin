@@ -16,14 +16,18 @@ struct ProfileView: View {
     @State private var selectedSegment = 0
     
     @EnvironmentObject var authViewModel: AuthenticationViewModel
-    @ObservedObject var postListViewModel = PostListViewModel()
+//    @ObservedObject var postListViewModel: PostListViewModel
+    @ObservedObject var postListViewModel = PostListViewModel.shared
+//    @ObservedObject var postListViewModel = PostListViewModel()
     @ObservedObject var projectListViewModel = ProjectListViewModel.shared
     
+//    init(postListViewModel: PostListViewModel) {
     init() {
         UISegmentedControl.appearance().backgroundColor = .lightGray.withAlphaComponent(0.01)
        UISegmentedControl.appearance().setDividerImage(UIImage(), forLeftSegmentState: .normal, rightSegmentState: .normal, barMetrics: .default)
        UISegmentedControl.appearance().selectedSegmentTintColor = UIColor(named: "Guava")
        UISegmentedControl.appearance().setTitleTextAttributes([.foregroundColor: UIColor.white], for: .selected)
+//        self.postListViewModel = postListViewModel
     }
     
     private var userName: String { authViewModel.authService.user?.username ?? "-" }
@@ -142,11 +146,14 @@ struct ProfileView: View {
                 }
             }
         }
+//        .onAppear {
+//            print(postListViewModel.postViewModels[0].commentListViewModel?.commentRepository?.comments)
+//        }
     }
 }
 
-struct ProfileView_Previews: PreviewProvider {
-    static var previews: some View {
-        ProfileView().environmentObject(AuthenticationViewModel())
-    }
-}
+//struct ProfileView_Previews: PreviewProvider {
+//    static var previews: some View {
+//        ProfileView().environmentObject(AuthenticationViewModel())
+//    }
+//}

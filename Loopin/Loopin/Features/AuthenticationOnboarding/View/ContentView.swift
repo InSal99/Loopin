@@ -10,7 +10,7 @@ import SwiftUI
 struct ContentView: View {
     @State private var navigateToWelcomePage = false
     @Environment(\.presentationMode) var presentationMode
-    
+
     var body: some View {
         NavigationView {
             TabView {
@@ -52,6 +52,7 @@ struct ContentView: View {
             .fullScreenCover(isPresented: $navigateToWelcomePage) {
                     WelcomePage()
             }
+
         }
         .navigationBarBackButtonHidden(true)
     }
@@ -59,5 +60,6 @@ struct ContentView: View {
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
         ContentView()
+        
     }
 }

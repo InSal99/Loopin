@@ -11,6 +11,8 @@ import UIKit
 
 class PostListViewModel: ObservableObject {
 
+    static let shared = PostListViewModel()
+
     @Published var postRepository = PostRepository.shared
     @Published var postViewModels : [PostViewModel] = []
     

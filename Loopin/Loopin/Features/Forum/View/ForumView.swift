@@ -9,7 +9,7 @@ import SwiftUI
 
 struct ForumView: View {
     @State private var isPostForumViewPresented = false
-    @ObservedObject var postListViewModel = PostListViewModel()
+    @ObservedObject var postListViewModel = PostListViewModel.shared
     
     var body: some View {
         VStack(alignment: .leading) {
@@ -17,28 +17,8 @@ struct ForumView: View {
                 ScrollView(.vertical){
                     VStack (spacing: 15){
                         ForEach(postListViewModel.postViewModels) { postViewModel in
-//                            NavigationLink {
-//                                CommentView(postId: 1)
-//                                CommentView(postViewModel: postViewModel)
-//                            } label: {
-//                                ForumCard(postViewModel:postViewModel)
-                                ForumCardWithNavigation(postViewModel:postViewModel)
-                                
-//                                ForumCard(sender: "Marvin", content: "Lorem ipsum dolor sit amet consectetur adipiscin elit Ut et massa mi.", likeCount: 5, commentCount: 0)
-//                            }
-                            
+                            ForumCardWithNavigation(postViewModel:postViewModel)
                         }
-                        
-//                        ForEach(1...5, id: \.self) { item in
-//                            //                            ForumCard()
-//                            NavigationLink {
-//                                CommentView(postId: item)
-//                            } label: {
-//                                let post = testData[0]
-//                                ForumCard(postViewModel: PostViewModel(post: post))
-//                                //                                ForumCard(sender: "Marvin", content: "Lorem ipsum dolor sit amet consectetur adipiscin elit Ut et massa mi.", likeCount: 5, commentCount: 0)
-//                            }
-//                        }
                     }
                     .padding(.horizontal)
                     .padding(.bottom)

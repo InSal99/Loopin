@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct ForumCardWithNavigation: View {
-    @StateObject var postViewModel: PostViewModel
+    @ObservedObject var postViewModel: PostViewModel
     
     var body: some View {
         NavigationLink {

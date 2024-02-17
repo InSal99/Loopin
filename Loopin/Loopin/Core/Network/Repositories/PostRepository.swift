@@ -149,7 +149,7 @@ class PostRepository: ObservableObject {
         } catch {
             fatalError("Unable to update card: \(error.localizedDescription).")
         }
-
+                
     }
     
     func remove(_ post: Post) {

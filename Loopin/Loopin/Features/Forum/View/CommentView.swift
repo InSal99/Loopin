@@ -11,7 +11,7 @@ struct CommentView: View {
     @Environment(\.presentationMode) var presentationMode
     
     @EnvironmentObject var authViewModel: AuthenticationViewModel
-    @ObservedObject var postViewModel: PostViewModel
+    @StateObject var postViewModel: PostViewModel
     @State private var comment: String = ""
     
     var body: some View {
@@ -63,6 +63,7 @@ struct CommentView: View {
                 .buttonStyle(.plain)
                 .padding(.trailing)
                 
+                
             }
             .padding()
             .background(Color.white)
@@ -97,8 +98,8 @@ struct CommentView: View {
     }
 }
 
-//struct CommentView_Previews: PreviewProvider {
-//    static var previews: some View {
-//        CommentView(postViewModel: PostViewModel(post: testData[0]))
-//    }
-//}
+struct CommentView_Previews: PreviewProvider {
+    static var previews: some View {
+        CommentView(postViewModel: PostViewModel(post: testData[0]))
+    }
+}
