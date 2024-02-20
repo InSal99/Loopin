@@ -77,10 +77,10 @@ class AuthenticationViewModel: ObservableObject {
                         
                         completion(true)
                     case .failure(let error):
-                        self?.errorMessage = error.localizedDescription
                         self?.isError = true
                         self?.alertTitle = "Gagal masuk akun"
                         self?.alertMessage = "Email atau password salah."
+                        self?.errorMessage = error.localizedDescription
 
                         /// DEBUG
                         print("AuthVM - sign in failed: \(self?.errorMessage ?? "error message nil")")
@@ -89,9 +89,10 @@ class AuthenticationViewModel: ObservableObject {
                     }
                 }
             } else {
-                self?.alertTitle = "Gagal masuk akun"
-                self?.alertMessage = "Email atau password salah."
-                self?.errorMessage = " "
+//                self?.alertTitle = "Gagal masuk akun"
+//                self?.alertMessage = "Email atau password salah."
+//                self?.errorMessage = " "
+                
 //                self?.alertMessage = "Email dan password kurang tepat"
                 completion(false)
             }
@@ -117,10 +118,10 @@ class AuthenticationViewModel: ObservableObject {
             self.alertMessage = "Nomor telepon perlu diisi."
         } else if password.isEmpty || password.count < 3 {
             isValid = false
-            self.alertMessage = "Password perlu diisi"
-        } else if password.count < 3 {
+            self.alertMessage = "Password perlu diisi."
+        } else if password.count < 6 {
             isValid = false
-            self.alertMessage = "Password minimal 6 karakter"
+            self.alertMessage = "Password minimal 6 karakter."
         } else if confirmPassword != nil && confirmPassword!.isEmpty {
             isValid = false
             self.alertMessage = "Konfirmasi password anda."
