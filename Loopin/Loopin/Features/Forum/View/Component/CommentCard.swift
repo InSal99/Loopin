@@ -45,11 +45,11 @@ struct CommentCard: View {
                             Alert(
                                 title: Text("Hapus Komentar"),
                                 message: Text("Apakah anda yakin ingin menghapus komentar?"),
-                                primaryButton: .destructive(Text("Hapus")) {
+                                primaryButton: .destructive(Text("Batal")),
+                                secondaryButton: .default(Text("Hapus")) {
                                     // Handle delete action
                                     commentViewModel.remove()
-                                },
-                                secondaryButton: .default(Text("Batal"))
+                                }
                             )
                         })
                     }

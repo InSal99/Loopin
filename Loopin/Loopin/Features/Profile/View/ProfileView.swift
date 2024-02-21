@@ -125,15 +125,15 @@ struct ProfileView: View {
                         Alert(
                             title: Text("Keluar Akun"),
                             message: Text("Apakah anda yakin ingin keluar dari akun anda?"),
-                            primaryButton: .destructive(Text("Ya")) {
+                            primaryButton: .destructive(Text("Batal")),
+                            secondaryButton: .default(Text("Keluar")) {
                                 authViewModel.authService.signOut()
-                                
                                 navigateToWelcomePage.toggle()
                                 presentationMode.wrappedValue.dismiss()
-                            },
-                            secondaryButton: .default(Text("Batal"))
+                            }
                         )
                     }
+                    .alertButtonTint(color: .blue)
                     .background(
                         NavigationLink(destination: WelcomePage(), isActive: $navigateToWelcomePage) {
                             EmptyView()
