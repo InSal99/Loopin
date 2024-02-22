@@ -12,7 +12,7 @@ struct ForumCardWithNavigation: View {
     
     var body: some View {
         NavigationLink {
-            CommentView(postViewModel: postViewModel)
+            CommentView(postViewModel: postViewModel, commentListViewModel: postViewModel.commentListViewModel!)
         } label: {
             ForumCard(postViewModel: postViewModel)
         }

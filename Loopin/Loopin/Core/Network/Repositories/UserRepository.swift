@@ -22,12 +22,12 @@ class UserRepository: ObservableObject {
             _ = try store.collection(path).document(user.id!).setData(from: user)
             
             /// DEBUG
-            print("UserRepo - registUserToDatabase success: \(user)")
+//            print("UserRepo - registUserToDatabase success: \(user)")
             
             completion(.success(()))
         } catch {
             /// DEBUG
-            print("UserRepo - registUserToDatabase error: \(error.localizedDescription)")
+//            print("UserRepo - registUserToDatabase error: \(error.localizedDescription)")
             
             completion(.failure(error))
         }

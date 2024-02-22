@@ -14,14 +14,14 @@ class PostViewModel: ObservableObject, Identifiable {
     private weak var authService = AuthenticationService.shared
 
     @Published var post: Post
-    
+    @Published var commentListViewModel : CommentListViewModel?
+
     private var cancellables: Set<AnyCancellable> = []
     
     var id = ""
     var isAllowedToEdit = false
     var isLiked = false
     
-    @Published var commentListViewModel : CommentListViewModel?
     var presentationMode: Binding<PresentationMode>?
 
     init(post:Post) {

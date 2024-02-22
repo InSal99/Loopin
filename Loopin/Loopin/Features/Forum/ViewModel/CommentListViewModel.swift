@@ -12,6 +12,7 @@ class CommentListViewModel: ObservableObject {
     
     @Published var commentRepository : CommentRepository?
     @Published var commentViewModels : [CommentViewModel] = []
+    @Published var commentTextInput : String = ""
     
     private var cancellables: Set<AnyCancellable> = []
     
@@ -30,8 +31,12 @@ class CommentListViewModel: ObservableObject {
         
     }
     
-    func add(_ comment: Comment) {
-        commentRepository!.add(comment)
+    func add(_ comment: Comment, completion: @escaping (Bool) -> Void) {
+        commentRepository!.add(comment) { isSuccess in
+            completion(isSuccess)
+            self.objectWillChange.send()
+            self.commentTextInput = ""
+        }
     }
     //    func update(_ post: Post) {
     //        postRepository.update(post)
