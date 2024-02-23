@@ -12,8 +12,10 @@ struct ProjectInfoView: View {
    
     @State var project: Project
 
-    @State private var name = ""
-    @State private var desc = ""
+//    @State private var name = ""
+//    @State private var desc = ""
+    
+    @State private var showAlert = false
 
 //    @State private var yarnType = ""
 //    @State private var yarnSize = ""
@@ -24,7 +26,7 @@ struct ProjectInfoView: View {
         VStack(spacing: 20) {
             ProgressBar(value: 1, maximum: 2)
                 .padding()
-            ShortTextField(placeholder: "nama", field: $project.name)
+            ShortTextField(placeholder: "nama proyek", field: $project.name)
             LongTextField(placeholder: "deskripsi proyek", field: $project.description)
 //            ShortTextField(placeholder: "jenis benang", field: $yarnType)
 //            ShortTextField(placeholder: "ketebalan benang", field: $yarnSize)
@@ -35,6 +37,20 @@ struct ProjectInfoView: View {
                 ProjectPartView(project: $project)
             } label: {
                 PrimaryButton(buttonText: "Lanjut")
+                    .onTapGesture(perform: {
+                        showAlert = true
+                    })
+                    .alert(isPresented: $showAlert) {
+                        var message: String = ""
+                        return Alert(title: Text("Gagal menyimpan proyek"), message: Text(message), dismissButton: .default(Text("OK")) {
+                            if(project.name.isEmpty) {
+                                message = "Nama proyek perlu diisi."
+                            } else if(project.description.isEmpty) {
+                                message = "Deskripsi proyek perlu diisi."
+                            }
+                            showAlert = false
+                        })
+                    }
             }
             
 
@@ -73,6 +89,6 @@ struct ProjectInfoView: View {
 
 struct ProjectInfoView_Previews: PreviewProvider {
     static var previews: some View {
-        ProjectInfoView(project: Project(type: "Cardigan", name: "name", image: "test", description: "description", preparation: "preparation", yarnType: "yarn type", yarnWeight: "yarn weight", hookSize: "hook size", stitchType: "stitch type", subParts: [], sample: Gauges(length: 6, width: 6, stitch: 6, row: 6)))
+        ProjectInfoView(project: Project(type: "Cardigan", name: "", image: "test", description: "", preparation: "preparation", yarnType: "yarn type", yarnWeight: "yarn weight", hookSize: "hook size", stitchType: "stitch type", subParts: [], sample: Gauges(length: 6, width: 6, stitch: 6, row: 6)))
     }
 }

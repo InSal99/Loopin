@@ -19,50 +19,54 @@ struct LoginView: View {
     
     var body: some View {
         NavigationView {
-            ZStack (alignment: .center){
-                Rectangle()
-                    .fill(Color("Peach"))
-                    .ignoresSafeArea()
-                RoundedRectangle(cornerRadius: 30)
-                    .frame(height: 750)
-                    .offset(y: 40)
-                    .foregroundColor(Color(.white))
-                VStack (spacing: 20) {
-                    ShortTextField(placeholder: "email@address.com", field: $email)
-                        .padding(.top, 90)
-                    ShortTextField(placeholder: "password", field: $password)
-                    Spacer()
-                }
-                VStack {
-                    Spacer()
-                    PrimaryButton(buttonText: "Masuk")
-                        .onTapGesture {
-                            authViewModel.signIn(email: email, password: password) { isSuccess in
-                                if isSuccess {
-                                    print("Masuk - berhasil")
-                                } else {
-                                    print("Masuk - gagal")
+            ScrollView(.vertical){
+                ZStack (alignment: .center){
+                    Rectangle()
+                        .fill(Color("Peach"))
+                        .ignoresSafeArea()
+                    RoundedRectangle(cornerRadius: 30)
+                        .frame(height: 750)
+                        .offset(y: 100)
+                        .foregroundColor(Color(.white))
+                    VStack (spacing: 20) {
+                        ShortTextField(placeholder: "email@address.com", field: $email)
+                            .padding(.top, 150)
+                        ShortTextField(placeholder: "password", field: $password)
+                        Spacer()
+                    }
+                    VStack {
+                        Spacer()
+                        PrimaryButton(buttonText: "Masuk")
+                            .onTapGesture {
+                                authViewModel.signIn(email: email, password: password) { isSuccess in
+                                    if isSuccess {
+                                        print("Masuk - berhasil")
+                                    } else {
+                                        print("Masuk - gagal")
+                                    }
+                                    showAlert = true
                                 }
-                                showAlert = true
                             }
-                        }
-                        .alert(isPresented: $showAlert) {
-                            // Display an alert with the alert message from the ViewModel
-                            Alert(title: Text(authViewModel.alertTitle ?? "Gagal memasuki akun"), message: Text(authViewModel.alertMessage ?? ""), dismissButton: .default(Text("OK")) {
-                                
-                                if authViewModel.errorMessage == nil {
-                                    authViewModel.isSigninSuccess = true
-                                }
-                                showAlert = false
-
-                            })
-                        }
+                            .alert(isPresented: $showAlert) {
+                                // Display an alert with the alert message from the ViewModel
+                                Alert(title: Text(authViewModel.alertTitle ?? "Semua data perlu diisi."), message: Text(authViewModel.alertMessage ?? ""), dismissButton: .default(Text("OK")) {
+                                    
+                                    if authViewModel.errorMessage == nil {
+                                        authViewModel.isSigninSuccess = true
+                                    }
+                                    showAlert = false
+                                    
+                                })
+                            }
+                            .padding(.bottom, -80)
+                    }
+                }
+                .navigationDestination(isPresented: $authViewModel.isSigninSuccess) {
+                    ContentView()
+                    
                 }
             }
-            .navigationDestination(isPresented: $authViewModel.isSigninSuccess) {
-                ContentView()
-                
-            }
+            .ignoresSafeArea()
         }
         .navigationTitle("Masuk")
         .navigationBarBackButtonHidden(true)

@@ -140,13 +140,14 @@ struct ForumCard: View {
             Alert(
                 title: Text("Menghapus Unggahan"),
                 message: Text("Apakah anda yakin ingin menghapus unggahan?"),
-                primaryButton: .destructive(Text("Hapus")) {
+                primaryButton: .destructive(Text("Batal")),
+                secondaryButton: .default(Text("Hapus")) {
                     /// Handle delete action
                     postViewModel.remove()
-                },
-                secondaryButton: .default(Text("Batal"))
+                }
             )
         }
+        .alertButtonTint(color: .blue)
         .onAppear {
             if !postViewModel.post.images.isEmpty {
                 let storage = Storage.storage().reference()

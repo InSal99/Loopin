@@ -15,6 +15,7 @@ struct PostForumView: View {
     @State private var isOnEdit: Bool
     
     @State private var selectedImage: UIImage? = nil
+    @State private var showAlert = false
     
     var postModelToEdit: PostViewModel?
     
@@ -42,20 +43,36 @@ struct PostForumView: View {
                             print("image clear")
                         }
                     }
-                  
+                    
                     LongTextField(placeholder: "tulis sesuatu...", field: $message)
-//                    ShortTextField(placeholder: "tambah gambar", field: $image)
+                    //                    ShortTextField(placeholder: "tambah gambar", field: $image)
                     
                     Spacer()
                     Button{
-                        if isOnEdit {
-                            updatePost()
-                        } else {
-                            addPost()
-                        }
-                        presentationMode.wrappedValue.dismiss()
+                        showAlert = true
                     } label: {
                         PrimaryButton(buttonText: "Kirim")
+                    }
+                    .onTapGesture(perform: {
+                        showAlert = true
+                    })
+                    .alert(isPresented: $showAlert) {
+                        if (message.isEmpty) {
+                            return Alert(title: Text("Gagal Mengirim Unggahan"), message: Text("Deskripsi unggahan harus diisi."), dismissButton: .default(Text("OK")) {
+                                showAlert = false
+                            })
+                        }
+                        else {
+                            return Alert(title: Text("Unggahan Terkirim"), message: Text(""), dismissButton: .default(Text("OK")) {
+                                showAlert = false
+                                if isOnEdit {
+                                    updatePost()
+                                } else {
+                                    addPost()
+                                }
+                                presentationMode.wrappedValue.dismiss()
+                            })
+                        }
                     }
                 }
             }

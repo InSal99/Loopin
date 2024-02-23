@@ -22,50 +22,53 @@ struct SignUpView: View {
 
     var body: some View {
         NavigationView {
-            ZStack (alignment: .center){
-                Rectangle()
-                    .fill(Color("Peach"))
-                    .ignoresSafeArea()
-                RoundedRectangle(cornerRadius: 30)
-                    .frame(height: 750)
-                    .offset(y: 40)
-                    .foregroundColor(Color(.white))
-                VStack (spacing: 20) {
-                    ShortTextField(placeholder: "username", field: $username)
-                        .padding(.top, 90)
-                    ShortTextField(placeholder: "email@address.com", field: $email)
-//                    ShortTextField(placeholder: "phone", field: $phone)
-                    ShortTextField(placeholder: "password", field: $password)
-                    ShortTextField(placeholder: "confirm password", field: $confirmPassword)
-                    Spacer()
-                    
-                    PrimaryButton(buttonText: "Daftar")
-                        .onTapGesture {
-                            authViewModel.signUp(username: username, email: email, phone: phone, password: password, confirmPassword: confirmPassword) { isSuccess in
-                                if isSuccess {
-                                    print("Daftar - berhasil")
-                                } else {
+            ScrollView(.vertical){
+                ZStack (alignment: .center){
+                    Rectangle()
+                        .fill(Color("Peach"))
+                        .ignoresSafeArea()
+                    RoundedRectangle(cornerRadius: 30)
+                        .frame(height: 750)
+                        .offset(y: 100)
+                        .foregroundColor(Color(.white))
+                    VStack (spacing: 20) {
+                        ShortTextField(placeholder: "username", field: $username)
+                            .padding(.top, 150)
+                        ShortTextField(placeholder: "email@address.com", field: $email)
+                        //                    ShortTextField(placeholder: "phone", field: $phone)
+                        ShortTextField(placeholder: "password", field: $password)
+                        ShortTextField(placeholder: "confirm password", field: $confirmPassword)
+                        Spacer()
+                        PrimaryButton(buttonText: "Daftar")
+                            .onTapGesture {
+                                authViewModel.signUp(username: username, email: email, phone: phone, password: password, confirmPassword: confirmPassword) { isSuccess in
+                                    if isSuccess {
+                                        print("Daftar - berhasil")
+                                    } else {
+                                        showAlert = true
+                                        print("Daftar - gagal")
+                                    }
                                     showAlert = true
-                                    print("Daftar - gagal")
+                                    
                                 }
-                                showAlert = true
-
                             }
-                        }
-                        .alert(isPresented: $showAlert) {
-                            // Display an alert with the alert message from the ViewModel
-                            Alert(title: Text(authViewModel.alertTitle ?? "Gagal mendaftarkan akun"), message: Text(authViewModel.alertMessage ?? ""), dismissButton: .default(Text("OK")){
-                                if authViewModel.errorMessage == nil {
-                                    authViewModel.isSignupSuccess = true
-                                }
-                                showAlert = false
-                            })
+                            .alert(isPresented: $showAlert) {
+                                // Display an alert with the alert message from the ViewModel
+                                Alert(title: Text(authViewModel.alertTitle ?? "Gagal mendaftarkan akun"), message: Text(authViewModel.alertMessage ?? ""), dismissButton: .default(Text("OK")){
+                                    if authViewModel.errorMessage == nil {
+                                        authViewModel.isSignupSuccess = true
+                                    }
+                                    showAlert = false
+                                })
+                            }
+                            .padding(.bottom, -80)
                     }
                 }
+                .navigationDestination(isPresented: $authViewModel.isSignupSuccess) {
+                    LoginView()
+                }
             }
-            .navigationDestination(isPresented: $authViewModel.isSignupSuccess) {
-                LoginView()
-            }
+            .ignoresSafeArea()
         }
         .navigationTitle("Daftar")
         .navigationBarBackButtonHidden(true)

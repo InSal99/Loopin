@@ -58,36 +58,68 @@ struct CreateProjectView: View {
             }) {
                 PrimaryButton(buttonText: "Simpan Proyek")
             }
+            .onTapGesture(perform: {
+                showAlert = true
+            })
             .alert(isPresented: $showAlert) {
-                Alert(
-                    title: Text("Simpan Proyek"),
-                    message: Text("Apakah anda yakin ingin menyimpan projek?"),
-                    primaryButton: .default(Text("Ya")) {
-                        projectListViewModel.add(project) { isSuccess in
-                            print("projectListViewModel - add = \(isSuccess)")
-                        }
-                        navigateToProfile = true
-//                        parent.presentationMode.wrappedValue.dismiss()
-                        dismissParent()
-
-                        
-                    },
-                    secondaryButton: .destructive(Text("Batal"))
-                )
-            }
-            .padding(.top, 25)
-            .navigationTitle("Info Proyek")
-            .navigationBarBackButtonHidden(true)
-            .toolbar {
-                ToolbarItem(placement: .navigationBarLeading) {
-                    Button {
-                        presentationMode.wrappedValue.dismiss()
-                    } label: {
-                        Image(systemName: "chevron.left")
-                            .foregroundColor(.black)
+                if (project.name.isEmpty || project.description.isEmpty) {
+                    var message: String = ""
+                    if(project.name.isEmpty) {
+                        message = "Nama proyek perlu diisi."
+                    } else if(project.description.isEmpty) {
+                        message = "Deskripsi proyek perlu diisi."
                     }
+                    return Alert(title: Text("Gagal menyimpan proyek"), message: Text(message), dismissButton: .default(Text("OK")) {
+                        showAlert = false
+                    })
+                } else {
+                    return Alert(
+                        title: Text("Simpan Proyek"),
+                        message: Text("Apakah anda yakin ingin menyimpan projek?"),
+                        primaryButton: .destructive(Text("Batal")),
+                        secondaryButton: .default(Text("Simpan")) {
+                            projectListViewModel.add(project) { isSuccess in
+                                print("projectListViewModel - add = \(isSuccess)")
+                            }
+                            navigateToProfile = true
+    //                        parent.presentationMode.wrappedValue.dismiss()
+                            dismissParent()
+                        }
+                    )
                 }
             }
+//            .alert(isPresented: $showAlert) {
+////                var title: String = ""
+////                var message: String = ""
+//                Alert(
+//                    title: Text("Simpan Proyek"),
+//                    message: Text("Apakah anda yakin ingin menyimpan projek?"),
+//                    primaryButton: .default(Text("Ya")) {
+//                        projectListViewModel.add(project) { isSuccess in
+//                            print("projectListViewModel - add = \(isSuccess)")
+//                        }
+//                        navigateToProfile = true
+////                        parent.presentationMode.wrappedValue.dismiss()
+//                        dismissParent()
+//
+//                        
+//                    },
+//                    secondaryButton: .destructive(Text("Batal"))
+//                )
+//            }
+            .padding(.bottom, 20)
+            .navigationTitle("Info Proyek")
+            .navigationBarBackButtonHidden(true)
+//            .toolbar {
+//                ToolbarItem(placement: .navigationBarLeading) {
+//                    Button {
+//                        presentationMode.wrappedValue.dismiss()
+//                    } label: {
+//                        Image(systemName: "chevron.left")
+//                            .foregroundColor(.black)
+//                    }
+//                }
+//            }
             .onAppear(perform: initializeArrays)
         }
         .padding(.top, 25)

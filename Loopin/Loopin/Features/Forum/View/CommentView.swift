@@ -75,6 +75,12 @@ struct CommentView: View {
         }
         .navigationTitle("Komentar")
         .navigationBarTitleDisplayMode(.inline)
+        .navigationBarBackButtonHidden(true)
+        .toolbar {
+            ToolbarItem(placement: .navigationBarLeading) {
+                backButton
+            }
+        }
         .onAppear {
             // Set the presentation mode for PostViewModel
             postViewModel.presentationMode = presentationMode

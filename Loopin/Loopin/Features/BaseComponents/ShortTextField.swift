@@ -21,21 +21,23 @@ struct ShortTextField: View {
         if placeholder.contains("password"){
             SecureField(placeholder, text: $field)
                 .font(font)
+                .autocapitalization(.none)
                 .padding()
                 .background(RoundedRectangle(cornerRadius: 20).fill(backgroundColor))
                 .foregroundColor(textColor)
                 .multilineTextAlignment(.leading)
                 .frame(height: 55)
-                .padding([.horizontal])
+                .padding(.horizontal)
         } else {
             TextField(placeholder, text: $field)
                 .font(font)
+                .autocapitalization(.none)
                 .padding()
                 .background(RoundedRectangle(cornerRadius: 20).fill(backgroundColor))
                 .foregroundColor(textColor)
                 .multilineTextAlignment(.leading)
                 .frame(height: 55)
-                .padding([.horizontal])
+                .padding(.horizontal)
         }
     }
     

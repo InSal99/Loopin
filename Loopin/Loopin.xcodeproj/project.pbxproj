@@ -13,6 +13,7 @@
 		161AA70F2B0E1EB3008A59CE /* YarnTutorialListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 161AA70E2B0E1EB3008A59CE /* YarnTutorialListView.swift */; };
 		161AA7112B14800A008A59CE /* MiniTag.swift in Sources */ = {isa = PBXBuildFile; fileRef = 161AA7102B14800A008A59CE /* MiniTag.swift */; };
 		161AA7152B1492CF008A59CE /* WrappingHStack in Frameworks */ = {isa = PBXBuildFile; productRef = 161AA7142B1492CF008A59CE /* WrappingHStack */; };
+		169829982B85524100DE7D2A /* AlertExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 169829972B85524100DE7D2A /* AlertExtension.swift */; };
 		16BF34DA2B0B31BF0036424B /* LoopinApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16BF34D92B0B31BF0036424B /* LoopinApp.swift */; };
 		16BF34DC2B0B31BF0036424B /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16BF34DB2B0B31BF0036424B /* ContentView.swift */; };
 		16BF34DE2B0B31C00036424B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 16BF34DD2B0B31C00036424B /* Assets.xcassets */; };
@@ -127,6 +128,7 @@
 		161AA70C2B0E1D2B008A59CE /* PatternTutorialView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PatternTutorialView.swift; sourceTree = "<group>"; };
 		161AA70E2B0E1EB3008A59CE /* YarnTutorialListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YarnTutorialListView.swift; sourceTree = "<group>"; };
 		161AA7102B14800A008A59CE /* MiniTag.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MiniTag.swift; sourceTree = "<group>"; };
+		169829972B85524100DE7D2A /* AlertExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertExtension.swift; sourceTree = "<group>"; };
 		16BF34D62B0B31BF0036424B /* Loopin.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Loopin.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		16BF34D92B0B31BF0036424B /* LoopinApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoopinApp.swift; sourceTree = "<group>"; };
 		16BF34DB2B0B31BF0036424B /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -317,6 +319,7 @@
 				8FAE74B72B51189400E48454 /* GaugeFormatter.swift */,
 				8FAE74C32B5186CA00E48454 /* ImageConverter.swift */,
 				16F64E4A2B0B371E00EF2E15 /* TextExtension.swift */,
+				169829972B85524100DE7D2A /* AlertExtension.swift */,
 			);
 			path = Utilities;
 			sourceTree = "<group>";
@@ -834,6 +837,7 @@
 				16FBA2082B5527E1001AEBDB /* TermViewModel_UNUSED.swift in Sources */,
 				16F64E642B0BAE1200EF2E15 /* SignUpView.swift in Sources */,
 				16BF34DA2B0B31BF0036424B /* LoopinApp.swift in Sources */,
+				169829982B85524100DE7D2A /* AlertExtension.swift in Sources */,
 				8FA5AD3B2B199EC50021F53C /* Comment.swift in Sources */,
 				16FBA1E82B4BC926001AEBDB /* YarnTutorialView.swift in Sources */,
 				16FBA1F82B4BD59C001AEBDB /* Gauges.swift in Sources */,
@@ -975,7 +979,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 6;
 				DEVELOPMENT_ASSET_PATHS = "\"Loopin/Preview Content\"";
-				DEVELOPMENT_TEAM = Y9B3P2YJJC;
+				DEVELOPMENT_TEAM = 934K9APAT3;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Loopin/Info.plist;
@@ -1008,7 +1012,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 6;
 				DEVELOPMENT_ASSET_PATHS = "\"Loopin/Preview Content\"";
-				DEVELOPMENT_TEAM = Y9B3P2YJJC;
+				DEVELOPMENT_TEAM = 934K9APAT3;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Loopin/Info.plist;

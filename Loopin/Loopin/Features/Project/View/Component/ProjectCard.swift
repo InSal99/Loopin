@@ -74,11 +74,11 @@ struct ProjectCard: View {
             Alert(
                 title: Text("Hapus Unggahan"),
                 message: Text("Apakah anda yakin ingin menghapus unggahan?"),
-                primaryButton: .destructive(Text("Hapus")) {
+                primaryButton: .destructive(Text("Batal")),
+                secondaryButton: .default(Text("Hapus")) {
                     /// Handle delete action
-                    projectViewModel.remove() 
-                },
-                secondaryButton: .default(Text("Batal"))
+                    projectViewModel.remove()
+                }
             )
         }
     }
