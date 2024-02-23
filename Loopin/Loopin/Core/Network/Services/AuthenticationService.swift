@@ -47,7 +47,6 @@ class AuthenticationService: ObservableObject {
             UserRepository().registUserToDatabase(user: newUser) { result in
                 switch result {
                 case .success:
-                    
                     /// DEBUG
                     print("AuthService - sign up success")
                     

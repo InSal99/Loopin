@@ -409,6 +409,7 @@
 		8FA5AD2E2B18CC560021F53C /* AuthenticationOnboarding */ = {
 			isa = PBXGroup;
 			children = (
+				8FE6D97C2B7F818F0040EAFE /* Model */,
 				8FE6D9702B7F7CC70040EAFE /* View */,
 				8FE6D97D2B7F81C90040EAFE /* ViewModel */,
 			);
@@ -448,7 +449,6 @@
 		8FA5AD322B18D27E0021F53C /* Profile */ = {
 			isa = PBXGroup;
 			children = (
-				8FE6D97C2B7F818F0040EAFE /* Model */,
 				8FE6D9742B7F7D010040EAFE /* View */,
 			);
 			path = Profile;

@@ -94,7 +94,9 @@ struct ForumCard: View {
             HStack {
                 Button(action: {
                     postViewModel.updatePostLike()
-                    print("like button tapped:\(isLiked)")
+                    
+                    //DEBUG
+//                    print("like button tapped:\(isLiked)")
                     
                 }, label: {
                     HStack {
@@ -115,7 +117,8 @@ struct ForumCard: View {
                 
                 HStack {
                     Image("chat")
-                    Text("\(postViewModel.commentListViewModel?.commentViewModels.count ?? 0) Comments")
+//                    Text("\(postViewModel.commentListViewModel?.commentViewModels.count ?? 0) Comments")
+                    Text("\(postViewModel.post.totComments) Comments")
                         .font(.outfit(.regular, size: .label1))
                 }
             }
@@ -154,6 +157,8 @@ struct ForumCard: View {
                 self.imageURL = "\(storage.child("\(URL(string: postViewModel.post.images[0])!)"))"
                 //                print(self.imageURL)
             }
+            
+            postViewModel.post.totComments = postViewModel.commentListViewModel?.commentViewModels.count ?? 0
         }
     }
     

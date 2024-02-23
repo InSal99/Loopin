@@ -76,12 +76,14 @@ class CommentRepository: ObservableObject {
             }
     }
     
-    func add(_ comment: Comment) {
+    func add(_ comment: Comment, completion: @escaping (Bool) -> Void) {
         do {
             _ = try store.collection(parentPath).document(postId).collection(path).addDocument(from: comment)
+            completion(true)
         } catch {
             fatalError("Unable to add card: \(error.localizedDescription).")
         }
+
     }
     
     func update(_ comment: Comment) {

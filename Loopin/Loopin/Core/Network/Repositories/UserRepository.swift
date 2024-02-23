@@ -19,15 +19,15 @@ class UserRepository: ObservableObject {
         do {
 
 //            _ = try database.collection(path).addDocument(from: user)
-            _ = try store.collection(path).document(user.id ?? "No ID").setData(from: user)
+            _ = try store.collection(path).document(user.id!).setData(from: user)
             
             /// DEBUG
-            print("UserRepo - registUserToDatabase success: \(user)")
+//            print("UserRepo - registUserToDatabase success: \(user)")
             
             completion(.success(()))
         } catch {
             /// DEBUG
-            print("UserRepo - registUserToDatabase error: \(error.localizedDescription)")
+//            print("UserRepo - registUserToDatabase error: \(error.localizedDescription)")
             
             completion(.failure(error))
         }

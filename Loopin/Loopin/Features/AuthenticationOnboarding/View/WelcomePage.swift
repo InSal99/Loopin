@@ -11,6 +11,7 @@ import Foundation
 struct WelcomePage: View {
     
     var body: some View {
+        
         NavigationStack {
             VStack {
                 Spacer()

@@ -14,14 +14,14 @@ class PostViewModel: ObservableObject, Identifiable {
     private weak var authService = AuthenticationService.shared
 
     @Published var post: Post
-    
+    @Published var commentListViewModel : CommentListViewModel?
+
     private var cancellables: Set<AnyCancellable> = []
     
     var id = ""
     var isAllowedToEdit = false
     var isLiked = false
     
-    var commentListViewModel : CommentListViewModel?
     var presentationMode: Binding<PresentationMode>?
 
     init(post:Post) {
@@ -31,11 +31,18 @@ class PostViewModel: ObservableObject, Identifiable {
             .assign(to: \.id, on: self)
             .store(in: &cancellables)
         
+        
+        
         if authService?.user?.id == post.userId {
             isAllowedToEdit = true
         }
 
         self.isLiked = post.likes.contains(authService?.user?.id ?? "")
+        
+//        $post
+//            .map { $0.likes.contains(self.authService?.user?.id ?? "") }
+//            .assign(to: \.isLiked, on: self)
+//            .store(in: &cancellables)
         
         if self.commentListViewModel == nil {
             self.commentListViewModel = CommentListViewModel(postId: id)
