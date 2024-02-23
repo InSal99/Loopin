@@ -13,36 +13,44 @@ struct CommentView: View {
     @EnvironmentObject var authViewModel: AuthenticationViewModel
     @StateObject var postViewModel: PostViewModel
     @StateObject var commentListViewModel: CommentListViewModel
-
+    
     var body: some View {
         VStack {
-            ScrollView(.vertical){
-                VStack(alignment: .leading, spacing: 25) {
-                    
-                    ForumCard(postViewModel:postViewModel)
-                        .padding(.horizontal)
-                    
-                    if(commentListViewModel.commentViewModels.count != 0) {
-                        ForEach(commentListViewModel.commentViewModels) { commentViewModel in
-                            CommentCard(commentViewModel: commentViewModel)
-                            
-                        }
+            ScrollViewReader { proxy in
+                ScrollView(.vertical) {
+                    VStack(alignment: .leading, spacing: 25) {
+                        ForumCard(postViewModel: postViewModel)
+                            .padding(.horizontal)
                         
-                    } else {
-                        ZStack(alignment: .center) {
-                            Rectangle()
-                                .opacity(0)
-                            Text("Belum ada komentar")
-                                .padding(.top, 200)
-                                .font(.outfit(.regular, size: .body2))
-                                .opacity(0.5)
+                        if !commentListViewModel.commentViewModels.isEmpty {
+                            ForEach(commentListViewModel.commentViewModels.indices, id: \.self) { index in
+                                CommentCard(commentViewModel: commentListViewModel.commentViewModels[index])
+                                    .id(commentListViewModel.commentViewModels[index].id)
+                            }
+                        } else {
+                            ZStack(alignment: .center) {
+                                Rectangle()
+                                    .opacity(0)
+                                Text("Belum ada komentar")
+                                    .padding(.top, 200)
+                                    .font(.outfit(.regular, size: .body2))
+                                    .opacity(0.5)
+                            }
+                        }
+                    }
+                    .padding(.bottom)
+                }
+                .background(Color("White"))
+                .onChange(of: commentListViewModel.commentViewModels.count) { _ in
+                    // Scroll to the last comment when the comment list changes
+                    if !commentListViewModel.commentViewModels.isEmpty {
+                        withAnimation {
+                            proxy.scrollTo(commentListViewModel.commentViewModels.last!.id)
                         }
                     }
                 }
-                .padding(.bottom)
             }
-            .background(Color("White"))
-
+            
             HStack {
                 TextField("Tambahkan komentar", text: $commentListViewModel.commentTextInput)
                     .font(.outfit(.regular, size: .body2))
@@ -70,7 +78,6 @@ struct CommentView: View {
             }
             .padding()
             .background(Color.white)
-
             
         }
         .navigationTitle("Komentar")
@@ -82,12 +89,11 @@ struct CommentView: View {
             }
         }
         .onAppear {
-            // Set the presentation mode for PostViewModel
             postViewModel.presentationMode = presentationMode
         }
         
     }
-
+    
     private var backButton: some View {
         Button(action: {
             presentationMode.wrappedValue.dismiss()
@@ -102,16 +108,15 @@ struct CommentView: View {
         Comment(userId: authViewModel.authService.user?.id ??
                 "-", time: Date.now, username: authViewModel.authService.user?.username ??
                 "-", content: commentListViewModel.commentTextInput)
-    
+        
         postViewModel.commentListViewModel?.add(newComment) { isSuccess in
             
             DispatchQueue.main.async {
                 postViewModel.post.totComments += 1
                 print("add comment is success? \(isSuccess)")
-//                comment = ""
-           }
+            }
         }
-
+        
         
         
     }
