@@ -68,7 +68,7 @@ class AuthenticationService: ObservableObject {
             if error != nil {
                 /// DEBUG
                 print("AuthService - sign in error: \(String(describing: error?.localizedDescription))")
-
+                completion(.failure(error!))
                 return
             }
             
@@ -77,6 +77,8 @@ class AuthenticationService: ObservableObject {
 
                 /// DEBUG
                 print("AuthService - sign in error setting userId: \(error.localizedDescription)")
+                completion(.failure(error))
+
                 return
             }
             
