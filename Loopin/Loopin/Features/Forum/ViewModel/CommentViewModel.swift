@@ -8,7 +8,16 @@
 import Foundation
 import Combine
 
-class CommentViewModel: ObservableObject, Identifiable {
+class CommentViewModel: ObservableObject, Hashable, Identifiable {
+    
+    static func == (lhs: CommentViewModel, rhs: CommentViewModel) -> Bool {
+        return lhs.id == rhs.id
+    }
+    
+    func hash(into hasher: inout Hasher) {
+            hasher.combine(id)
+        }
+    
     private weak var commentRepository : CommentRepository?
     private weak var authService = AuthenticationService.shared
 
