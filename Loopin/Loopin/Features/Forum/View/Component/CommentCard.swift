@@ -23,7 +23,7 @@ struct CommentCard: View {
                 VStack(alignment: .leading, spacing: 10) {
                     HStack {
                         Text(commentViewModel.comment.username)
-                            .font(.outfit(.semiBold, size: .body2))
+                            .font(.outfit(.bold, size: .heading4))
                         Spacer()
                     }
                    

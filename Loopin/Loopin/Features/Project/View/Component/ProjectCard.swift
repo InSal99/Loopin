@@ -19,7 +19,7 @@ struct ProjectCard: View {
         HStack(){
             VStack(alignment: .leading, spacing: 10) {
                 Text(projectViewModel.project.name)
-                    .font(.outfit(.semiBold, size: .body2))
+                    .font(.outfit(.bold, size: .heading4))
                 
                 Text(projectViewModel.project.description)
                     .font(.outfit(.regular, size: .body2))

@@ -7,6 +7,18 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		161761622B9870E400E39676 /* ContentViewAdmin.swift in Sources */ = {isa = PBXBuildFile; fileRef = 161761612B9870E400E39676 /* ContentViewAdmin.swift */; };
+		161761642B98722E00E39676 /* TutorialPageAdmin.swift in Sources */ = {isa = PBXBuildFile; fileRef = 161761632B98722E00E39676 /* TutorialPageAdmin.swift */; };
+		161761662B98733C00E39676 /* HookTutorialViewAdmin.swift in Sources */ = {isa = PBXBuildFile; fileRef = 161761652B98733C00E39676 /* HookTutorialViewAdmin.swift */; };
+		161761682B98740900E39676 /* TermTutorialListViewAdmin.swift in Sources */ = {isa = PBXBuildFile; fileRef = 161761672B98740900E39676 /* TermTutorialListViewAdmin.swift */; };
+		1617616A2B9874FE00E39676 /* PatternTutorialListViewAdmin.swift in Sources */ = {isa = PBXBuildFile; fileRef = 161761692B9874FE00E39676 /* PatternTutorialListViewAdmin.swift */; };
+		1617616C2B98758200E39676 /* YarnTutorialListViewAdmin.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1617616B2B98758200E39676 /* YarnTutorialListViewAdmin.swift */; };
+		1617616E2B9876CC00E39676 /* AddHookTutorialView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1617616D2B9876CC00E39676 /* AddHookTutorialView.swift */; };
+		161761702B987A0700E39676 /* AddTermTutorialView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1617616F2B987A0700E39676 /* AddTermTutorialView.swift */; };
+		161761722B987CE100E39676 /* AddPatternTutorialView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 161761712B987CE100E39676 /* AddPatternTutorialView.swift */; };
+		161761742B9882E800E39676 /* AddYarnTutorialView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 161761732B9882E800E39676 /* AddYarnTutorialView.swift */; };
+		161761762B9977AF00E39676 /* ProjectsViewAdmin.swift in Sources */ = {isa = PBXBuildFile; fileRef = 161761752B9977AF00E39676 /* ProjectsViewAdmin.swift */; };
+		1617617A2B9978D600E39676 /* ProjectOverviewViewAdmin.swift in Sources */ = {isa = PBXBuildFile; fileRef = 161761792B9978D600E39676 /* ProjectOverviewViewAdmin.swift */; };
 		161AA7092B0CD1C7008A59CE /* ImageSlider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 161AA7082B0CD1C7008A59CE /* ImageSlider.swift */; };
 		161AA70B2B0E1B6B008A59CE /* TermTutorialView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 161AA70A2B0E1B6B008A59CE /* TermTutorialView.swift */; };
 		161AA70D2B0E1D2B008A59CE /* PatternTutorialView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 161AA70C2B0E1D2B008A59CE /* PatternTutorialView.swift */; };
@@ -123,6 +135,18 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		161761612B9870E400E39676 /* ContentViewAdmin.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentViewAdmin.swift; sourceTree = "<group>"; };
+		161761632B98722E00E39676 /* TutorialPageAdmin.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TutorialPageAdmin.swift; sourceTree = "<group>"; };
+		161761652B98733C00E39676 /* HookTutorialViewAdmin.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HookTutorialViewAdmin.swift; sourceTree = "<group>"; };
+		161761672B98740900E39676 /* TermTutorialListViewAdmin.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TermTutorialListViewAdmin.swift; sourceTree = "<group>"; };
+		161761692B9874FE00E39676 /* PatternTutorialListViewAdmin.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PatternTutorialListViewAdmin.swift; sourceTree = "<group>"; };
+		1617616B2B98758200E39676 /* YarnTutorialListViewAdmin.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YarnTutorialListViewAdmin.swift; sourceTree = "<group>"; };
+		1617616D2B9876CC00E39676 /* AddHookTutorialView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddHookTutorialView.swift; sourceTree = "<group>"; };
+		1617616F2B987A0700E39676 /* AddTermTutorialView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddTermTutorialView.swift; sourceTree = "<group>"; };
+		161761712B987CE100E39676 /* AddPatternTutorialView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddPatternTutorialView.swift; sourceTree = "<group>"; };
+		161761732B9882E800E39676 /* AddYarnTutorialView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddYarnTutorialView.swift; sourceTree = "<group>"; };
+		161761752B9977AF00E39676 /* ProjectsViewAdmin.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectsViewAdmin.swift; sourceTree = "<group>"; };
+		161761792B9978D600E39676 /* ProjectOverviewViewAdmin.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectOverviewViewAdmin.swift; sourceTree = "<group>"; };
 		161AA7082B0CD1C7008A59CE /* ImageSlider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageSlider.swift; sourceTree = "<group>"; };
 		161AA70A2B0E1B6B008A59CE /* TermTutorialView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TermTutorialView.swift; sourceTree = "<group>"; };
 		161AA70C2B0E1D2B008A59CE /* PatternTutorialView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PatternTutorialView.swift; sourceTree = "<group>"; };
@@ -251,6 +275,78 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		1617615D2B986F0000E39676 /* Admin */ = {
+			isa = PBXGroup;
+			children = (
+				161761632B98722E00E39676 /* TutorialPageAdmin.swift */,
+				161761672B98740900E39676 /* TermTutorialListViewAdmin.swift */,
+				161761652B98733C00E39676 /* HookTutorialViewAdmin.swift */,
+				161761692B9874FE00E39676 /* PatternTutorialListViewAdmin.swift */,
+				1617616B2B98758200E39676 /* YarnTutorialListViewAdmin.swift */,
+				1617616F2B987A0700E39676 /* AddTermTutorialView.swift */,
+				1617616D2B9876CC00E39676 /* AddHookTutorialView.swift */,
+				161761712B987CE100E39676 /* AddPatternTutorialView.swift */,
+				161761732B9882E800E39676 /* AddYarnTutorialView.swift */,
+			);
+			path = Admin;
+			sourceTree = "<group>";
+		};
+		1617615E2B986F0A00E39676 /* User */ = {
+			isa = PBXGroup;
+			children = (
+				16F64E542B0B57F900EF2E15 /* TutorialPage.swift */,
+				161AA70A2B0E1B6B008A59CE /* TermTutorialView.swift */,
+				16EEB26E2B0C8DAE00C340D1 /* HookTutorialView.swift */,
+				161AA70C2B0E1D2B008A59CE /* PatternTutorialView.swift */,
+				161AA70E2B0E1EB3008A59CE /* YarnTutorialListView.swift */,
+				16FBA1E52B4BC8B5001AEBDB /* TermTutorialListView.swift */,
+				16FBA1E72B4BC926001AEBDB /* YarnTutorialView.swift */,
+				16FBA1ED2B4BCAD5001AEBDB /* PatternTutorialListView.swift */,
+			);
+			path = User;
+			sourceTree = "<group>";
+		};
+		1617615F2B98704900E39676 /* Admin */ = {
+			isa = PBXGroup;
+			children = (
+				161761612B9870E400E39676 /* ContentViewAdmin.swift */,
+			);
+			path = Admin;
+			sourceTree = "<group>";
+		};
+		161761602B98705100E39676 /* User */ = {
+			isa = PBXGroup;
+			children = (
+				16BF34DB2B0B31BF0036424B /* ContentView.swift */,
+			);
+			path = User;
+			sourceTree = "<group>";
+		};
+		161761772B9978A300E39676 /* User */ = {
+			isa = PBXGroup;
+			children = (
+				16F64E572B0B765C00EF2E15 /* ProjectsView.swift */,
+				16EEB25C2B0BD2E600C340D1 /* ProjectDetailView.swift */,
+				16EEB2622B0BE49400C340D1 /* ProjectInfoView.swift */,
+				16EEB2662B0BE76C00C340D1 /* SampleInfoView-UNUSED.swift */,
+				16EEB2682B0BE82400C340D1 /* ProjectPartView.swift */,
+				16EEB26C2B0BEF7700C340D1 /* ProjectOverviewView.swift */,
+				8FB905292B53122C00277182 /* CreateProjectView.swift */,
+				16C4D53F2B45855A007880DF /* CurrentProjectView.swift */,
+				8FAE74CA2B51E2DB00E48454 /* EditProjectView.swift */,
+			);
+			path = User;
+			sourceTree = "<group>";
+		};
+		161761782B9978B000E39676 /* Admin */ = {
+			isa = PBXGroup;
+			children = (
+				161761752B9977AF00E39676 /* ProjectsViewAdmin.swift */,
+				161761792B9978D600E39676 /* ProjectOverviewViewAdmin.swift */,
+			);
+			path = Admin;
+			sourceTree = "<group>";
+		};
 		161AA7122B149246008A59CE /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -519,10 +615,11 @@
 		8FE6D9702B7F7CC70040EAFE /* View */ = {
 			isa = PBXGroup;
 			children = (
+				161761602B98705100E39676 /* User */,
+				1617615F2B98704900E39676 /* Admin */,
 				16BF34EC2B0B33080036424B /* WelcomePage.swift */,
 				16F64E632B0BAE1200EF2E15 /* SignUpView.swift */,
 				16F64E652B0BAF3300EF2E15 /* LoginView.swift */,
-				16BF34DB2B0B31BF0036424B /* ContentView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -530,14 +627,8 @@
 		8FE6D9722B7F7CE30040EAFE /* View */ = {
 			isa = PBXGroup;
 			children = (
-				16F64E542B0B57F900EF2E15 /* TutorialPage.swift */,
-				16EEB26E2B0C8DAE00C340D1 /* HookTutorialView.swift */,
-				161AA70A2B0E1B6B008A59CE /* TermTutorialView.swift */,
-				161AA70C2B0E1D2B008A59CE /* PatternTutorialView.swift */,
-				161AA70E2B0E1EB3008A59CE /* YarnTutorialListView.swift */,
-				16FBA1E52B4BC8B5001AEBDB /* TermTutorialListView.swift */,
-				16FBA1E72B4BC926001AEBDB /* YarnTutorialView.swift */,
-				16FBA1ED2B4BCAD5001AEBDB /* PatternTutorialListView.swift */,
+				1617615E2B986F0A00E39676 /* User */,
+				1617615D2B986F0000E39676 /* Admin */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -565,16 +656,9 @@
 		8FE6D9752B7F7D090040EAFE /* View */ = {
 			isa = PBXGroup;
 			children = (
+				161761782B9978B000E39676 /* Admin */,
+				161761772B9978A300E39676 /* User */,
 				8FE6D96E2B7F7BC90040EAFE /* Component */,
-				16F64E572B0B765C00EF2E15 /* ProjectsView.swift */,
-				16EEB25C2B0BD2E600C340D1 /* ProjectDetailView.swift */,
-				16EEB2622B0BE49400C340D1 /* ProjectInfoView.swift */,
-				16EEB2662B0BE76C00C340D1 /* SampleInfoView-UNUSED.swift */,
-				16EEB2682B0BE82400C340D1 /* ProjectPartView.swift */,
-				16EEB26C2B0BEF7700C340D1 /* ProjectOverviewView.swift */,
-				8FB905292B53122C00277182 /* CreateProjectView.swift */,
-				16C4D53F2B45855A007880DF /* CurrentProjectView.swift */,
-				8FAE74CA2B51E2DB00E48454 /* EditProjectView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -763,6 +847,7 @@
 				8FC60F702B397B1C00C8C241 /* AuthenticationViewModel.swift in Sources */,
 				8FAE74B62B5003B700E48454 /* ProjectTemplateJSON.swift in Sources */,
 				8F404E242B4ED5F900F7145C /* ProjectRepository.swift in Sources */,
+				161761662B98733C00E39676 /* HookTutorialViewAdmin.swift in Sources */,
 				8FAE74C22B51411500E48454 /* ImagePicker.swift in Sources */,
 				16FBA2062B5527A4001AEBDB /* JSONDataViewModel.swift in Sources */,
 				16F64E4E2B0B3D9700EF2E15 /* PrimaryButton.swift in Sources */,
@@ -775,6 +860,7 @@
 				8FC65C632B493046007E8D28 /* CommentViewModel.swift in Sources */,
 				16F64E5A2B0B772100EF2E15 /* SquareCard.swift in Sources */,
 				8F404E2A2B4EE90C00F7145C /* ProjectListViewModel.swift in Sources */,
+				161761762B9977AF00E39676 /* ProjectsViewAdmin.swift in Sources */,
 				16F64E5C2B0B7BF600EF2E15 /* ForumCard.swift in Sources */,
 				16F64E552B0B57F900EF2E15 /* TutorialPage.swift in Sources */,
 				16FBA1E42B4BC877001AEBDB /* PatternContent.swift in Sources */,
@@ -786,6 +872,7 @@
 				16BF34ED2B0B33080036424B /* WelcomePage.swift in Sources */,
 				16FBA1FA2B4D26C7001AEBDB /* Step.swift in Sources */,
 				16C4D5402B45855A007880DF /* CurrentProjectView.swift in Sources */,
+				161761682B98740900E39676 /* TermTutorialListViewAdmin.swift in Sources */,
 				8FA5AD3D2B199F8C0021F53C /* ProjectDetails.swift in Sources */,
 				16EEB2632B0BE49400C340D1 /* ProjectInfoView.swift in Sources */,
 				16EEB25F2B0BD56500C340D1 /* DetailProjectCard.swift in Sources */,
@@ -796,9 +883,12 @@
 				16FBA1FC2B4FB6F4001AEBDB /* AccordionWithPicture.swift in Sources */,
 				16C4D50E2B37770C007880DF /* ProjectCard.swift in Sources */,
 				8FAE74B82B51189400E48454 /* GaugeFormatter.swift in Sources */,
+				161761702B987A0700E39676 /* AddTermTutorialView.swift in Sources */,
 				16FBA1F62B4BD54D001AEBDB /* SubPart.swift in Sources */,
 				16F64E502B0B44C700EF2E15 /* SecondaryButton.swift in Sources */,
 				8F7E67D62B19C750005DBD9E /* ObjectPart.swift in Sources */,
+				1617616A2B9874FE00E39676 /* PatternTutorialListViewAdmin.swift in Sources */,
+				161761722B987CE100E39676 /* AddPatternTutorialView.swift in Sources */,
 				8FC65C652B499314007E8D28 /* CommentListViewModel.swift in Sources */,
 				16FBA1F02B4BCD48001AEBDB /* Hook.swift in Sources */,
 				16FBA1F42B4BD495001AEBDB /* Project.swift in Sources */,
@@ -829,12 +919,15 @@
 				16EEB2612B0BDB4000C340D1 /* ProjectPartCard.swift in Sources */,
 				8FC60F7B2B3ECBEE00C8C241 /* PostViewModel.swift in Sources */,
 				8FAE74BE2B5140A700E48454 /* ImageViewModel.swift in Sources */,
+				161761742B9882E800E39676 /* AddYarnTutorialView.swift in Sources */,
 				161AA70B2B0E1B6B008A59CE /* TermTutorialView.swift in Sources */,
 				161AA7112B14800A008A59CE /* MiniTag.swift in Sources */,
 				8FAE74C02B5140E600E48454 /* ImagePickerView.swift in Sources */,
+				161761622B9870E400E39676 /* ContentViewAdmin.swift in Sources */,
 				16F64E5E2B0B800000EF2E15 /* ForumView.swift in Sources */,
 				16EEB2572B0BBE7300C340D1 /* ShortTextField.swift in Sources */,
 				16FBA2082B5527E1001AEBDB /* TermViewModel_UNUSED.swift in Sources */,
+				1617616C2B98758200E39676 /* YarnTutorialListViewAdmin.swift in Sources */,
 				16F64E642B0BAE1200EF2E15 /* SignUpView.swift in Sources */,
 				16BF34DA2B0B31BF0036424B /* LoopinApp.swift in Sources */,
 				169829982B85524100DE7D2A /* AlertExtension.swift in Sources */,
@@ -845,10 +938,13 @@
 				16EEB26F2B0C8DAE00C340D1 /* HookTutorialView.swift in Sources */,
 				16EEB2652B0BE55900C340D1 /* ProgressBar.swift in Sources */,
 				16FBA1EE2B4BCAD5001AEBDB /* PatternTutorialListView.swift in Sources */,
+				161761642B98722E00E39676 /* TutorialPageAdmin.swift in Sources */,
 				16FBA1E22B4BC849001AEBDB /* Pattern.swift in Sources */,
 				8FAE74C42B5186CA00E48454 /* ImageConverter.swift in Sources */,
 				16EEB25D2B0BD2E600C340D1 /* ProjectDetailView.swift in Sources */,
 				8FAE74C92B51CDE900E48454 /* ForumCardWithNavigation.swift in Sources */,
+				1617617A2B9978D600E39676 /* ProjectOverviewViewAdmin.swift in Sources */,
+				1617616E2B9876CC00E39676 /* AddHookTutorialView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

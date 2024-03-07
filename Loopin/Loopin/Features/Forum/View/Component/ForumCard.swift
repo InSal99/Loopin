@@ -23,7 +23,7 @@ struct ForumCard: View {
         VStack(alignment: .leading) {
             HStack(alignment: .firstTextBaseline) {
                 Text("\(postViewModel.post.username)")
-                    .font(.outfit(.semiBold, size: .body2))
+                    .font(.outfit(.bold, size: .heading4))
                     .padding(.vertical, 5)
                 
                 Spacer()
@@ -130,7 +130,6 @@ struct ForumCard: View {
         .background(
             RoundedRectangle(cornerRadius: 30)
                 .foregroundColor(Color.white)
-            //                    .frame(width: 327)
         )
         .shadow(color:.black .opacity(0.05), radius: 10, x: 0, y: 4)
         .sheet(isPresented: $isPostForumViewPresented) {

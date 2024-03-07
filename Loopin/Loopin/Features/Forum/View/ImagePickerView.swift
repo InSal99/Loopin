@@ -27,14 +27,15 @@ struct ImagePickerView: View {
                     
                 } else {
                     Spacer()
-                    Text("No image selected")
+                    Text("Belum ada gambar terpilih")
+                        .font(.outfit(.regular, size: .label1))
                     Spacer()
                 }
             }
-            .frame(maxWidth: UIScreen.main.bounds.width - 10, maxHeight: UIScreen.main.bounds.width)
+            .frame(maxWidth: UIScreen.main.bounds.width - 8, minHeight: 200, maxHeight: UIScreen.main.bounds.width)
             .background(Color("Black").opacity(0.05))
-            .cornerRadius(10)
-            .padding(5)
+            .cornerRadius(20)
+//            .padding(5)
            
             VStack() {
                 HStack() {
@@ -59,13 +60,14 @@ struct ImagePickerView: View {
                             .padding(.horizontal, 5)
                         }
                     label: {
-                        Text("Choose Photo")
+                        Text("Pilih Gambar")
+                            .font(.outfit(.regular, size: .body3))
                             .foregroundColor(.gray)
                         
                     }
-                    .padding(.horizontal, 5)
+//                    .padding(.horizontal, 5)
                     .padding(.leading, 8)
-                    .padding(.vertical, 5)
+//                    .padding(.top, 5)
                     }
                     .buttonStyle(PlainButtonStyle())
                     
@@ -108,7 +110,7 @@ struct ImagePickerView: View {
 
 //struct CobaImageView_Previews: PreviewProvider {
 //    static var previews: some View {
-//        CobaImageView()
+//        ImagePickerView()
 //    }
 //}
 

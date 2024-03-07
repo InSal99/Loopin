@@ -68,28 +68,6 @@ struct ProjectOverviewView: View {
                                                   navigateToProfile: $navigateToProfile
                                 )
                             }
-                    
-//                        NavigationLink {
-//                            ProjectInfoView(project:
-//                                    Project(
-//                                        type: projectTemplate.type,
-//                                        name: projectTemplate.name,
-//                                        image: projectTemplate.image,
-//                                        description: "",
-//                                        preparation: projectTemplate.preparation,
-//                                        yarnType: projectTemplate.yarnType,
-//                                        yarnWeight: projectTemplate.yarnWeight,
-//                                        hookSize: projectTemplate.hookSize,
-//                                        stitchType: projectTemplate.stitchType,
-//                                        subParts: projectTemplate.subParts,
-//                                        sample: projectTemplate.sample)
-//
-//                            )
-//                        } label: {
-//                            PrimaryButton(buttonText: "Buat Proyek")
-//                        }
-//                        .padding(.horizontal)
-//                        .padding(.top, 50)
                     }
                     .padding(.top, 280)
                     .padding()

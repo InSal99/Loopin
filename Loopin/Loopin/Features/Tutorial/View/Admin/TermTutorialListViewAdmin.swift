@@ -1,17 +1,16 @@
 //
-//  TermTutorialListView.swift
+//  TermTutorialListViewAdmin.swift
 //  Loopin
 //
-//  Created by Intan Saliya Utomo on 06/01/24.
+//  Created by Intan Saliya Utomo on 06/03/24.
 //
 
 import SwiftUI
 
-struct TermTutorialListView: View {
+struct TermTutorialListViewAdmin: View {
     @Environment(\.presentationMode) var presentationMode
-    
+    @State private var isAddTermTutorialViewPresented = false
     @State private var termData: [Term] = []
-//    @State private var selectedTermItem: Term?
     
     var body: some View {
         NavigationView {
@@ -21,17 +20,6 @@ struct TermTutorialListView: View {
                         NavigationLink(destination: TermTutorialView(term: termItem)) {
                             SquareCard(cardText: termItem.title, cardImage: termItem.image)
                         }
-                        //                        Button(action: {
-                        //                            selectedTermItem = termItem
-                        //                            isTermViewPresented.toggle()
-                        //                        }, label: {
-                        //                            SquareCard(cardText: termItem["title"] ?? "", cardImage: termItem["image"] ?? "")
-                        //                        })
-                        //                        .sheet(isPresented: $isTermViewPresented) {
-                        //                            if let selectedTermItem = selectedTermItem {
-                        //                                TermTutorialView(title: selectedTermItem["title"]!, content: selectedTermItem["content"]!, images: selectedTermItem["image"]!)
-                        //                            }
-                        //                        }
                     }
                 }
             }
@@ -50,6 +38,17 @@ struct TermTutorialListView: View {
                             .foregroundColor(.black)
                     }
                 }
+                ToolbarItem(placement: .navigationBarTrailing) {
+                    Button(action: {
+                        isAddTermTutorialViewPresented.toggle()
+                    }, label: {
+                        Image(systemName: "plus")
+                            .foregroundColor(.black)
+                    })
+                    .sheet(isPresented: $isAddTermTutorialViewPresented) {
+                        AddTermTutorialView()
+                    }.edgesIgnoringSafeArea(.bottom)
+                }
             }
         }
         .navigationBarBackButtonHidden(true)
@@ -61,7 +60,6 @@ struct TermTutorialListView: View {
     }
 }
 
-
-//#Preview {
-//    TermTutorialListView()
-//}
+#Preview {
+    TermTutorialListViewAdmin()
+}

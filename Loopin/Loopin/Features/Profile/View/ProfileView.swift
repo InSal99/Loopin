@@ -16,18 +16,14 @@ struct ProfileView: View {
     @State private var selectedSegment = 0
     
     @EnvironmentObject var authViewModel: AuthenticationViewModel
-//    @ObservedObject var postListViewModel: PostListViewModel
     @ObservedObject var postListViewModel = PostListViewModel.shared
-//    @ObservedObject var postListViewModel = PostListViewModel()
     @ObservedObject var projectListViewModel = ProjectListViewModel.shared
     
-//    init(postListViewModel: PostListViewModel) {
     init() {
         UISegmentedControl.appearance().backgroundColor = .lightGray.withAlphaComponent(0.01)
        UISegmentedControl.appearance().setDividerImage(UIImage(), forLeftSegmentState: .normal, rightSegmentState: .normal, barMetrics: .default)
        UISegmentedControl.appearance().selectedSegmentTintColor = UIColor(named: "Guava")
        UISegmentedControl.appearance().setTitleTextAttributes([.foregroundColor: UIColor.white], for: .selected)
-//        self.postListViewModel = postListViewModel
     }
     
     private var userName: String { authViewModel.authService.user?.username ?? "-" }
@@ -41,8 +37,6 @@ struct ProfileView: View {
                     VStack (alignment: .leading){
                         Text(email)
                             .font(.outfit(.regular, size: .body2))
-//                        Text(phone)
-//                            .font(.outfit(.regular, size: .body2))
                         Picker(selection: $selectedSegment, label: Text("Daftar Proyek")) {
                             Text("Proyek Saya").tag(0)
                             Text("Unggahan Saya").tag(1)
@@ -53,7 +47,6 @@ struct ProfileView: View {
                         switch selectedSegment {
                         case 0:
                             // Content for Segment 1
-                            
                             if projectListViewModel.projectViewModels.isEmpty {
                                 ZStack(alignment: .center) {
                                     Rectangle()
@@ -70,22 +63,6 @@ struct ProfileView: View {
                                     }
                                 }
                             }
-//                            if !userProjects.isEmpty {
-//                                ForEach(userProjects) { selectedProject in
-//                                    NavigationLink(destination: ProjectDetailView(selectedProject: selectedProject)) {
-//                                        ProjectCard(projectName: selectedProject.name, projectDesc: selectedProject.description)
-//                                    }
-//                                }
-//                            } else {
-//                                ZStack(alignment: .center) {
-//                                    Rectangle()
-//                                        .opacity(0)
-//                                    Text("Belum ada proyek")
-//                                        .padding(.top, 200)
-//                                        .font(.outfit(.regular, size: .body2))
-//                                        .opacity(0.5)
-//                                }
-//                            }
                         case 1:
                             // Content for Segment 2
                             if postListViewModel.postViewModels.isEmpty {
@@ -146,9 +123,6 @@ struct ProfileView: View {
                 }
             }
         }
-//        .onAppear {
-//            print(postListViewModel.postViewModels[0].commentListViewModel?.commentRepository?.comments)
-//        }
     }
 }
 
