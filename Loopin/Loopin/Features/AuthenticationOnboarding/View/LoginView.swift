@@ -11,8 +11,8 @@ struct LoginView: View {
     @Environment(\.presentationMode) var presentationMode
     @State private var showAlert = false
     
-    @State private var email = ""
-    @State private var password = ""
+    @State private var email = "cm@gmail.com"
+    @State private var password = "cmcmcm"
 //    @State private var isSignInSuccess = false
     
     @EnvironmentObject var authViewModel: AuthenticationViewModel

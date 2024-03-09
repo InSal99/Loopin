@@ -5,7 +5,6 @@
 //  Created by Celine Margaretha on 10/01/24.
 //
 
-import Foundation
 import FirebaseFirestore
 import FirebaseFirestoreSwift
 import Combine

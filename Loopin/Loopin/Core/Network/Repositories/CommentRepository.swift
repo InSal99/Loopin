@@ -43,7 +43,6 @@ class CommentRepository: ObservableObject {
     }
     
     func get() {
-//        print("coment repo: \(postId)")
         
         listener = store.collection(parentPath).document(postId).collection(path)
             .order(by: "time", descending: false)
@@ -53,19 +52,10 @@ class CommentRepository: ObservableObject {
                     return
                 }
                 
-                //                if let documents = querySnapshot?.documents {
-                //                    print("Received documents: \(documents)")
-                //                }
-                //    
-                //                self.comments = querySnapshot?.documents.compactMap { document in
-                //                    try? document.data(as: Comment.self)
-                //                } ?? []
-                
                 self.comments = querySnapshot?.documents.compactMap { document in
                     do {
-                        // Try to map the Firestore document data to Comment model
+                        /// Try to map the Firestore document data to Comment model
                         let comment = try document.data(as: Comment.self)
-//                        print("Successfully mapped Comment: \(comment)")
                         return comment
                     } catch {
                         print("Error mapping Comment for document \(document.documentID): \(error.localizedDescription)")

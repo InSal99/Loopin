@@ -8,6 +8,7 @@
 import SwiftUI
 import SDWebImageSwiftUI
 import FirebaseStorage
+import Firebase
 
 struct ForumCard: View {
     
@@ -69,7 +70,7 @@ struct ForumCard: View {
             if imageURL != "" {
                 VStack(alignment: .center){
                     
-                    if let imageURL = URL(string: postViewModel.post.images[0]) {
+                    if let imageURL = URL(string: imageURL) {
                         AnimatedImage(url: imageURL)
                             .resizable()
                             .scaledToFill()
@@ -149,12 +150,12 @@ struct ForumCard: View {
         .alertButtonTint(color: .blue)
         .onAppear {
             if !postViewModel.post.images.isEmpty {
-                let storage = Storage.storage().reference()
                 
-                //                print("STORAGE \(storage.bucket)")
-                //                print("STORAGE \(storage.child("\(URL(string: postViewModel.post.images[0])!)"))")
-                self.imageURL = "\(storage.child("\(URL(string: postViewModel.post.images[0])!)"))"
-                //                print(self.imageURL)
+                let folderName = StoragePathGenerator.getUserFolderRefPath(withId: postViewModel.post.userId)
+                ImageRepository.shared.getDownloadUrl(imagePath: postViewModel.post.images[0], inFolder: folderName) { urlPath in
+                    self.imageURL = urlPath
+                }
+                
             }
             
             postViewModel.post.totComments = postViewModel.commentListViewModel?.commentViewModels.count ?? 0

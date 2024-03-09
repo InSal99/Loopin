@@ -132,6 +132,8 @@
 		8FC60F802B3F177B00C8C241 /* DateFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FC60F7F2B3F177B00C8C241 /* DateFormatter.swift */; };
 		8FC65C632B493046007E8D28 /* CommentViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FC65C622B493046007E8D28 /* CommentViewModel.swift */; };
 		8FC65C652B499314007E8D28 /* CommentListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FC65C642B499314007E8D28 /* CommentListViewModel.swift */; };
+		8FE6D99F2B9B6B9A0040EAFE /* ImageRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FE6D99E2B9B6B9A0040EAFE /* ImageRepository.swift */; };
+		8FE6D9A12B9C5BDC0040EAFE /* StoragePathGenerator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FE6D9A02B9C5BDC0040EAFE /* StoragePathGenerator.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -255,6 +257,8 @@
 		8FC60F7F2B3F177B00C8C241 /* DateFormatter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateFormatter.swift; sourceTree = "<group>"; };
 		8FC65C622B493046007E8D28 /* CommentViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentViewModel.swift; sourceTree = "<group>"; };
 		8FC65C642B499314007E8D28 /* CommentListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentListViewModel.swift; sourceTree = "<group>"; };
+		8FE6D99E2B9B6B9A0040EAFE /* ImageRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageRepository.swift; sourceTree = "<group>"; };
+		8FE6D9A02B9C5BDC0040EAFE /* StoragePathGenerator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoragePathGenerator.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -416,6 +420,7 @@
 				8FAE74C32B5186CA00E48454 /* ImageConverter.swift */,
 				16F64E4A2B0B371E00EF2E15 /* TextExtension.swift */,
 				169829972B85524100DE7D2A /* AlertExtension.swift */,
+				8FE6D9A02B9C5BDC0040EAFE /* StoragePathGenerator.swift */,
 			);
 			path = Utilities;
 			sourceTree = "<group>";
@@ -460,6 +465,7 @@
 				8F1BA8EE2B29BB2F00DD92C4 /* CommentRepository.swift */,
 				8FC60F752B39FD4D00C8C241 /* UserRepository.swift */,
 				8F404E232B4ED5F900F7145C /* ProjectRepository.swift */,
+				8FE6D99E2B9B6B9A0040EAFE /* ImageRepository.swift */,
 			);
 			path = Repositories;
 			sourceTree = "<group>";
@@ -854,6 +860,7 @@
 				16C4D5072B36D6FA007880DF /* Numbering.swift in Sources */,
 				16FBA1E62B4BC8B5001AEBDB /* TermTutorialListView.swift in Sources */,
 				8FC60F762B39FD4D00C8C241 /* UserRepository.swift in Sources */,
+				8FE6D9A12B9C5BDC0040EAFE /* StoragePathGenerator.swift in Sources */,
 				8F1BA8EB2B29BB0600DD92C4 /* PostRepository.swift in Sources */,
 				8FAE74BA2B513CE400E48454 /* GaugeCounter.swift in Sources */,
 				16F64E4B2B0B371E00EF2E15 /* TextExtension.swift in Sources */,
@@ -923,6 +930,7 @@
 				161AA70B2B0E1B6B008A59CE /* TermTutorialView.swift in Sources */,
 				161AA7112B14800A008A59CE /* MiniTag.swift in Sources */,
 				8FAE74C02B5140E600E48454 /* ImagePickerView.swift in Sources */,
+				8FE6D99F2B9B6B9A0040EAFE /* ImageRepository.swift in Sources */,
 				161761622B9870E400E39676 /* ContentViewAdmin.swift in Sources */,
 				16F64E5E2B0B800000EF2E15 /* ForumView.swift in Sources */,
 				16EEB2572B0BBE7300C340D1 /* ShortTextField.swift in Sources */,
@@ -1075,7 +1083,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 6;
 				DEVELOPMENT_ASSET_PATHS = "\"Loopin/Preview Content\"";
-				DEVELOPMENT_TEAM = 934K9APAT3;
+				DEVELOPMENT_TEAM = Y9B3P2YJJC;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Loopin/Info.plist;
