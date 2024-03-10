@@ -14,6 +14,8 @@ struct HookTutorialViewAdmin: View {
     private let content: String =  "Pegang bagian datar dari hakpen dengan jari ibu jari dan jari telunjuk Anda, lihat posisi ibu jari pada hakpen, dan tempatkan ibu jari tangan dominan anda sambil mencubit sisi belakang dengan jari telunjuk anda. Letakkan hakpen di atas jari tengah seperti memegang pensil, dengan sisa jari Anda mengarah ke telapak tangan, dan biarkan hakpen berada di jari tengah seperti memegang pensil. Gunakan jari Anda untuk mengarahkan hakpen saat merajut, cocok untuk yang suka menjaga jari dekat dengan jahitan atau meletakkan jari telunjuk di atas ikatan yang sedang dirajut. Cara memegang ini adalah metode yang baik untuk pemula."
     private let images = ["HookTutorial-1", "HookTutorial-2", "HookTutorial-3"]
     @State private var accordionData: [Hook] = []
+    @State private var showDeleteAlert = false
+    @State private var isEditHookViewPresented = false
     
     var body: some View {
         NavigationView {
@@ -33,11 +35,69 @@ struct HookTutorialViewAdmin: View {
                         Text("Rekomendasi")
                             .font(.outfit(.semiBold, size: .body3))
                         ForEach(accordionData, id: \.self) {
-                            accordionItem in Accordion(isOpened: false, title: accordionItem.title , content: accordionItem.content )
+                            accordionItem in 
+                            VStack(alignment: .leading) {
+                                HStack {
+                                    Text(accordionItem.title)
+                                        .font(.outfit(.semiBold, size: .body2))
+                                        .multilineTextAlignment(.leading)
+                                    Spacer()
+                                    Button(action: {}) {
+                                        Menu {
+                                            Button(action: {
+                                                isEditHookViewPresented.toggle()
+                                            }) {
+                                                Label("Edit", systemImage: "pencil")
+                                            }
+                                            .padding(.horizontal, 5)
+                                            
+                                            Button(action: {
+                                                showDeleteAlert.toggle()
+                                                print("heee")
+                                            }) {
+                                                Label("Hapus", systemImage: "trash")
+                                                    .foregroundColor(.red)
+                                            }
+                                            .padding(.horizontal, 5)
+                                        }
+                                    label: {
+                                        Image(systemName: "ellipsis.circle")
+                                            .foregroundColor(.black)
+                                            .scaleEffect(1.2)
+                                    }
+                                    .padding(.horizontal, 5)
+                                    .padding(.leading, 8)
+                                    .padding(.vertical, 5)
+                                    }
+                                    .buttonStyle(PlainButtonStyle())
+                                }
+                                Text(accordionItem.content)
+                                    .font(.outfit(.regular, size: .body2))
+                                    .frame(width: 327, alignment: .leading)
+                                    .multilineTextAlignment(.leading)
+                            }
+                            .padding()
+                            .background(
+                                RoundedRectangle(cornerRadius: 20)
+                                    .opacity(0.05)
+                            )
                         }
                     }
                     .padding(.top, 300)
                     .padding()
+                    .sheet(isPresented: $isEditHookViewPresented) {
+                        //edit page
+                    }
+                    .alert(isPresented: $showDeleteAlert) {
+                        Alert(
+                            title: Text("Hapus Hakpen"),
+                            message: Text("Apakah anda yakin ingin menghapus hakpen?"),
+                            primaryButton: .destructive(Text("Batal")),
+                            secondaryButton: .default(Text("Hapus")) {
+                                //delete yarn action
+                            }
+                        )
+                    }
                 }
             }
             .ignoresSafeArea()

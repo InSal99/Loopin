@@ -19,6 +19,8 @@
 		161761742B9882E800E39676 /* AddYarnTutorialView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 161761732B9882E800E39676 /* AddYarnTutorialView.swift */; };
 		161761762B9977AF00E39676 /* ProjectsViewAdmin.swift in Sources */ = {isa = PBXBuildFile; fileRef = 161761752B9977AF00E39676 /* ProjectsViewAdmin.swift */; };
 		1617617A2B9978D600E39676 /* ProjectOverviewViewAdmin.swift in Sources */ = {isa = PBXBuildFile; fileRef = 161761792B9978D600E39676 /* ProjectOverviewViewAdmin.swift */; };
+		1617617C2B9DB5AF00E39676 /* AddProjectTemplateView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1617617B2B9DB5AF00E39676 /* AddProjectTemplateView.swift */; };
+		1617617F2B9DEE5400E39676 /* ProjectPartNameCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1617617E2B9DEE5400E39676 /* ProjectPartNameCard.swift */; };
 		161AA7092B0CD1C7008A59CE /* ImageSlider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 161AA7082B0CD1C7008A59CE /* ImageSlider.swift */; };
 		161AA70B2B0E1B6B008A59CE /* TermTutorialView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 161AA70A2B0E1B6B008A59CE /* TermTutorialView.swift */; };
 		161AA70D2B0E1D2B008A59CE /* PatternTutorialView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 161AA70C2B0E1D2B008A59CE /* PatternTutorialView.swift */; };
@@ -147,6 +149,8 @@
 		161761732B9882E800E39676 /* AddYarnTutorialView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddYarnTutorialView.swift; sourceTree = "<group>"; };
 		161761752B9977AF00E39676 /* ProjectsViewAdmin.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectsViewAdmin.swift; sourceTree = "<group>"; };
 		161761792B9978D600E39676 /* ProjectOverviewViewAdmin.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectOverviewViewAdmin.swift; sourceTree = "<group>"; };
+		1617617B2B9DB5AF00E39676 /* AddProjectTemplateView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddProjectTemplateView.swift; sourceTree = "<group>"; };
+		1617617E2B9DEE5400E39676 /* ProjectPartNameCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectPartNameCard.swift; sourceTree = "<group>"; };
 		161AA7082B0CD1C7008A59CE /* ImageSlider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageSlider.swift; sourceTree = "<group>"; };
 		161AA70A2B0E1B6B008A59CE /* TermTutorialView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TermTutorialView.swift; sourceTree = "<group>"; };
 		161AA70C2B0E1D2B008A59CE /* PatternTutorialView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PatternTutorialView.swift; sourceTree = "<group>"; };
@@ -343,6 +347,7 @@
 			children = (
 				161761752B9977AF00E39676 /* ProjectsViewAdmin.swift */,
 				161761792B9978D600E39676 /* ProjectOverviewViewAdmin.swift */,
+				1617617B2B9DB5AF00E39676 /* AddProjectTemplateView.swift */,
 			);
 			path = Admin;
 			sourceTree = "<group>";
@@ -598,6 +603,7 @@
 				16EEB2602B0BDB4000C340D1 /* ProjectPartCard.swift */,
 				16C4D50D2B37770C007880DF /* ProjectCard.swift */,
 				16EEB26A2B0BEB7100C340D1 /* ProjectPartInputCard.swift */,
+				1617617E2B9DEE5400E39676 /* ProjectPartNameCard.swift */,
 			);
 			path = Component;
 			sourceTree = "<group>";
@@ -917,9 +923,11 @@
 				8FA5AD392B199C030021F53C /* Post.swift in Sources */,
 				16F64E582B0B765C00EF2E15 /* ProjectsView.swift in Sources */,
 				16EEB2612B0BDB4000C340D1 /* ProjectPartCard.swift in Sources */,
+				1617617F2B9DEE5400E39676 /* ProjectPartNameCard.swift in Sources */,
 				8FC60F7B2B3ECBEE00C8C241 /* PostViewModel.swift in Sources */,
 				8FAE74BE2B5140A700E48454 /* ImageViewModel.swift in Sources */,
 				161761742B9882E800E39676 /* AddYarnTutorialView.swift in Sources */,
+				1617617C2B9DB5AF00E39676 /* AddProjectTemplateView.swift in Sources */,
 				161AA70B2B0E1B6B008A59CE /* TermTutorialView.swift in Sources */,
 				161AA7112B14800A008A59CE /* MiniTag.swift in Sources */,
 				8FAE74C02B5140E600E48454 /* ImagePickerView.swift in Sources */,

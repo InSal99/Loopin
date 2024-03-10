@@ -14,68 +14,50 @@ struct ProjectOverviewViewAdmin: View {
     @State private var isAddProjectViewPresented = false
     @State private var isChildViewPresented = false
     
+    
     var body: some View {
         NavigationView {
-            VStack(alignment: .leading) {
-                ScrollView(.vertical){
-                    ZStack(alignment: .top) {
-                        Image(projectTemplate.image)
-                            .resizable()
-                            .aspectRatio(contentMode: .fill)
-                            .frame(maxWidth: 390, maxHeight: 290)
-                        RoundedRectangle(cornerRadius: 30)
-                            .frame(minHeight: 600)
-                            .foregroundColor(Color(.white))
-                            .padding(.top, 243)
-                            .padding()
-                        VStack(alignment: .leading, spacing: 20) {
-                            Spacer()
-                            Text(projectTemplate.type)
-                                .font(.outfit(.semiBold, size: .heading3))
-                                .padding(.horizontal)
-                            Text(projectTemplate.description)
-                                .font(.outfit(.regular, size: .body2))
+            ScrollView(.vertical){
+                ZStack(alignment: .top) {
+                    ImageSlider(images: [projectTemplate.image])
+                        .frame(maxWidth: 390, maxHeight: 290)
+                    RoundedRectangle(cornerRadius: 30)
+                        .frame(minHeight: 571)
+                        .foregroundColor(Color(.white))
+                        .padding(.top, 273)
+                    VStack(alignment: .leading, spacing: 25) {
+                        Text(projectTemplate.name)
+                            .font(.outfit(.semiBold, size: .heading3))
+                            .padding(.horizontal)
+                        Text(projectTemplate.description)
+                            .font(.outfit(.regular, size: .body2))
+                            .padding(.horizontal)
+                        VStack(spacing: 10) {
+                            DetailProjectCard(placeholder1: "Jenis Benang", placeolder2: projectTemplate.yarnType)
+                            DetailProjectCard(placeholder1: "Ketebalan Benang", placeolder2: projectTemplate.yarnWeight)
+                            DetailProjectCard(placeholder1: "Ukuran Hakpen", placeolder2: projectTemplate.hookSize)
+                            DetailProjectCard(placeholder1: "Jenis Tusukan", placeolder2: projectTemplate.stitchType)
+                        }
+                        VStack(alignment: .leading, spacing: 15) {
+                            Text("Bagian Proyek")
+                                .font(.outfit(.semiBold, size: .body3))
                                 .padding(.horizontal)
                             VStack(spacing: 10) {
-                                DetailProjectCard(placeholder1: "Jenis Benang", placeolder2: projectTemplate.yarnType)
-                                DetailProjectCard(placeholder1: "Ketebalan Benang", placeolder2: projectTemplate.yarnWeight)
-                                DetailProjectCard(placeholder1: "Ukuran Hakpen", placeolder2: projectTemplate.hookSize)
-                                DetailProjectCard(placeholder1: "Jenis Tusukan", placeolder2: projectTemplate.stitchType)
+                                ForEach(projectTemplate.subParts, id: \.self) { subPartItem in
+                                    ProjectPartNameCard(subPart: subPartItem)
+                                }
                             }
-                            Spacer()
-                            //                        Button() {
-                            //                            isChildViewPresented.toggle()
-                            //                        } label: {
-                            //                            PrimaryButton(buttonText: "Buat Proyek")
-                            //                        }.padding(.horizontal)
-                            //                            .padding(.top, 50)
-                            //                            .sheet(isPresented: $isChildViewPresented) {
-                            //                                CreateProjectView(dismissParent: {
-                            //                                    isChildViewPresented = false
-                            //                                    presentationMode.wrappedValue.dismiss()
-                            //                                }, project:
-                            //                                                    Project(
-                            //                                                        type: projectTemplate.type,
-                            //                                                        name: projectTemplate.name,
-                            //                                                        image: projectTemplate.image,
-                            //                                                        description: "",
-                            //                                                        preparation: projectTemplate.preparation,
-                            //                                                        yarnType: projectTemplate.yarnType,
-                            //                                                        yarnWeight: projectTemplate.yarnWeight,
-                            //                                                        hookSize: projectTemplate.hookSize,
-                            //                                                        stitchType: projectTemplate.stitchType,
-                            //                                                        subParts: projectTemplate.subParts,
-                            //                                                        sample: projectTemplate.sample),
-                            //                                                  navigateToProfile: $navigateToProfile
-                            //                                )
-                            //                            }
                         }
-                        .padding(.top, 120)
-                        .padding()
                     }
+                    .padding(.top, 300)
+                    .padding()
                 }
             }
             .ignoresSafeArea()
+            .background(Color("White"))
+            .navigationViewStyle(StackNavigationViewStyle())
+            .navigationBarTitleDisplayMode(.automatic)
+            .navigationBarBackButtonHidden(true)
             .toolbar {
                 ToolbarItem(placement: .navigationBarLeading) {
                     Button {
@@ -93,7 +75,7 @@ struct ProjectOverviewViewAdmin: View {
                             .foregroundColor(.black)
                     })
                     .sheet(isPresented: $isAddProjectViewPresented) {
-                        PostForumView()
+                        AddProjectTemplateView()
                     }.edgesIgnoringSafeArea(.bottom)
                 }
             }
