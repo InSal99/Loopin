@@ -82,6 +82,6 @@ struct PatternTutorialView: View {
 
 struct PatternTutorialView_Previews: PreviewProvider {
     static var previews: some View {
-        PatternTutorialView(pattern: Pattern(name: "name", symbol: "test", abbreviation: "abb", content: []))
+        PatternTutorialView(pattern: Pattern(name: "name", symbol: "test", abbreviation: "abb", videoId: "3uEbkUmS29A", content: []))
     }
 }
