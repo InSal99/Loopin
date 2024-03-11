@@ -13,6 +13,7 @@ struct CommentView: View {
     @EnvironmentObject var authViewModel: AuthenticationViewModel
     @StateObject var postViewModel: PostViewModel
     @StateObject var commentListViewModel: CommentListViewModel
+    @State var textFieldLineLimit = 1
     
     var body: some View {
         VStack {
@@ -52,15 +53,19 @@ struct CommentView: View {
             }
             
             HStack {
-                TextField("Tambahkan komentar", text: $commentListViewModel.commentTextInput)
+                TextField("Tambahkan komentar", text: $commentListViewModel.commentTextInput, axis:.vertical)
                     .font(.outfit(.regular, size: .body2))
                     .textFieldStyle(PlainTextFieldStyle())
                     .ignoresSafeArea(.keyboard, edges: .bottom)
+                    .lineLimit(textFieldLineLimit...3)
+                    .multilineTextAlignment(.leading)
                     .padding(.leading)
                     .onSubmit {
-                        addComment()
+                        if textFieldLineLimit <= 3 {
+                            textFieldLineLimit += 1
+                        }
                     }
-                
+                    
                 Button {
                     addComment()
                     commentListViewModel.objectWillChange.send()
@@ -73,7 +78,6 @@ struct CommentView: View {
                 }
                 .buttonStyle(.plain)
                 .padding(.trailing)
-                
                 
             }
             .padding()

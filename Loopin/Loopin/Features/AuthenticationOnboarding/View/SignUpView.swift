@@ -56,7 +56,11 @@ struct SignUpView: View {
                                 // Display an alert with the alert message from the ViewModel
                                 Alert(title: Text(authViewModel.alertTitle ?? "Gagal mendaftarkan akun"), message: Text(authViewModel.alertMessage ?? ""), dismissButton: .default(Text("OK")){
                                     if authViewModel.errorMessage == nil {
-                                        authViewModel.isSignupSuccess = true
+                                        username = ""
+                                        email = ""
+                                        password = ""
+                                        confirmPassword = ""
+                                        authViewModel.isSignedUp = true
                                     }
                                     showAlert = false
                                 })
@@ -64,7 +68,7 @@ struct SignUpView: View {
                             .padding(.bottom, -80)
                     }
                 }
-                .navigationDestination(isPresented: $authViewModel.isSignupSuccess) {
+                .navigationDestination(isPresented: $authViewModel.isSignedUp) {
                     LoginView()
                 }
             }
@@ -82,6 +86,9 @@ struct SignUpView: View {
                         .foregroundColor(.black)
                 }
             }
+        }
+        .onDisappear {
+            presentationMode.wrappedValue.dismiss()
         }
     }
 }

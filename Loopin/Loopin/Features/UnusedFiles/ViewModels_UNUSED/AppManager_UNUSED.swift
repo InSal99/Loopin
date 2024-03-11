@@ -7,9 +7,9 @@
 
 import Foundation
 
-class AppManager {
-    static let shared = AppManager()
-        
-    init(){}
-    
-}
+//class AppManager {
+//    static let shared = AppManager()
+//        
+//    init(){}
+//    
+//}

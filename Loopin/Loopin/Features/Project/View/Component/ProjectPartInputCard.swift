@@ -10,7 +10,6 @@ import SwiftUI
 struct ProjectPartInputCard: View {
     let subPart: SubPart
     
-    // The @State Object
     @Binding var inputWidth: String
     @Binding var inputLength: String
     
@@ -34,7 +33,7 @@ struct ProjectPartInputCard: View {
                             .frame(maxWidth: 52)
                             .multilineTextAlignment(.trailing)
                             .onChange(of: inputLength) { newValue in
-                                // Update the inputLength binding with the converted integer value
+                                /// Update the inputLength binding with the converted integer value
                                 inputLength = String(Double(newValue) ?? 0)
                             }
                         Text("cm")

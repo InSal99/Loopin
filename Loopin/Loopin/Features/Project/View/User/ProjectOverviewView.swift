@@ -13,6 +13,8 @@ struct ProjectOverviewView: View {
     @State private var navigateToProfile = false
     @State private var isChildViewPresented = false
     
+    @EnvironmentObject var appManager : AppManager
+    
     var body: some View {
         NavigationView {
             ScrollView(.vertical){
@@ -29,7 +31,6 @@ struct ProjectOverviewView: View {
                     VStack(alignment: .leading, spacing: 20) {
                         Spacer()
                         Text(projectTemplate.type)
-
                             .font(.outfit(.semiBold, size: .heading3))
                             .padding(.horizontal)
                         Text(projectTemplate.description)
@@ -52,21 +53,21 @@ struct ProjectOverviewView: View {
                                 CreateProjectView(dismissParent: {
                                     isChildViewPresented = false
                                     presentationMode.wrappedValue.dismiss()
-                                }, project:
-                                                    Project(
-                                                        type: projectTemplate.type,
-                                                        name: projectTemplate.name,
-                                                        image: projectTemplate.image,
-                                                        description: "",
-                                                        preparation: projectTemplate.preparation,
-                                                        yarnType: projectTemplate.yarnType,
-                                                        yarnWeight: projectTemplate.yarnWeight,
-                                                        hookSize: projectTemplate.hookSize,
-                                                        stitchType: projectTemplate.stitchType,
-                                                        subParts: projectTemplate.subParts,
-                                                        sample: projectTemplate.sample),
-                                                  navigateToProfile: $navigateToProfile
-                                )
+                                    
+                                }, project: Project(
+                                    type: projectTemplate.type,
+                                    name: projectTemplate.name,
+                                    image: projectTemplate.image,
+                                    description: "",
+                                    preparation: projectTemplate.preparation,
+                                    yarnType: projectTemplate.yarnType,
+                                    yarnWeight: projectTemplate.yarnWeight,
+                                    hookSize: projectTemplate.hookSize,
+                                    stitchType: projectTemplate.stitchType,
+                                    subParts: projectTemplate.subParts,
+                                    sample: projectTemplate.sample
+                                    
+                                ), navigateToProfile: $navigateToProfile)
                             }
                     }
                     .padding(.top, 280)
@@ -86,6 +87,12 @@ struct ProjectOverviewView: View {
             }
         }
         .navigationBarBackButtonHidden(true)
+        .onDisappear {
+            if navigateToProfile {
+                appManager.selectedProfileSegment = 0
+                appManager.selectedContentMenuTab = 3
+            }
+        }
     }
 }
 

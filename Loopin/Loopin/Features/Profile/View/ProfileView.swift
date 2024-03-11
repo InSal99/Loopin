@@ -6,24 +6,26 @@
 //
 
 import SwiftUI
-import UIKit
 
 struct ProfileView: View {
     @Environment(\.presentationMode) var presentationMode
     
     @State private var showAlert = false
     @State private var navigateToWelcomePage = false
-    @State private var selectedSegment = 0
     
     @EnvironmentObject var authViewModel: AuthenticationViewModel
-    @ObservedObject var postListViewModel = PostListViewModel.shared
-    @ObservedObject var projectListViewModel = ProjectListViewModel.shared
+    @EnvironmentObject var postListViewModel : PostListViewModel
+    @EnvironmentObject var projectListViewModel: ProjectListViewModel
+    @EnvironmentObject var appManager: AppManager
+    
+//    @ObservedObject var postListViewModel = PostListViewModel.shared
+//    @ObservedObject var projectListViewModel = ProjectListViewModel.shared
     
     init() {
         UISegmentedControl.appearance().backgroundColor = .lightGray.withAlphaComponent(0.01)
-       UISegmentedControl.appearance().setDividerImage(UIImage(), forLeftSegmentState: .normal, rightSegmentState: .normal, barMetrics: .default)
-       UISegmentedControl.appearance().selectedSegmentTintColor = UIColor(named: "Guava")
-       UISegmentedControl.appearance().setTitleTextAttributes([.foregroundColor: UIColor.white], for: .selected)
+        UISegmentedControl.appearance().setDividerImage(UIImage(), forLeftSegmentState: .normal, rightSegmentState: .normal, barMetrics: .default)
+        UISegmentedControl.appearance().selectedSegmentTintColor = UIColor(named: "Guava")
+        UISegmentedControl.appearance().setTitleTextAttributes([.foregroundColor: UIColor.white], for: .selected)
     }
     
     private var userName: String { authViewModel.authService.user?.username ?? "-" }
@@ -37,14 +39,14 @@ struct ProfileView: View {
                     VStack (alignment: .leading){
                         Text(email)
                             .font(.outfit(.regular, size: .body2))
-                        Picker(selection: $selectedSegment, label: Text("Daftar Proyek")) {
+                        Picker(selection: $appManager.selectedProfileSegment, label: Text("Daftar Proyek")) {
                             Text("Proyek Saya").tag(0)
                             Text("Unggahan Saya").tag(1)
                         }
                         .pickerStyle(.segmented)
                         .padding(.bottom)
                         
-                        switch selectedSegment {
+                        switch appManager.selectedProfileSegment {
                         case 0:
                             // Content for Segment 1
                             if projectListViewModel.projectViewModels.isEmpty {
@@ -69,10 +71,10 @@ struct ProfileView: View {
                                 ZStack(alignment: .center) {
                                     Rectangle()
                                         .opacity(0)
-                                        Text("Belum ada unggahan")
-                                            .padding(.top, 200)
-                                            .font(.outfit(.regular, size: .body2))
-                                            .opacity(0.5)
+                                    Text("Belum ada unggahan")
+                                        .padding(.top, 200)
+                                        .font(.outfit(.regular, size: .body2))
+                                        .opacity(0.5)
                                 }
                             } else {
                                 ForEach(postListViewModel.postViewModels) { postViewModel in
@@ -81,7 +83,7 @@ struct ProfileView: View {
                                     }
                                 }
                             }
-                           
+                            
                         default:
                             Text("Default content")
                         }
@@ -97,31 +99,29 @@ struct ProfileView: View {
                 ToolbarItem(placement: .navigationBarTrailing) {
                     Button(action: {
                         showAlert.toggle()
-                        
                     }, label: {
                         Image(systemName: "rectangle.portrait.and.arrow.right")
                             .foregroundColor(.red)
                     })
                     .alert(isPresented: $showAlert) {
+                        
                         Alert(
                             title: Text("Keluar Akun"),
                             message: Text("Apakah anda yakin ingin keluar dari akun anda?"),
                             primaryButton: .destructive(Text("Batal")),
                             secondaryButton: .default(Text("Keluar")) {
-                                authViewModel.authService.signOut()
-                                navigateToWelcomePage.toggle()
-                                presentationMode.wrappedValue.dismiss()
+                                authViewModel.signOut { isSuccess in
+                                    authViewModel.saveSignOutState()
+                                }
                             }
                         )
                     }
                     .alertButtonTint(color: .blue)
-                    .background(
-                        NavigationLink(destination: WelcomePage(), isActive: $navigateToWelcomePage) {
-                            EmptyView()
-                        }
-                    )
                 }
             }
+        }
+        .onAppear {
+            appManager.selectedContentMenuTab = 3
         }
     }
 }

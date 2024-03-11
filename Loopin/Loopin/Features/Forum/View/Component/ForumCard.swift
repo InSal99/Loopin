@@ -96,9 +96,6 @@ struct ForumCard: View {
                 Button(action: {
                     postViewModel.updatePostLike()
                     
-                    //DEBUG
-//                    print("like button tapped:\(isLiked)")
-                    
                 }, label: {
                     HStack {
                         if postViewModel.isLiked {

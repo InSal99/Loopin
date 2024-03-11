@@ -13,7 +13,6 @@ struct LoginView: View {
     
     @State private var email = "cm@gmail.com"
     @State private var password = "cmcmcm"
-//    @State private var isSignInSuccess = false
     
     @EnvironmentObject var authViewModel: AuthenticationViewModel
     
@@ -48,22 +47,17 @@ struct LoginView: View {
                                 }
                             }
                             .alert(isPresented: $showAlert) {
-                                // Display an alert with the alert message from the ViewModel
+                                /// Display an alert with the alert message from the ViewModel
                                 Alert(title: Text(authViewModel.alertTitle ?? "Semua data perlu diisi."), message: Text(authViewModel.alertMessage ?? ""), dismissButton: .default(Text("OK")) {
                                     
                                     if authViewModel.errorMessage == nil {
-                                        authViewModel.isSigninSuccess = true
+                                        authViewModel.saveSignInState()
                                     }
                                     showAlert = false
-                                    
                                 })
                             }
                             .padding(.bottom, -80)
                     }
-                }
-                .navigationDestination(isPresented: $authViewModel.isSigninSuccess) {
-                    ContentView()
-                    
                 }
             }
             .ignoresSafeArea()
@@ -80,6 +74,9 @@ struct LoginView: View {
                         .foregroundColor(.black)
                 }
             }
+        }
+        .onDisappear {
+            presentationMode.wrappedValue.dismiss()
         }
     }
 }

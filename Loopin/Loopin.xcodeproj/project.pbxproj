@@ -100,7 +100,11 @@
 		8F404E262B4EE37000F7145C /* JSONFileHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F404E252B4EE37000F7145C /* JSONFileHandler.swift */; };
 		8F404E282B4EE90100F7145C /* ProjectViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F404E272B4EE90100F7145C /* ProjectViewModel.swift */; };
 		8F404E2A2B4EE90C00F7145C /* ProjectListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F404E292B4EE90C00F7145C /* ProjectListViewModel.swift */; };
+		8F7419B72B9CC92A0085B452 /* UserJSON.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F7419B62B9CC92A0085B452 /* UserJSON.swift */; };
 		8F7E67D62B19C750005DBD9E /* ObjectPart.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F7E67D52B19C750005DBD9E /* ObjectPart.swift */; };
+		8F9239F82B9E3FD5008A11E1 /* AppManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F9239F72B9E3FD5008A11E1 /* AppManager.swift */; };
+		8F9239FD2B9EF176008A11E1 /* YoutubeVideo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F9239FC2B9EF176008A11E1 /* YoutubeVideo.swift */; };
+		8F9239FF2B9F00F9008A11E1 /* UserDefaultKeysEnum.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F9239FE2B9F00F9008A11E1 /* UserDefaultKeysEnum.swift */; };
 		8FA5AD352B199B3B0021F53C /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FA5AD342B199B3B0021F53C /* User.swift */; };
 		8FA5AD372B199BAB0021F53C /* AppManager_UNUSED.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FA5AD362B199BAB0021F53C /* AppManager_UNUSED.swift */; };
 		8FA5AD392B199C030021F53C /* Post.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FA5AD382B199C030021F53C /* Post.swift */; };
@@ -231,7 +235,11 @@
 		8F404E252B4EE37000F7145C /* JSONFileHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JSONFileHandler.swift; sourceTree = "<group>"; };
 		8F404E272B4EE90100F7145C /* ProjectViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectViewModel.swift; sourceTree = "<group>"; };
 		8F404E292B4EE90C00F7145C /* ProjectListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectListViewModel.swift; sourceTree = "<group>"; };
+		8F7419B62B9CC92A0085B452 /* UserJSON.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserJSON.swift; sourceTree = "<group>"; };
 		8F7E67D52B19C750005DBD9E /* ObjectPart.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ObjectPart.swift; sourceTree = "<group>"; };
+		8F9239F72B9E3FD5008A11E1 /* AppManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppManager.swift; sourceTree = "<group>"; };
+		8F9239FC2B9EF176008A11E1 /* YoutubeVideo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YoutubeVideo.swift; sourceTree = "<group>"; };
+		8F9239FE2B9F00F9008A11E1 /* UserDefaultKeysEnum.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultKeysEnum.swift; sourceTree = "<group>"; };
 		8FA5AD342B199B3B0021F53C /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		8FA5AD362B199BAB0021F53C /* AppManager_UNUSED.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppManager_UNUSED.swift; sourceTree = "<group>"; };
 		8FA5AD382B199C030021F53C /* Post.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Post.swift; sourceTree = "<group>"; };
@@ -332,7 +340,6 @@
 				16F64E572B0B765C00EF2E15 /* ProjectsView.swift */,
 				16EEB25C2B0BD2E600C340D1 /* ProjectDetailView.swift */,
 				16EEB2622B0BE49400C340D1 /* ProjectInfoView.swift */,
-				16EEB2662B0BE76C00C340D1 /* SampleInfoView-UNUSED.swift */,
 				16EEB2682B0BE82400C340D1 /* ProjectPartView.swift */,
 				16EEB26C2B0BEF7700C340D1 /* ProjectOverviewView.swift */,
 				8FB905292B53122C00277182 /* CreateProjectView.swift */,
@@ -421,6 +428,7 @@
 				16F64E4A2B0B371E00EF2E15 /* TextExtension.swift */,
 				169829972B85524100DE7D2A /* AlertExtension.swift */,
 				8FE6D9A02B9C5BDC0040EAFE /* StoragePathGenerator.swift */,
+				8F9239FE2B9F00F9008A11E1 /* UserDefaultKeysEnum.swift */,
 			);
 			path = Utilities;
 			sourceTree = "<group>";
@@ -440,6 +448,7 @@
 				16C4D5042B36C44A007880DF /* Accordion.swift */,
 				16C4D5062B36D6FA007880DF /* Numbering.swift */,
 				16FBA1FB2B4FB6F4001AEBDB /* AccordionWithPicture.swift */,
+				8F9239FC2B9EF176008A11E1 /* YoutubeVideo.swift */,
 			);
 			path = BaseComponents;
 			sourceTree = "<group>";
@@ -447,6 +456,7 @@
 		16F64E532B0B57B700EF2E15 /* Features */ = {
 			isa = PBXGroup;
 			children = (
+				8F9239F92B9E4001008A11E1 /* BaseViewModel */,
 				16F64E4C2B0B3D6F00EF2E15 /* BaseComponents */,
 				8FA5AD2E2B18CC560021F53C /* AuthenticationOnboarding */,
 				8FA5AD322B18D27E0021F53C /* Profile */,
@@ -478,6 +488,14 @@
 			path = Services;
 			sourceTree = "<group>";
 		};
+		8F9239F92B9E4001008A11E1 /* BaseViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				8F9239F72B9E3FD5008A11E1 /* AppManager.swift */,
+			);
+			path = BaseViewModel;
+			sourceTree = "<group>";
+		};
 		8FA5AD2A2B187F640021F53C /* ViewModels_UNUSED */ = {
 			isa = PBXGroup;
 			children = (
@@ -490,6 +508,7 @@
 		8FA5AD2B2B187F710021F53C /* UnusedFiles */ = {
 			isa = PBXGroup;
 			children = (
+				16EEB2662B0BE76C00C340D1 /* SampleInfoView-UNUSED.swift */,
 				8F7E67D52B19C750005DBD9E /* ObjectPart.swift */,
 				8F404E252B4EE37000F7145C /* JSONFileHandler.swift */,
 				8FA5AD2A2B187F640021F53C /* ViewModels_UNUSED */,
@@ -739,6 +758,7 @@
 			isa = PBXGroup;
 			children = (
 				8FA5AD342B199B3B0021F53C /* User.swift */,
+				8F7419B62B9CC92A0085B452 /* UserJSON.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -884,6 +904,7 @@
 				16EEB2632B0BE49400C340D1 /* ProjectInfoView.swift in Sources */,
 				16EEB25F2B0BD56500C340D1 /* DetailProjectCard.swift in Sources */,
 				16BF34E62B0B31C00036424B /* Loopin.xcdatamodeld in Sources */,
+				8F9239FF2B9F00F9008A11E1 /* UserDefaultKeysEnum.swift in Sources */,
 				8F404E262B4EE37000F7145C /* JSONFileHandler.swift in Sources */,
 				8F1BA8EF2B29BB2F00DD92C4 /* CommentRepository.swift in Sources */,
 				16F64E602B0B8E5100EF2E15 /* ProfileView.swift in Sources */,
@@ -893,6 +914,7 @@
 				161761702B987A0700E39676 /* AddTermTutorialView.swift in Sources */,
 				16FBA1F62B4BD54D001AEBDB /* SubPart.swift in Sources */,
 				16F64E502B0B44C700EF2E15 /* SecondaryButton.swift in Sources */,
+				8F9239FD2B9EF176008A11E1 /* YoutubeVideo.swift in Sources */,
 				8F7E67D62B19C750005DBD9E /* ObjectPart.swift in Sources */,
 				1617616A2B9874FE00E39676 /* PatternTutorialListViewAdmin.swift in Sources */,
 				161761722B987CE100E39676 /* AddPatternTutorialView.swift in Sources */,
@@ -930,11 +952,13 @@
 				161AA70B2B0E1B6B008A59CE /* TermTutorialView.swift in Sources */,
 				161AA7112B14800A008A59CE /* MiniTag.swift in Sources */,
 				8FAE74C02B5140E600E48454 /* ImagePickerView.swift in Sources */,
+				8F9239F82B9E3FD5008A11E1 /* AppManager.swift in Sources */,
 				8FE6D99F2B9B6B9A0040EAFE /* ImageRepository.swift in Sources */,
 				161761622B9870E400E39676 /* ContentViewAdmin.swift in Sources */,
 				16F64E5E2B0B800000EF2E15 /* ForumView.swift in Sources */,
 				16EEB2572B0BBE7300C340D1 /* ShortTextField.swift in Sources */,
 				16FBA2082B5527E1001AEBDB /* TermViewModel_UNUSED.swift in Sources */,
+				8F7419B72B9CC92A0085B452 /* UserJSON.swift in Sources */,
 				1617616C2B98758200E39676 /* YarnTutorialListViewAdmin.swift in Sources */,
 				16F64E642B0BAE1200EF2E15 /* SignUpView.swift in Sources */,
 				16BF34DA2B0B31BF0036424B /* LoopinApp.swift in Sources */,

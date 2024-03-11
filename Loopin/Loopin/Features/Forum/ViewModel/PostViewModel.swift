@@ -30,19 +30,12 @@ class PostViewModel: ObservableObject, Identifiable {
             .compactMap{$0.id}
             .assign(to: \.id, on: self)
             .store(in: &cancellables)
-        
-        
-        
+                
         if authService?.user?.id == post.userId {
             isAllowedToEdit = true
         }
 
         self.isLiked = post.likes.contains(authService?.user?.id ?? "")
-        
-//        $post
-//            .map { $0.likes.contains(self.authService?.user?.id ?? "") }
-//            .assign(to: \.isLiked, on: self)
-//            .store(in: &cancellables)
         
         if self.commentListViewModel == nil {
             self.commentListViewModel = CommentListViewModel(postId: id)
@@ -74,5 +67,7 @@ class PostViewModel: ObservableObject, Identifiable {
         presentationMode?.wrappedValue.dismiss()
     }
     
-    
+    func reset(){
+        commentListViewModel = nil
+    }
 }

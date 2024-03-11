@@ -45,4 +45,11 @@ class CommentListViewModel: ObservableObject {
     func deleteAll() {
         commentRepository?.removeCollection()
     }
+    
+    func reset() {
+//        commentRepository?.reset()
+        commentRepository = nil
+        commentViewModels.removeAll()
+        commentTextInput = ""
+    }
 }

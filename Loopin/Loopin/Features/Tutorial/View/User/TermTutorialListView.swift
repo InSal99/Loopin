@@ -10,6 +10,7 @@ import SwiftUI
 struct TermTutorialListView: View {
     @Environment(\.presentationMode) var presentationMode
     
+    @EnvironmentObject var appManager: AppManager
     @State private var termData: [Term] = []
 //    @State private var selectedTermItem: Term?
     
@@ -29,6 +30,10 @@ struct TermTutorialListView: View {
             .navigationBarTitleDisplayMode(.inline)
             .onAppear {
                 loadTermData()
+                appManager.showNavigationTabBar = false
+            }
+            .onDisappear {
+                appManager.showNavigationTabBar = true
             }
             .toolbar {
                 ToolbarItem(placement: .navigationBarLeading) {
@@ -42,6 +47,7 @@ struct TermTutorialListView: View {
             }
         }
         .navigationBarBackButtonHidden(true)
+        
     }
     
     func loadTermData() {

@@ -15,6 +15,7 @@ class AuthenticationService: ObservableObject {
 
     /// Current user that successfully signed in
     @Published var user: User?
+    @Published var userInJSON: UserJSON?
     
     private var authenticationStateHandler: AuthStateDidChangeListenerHandle?
     
@@ -87,11 +88,12 @@ class AuthenticationService: ObservableObject {
                 switch result {
                 case .success(let user):
                     if let user = user {
-                        self?.user = User(id: userId, username: user.username, email: user.email, phone: user.phone)
+                        self!.user = User(id: userId, username: user.username, email: user.email, phone: user.phone)
+                        self!.userInJSON = UserJSON(id: userId, username: user.username, email: user.email, phone: user.phone)
                         
                         /// DEBUG
                         print("AuthService - sign in success with user data: \(String(describing: self?.user))")
-                        
+                       
                         completion(.success(()))
                     } else {
                         /// DEBUG
@@ -112,11 +114,15 @@ class AuthenticationService: ObservableObject {
     }
     
     
-    func signOut() {
+    func signOut(completion: @escaping (Bool) -> Void) {
         do {
             try Auth.auth().signOut()
+            self.user = nil
+            self.userInJSON = nil
+            completion(true)
         } catch {
             print("AuthService - sign up error: \(error.localizedDescription)")
+            completion(false)
         }
     }
     
@@ -126,13 +132,29 @@ class AuthenticationService: ObservableObject {
         }
         authenticationStateHandler = Auth.auth().addStateDidChangeListener { [weak self] _, user in
             /// Only update user property when signing in
-            if let user = user, self?.user == nil {
+            if let user = user, self?.user == nil, self?.userInJSON == nil {
                 self?.user = User(id: user.uid, email: user.email!)
-
-                /// DEBUG
-                print("AuthService - addListeners: \(String(describing: self?.user))")
-
+                
+                // When retrieving user defaults
+                if let storedData = UserDefaults.standard.value(forKey: "user") as? [String: Any],
+                   let encodedData = try? JSONSerialization.data(withJSONObject: storedData),
+                   let decodedUser = try? JSONDecoder().decode(UserJSON.self, from: encodedData) {
+                    self?.userInJSON = decodedUser
+                    
+                    self?.user?.id = self?.userInJSON?.id
+                    self?.user?.username = self?.userInJSON?.username ?? "-"
+                    self?.user?.email = self?.userInJSON?.email ?? "-"
+                    self?.user?.phone = self?.userInJSON?.phone ?? "-"
+                    self?.user?.postId = self?.userInJSON?.postId ?? []
+                    self?.user?.projectId = self?.userInJSON?.projectId
+                   
+                }
             }
+            
+           
+            /// DEBUG
+            print("AuthService - addListeners: \(String(describing: self?.user))")
+
         }
     }
 

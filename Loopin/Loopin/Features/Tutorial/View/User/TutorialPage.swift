@@ -24,15 +24,16 @@ struct TutorialPage: View {
                                 NavigationLink {
                                     switch(item) {
                                     case 1:
+                                        ///crochet term tutorial view
                                         TermTutorialListView()
                                     case 2:
-                                        //crochettermtutorialview
+                                        ///hook handling tutorial view
                                         HookTutorialView()
                                     case 3:
-                                        //patterntutorialview
+                                        ///pattern tutorial view
                                         PatternTutorialListView()
                                     case 4:
-                                        //yarntutorialview
+                                        ///yarn tutorial view
                                         YarnTutorialListView()
                                     default: EmptyView()
                                     }
@@ -47,6 +48,7 @@ struct TutorialPage: View {
                 }
                 .navigationBarBackButtonHidden(true)
             }
+            
     }
 }
 

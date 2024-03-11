@@ -88,22 +88,12 @@ struct ImagePickerView: View {
             .padding()
         }
         .padding()
-        .frame(maxWidth: UIScreen.main.bounds.width, maxHeight: UIScreen.main.bounds.width)
+        .frame(maxWidth: UIScreen.main.bounds.width)
         .sheet(isPresented: $showImagePicker) {
             ImagePicker(selectedImage: $selectedImage, sourceType: $sourceType)
+                .edgesIgnoringSafeArea(.bottom)
                 
         }.edgesIgnoringSafeArea(.bottom)
-        //            Button("Upload Image") {
-        //                imageViewModel.uploadImage { result in
-        //                    switch result {
-        //                    case .success(let imageURL):
-        //                        print("Image uploaded successfully. URL: \(imageURL)")
-        //                    case .failure(let error):
-        //                        print("Error uploading image: \(error.localizedDescription)")
-        //                    }
-        //                }
-        //            }
-        //            .padding()
         
     }
 }
