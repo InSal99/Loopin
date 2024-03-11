@@ -8,37 +8,73 @@
 import SwiftUI
 
 struct ContentViewAdmin: View {
-    @State private var navigateToWelcomePage = false
     @Environment(\.presentationMode) var presentationMode
-
+    @EnvironmentObject var authViewModel: AuthenticationViewModel
+    @State private var showAlert = false
+    @State private var navigateToWelcomePage = false
+    @State private var tutorialData: [TutorialAdmin] = []
+    
     var body: some View {
         NavigationView {
-            TabView {
-                // Tab 1
-                TutorialPageAdmin()
-                    .tabItem {
-                        Image(uiImage: UIImage(named: "tutorial")!)
-                        Text("Tutorial")
-                            .font(.outfit(.semiBold, size: .label2))
+            ScrollView(.vertical){
+                VStack(alignment: .leading, spacing: 20) {
+                    Button(action: {
+                        // Open the URL
+                        if let url = URL(string: "https://console.firebase.google.com/u/0/project/loopin-cf940/overview") {
+                            UIApplication.shared.open(url)
+                        }
+                    }, label: {
+                        PrimaryButton(buttonText: "Mulai Kelola Data")
+                            .padding(.top, 160)
+                            .padding(.bottom)
+                            .padding(.leading)
+                    })
+                    Text("Dokumentasi")
+                        .font(.outfit(.semiBold, size: .body1))
+                        .padding(.leading)
+                    ForEach(tutorialData, id: \.self) {
+                        accordionItem in Accordion(isOpened: false, title: accordionItem.title , content: accordionItem.content )
                     }
-
-                // Tab 2
-                ProjectsViewAdmin()
-                    .tabItem {
-                        Image(uiImage: UIImage(named: "project")!)
-                        Text("Proyek")
-                            .font(.outfit(.semiBold, size: .label2))
+                }
+            }
+            .padding(.bottom)
+            .navigationTitle("Dashbord Admin")
+            .toolbar {
+                ToolbarItem(placement: .navigationBarTrailing) {
+                    Button(action: {
+                        showAlert.toggle()
+                    }, label: {
+                        Image(systemName: "rectangle.portrait.and.arrow.right")
+                            .foregroundColor(.red)
+                    })
+                    .alert(isPresented: $showAlert) {
+                        
+                        Alert(
+                            title: Text("Keluar Akun"),
+                            message: Text("Apakah anda yakin ingin keluar dari akun anda?"),
+                            primaryButton: .destructive(Text("Batal")),
+                            secondaryButton: .default(Text("Keluar")) {
+                                authViewModel.signOut { isSuccess in
+                                    authViewModel.saveSignOutState()
+                                }
+                            }
+                        )
                     }
+                    .alertButtonTint(color: .blue)
+                }
             }
-            .toolbar(.visible, for: .tabBar)
-            .navigationBarBackButtonHidden(true)
-            .navigationBarHidden(true)
-            .fullScreenCover(isPresented: $navigateToWelcomePage) {
-                    WelcomePage()
+            .ignoresSafeArea()
+            .onAppear {
+                loadTutorialData()
             }
-
         }
+        .background(Color("White"))
         .navigationBarBackButtonHidden(true)
+    }
+    
+    private func loadTutorialData() {
+        let viewModel = JSONDataViewModel()
+        tutorialData = viewModel.loadTutorialData()
     }
 }
 

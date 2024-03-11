@@ -12,6 +12,8 @@ struct ProfileView: View {
     
     @State private var showAlert = false
     @State private var navigateToWelcomePage = false
+    @State private var isEditing = false
+    @State private var text = "Username"
     
     @EnvironmentObject var authViewModel: AuthenticationViewModel
     @EnvironmentObject var postListViewModel : PostListViewModel
@@ -37,6 +39,38 @@ struct ProfileView: View {
             ScrollView(.vertical){
                 VStack (alignment: .leading, spacing: 35){
                     VStack (alignment: .leading){
+                        if isEditing {
+                            HStack {
+                                ShortTextField(placeholder: "new username", field: $text)
+                                Button(action: {
+                                    isEditing.toggle()
+                                }) {
+                                    Label("Save", systemImage: "square.and.arrow.down")
+                                        .font(.outfit(.semiBold, size: .body2))
+                                        .foregroundColor(.white)
+                                        .padding(10)
+                                        .background(
+                                            RoundedRectangle(cornerRadius: 15)
+                                        )
+                                }
+                            }
+                        } else {
+                            HStack {
+                                Text(userName)
+                                    .font(.outfit(.semiBold, size: .heading2))
+                                Button(action: {
+                                    isEditing.toggle()
+                                }) {
+                                    Label("Edit", systemImage: "pencil")
+                                        .font(.outfit(.semiBold, size: .body2))
+                                        .foregroundColor(.white)
+                                        .padding(10)
+                                        .background(
+                                            RoundedRectangle(cornerRadius: 15)
+                                        )
+                                }
+                            }
+                        }
                         Text(email)
                             .font(.outfit(.regular, size: .body2))
                         Picker(selection: $appManager.selectedProfileSegment, label: Text("Daftar Proyek")) {
@@ -92,7 +126,17 @@ struct ProfileView: View {
                 }
             }
             .padding(.bottom)
-            .navigationTitle("\(userName)")
+//            .navigationTitle("\(userName)")
+//            .navigationTitle {
+//                VStack {
+//                    Text("\(userName)")
+//                    Button(action: {
+//                        // isEditProfilePresented.toggle()
+//                    }) {
+//                        Label("Edit", systemImage: "pencil")
+//                    }
+//                }
+//            }
             .navigationBarBackButtonHidden(true)
             .background(Color("White"))
             .toolbar {

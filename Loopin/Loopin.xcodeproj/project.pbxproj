@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1608655E2B9F871400C842CC /* TutorialAdminData.json in Resources */ = {isa = PBXBuildFile; fileRef = 1608655D2B9F871400C842CC /* TutorialAdminData.json */; };
+		160865602B9F87D900C842CC /* TutorialAdmin.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1608655F2B9F87D900C842CC /* TutorialAdmin.swift */; };
 		161761622B9870E400E39676 /* ContentViewAdmin.swift in Sources */ = {isa = PBXBuildFile; fileRef = 161761612B9870E400E39676 /* ContentViewAdmin.swift */; };
 		161761642B98722E00E39676 /* TutorialPageAdmin.swift in Sources */ = {isa = PBXBuildFile; fileRef = 161761632B98722E00E39676 /* TutorialPageAdmin.swift */; };
 		161761662B98733C00E39676 /* HookTutorialViewAdmin.swift in Sources */ = {isa = PBXBuildFile; fileRef = 161761652B98733C00E39676 /* HookTutorialViewAdmin.swift */; };
@@ -141,6 +143,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		1608655D2B9F871400C842CC /* TutorialAdminData.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = TutorialAdminData.json; sourceTree = "<group>"; };
+		1608655F2B9F87D900C842CC /* TutorialAdmin.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TutorialAdmin.swift; sourceTree = "<group>"; };
 		161761612B9870E400E39676 /* ContentViewAdmin.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentViewAdmin.swift; sourceTree = "<group>"; };
 		161761632B98722E00E39676 /* TutorialPageAdmin.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TutorialPageAdmin.swift; sourceTree = "<group>"; };
 		161761652B98733C00E39676 /* HookTutorialViewAdmin.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HookTutorialViewAdmin.swift; sourceTree = "<group>"; };
@@ -607,6 +611,7 @@
 		8FE6D96C2B7F7A320040EAFE /* JSON */ = {
 			isa = PBXGroup;
 			children = (
+				1608655D2B9F871400C842CC /* TutorialAdminData.json */,
 				16FBA1E92B4BCA42001AEBDB /* HookData.json */,
 				16FBA1EB2B4BCA77001AEBDB /* TermData.json */,
 				16FBA1DF2B4BC7FB001AEBDB /* PatternData.json */,
@@ -696,6 +701,7 @@
 				16FBA1E12B4BC849001AEBDB /* Pattern.swift */,
 				16FBA1E32B4BC877001AEBDB /* PatternContent.swift */,
 				16FBA1DD2B4BC77B001AEBDB /* Yarn.swift */,
+				1608655F2B9F87D900C842CC /* TutorialAdmin.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -846,6 +852,7 @@
 				16F64E412B0B367C00EF2E15 /* Outfit-Light.ttf in Resources */,
 				16F64E432B0B367C00EF2E15 /* Outfit-ExtraLight.ttf in Resources */,
 				16BF34E12B0B31C00036424B /* Preview Assets.xcassets in Resources */,
+				1608655E2B9F871400C842CC /* TutorialAdminData.json in Resources */,
 				16FBA1DC2B4BC763001AEBDB /* YarnData.json in Resources */,
 				16FBA1E02B4BC7FB001AEBDB /* PatternData.json in Resources */,
 				16FBA1EC2B4BCA77001AEBDB /* TermData.json in Resources */,
@@ -953,6 +960,7 @@
 				161AA7112B14800A008A59CE /* MiniTag.swift in Sources */,
 				8FAE74C02B5140E600E48454 /* ImagePickerView.swift in Sources */,
 				8F9239F82B9E3FD5008A11E1 /* AppManager.swift in Sources */,
+				160865602B9F87D900C842CC /* TutorialAdmin.swift in Sources */,
 				8FE6D99F2B9B6B9A0040EAFE /* ImageRepository.swift in Sources */,
 				161761622B9870E400E39676 /* ContentViewAdmin.swift in Sources */,
 				16F64E5E2B0B800000EF2E15 /* ForumView.swift in Sources */,
@@ -1107,7 +1115,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 6;
 				DEVELOPMENT_ASSET_PATHS = "\"Loopin/Preview Content\"";
-				DEVELOPMENT_TEAM = Y9B3P2YJJC;
+				DEVELOPMENT_TEAM = 934K9APAT3;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Loopin/Info.plist;

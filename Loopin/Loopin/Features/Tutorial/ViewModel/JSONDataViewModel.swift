@@ -48,4 +48,8 @@ struct JSONDataViewModel {
     func loadProjectTemplateData() -> [ProjectTemplateJSON] {
         return load("ProjectTemplateData.json")
     }
+    
+    func loadTutorialData() -> [TutorialAdmin] {
+        return load("TutorialAdminData.json")
+    }
 }

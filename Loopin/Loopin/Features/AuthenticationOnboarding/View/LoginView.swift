@@ -10,6 +10,7 @@ import SwiftUI
 struct LoginView: View {
     @Environment(\.presentationMode) var presentationMode
     @State private var showAlert = false
+    @State private var isToggleOn = false
     
     @State private var email = "cm@gmail.com"
     @State private var password = "cmcmcm"
@@ -31,10 +32,19 @@ struct LoginView: View {
                         ShortTextField(placeholder: "email@address.com", field: $email)
                             .padding(.top, 150)
                         ShortTextField(placeholder: "password", field: $password)
+                        Toggle("Masuk sebagai admin", isOn: $isToggleOn)
+                            .padding(20)
+                            .font(.outfit(.regular, size: .body3))
                         Spacer()
                     }
                     VStack {
                         Spacer()
+                        NavigationLink {
+                            ContentViewAdmin()
+                        } label: {
+                            PrimaryButton(buttonText: "Masuk Admin")
+                        }
+
                         PrimaryButton(buttonText: "Masuk")
                             .onTapGesture {
                                 authViewModel.signIn(email: email, password: password) { isSuccess in

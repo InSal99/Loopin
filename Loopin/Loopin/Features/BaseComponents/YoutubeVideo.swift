@@ -13,9 +13,8 @@ struct YoutubeVideo: View {
 
     var body: some View {
         Video(videoId: id)
-            .frame(width: 350, height: 190)
-            .clipShape(RoundedRectangle(cornerRadius: 12))
-            .padding(.horizontal, 24)
+            .frame(width: 320, height: 190)
+            .clipShape(RoundedRectangle(cornerRadius: 20))
     }
 }
 
