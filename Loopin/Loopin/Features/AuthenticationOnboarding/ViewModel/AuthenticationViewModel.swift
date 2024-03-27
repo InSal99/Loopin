@@ -12,9 +12,9 @@ class AuthenticationViewModel: ObservableObject {
     static let shared = AuthenticationViewModel()
 
     @Published var isSignedUp : Bool = false
-    @Published var isLoggedIn : Bool {
+    @Published var isSignedIn : Bool {
         didSet {
-            UserDefaults.standard.set(isLoggedIn, forKey: "\(UserDefaultKeys.login.rawValue)")
+            UserDefaults.standard.set(isSignedIn, forKey: "\(UserDefaultKeys.login.rawValue)")
         }
     }
     
@@ -27,7 +27,7 @@ class AuthenticationViewModel: ObservableObject {
     
     init(authService: AuthenticationService = AuthenticationService.shared) {
         self.authService = authService
-        self.isLoggedIn = UserDefaults.standard.bool(forKey: "\(UserDefaultKeys.login.rawValue)")
+        self.isSignedIn = UserDefaults.standard.bool(forKey: "\(UserDefaultKeys.login.rawValue)")
     }
     
     func signUp(username: String, email: String, phone: String, password: String, confirmPassword: String? = nil, completion: @escaping (Bool) -> Void) {
@@ -150,14 +150,14 @@ class AuthenticationViewModel: ObservableObject {
 extension AuthenticationViewModel {
     
     func saveSignOutState(){
-        self.isLoggedIn = false
+        self.isSignedIn = false
         UserDefaults.standard.removeObject(forKey: UserDefaultKeys.user.rawValue)
     }
     
     func saveSignInState(){
         if let encodedData = try? JSONEncoder().encode(AuthenticationService.shared.userInJSON),
            let userDictionary = try? JSONSerialization.jsonObject(with: encodedData, options: []) as? [String: Any] {
-            self.isLoggedIn = true
+            self.isSignedIn = true
             UserDefaults.standard.set(userDictionary, forKey: UserDefaultKeys.user.rawValue)
         }
     }

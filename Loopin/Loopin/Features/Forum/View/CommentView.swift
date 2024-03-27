@@ -13,7 +13,7 @@ struct CommentView: View {
     @EnvironmentObject var authViewModel: AuthenticationViewModel
     @StateObject var postViewModel: PostViewModel
     @StateObject var commentListViewModel: CommentListViewModel
-    @State var textFieldLineLimit = 1
+    @State private var textFieldLineLimit = 1
     
     var body: some View {
         VStack {

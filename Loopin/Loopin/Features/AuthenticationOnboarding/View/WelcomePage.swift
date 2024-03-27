@@ -15,11 +15,11 @@ struct WelcomePage: View {
     var body: some View {
         
         ZStack {
-            if authViewModel.isLoggedIn || UserDefaults.standard.bool(forKey: UserDefaultKeys.login.rawValue) == true {
+            if authViewModel.isSignedIn || UserDefaults.standard.bool(forKey: UserDefaultKeys.login.rawValue) == true {
                 ContentView()
             }
             
-            if authViewModel.isLoggedIn == false {
+            if authViewModel.isSignedIn == false {
                 NavigationStack {
                     VStack {
                         Spacer()

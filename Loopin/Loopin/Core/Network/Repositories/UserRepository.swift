@@ -12,14 +12,15 @@ import Combine
 
 class UserRepository: ObservableObject {
     //MARK: Firebase API
-    private let path: String = "users"
+    private let userPath: String = "users"
+    private let adminPath: String = "admins"
     private let store = Firestore.firestore()
     
     func registUserToDatabase(user: User, completion: @escaping (Result<Void, Error>) -> Void) {
         do {
 
 //            _ = try database.collection(path).addDocument(from: user)
-            _ = try store.collection(path).document(user.id!).setData(from: user)
+            _ = try store.collection(userPath).document(user.id!).setData(from: user)
             
             /// DEBUG
 //            print("UserRepo - registUserToDatabase success: \(user)")
@@ -34,7 +35,10 @@ class UserRepository: ObservableObject {
     }
     
     func getUserFromDatabase(userId: String, completion: @escaping (Result<User?, Error>) -> Void) {
-        store.collection(path).document(userId).getDocument { document, error in
+        //switch path here user/admin
+        
+        
+        store.collection(userPath).document(userId).getDocument { document, error in
             if let error = error {
                 /// DEBUG
                 print("UserRepo - getUserFromDatabase error: \(error.localizedDescription)")

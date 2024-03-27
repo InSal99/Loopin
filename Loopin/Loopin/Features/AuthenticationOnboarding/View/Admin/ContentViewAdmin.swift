@@ -12,7 +12,7 @@ struct ContentViewAdmin: View {
     @EnvironmentObject var authViewModel: AuthenticationViewModel
     @State private var showAlert = false
     @State private var navigateToWelcomePage = false
-    @State private var tutorialData: [TutorialAdmin] = []
+    @State private var tutorialAdminData: [TutorialAdmin] = []
     
     var body: some View {
         NavigationView {
@@ -32,7 +32,7 @@ struct ContentViewAdmin: View {
                     Text("Dokumentasi")
                         .font(.outfit(.semiBold, size: .body1))
                         .padding(.leading)
-                    ForEach(tutorialData, id: \.self) {
+                    ForEach(tutorialAdminData, id: \.self) {
                         accordionItem in Accordion(isOpened: false, title: accordionItem.title , content: accordionItem.content )
                     }
                 }
@@ -74,7 +74,7 @@ struct ContentViewAdmin: View {
     
     private func loadTutorialData() {
         let viewModel = JSONDataViewModel()
-        tutorialData = viewModel.loadTutorialData()
+        tutorialAdminData = viewModel.loadTutorialAdminData()
     }
 }
 

@@ -11,7 +11,7 @@ struct ProfileView: View {
     @Environment(\.presentationMode) var presentationMode
     
     @State private var showAlert = false
-    @State private var navigateToWelcomePage = false
+//    @State private var navigateToWelcomePage = false
     @State private var isEditing = false
     @State private var text = "Username"
     

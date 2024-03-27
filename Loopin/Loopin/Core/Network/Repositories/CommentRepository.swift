@@ -76,15 +76,15 @@ class CommentRepository: ObservableObject {
 
     }
     
-    func update(_ comment: Comment) {
-        guard let commentId = comment.id else { return }
-        
-        do {
-            try           store.collection(parentPath).document(postId).collection(path).document(commentId).setData(from: comment)
-        } catch {
-            fatalError("Unable to update card: \(error.localizedDescription).")
-        }
-    }
+//    func update(_ comment: Comment) {
+//        guard let commentId = comment.id else { return }
+//        
+//        do {
+//            try           store.collection(parentPath).document(postId).collection(path).document(commentId).setData(from: comment)
+//        } catch {
+//            fatalError("Unable to update card: \(error.localizedDescription).")
+//        }
+//    }
     
     func remove(_ comment: Comment) {
         guard let commentId = comment.id else { return }
