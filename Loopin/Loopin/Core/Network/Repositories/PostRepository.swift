@@ -86,6 +86,23 @@ class PostRepository: ObservableObject {
             fatalError("Unable to update card: \(error.localizedDescription).")
         }
                 
+    } 
+    func updateUsername(_ post: Post) {
+        guard let postId = post.id else { return }
+        
+        let postDocumentRef = store.collection(path).document(postId)
+        postDocumentRef.updateData([
+            "username": post.username
+        ]) { err in
+            if let err = err {
+                print("Error updating user document: \(err)")
+//                completion(false)
+            } else {
+                print("Document successfully updated")
+//                completion(true)
+            }
+        }
+                
     }
     
     func remove(_ post: Post) {

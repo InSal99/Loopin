@@ -17,16 +17,20 @@ struct ContentView: View {
         NavigationView {
             TabView(selection: $appManager.selectedContentMenuTab){
                 // Tab 1
-                TutorialPage()
-                    .tabItem {
-                        Image(uiImage: UIImage(named: "tutorial")!)
-                        Text("Tutorial")
-                            .font(.outfit(.semiBold, size: .label2))
-                    }
-                    .tag(0)
+                NavigationStack {
+                    TutorialPage()
+                }
+                .tabItem {
+                    Image(uiImage: UIImage(named: "tutorial")!)
+                    Text("Tutorial")
+                        .font(.outfit(.semiBold, size: .label2))
+                }
+                .tag(0)
                 
                 // Tab 2
-                ProjectsView()
+                NavigationStack {
+                    ProjectsView()
+                }
                     .tabItem {
                         Image(uiImage: UIImage(named: "project")!)
                         Text("Proyek")
@@ -36,7 +40,9 @@ struct ContentView: View {
                 
                 
                 // Tab 3
-                ForumView()
+                NavigationStack {
+                    ForumView()
+                }
                     .tabItem {
                         Image(uiImage: UIImage(named: "forum")!)
                         Text("Forum")
@@ -46,7 +52,9 @@ struct ContentView: View {
                 
                 
                 // Tab 4
-                ProfileView()
+                NavigationStack {
+                    ProfileView()
+                }
                     .tabItem {
                         Image(uiImage: UIImage(named: "profile")!)
                         Text("Profil")
@@ -54,7 +62,7 @@ struct ContentView: View {
                     }
                     .tag(3)
             }
-            .toolbar(.visible, for: .tabBar)
+//            .toolbar(.visible, for: .tabBar)
             .navigationBarBackButtonHidden(true)
             .navigationBarHidden(true)
         }

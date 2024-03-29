@@ -10,10 +10,11 @@ import SwiftUI
 struct ProfileView: View {
     @Environment(\.presentationMode) var presentationMode
     
-    @State private var showAlert = false
+    @State private var showSignOutAlert = false
+    @State private var showEditConfirmationAlert = false
 //    @State private var navigateToWelcomePage = false
     @State private var isEditing = false
-    @State private var text = "Username"
+    @State private var text = ""
     
     @EnvironmentObject var authViewModel: AuthenticationViewModel
     @EnvironmentObject var postListViewModel : PostListViewModel
@@ -30,12 +31,12 @@ struct ProfileView: View {
         UISegmentedControl.appearance().setTitleTextAttributes([.foregroundColor: UIColor.white], for: .selected)
     }
     
-    private var userName: String { authViewModel.authService.user?.username ?? "-" }
+    private var username: String { authViewModel.authService.user?.username ?? "-" }
     private var email: String { authViewModel.authService.user?.email ?? "-" }
     private var phone: String { authViewModel.authService.user?.phone ?? "-" }
     
     var body: some View {
-        NavigationView {
+        VStack {
             ScrollView(.vertical){
                 VStack (alignment: .leading, spacing: 35){
                     VStack (alignment: .leading){
@@ -43,7 +44,7 @@ struct ProfileView: View {
                             HStack {
                                 ShortTextField(placeholder: "new username", field: $text)
                                 Button(action: {
-                                    isEditing.toggle()
+                                    showEditConfirmationAlert = true
                                 }) {
                                     Label("Save", systemImage: "square.and.arrow.down")
                                         .font(.outfit(.semiBold, size: .body2))
@@ -54,9 +55,43 @@ struct ProfileView: View {
                                         )
                                 }
                             }
+                            .alert(isPresented: $showEditConfirmationAlert) {
+                                var title: String = "Simpan Data"
+                                var message: String = "Apakah anda yakin ingin memperbarui data username?"
+                                
+                                if text == "" {
+                                    title = "Gagal memperbarui data"
+                                    message = "Username perlu diisi"
+                                    
+                                    return Alert(title: Text(title), message: Text(message), dismissButton: .default(Text("OK")) {
+                                        text = username
+                                        showEditConfirmationAlert = false
+                                        isEditing.toggle()
+                                    })
+                                } else {
+                                    return Alert(
+                                        title: Text(title),
+                                        message: Text(message),
+                                        primaryButton: .default(Text("Ya")) {
+                                            print("text: \(text) & username: \(username) = \(text == username )")
+                                            if text != username {
+                                                authViewModel.update(newUsername: text) { isSuccess  in
+                                                    showEditConfirmationAlert = false
+                                                    isEditing.toggle()
+                                                }
+                                            } else {
+                                                showEditConfirmationAlert = false
+                                                isEditing.toggle()
+                                            }
+                                        },
+                                        secondaryButton: .destructive(Text("Batal"))
+                                    )
+                                }
+                            }
+                            
                         } else {
                             HStack {
-                                Text(userName)
+                                Text(username)
                                     .font(.outfit(.semiBold, size: .heading2))
                                 Button(action: {
                                     isEditing.toggle()
@@ -94,9 +129,17 @@ struct ProfileView: View {
                                 }
                             } else {
                                 ForEach(projectListViewModel.projectViewModels) { projectViewModel in
-                                    NavigationLink(destination: ProjectDetailView(selectedProject: projectViewModel.project)) {
+                                    NavigationLink {
+                                        ProjectDetailView(selectedProject: projectViewModel.project)
+                                            .toolbar(.hidden, for: .tabBar)
+                                    } label: {
                                         ProjectCard(projectViewModel: projectViewModel)
+
                                     }
+//                                    
+//                                    NavigationLink(destination: ProjectDetailView(selectedProject: projectViewModel.project)) {
+//                                        ProjectCard(projectViewModel: projectViewModel)
+//                                    }
                                 }
                             }
                         case 1:
@@ -126,29 +169,17 @@ struct ProfileView: View {
                 }
             }
             .padding(.bottom)
-//            .navigationTitle("\(userName)")
-//            .navigationTitle {
-//                VStack {
-//                    Text("\(userName)")
-//                    Button(action: {
-//                        // isEditProfilePresented.toggle()
-//                    }) {
-//                        Label("Edit", systemImage: "pencil")
-//                    }
-//                }
-//            }
             .navigationBarBackButtonHidden(true)
             .background(Color("White"))
             .toolbar {
                 ToolbarItem(placement: .navigationBarTrailing) {
                     Button(action: {
-                        showAlert.toggle()
+                        showSignOutAlert.toggle()
                     }, label: {
                         Image(systemName: "rectangle.portrait.and.arrow.right")
                             .foregroundColor(.red)
                     })
-                    .alert(isPresented: $showAlert) {
-                        
+                    .alert(isPresented: $showSignOutAlert) {
                         Alert(
                             title: Text("Keluar Akun"),
                             message: Text("Apakah anda yakin ingin keluar dari akun anda?"),
@@ -166,6 +197,7 @@ struct ProfileView: View {
         }
         .onAppear {
             appManager.selectedContentMenuTab = 3
+            text = username
         }
     }
 }

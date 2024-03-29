@@ -15,7 +15,7 @@ struct TermTutorialListView: View {
 //    @State private var selectedTermItem: Term?
     
     var body: some View {
-        NavigationView {
+//        VStack {
             ScrollView(.vertical) {
                 LazyVGrid(columns: [GridItem(.adaptive(minimum: 140))], spacing: 18) {
                     ForEach(termData, id: \.self) { termItem in
@@ -25,15 +25,11 @@ struct TermTutorialListView: View {
                     }
                 }
             }
-            .background(Color("White"))
+            .background(Color(.white))
             .navigationTitle("Daftar Istilah")
             .navigationBarTitleDisplayMode(.inline)
             .onAppear {
                 loadTermData()
-                appManager.showNavigationTabBar = false
-            }
-            .onDisappear {
-                appManager.showNavigationTabBar = true
             }
             .toolbar {
                 ToolbarItem(placement: .navigationBarLeading) {
@@ -45,7 +41,7 @@ struct TermTutorialListView: View {
                     }
                 }
             }
-        }
+//        }
         .navigationBarBackButtonHidden(true)
         
     }

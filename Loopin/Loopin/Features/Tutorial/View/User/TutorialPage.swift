@@ -16,41 +16,48 @@ struct TutorialPage: View {
     ]
     
     var body: some View {
-            VStack(alignment: .leading) {
-                NavigationView {
-                    ScrollView(.vertical){
-                        VStack (spacing: 10){
-                            ForEach(1...4, id: \.self) { item in
-                                NavigationLink {
-                                    switch(item) {
-                                    case 1:
-                                        ///crochet term tutorial view
-                                        TermTutorialListView()
-                                    case 2:
-                                        ///hook handling tutorial view
-                                        HookTutorialView()
-                                    case 3:
-                                        ///pattern tutorial view
-                                        PatternTutorialListView()
-                                    case 4:
-                                        ///yarn tutorial view
-                                        YarnTutorialListView()
-                                    default: EmptyView()
-                                    }
-                                } label: {
-                                    RectangleCard(cardImage: tutorials[item - 1].0, cardText: tutorials[item - 1].1)
-                                }
+        VStack(alignment: .leading) {
+            ScrollView(.vertical){
+                VStack (spacing: 10){
+                    ForEach(1...4, id: \.self) { item in
+                        NavigationLink {
+                            switch(item) {
+                            case 1:
+                                ///crochet term tutorial view
+                                TermTutorialListView()
+                                    .toolbar(.hidden, for: .tabBar)
+                                
+                            case 2:
+                                ///hook handling tutorial view
+                                HookTutorialView()
+                                    .toolbar(.hidden, for: .tabBar)
+                                
+                            case 3:
+                                ///pattern tutorial view
+                                PatternTutorialListView()
+                                    .toolbar(.hidden, for: .tabBar)
+                                
+                            case 4:
+                                ///yarn tutorial view
+                                YarnTutorialListView()
+                                    .toolbar(.hidden, for: .tabBar)
+                                
+                            default: EmptyView()
+                                    .toolbar(.hidden, for: .tabBar)
+                                
                             }
+                        } label: {
+                            RectangleCard(cardImage: tutorials[item - 1].0, cardText: tutorials[item - 1].1)
                         }
+                        
                     }
-                    .background(Color("White"))
-                    .navigationTitle("Tutorial")
                 }
-                .navigationTitle("Tutorial")
-                .navigationBarBackButtonHidden(true)
-                .navigationBarHidden(true)
+                
             }
-            
+            .background(Color("White"))
+            .navigationTitle("Tutorial")
+        }
+        
     }
 }
 

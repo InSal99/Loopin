@@ -10,4 +10,5 @@ import Foundation
 enum UserDefaultKeys : String {
     case user
     case login
+    case role
 }

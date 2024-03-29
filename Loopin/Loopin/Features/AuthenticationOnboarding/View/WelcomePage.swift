@@ -16,7 +16,11 @@ struct WelcomePage: View {
         
         ZStack {
             if authViewModel.isSignedIn || UserDefaults.standard.bool(forKey: UserDefaultKeys.login.rawValue) == true {
-                ContentView()
+                if UserDefaults.standard.string(forKey: UserDefaultKeys.role.rawValue) == UserRole.admin.rawValue {
+                    ContentViewAdmin()
+                } else {
+                    ContentView()
+                }
             }
             
             if authViewModel.isSignedIn == false {

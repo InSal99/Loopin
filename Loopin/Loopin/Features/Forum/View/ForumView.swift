@@ -14,7 +14,7 @@ struct ForumView: View {
     
     var body: some View {
         VStack(alignment: .leading) {
-            NavigationView {
+            VStack {
                 ScrollView(.vertical){
                     VStack (spacing: 15){
                         ForEach(postListViewModel.postViewModels) { postViewModel in

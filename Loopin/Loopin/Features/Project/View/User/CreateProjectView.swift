@@ -29,27 +29,30 @@ struct CreateProjectView: View {
                 LongTextField(placeholder: "deskripsi proyek", field: $project.description)
                 
                 let endIndex = project.subParts.count
-                
-                ForEach(0 ..< endIndex) { index in
-                    let sample = project.sample
-                    let widthBinding = Binding<String>(
-                        get: { String(project.subParts[index].gauge.width) },
-                        set: {
-                            project.subParts[index].gauge.width = Double($0) ?? 0
-                            project.subParts[index].gauge.updateStitch(sample: sample)
-                        }
-                    )
-                    
-                    let lengthBinding = Binding<String>(
-                        get: { String(project.subParts[index].gauge.length) },
-                        set: {
-                            project.subParts[index].gauge.length = Double($0) ?? 0
-                            project.subParts[index].gauge.updateRow(sample: sample)
-                        }
-                    )
-                    
-                    ProjectPartInputCard(subPart: project.subParts[index], inputWidth: widthBinding, inputLength: lengthBinding)
+                VStack {
+                    ForEach(0 ..< endIndex) { index in
+                        let sample = project.sample
+                        let widthBinding = Binding<String>(
+                            get: { String(project.subParts[index].gauge.width) },
+                            set: {
+                                project.subParts[index].gauge.width = Double($0) ?? 0
+                                project.subParts[index].gauge.updateStitch(sample: sample)
+                            }
+                        )
+                        
+                        let lengthBinding = Binding<String>(
+                            get: { String(project.subParts[index].gauge.length) },
+                            set: {
+                                project.subParts[index].gauge.length = Double($0) ?? 0
+                                project.subParts[index].gauge.updateRow(sample: sample)
+                            }
+                        )
+                        
+                        ProjectPartInputCard(subPart: project.subParts[index], inputWidth: widthBinding, inputLength: lengthBinding)
+                    }
                 }
+                .padding(.bottom, 250)
+                Spacer()
             }
             
             Button(action: {
@@ -86,8 +89,8 @@ struct CreateProjectView: View {
                     )
                 }
             }
-            .padding(.bottom, 20)
-            .navigationTitle("Info Proyek")
+            .padding([.top, .bottom], 20)
+//            .navigationTitle("Info Proyek")
             .navigationBarBackButtonHidden(true)
 //            .toolbar {
 //                ToolbarItem(placement: .navigationBarLeading) {

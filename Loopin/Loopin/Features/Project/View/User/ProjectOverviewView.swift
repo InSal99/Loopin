@@ -16,7 +16,7 @@ struct ProjectOverviewView: View {
     @EnvironmentObject var appManager : AppManager
     
     var body: some View {
-        NavigationView {
+        VStack {
             ScrollView(.vertical){
                 ZStack(alignment: .top) {
                     Image(projectTemplate.image)
@@ -29,7 +29,6 @@ struct ProjectOverviewView: View {
                         .padding(.top, 243)
                         .padding()
                     VStack(alignment: .leading, spacing: 20) {
-                        Spacer()
                         Text(projectTemplate.type)
                             .font(.outfit(.semiBold, size: .heading3))
                             .padding(.horizontal)
@@ -48,12 +47,12 @@ struct ProjectOverviewView: View {
                         } label: {
                             PrimaryButton(buttonText: "Buat Proyek")
                         }.padding(.horizontal)
-                            .padding(.top, 50)
+                            .padding(.top, 30)
+                            .padding(.bottom)
                             .sheet(isPresented: $isChildViewPresented) {
                                 CreateProjectView(dismissParent: {
                                     isChildViewPresented = false
                                     presentationMode.wrappedValue.dismiss()
-                                    
                                 }, project: Project(
                                     type: projectTemplate.type,
                                     name: projectTemplate.name,
@@ -86,6 +85,7 @@ struct ProjectOverviewView: View {
                 }
             }
         }
+        .background(Color("White"))
         .navigationBarBackButtonHidden(true)
         .onDisappear {
             if navigateToProfile {

@@ -61,6 +61,10 @@ class PostViewModel: ObservableObject, Identifiable {
         self.post.content = post.content
         postRepository?.update(post)
     }
+    func updateUsername(newUsername:String) {
+        self.post.username = newUsername
+        postRepository?.updateUsername(post)
+    }
     func remove() {
         postRepository?.remove(post)
         commentListViewModel?.commentRepository?.removeCollection()

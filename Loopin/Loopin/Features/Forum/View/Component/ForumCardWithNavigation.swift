@@ -13,6 +13,7 @@ struct ForumCardWithNavigation: View {
     var body: some View {
         NavigationLink {
             CommentView(postViewModel: postViewModel, commentListViewModel: postViewModel.commentListViewModel!)
+                .toolbar(.hidden, for: .tabBar)
         } label: {
             ForumCard(postViewModel: postViewModel)
         }

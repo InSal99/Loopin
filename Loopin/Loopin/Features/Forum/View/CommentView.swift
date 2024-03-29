@@ -73,7 +73,7 @@ struct CommentView: View {
                     Image(systemName: "paperplane")
                         .resizable()
                         .scaledToFit()
-                        .frame(width: 25)
+                        .frame(width: 24)
                         .foregroundColor(.black)
                 }
                 .buttonStyle(.plain)

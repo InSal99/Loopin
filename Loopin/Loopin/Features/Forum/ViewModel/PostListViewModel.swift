@@ -32,7 +32,13 @@ class PostListViewModel: ObservableObject {
     func add(_ post: Post, withImages imageDatas: [UIImage]) {
            postRepository.add(post, withImages: imageDatas)
     }
-    
+    func updateUsername(newUsername: String) {
+        for postViewModel in postViewModels {
+            if postViewModel.isAllowedToEdit {
+                postViewModel.updateUsername(newUsername: newUsername)
+            }
+        }
+    }
     func reset() {
         for postViewModel in postViewModels {
             postViewModel.reset()

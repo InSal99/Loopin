@@ -14,8 +14,8 @@ struct User: Identifiable, Codable {
     @DocumentID var id: String?
     var username: String = ""
     var email: String
-    var phone: String = ""
-    var postId: [String] = []
+    var phone: String?
+    var postId: [String]?
     var projectId : [String]?
   
 }

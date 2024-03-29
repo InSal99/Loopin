@@ -47,7 +47,7 @@ struct LoginView: View {
 
                         PrimaryButton(buttonText: "Masuk")
                             .onTapGesture {
-                                authViewModel.signIn(email: email, password: password) { isSuccess in
+                                authViewModel.signIn(email: email, password: password, role: isToggleOn ? UserRole.admin : UserRole.user) { isSuccess in
                                     if isSuccess {
                                         print("Masuk - berhasil")
                                     } else {
@@ -57,11 +57,12 @@ struct LoginView: View {
                                 }
                             }
                             .alert(isPresented: $showAlert) {
+                                
                                 /// Display an alert with the alert message from the ViewModel
                                 Alert(title: Text(authViewModel.alertTitle ?? "Semua data perlu diisi."), message: Text(authViewModel.alertMessage ?? ""), dismissButton: .default(Text("OK")) {
                                     
                                     if authViewModel.errorMessage == nil {
-                                        authViewModel.saveSignInState()
+                                        authViewModel.saveSignInState(role: isToggleOn ? UserRole.admin : UserRole.user)
                                     }
                                     showAlert = false
                                 })

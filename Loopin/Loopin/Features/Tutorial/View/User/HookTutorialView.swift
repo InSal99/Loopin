@@ -15,7 +15,7 @@ struct HookTutorialView: View {
     @State private var accordionData: [Hook] = []
     
     var body: some View {
-        NavigationView {
+        VStack {
             ScrollView(.vertical){
                 ZStack(alignment: .top) {
                     ImageSlider(images: images)
