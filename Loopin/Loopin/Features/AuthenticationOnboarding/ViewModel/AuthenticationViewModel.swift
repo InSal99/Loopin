@@ -183,6 +183,7 @@ extension AuthenticationViewModel {
     
     func saveSignOutState(){
         self.isSignedIn = false
+        AppManager.shared.reset()
         UserDefaults.standard.removeObject(forKey: UserDefaultKeys.user.rawValue)
         UserDefaults.standard.removeObject(forKey: UserDefaultKeys.role.rawValue)
     }

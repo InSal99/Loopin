@@ -33,7 +33,7 @@ struct ProjectCard: View {
                     Button(action: {
                         isEditProjectViewPresented.toggle()
                     }) {
-                        Label("Edit", systemImage: "pencil")
+                        Label("Ubah", systemImage: "pencil")
                     }
                     .padding(.horizontal, 5)
                     

@@ -51,7 +51,7 @@ struct EditProjectView: View {
                 projectToEdit.update(project: projectToEdit.project)
                 presentationMode.wrappedValue.dismiss()
             } label: {
-                PrimaryButton(buttonText: "Update")
+                PrimaryButton(buttonText: "Ubah")
             }
             .padding(.top, 25)
         }

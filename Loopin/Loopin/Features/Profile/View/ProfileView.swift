@@ -46,7 +46,7 @@ struct ProfileView: View {
                                 Button(action: {
                                     showEditConfirmationAlert = true
                                 }) {
-                                    Label("Save", systemImage: "square.and.arrow.down")
+                                    Label("Simpan", systemImage: "square.and.arrow.down")
                                         .font(.outfit(.semiBold, size: .body2))
                                         .foregroundColor(.white)
                                         .padding(10)
@@ -84,7 +84,10 @@ struct ProfileView: View {
                                                 isEditing.toggle()
                                             }
                                         },
-                                        secondaryButton: .destructive(Text("Batal"))
+                                        secondaryButton: .destructive(Text("Batal")) {
+                                            showEditConfirmationAlert = false
+                                            isEditing.toggle()
+                                        }
                                     )
                                 }
                             }
@@ -96,7 +99,7 @@ struct ProfileView: View {
                                 Button(action: {
                                     isEditing.toggle()
                                 }) {
-                                    Label("Edit", systemImage: "pencil")
+                                    Label("Ubah", systemImage: "pencil")
                                         .font(.outfit(.semiBold, size: .body2))
                                         .foregroundColor(.white)
                                         .padding(10)

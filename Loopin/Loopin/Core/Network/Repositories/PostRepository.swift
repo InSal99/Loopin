@@ -63,7 +63,8 @@ class PostRepository: ObservableObject {
     }
     
     func add(_ post: Post, withImages imageDatas: [UIImage]) {
-        let folderPath = StoragePathGenerator.getUserFolderRefPath(withId: post.userId)
+//        let folderPath = StoragePathGenerator.getUserFolderRefPath(withId: post.userId)
+        let folderPath = StoragePathGenerator.getUserFolderRefPath()
         
         ImageRepository.shared.uploadImageToFirebase(image: imageDatas[0], inFolder: folderPath) { result in
             switch result {
@@ -108,7 +109,8 @@ class PostRepository: ObservableObject {
     func remove(_ post: Post) {
         guard let postId = post.id else { return }
      
-        let folderPath = StoragePathGenerator.getUserFolderRefPath(withId: post.userId)
+        let folderPath = StoragePathGenerator.getUserFolderRefPath()
+//        let folderPath = StoragePathGenerator.getUserFolderRefPath(withId: post.userId)
 
         ImageRepository.shared.deleteImages(imagePaths: post.images, inFolder: folderPath) { [self] isSuccess in
             if isSuccess || post.images.isEmpty {

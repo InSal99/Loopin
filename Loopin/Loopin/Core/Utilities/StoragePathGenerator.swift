@@ -9,7 +9,7 @@ import Foundation
 
 struct StoragePathGenerator {
     enum StorageFolder: String {
-        case images
+        case images = "Images"
         case contents
         case tutorial
         case templates
@@ -33,5 +33,9 @@ struct StoragePathGenerator {
     
     static func getUserFolderRefPath(withId id: String) -> String{
         return "\(getMainRefPath(forType: .images)!)/\(id)"
+    }
+    
+    static func getUserFolderRefPath() -> String{
+        return "\(getMainRefPath(forType: .images)!)"
     }
 }

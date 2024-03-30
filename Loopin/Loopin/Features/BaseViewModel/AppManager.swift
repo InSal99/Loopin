@@ -13,4 +13,13 @@ class AppManager : ObservableObject {
     @Published var selectedProfileSegment = 0
     @Published var showNavigationTabBar = true
 
+    init() {
+        reset()
+    }
+    
+    func reset() {
+        selectedContentMenuTab = 0
+        selectedProfileSegment = 0
+        showNavigationTabBar = true
+    }
 }

@@ -94,7 +94,7 @@ class UserRepository: ObservableObject {
     }
     
     private func getDocumentPath(_ role: UserRole) -> String {
-        switch self.role {
+        switch role {
         case .admin:
             return adminPath
         case .user:

@@ -35,7 +35,7 @@ struct ForumCard: View {
                             Button(action: {
                                 isPostForumViewPresented.toggle()
                             }) {
-                                Label("Edit", systemImage: "pencil")
+                                Label("Ubah", systemImage: "pencil")
                             }
                             .padding(.horizontal, 5)
                             
@@ -43,7 +43,7 @@ struct ForumCard: View {
                                 showDeleteAlert.toggle()
                                 print("heee")
                             }) {
-                                Label("Delete", systemImage: "trash")
+                                Label("Hapus", systemImage: "trash")
                                     .foregroundColor(.red)
                             }
                             .padding(.horizontal, 5)
@@ -148,7 +148,8 @@ struct ForumCard: View {
         .onAppear {
             if !postViewModel.post.images.isEmpty {
                 
-                let folderName = StoragePathGenerator.getUserFolderRefPath(withId: postViewModel.post.userId)
+//                let folderName = StoragePathGenerator.getUserFolderRefPath(withId: postViewModel.post.userId)
+                let folderName = StoragePathGenerator.getUserFolderRefPath()
                 ImageRepository.shared.getDownloadUrl(imagePath: postViewModel.post.images[0], inFolder: folderName) { urlPath in
                     self.imageURL = urlPath
                 }
