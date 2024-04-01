@@ -12,8 +12,8 @@ struct LoginView: View {
     @State private var showAlert = false
     @State private var isToggleOn = false
     
-    @State private var email = "cm@gmail.com"
-    @State private var password = "cmcmcm"
+    @State private var email = ""
+    @State private var password = ""
     
     @EnvironmentObject var authViewModel: AuthenticationViewModel
     

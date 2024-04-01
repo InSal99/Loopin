@@ -24,7 +24,7 @@ class AuthenticationService: ObservableObject {
         addListeners()
     }
     
-    func signUp(username: String, email: String, phone: String, password: String, completion: @escaping (Result<Void, Error>) -> Void) {
+    func signUp(username: String, email: String, password: String, completion: @escaping (Result<Void, Error>) -> Void) {
         Auth.auth().createUser(withEmail: email, password: password) { authResult, error in
             if let error = error {
                 
@@ -45,7 +45,7 @@ class AuthenticationService: ObservableObject {
                 return
             }
             
-            let newUser = User(id: userId, username: username, email: email, phone: phone)
+            let newUser = User(id: userId, username: username, email: email)
             UserRepository.shared.registUserToDatabase(user: newUser) { result in
                 switch result {
                 case .success:
@@ -89,8 +89,8 @@ class AuthenticationService: ObservableObject {
                 switch result {
                 case .success(let user):
                     if let user = user {
-                        self!.user = User(id: userId, username: user.username, email: user.email, phone: user.phone)
-                        self!.userInJSON = UserJSON(id: userId, username: user.username, email: user.email, phone: user.phone ?? "")
+                        self!.user = User(id: userId, username: user.username, email: user.email)
+                        self!.userInJSON = UserJSON(id: userId, username: user.username, email: user.email)
                         self!.role = role
                         
                         /// DEBUG
@@ -151,7 +151,6 @@ class AuthenticationService: ObservableObject {
                     self?.user?.id = self?.userInJSON?.id
                     self?.user?.username = self?.userInJSON?.username ?? "-"
                     self?.user?.email = self?.userInJSON?.email ?? "-"
-                    self?.user?.phone = self?.userInJSON?.phone ?? "-"
                     self?.user?.postId = self?.userInJSON?.postId ?? []
                     self?.user?.projectId = self?.userInJSON?.projectId
                     

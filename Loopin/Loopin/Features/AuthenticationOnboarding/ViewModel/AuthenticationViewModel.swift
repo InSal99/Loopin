@@ -44,11 +44,11 @@ class AuthenticationViewModel: ObservableObject {
             }
     }
     
-    func signUp(username: String, email: String, phone: String, password: String, confirmPassword: String? = nil, completion: @escaping (Bool) -> Void) {
+    func signUp(username: String, email: String, password: String, confirmPassword: String? = nil, completion: @escaping (Bool) -> Void) {
         self.isError = false
-        validateInputs(username: username, email: email, phone: phone, password: password, confirmPassword: confirmPassword) { [weak self] isValid in
+        validateInputs(username: username, email: email, password: password, confirmPassword: confirmPassword) { [weak self] isValid in
             if isValid {
-                self?.authService.signUp(username: username, email: email, phone: phone, password: password) { result in
+                self?.authService.signUp(username: username, email: email, password: password) { result in
                     switch result {
                     case .success:
                         self?.alertTitle = "Berhasil mendaftarkan akun"
@@ -145,7 +145,7 @@ class AuthenticationViewModel: ObservableObject {
         }
     }
     
-    private func validateInputs(username: String? = nil, email: String, phone: String? = nil, password: String, confirmPassword: String? = nil, completion: @escaping (Bool) -> Void) {
+    private func validateInputs(username: String? = nil, email: String, password: String, confirmPassword: String? = nil, completion: @escaping (Bool) -> Void) {
         self.isError = false
         self.alertMessage = nil
         
@@ -154,8 +154,6 @@ class AuthenticationViewModel: ObservableObject {
             self.alertMessage = "Username perlu diisi."
         } else if email.isEmpty {
             self.alertMessage = "Email perlu diisi."
-        } else if phone != nil && phone!.isEmpty {
-            self.alertMessage = "Nomor telepon perlu diisi."
         } else if password.isEmpty || password.count < 3 {
             self.alertMessage = "Password perlu diisi."
         } else if password.count < 6 {

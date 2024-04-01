@@ -33,7 +33,7 @@ struct ProfileView: View {
     
     private var username: String { authViewModel.authService.user?.username ?? "-" }
     private var email: String { authViewModel.authService.user?.email ?? "-" }
-    private var phone: String { authViewModel.authService.user?.phone ?? "-" }
+//    private var phone: String { authViewModel.authService.user?.phone ?? "-" }
     
     var body: some View {
         VStack {

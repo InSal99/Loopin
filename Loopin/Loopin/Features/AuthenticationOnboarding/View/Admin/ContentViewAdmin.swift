@@ -12,7 +12,7 @@ struct ContentViewAdmin: View {
     @EnvironmentObject var authViewModel: AuthenticationViewModel
     @State private var showSignOutAlert = false
     @State private var showOpenUrlAlert = false
-    @State private var navigateToWelcomePage = false
+//    @State private var navigateToWelcomePage = false
     @State private var tutorialAdminData: [TutorialAdmin] = []
     
     var body: some View {

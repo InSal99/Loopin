@@ -9,12 +9,10 @@ import SwiftUI
 
 struct SignUpView: View {
     @Environment(\.presentationMode) var presentationMode
-    @State private var showAlert = false
-//    @State private var isSignUpSuccess = false
     
+    @State private var showAlert = false
     @State private var username = ""
     @State private var email = ""
-    @State private var phone = "0"
     @State private var password = ""
     @State private var confirmPassword = ""
     
@@ -41,7 +39,7 @@ struct SignUpView: View {
                         Spacer()
                         PrimaryButton(buttonText: "Daftar")
                             .onTapGesture {
-                                authViewModel.signUp(username: username, email: email, phone: phone, password: password, confirmPassword: confirmPassword) { isSuccess in
+                                authViewModel.signUp(username: username, email: email, password: password, confirmPassword: confirmPassword) { isSuccess in
                                     if isSuccess {
                                         print("Daftar - berhasil")
                                     } else {
