@@ -9,12 +9,10 @@ import SwiftUI
 
 struct SignUpView: View {
     @Environment(\.presentationMode) var presentationMode
-    @State private var showAlert = false
-//    @State private var isSignUpSuccess = false
     
+    @State private var showAlert = false
     @State private var username = ""
     @State private var email = ""
-    @State private var phone = "0"
     @State private var password = ""
     @State private var confirmPassword = ""
     
@@ -41,7 +39,7 @@ struct SignUpView: View {
                         Spacer()
                         PrimaryButton(buttonText: "Daftar")
                             .onTapGesture {
-                                authViewModel.signUp(username: username, email: email, phone: phone, password: password, confirmPassword: confirmPassword) { isSuccess in
+                                authViewModel.signUp(username: username, email: email, password: password, confirmPassword: confirmPassword) { isSuccess in
                                     if isSuccess {
                                         print("Daftar - berhasil")
                                     } else {
@@ -56,7 +54,11 @@ struct SignUpView: View {
                                 // Display an alert with the alert message from the ViewModel
                                 Alert(title: Text(authViewModel.alertTitle ?? "Gagal mendaftarkan akun"), message: Text(authViewModel.alertMessage ?? ""), dismissButton: .default(Text("OK")){
                                     if authViewModel.errorMessage == nil {
-                                        authViewModel.isSignupSuccess = true
+                                        username = ""
+                                        email = ""
+                                        password = ""
+                                        confirmPassword = ""
+                                        authViewModel.isSignedUp = true
                                     }
                                     showAlert = false
                                 })
@@ -64,7 +66,7 @@ struct SignUpView: View {
                             .padding(.bottom, -80)
                     }
                 }
-                .navigationDestination(isPresented: $authViewModel.isSignupSuccess) {
+                .navigationDestination(isPresented: $authViewModel.isSignedUp) {
                     LoginView()
                 }
             }
@@ -82,6 +84,9 @@ struct SignUpView: View {
                         .foregroundColor(.black)
                 }
             }
+        }
+        .onDisappear {
+            presentationMode.wrappedValue.dismiss()
         }
     }
 }

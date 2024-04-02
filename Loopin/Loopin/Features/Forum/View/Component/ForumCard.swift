@@ -8,6 +8,7 @@
 import SwiftUI
 import SDWebImageSwiftUI
 import FirebaseStorage
+import Firebase
 
 struct ForumCard: View {
     
@@ -23,7 +24,7 @@ struct ForumCard: View {
         VStack(alignment: .leading) {
             HStack(alignment: .firstTextBaseline) {
                 Text("\(postViewModel.post.username)")
-                    .font(.outfit(.semiBold, size: .body2))
+                    .font(.outfit(.bold, size: .heading4))
                     .padding(.vertical, 5)
                 
                 Spacer()
@@ -34,7 +35,7 @@ struct ForumCard: View {
                             Button(action: {
                                 isPostForumViewPresented.toggle()
                             }) {
-                                Label("Edit", systemImage: "pencil")
+                                Label("Ubah", systemImage: "pencil")
                             }
                             .padding(.horizontal, 5)
                             
@@ -42,7 +43,7 @@ struct ForumCard: View {
                                 showDeleteAlert.toggle()
                                 print("heee")
                             }) {
-                                Label("Delete", systemImage: "trash")
+                                Label("Hapus", systemImage: "trash")
                                     .foregroundColor(.red)
                             }
                             .padding(.horizontal, 5)
@@ -69,7 +70,7 @@ struct ForumCard: View {
             if imageURL != "" {
                 VStack(alignment: .center){
                     
-                    if let imageURL = URL(string: postViewModel.post.images[0]) {
+                    if let imageURL = URL(string: imageURL) {
                         AnimatedImage(url: imageURL)
                             .resizable()
                             .scaledToFill()
@@ -94,9 +95,6 @@ struct ForumCard: View {
             HStack {
                 Button(action: {
                     postViewModel.updatePostLike()
-                    
-                    //DEBUG
-//                    print("like button tapped:\(isLiked)")
                     
                 }, label: {
                     HStack {
@@ -130,7 +128,6 @@ struct ForumCard: View {
         .background(
             RoundedRectangle(cornerRadius: 30)
                 .foregroundColor(Color.white)
-            //                    .frame(width: 327)
         )
         .shadow(color:.black .opacity(0.05), radius: 10, x: 0, y: 4)
         .sheet(isPresented: $isPostForumViewPresented) {
@@ -150,12 +147,13 @@ struct ForumCard: View {
         .alertButtonTint(color: .blue)
         .onAppear {
             if !postViewModel.post.images.isEmpty {
-                let storage = Storage.storage().reference()
                 
-                //                print("STORAGE \(storage.bucket)")
-                //                print("STORAGE \(storage.child("\(URL(string: postViewModel.post.images[0])!)"))")
-                self.imageURL = "\(storage.child("\(URL(string: postViewModel.post.images[0])!)"))"
-                //                print(self.imageURL)
+//                let folderName = StoragePathGenerator.getUserFolderRefPath(withId: postViewModel.post.userId)
+                let folderName = StoragePathGenerator.getUserFolderRefPath()
+                ImageRepository.shared.getDownloadUrl(imagePath: postViewModel.post.images[0], inFolder: folderName) { urlPath in
+                    self.imageURL = urlPath
+                }
+                
             }
             
             postViewModel.post.totComments = postViewModel.commentListViewModel?.commentViewModels.count ?? 0

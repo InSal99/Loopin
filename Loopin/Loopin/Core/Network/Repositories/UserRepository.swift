@@ -11,15 +11,20 @@ import FirebaseFirestoreSwift
 import Combine
 
 class UserRepository: ObservableObject {
+    static let shared = UserRepository()
+
     //MARK: Firebase API
-    private let path: String = "users"
+    private let userPath: String = "users"
+    private let adminPath: String = "admins"
     private let store = Firestore.firestore()
+    
+    private var role = UserRole.user
     
     func registUserToDatabase(user: User, completion: @escaping (Result<Void, Error>) -> Void) {
         do {
 
 //            _ = try database.collection(path).addDocument(from: user)
-            _ = try store.collection(path).document(user.id!).setData(from: user)
+            _ = try store.collection(userPath).document(user.id!).setData(from: user)
             
             /// DEBUG
 //            print("UserRepo - registUserToDatabase success: \(user)")
@@ -33,7 +38,10 @@ class UserRepository: ObservableObject {
         }
     }
     
-    func getUserFromDatabase(userId: String, completion: @escaping (Result<User?, Error>) -> Void) {
+    func getUserFromDatabase(userId: String, role: UserRole, completion: @escaping (Result<User?, Error>) -> Void) {
+        //switch path here user/admin
+        let path = getDocumentPath(role)
+
         store.collection(path).document(userId).getDocument { document, error in
             if let error = error {
                 /// DEBUG
@@ -68,7 +76,31 @@ class UserRepository: ObservableObject {
         }
     }
     
+    func update(_ user: User,_ role:UserRole, completion: @escaping (Bool) -> Void) {
+        guard let userId = user.id else { return }
+        
+        let userDocumentRef = store.collection(getDocumentPath(role)).document(userId)
+        userDocumentRef.updateData([
+            "username": user.username
+        ]) { err in
+            if let err = err {
+                print("Error updating user document: \(err)")
+                completion(false)
+            } else {
+                print("Document successfully updated")
+                completion(true)
+            }
+        }
+    }
     
+    private func getDocumentPath(_ role: UserRole) -> String {
+        switch role {
+        case .admin:
+            return adminPath
+        case .user:
+            return userPath
+        }
+    }
     
 }
 

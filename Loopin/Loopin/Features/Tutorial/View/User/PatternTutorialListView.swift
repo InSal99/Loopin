@@ -6,7 +6,6 @@
 //
 
 import SwiftUI
-import SwiftUI
 
 struct PatternTutorialListView: View {
     @Environment(\.presentationMode) var presentationMode
@@ -22,17 +21,6 @@ struct PatternTutorialListView: View {
                         NavigationLink(destination: PatternTutorialView(pattern: patternItem)) {
                             SquareCard(cardText: patternItem.name, cardImage: patternItem.symbol)
                         }
-                        //                        Button(action: {
-                        //                            selectedPatternItem = patternItem
-                        //                            isPatternViewPresented.toggle()
-                        //                        }, label: {
-                        //                            SquareCard(cardText: patternItem.name , cardImage: patternItem.symbol )
-                        //                        })
-                        //                        .sheet(isPresented: $isPatternViewPresented) {
-                        //                            if let selectedPatternItem = selectedPatternItem {
-                        //                                PatternTutorialView(pattern: selectedPatternItem)
-                        //                            }
-                        //                        }
                     }
                 }
             }

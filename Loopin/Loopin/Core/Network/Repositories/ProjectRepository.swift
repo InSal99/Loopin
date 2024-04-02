@@ -5,7 +5,6 @@
 //  Created by Celine Margaretha on 10/01/24.
 //
 
-import Foundation
 import FirebaseFirestore
 import FirebaseFirestoreSwift
 import Combine
@@ -54,7 +53,7 @@ class ProjectRepository: ObservableObject {
                     try? document.data(as: Project.self)
                 } ?? []
             }
-        print("Project Repo - get projects: \(self.projects)")
+        print("\nProject Repo - get projects \(String(describing: authenticationService?.user?.id)): \(self.projects)\n")
     }
     
     func add(_ project: Project, completion: @escaping (Bool) -> Void) {

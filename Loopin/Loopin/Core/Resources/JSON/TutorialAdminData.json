@@ -1,0 +1,22 @@
+[
+  {
+    "title": "Firebase 101",
+    "content": "Firebase adalah platform yang dikembangkan oleh Google untuk membuat aplikasi mobile dan web. Platform ini menyediakan berbagai alat dan layanan untuk membantu pengembang membangun aplikasi berkualitas tinggi, termasuk fitur-fitur untuk otentikasi, basis data real-time, penyimpanan cloud, dan lainnya. Penggunaan Firebase dalam aplikasi Loopin bertujuan untuk menyederhanakan proses pengembangan aplikasi dengan menawarkan serangkaian layanan backend yang komprehensif yang dapat dengan mudah diintegrasikan oleh pengembang ke dalam aplikasi."
+  },
+  {
+    "title": "Loopin Firebase Product",
+    "content": "Firebase Project seperti sebuah wadah untuk semua firebase app dan semua resource dan service yang disediakan untuk project tersebut. Firebase Project dapat memiliki satu atau lebih firebase app yang terdaftar di dalamnya. Pada aplikasi Loopi, produk Firebase yang digunakan diantaranya, Authentication, Firestore Database, dan Storage."
+  },
+  {
+    "title": "Authentication",
+    "content": "Firebase Authentication adalah komponen penting dalam rangkaian produk Firebase. Dalam aplikasi Loopin, autentikasi memainkan peran penting dalam memfasilitasi proses autentikasi akun pengguna. Konsol Firebase menyediakan antarmuka di mana admin dapat mengakses dan mengelola data terkait dengan akun pengguna terdaftar dalam sistem database Loopin. Melalui menu Authentication, admin memiliki kemampuan untuk mengawasi dan mengelola berbagai aspek dari proses autentikasi, memungkinkan untuk mengelola akun pengguna dan prosedur autentikasi secara efektif."
+  },
+  {
+    "title": "Firestore Database",
+    "content": "Firebase Cloud Firestore adalah produk inti dari Firebase yang digunakan dalam aplikasi Loopin untuk menyimpan data yang terkait dengan aktivitas pengguna. Dalam konsol Firebase, menu Cloud Firestore berisi koleksi postingan dan pengguna. Setiap koleksi menyediakan data terperinci untuk setiap postingan yang dibuat oleh setiap pengguna. Admin dapat mengelola semua aspek data postingan dan pengguna dalam menu ini, memungkinkan untuk mengawasi dan memelihara konten aplikasi dan interaksi pengguna secara efektif."
+  },
+  {
+    "title": "Storage",
+    "content": "Firebase Storage merupakan salah satu produk dari Firebase. Dalam aplikasi Loopin, Storage berperan dalam menyimpan data tambahan yang terlibat dalam sistem Loopin dan aktivitas pengguna. Di konsol Firebase, Storage berisi data gambar dari postingan pengguna. Admin dapat mengelola segala hal terkait data gambar dari pengguna dalam menu ini."
+  }
+]

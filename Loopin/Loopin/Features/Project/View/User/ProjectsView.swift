@@ -10,17 +10,26 @@ import SwiftUI
 struct ProjectsView: View {
     @State private var isProjectOverviewViewPresented = false
     @State private var projectTemplateData: [ProjectTemplateJSON] = []
-//    @State private var selectedTemplateItem: Project?
-    
   
     var body: some View {
-        NavigationView {
+        VStack {
             ScrollView(.vertical){
                 LazyVGrid(columns: [GridItem(.adaptive(minimum: 140))], spacing: 18) {
                     ForEach(projectTemplateData) { templateItem in
-                        NavigationLink(destination: ProjectOverviewView(projectTemplate: templateItem)) {
+                        
+                        NavigationLink {
+                            ProjectOverviewView(projectTemplate: templateItem)
+                                .toolbar(.hidden, for: .tabBar)
+                        } label: {
                             SquareCard(cardText: templateItem.type, cardImage: templateItem.image)
                         }
+                        
+//                        NavigationLink(destination:
+//                        ProjectOverviewView(projectTemplate: templateItem)
+//                            .toolbar(.hidden, for: .tabBar)
+//) {
+//                            SquareCard(cardText: templateItem.type, cardImage: templateItem.image)
+//                        }
                     }
                 }
             }

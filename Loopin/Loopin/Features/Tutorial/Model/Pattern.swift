@@ -11,5 +11,6 @@ struct Pattern: Identifiable, Decodable {
     let name: String
     let symbol: String
     let abbreviation: String
+    let link: String
     let content: [PatternContent]
 }

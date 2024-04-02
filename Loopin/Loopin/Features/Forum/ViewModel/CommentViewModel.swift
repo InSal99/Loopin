@@ -15,8 +15,8 @@ class CommentViewModel: ObservableObject, Hashable, Identifiable {
     }
     
     func hash(into hasher: inout Hasher) {
-            hasher.combine(id)
-        }
+        hasher.combine(id)
+    }
     
     private weak var commentRepository : CommentRepository?
     private weak var authService = AuthenticationService.shared
@@ -60,4 +60,5 @@ class CommentViewModel: ObservableObject, Hashable, Identifiable {
             self.commentRepository?.remove(self.comment)
         }
     }
+    
 }

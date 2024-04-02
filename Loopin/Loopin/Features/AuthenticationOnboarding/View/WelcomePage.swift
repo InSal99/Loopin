@@ -9,33 +9,80 @@ import SwiftUI
 import Foundation
 
 struct WelcomePage: View {
+    @EnvironmentObject var authViewModel : AuthenticationViewModel
+    @Environment(\.presentationMode) var presentationMode
     
     var body: some View {
         
-        NavigationStack {
-            VStack {
-                Spacer()
-                Image("Loopin-Logo2")
-                    .resizable()
-                    .aspectRatio(contentMode: .fit)
-                    .frame(height: 200)
-                    .padding(55)
-                Spacer()
-                
-                NavigationLink {
-                    LoginView()
-                } label: {
-                    PrimaryButton(buttonText: "Masuk")
-                }
-               
-                NavigationLink {
-                    SignUpView()
-                } label: {
-                    SecondaryButton(buttonText: "Daftar")
+        ZStack {
+            if authViewModel.isSignedIn || UserDefaults.standard.bool(forKey: UserDefaultKeys.login.rawValue) == true {
+                if UserDefaults.standard.string(forKey: UserDefaultKeys.role.rawValue) == UserRole.admin.rawValue {
+                    ContentViewAdmin()
+                } else {
+                    ContentView()
                 }
             }
-            .navigationBarBackButtonHidden(true)
+            
+            if authViewModel.isSignedIn == false {
+                NavigationStack {
+                    VStack {
+                        Spacer()
+                        Image("Loopin-Logo2")
+                            .resizable()
+                            .aspectRatio(contentMode: .fit)
+                            .frame(height: 200)
+                            .padding(55)
+                        Spacer()
+                        
+                        NavigationLink {
+                            LoginView()
+                        } label: {
+                            PrimaryButton(buttonText: "Masuk")
+                        }
+                       
+                        NavigationLink {
+                            SignUpView()
+                        } label: {
+                            SecondaryButton(buttonText: "Daftar")
+                        }
+                    }
+                    .navigationBarBackButtonHidden(true)
+                }
+            }
+            
         }
+        
+//        if UserDefaults.standard.bool(forKey: "user") != false {
+////        if appSettings.isLoggedIn || UserDefaults.standard.bool(forKey: UserDefaultKeys.login.rawValue) == true {
+//            ContentView()
+////                .environmentObject(authViewModel)
+//        } else {
+//            NavigationStack {
+//                VStack {
+//                    Spacer()
+//                    Image("Loopin-Logo2")
+//                        .resizable()
+//                        .aspectRatio(contentMode: .fit)
+//                        .frame(height: 200)
+//                        .padding(55)
+//                    Spacer()
+//                    
+//                    NavigationLink {
+//                        LoginView()
+//                    } label: {
+//                        PrimaryButton(buttonText: "Masuk")
+//                    }
+//                   
+//                    NavigationLink {
+//                        SignUpView()
+//                    } label: {
+//                        SecondaryButton(buttonText: "Daftar")
+//                    }
+//                }
+//                .navigationBarBackButtonHidden(true)
+//            }
+//        }
+        
     }
 }
 

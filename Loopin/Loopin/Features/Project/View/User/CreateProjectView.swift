@@ -14,13 +14,13 @@ struct CreateProjectView: View {
     @State private var showAlert = false
     @State private var inputWidths: [String] = []
     @State private var inputLengths: [String] = []
-//    @State private var navigateToProfile = false
     @State var project: Project
+    
     @Binding var navigateToProfile : Bool
 
-//    @State var projectToEdit: ProjectViewModel
-    
-    @ObservedObject var projectListViewModel = ProjectListViewModel.shared
+//    @ObservedObject var projectListViewModel = ProjectListViewModel.shared
+    @EnvironmentObject var projectListViewModel : ProjectListViewModel
+    @EnvironmentObject var appManager : AppManager
 
     var body: some View {
         VStack(spacing: 20) {
@@ -29,29 +29,31 @@ struct CreateProjectView: View {
                 LongTextField(placeholder: "deskripsi proyek", field: $project.description)
                 
                 let endIndex = project.subParts.count
-                
-                ForEach(0 ..< endIndex) { index in
-                    let sample = project.sample
-                    let widthBinding = Binding<String>(
-                        get: { String(project.subParts[index].gauge.width) },
-                        set: {
-                            project.subParts[index].gauge.width = Double($0) ?? 0
-                            project.subParts[index].gauge.updateStitch(sample: sample)
-                        }
-                    )
-                    
-                    let lengthBinding = Binding<String>(
-                        get: { String(project.subParts[index].gauge.length) },
-                        set: {
-                            project.subParts[index].gauge.length = Double($0) ?? 0
-                            project.subParts[index].gauge.updateRow(sample: sample)
-                        }
-                    )
-                    
-                    ProjectPartInputCard(subPart: project.subParts[index], inputWidth: widthBinding, inputLength: lengthBinding)
+                VStack {
+                    ForEach(0 ..< endIndex) { index in
+                        let sample = project.sample
+                        let widthBinding = Binding<String>(
+                            get: { String(project.subParts[index].gauge.width) },
+                            set: {
+                                project.subParts[index].gauge.width = Double($0) ?? 0
+                                project.subParts[index].gauge.updateStitch(sample: sample)
+                            }
+                        )
+                        
+                        let lengthBinding = Binding<String>(
+                            get: { String(project.subParts[index].gauge.length) },
+                            set: {
+                                project.subParts[index].gauge.length = Double($0) ?? 0
+                                project.subParts[index].gauge.updateRow(sample: sample)
+                            }
+                        )
+                        
+                        ProjectPartInputCard(subPart: project.subParts[index], inputWidth: widthBinding, inputLength: lengthBinding)
+                    }
                 }
+                .padding(.bottom, 250)
+                Spacer()
             }
-            
             
             Button(action: {
                 showAlert = true
@@ -82,33 +84,13 @@ struct CreateProjectView: View {
                                 print("projectListViewModel - add = \(isSuccess)")
                             }
                             navigateToProfile = true
-    //                        parent.presentationMode.wrappedValue.dismiss()
                             dismissParent()
                         }
                     )
                 }
             }
-//            .alert(isPresented: $showAlert) {
-////                var title: String = ""
-////                var message: String = ""
-//                Alert(
-//                    title: Text("Simpan Proyek"),
-//                    message: Text("Apakah anda yakin ingin menyimpan projek?"),
-//                    primaryButton: .default(Text("Ya")) {
-//                        projectListViewModel.add(project) { isSuccess in
-//                            print("projectListViewModel - add = \(isSuccess)")
-//                        }
-//                        navigateToProfile = true
-////                        parent.presentationMode.wrappedValue.dismiss()
-//                        dismissParent()
-//
-//                        
-//                    },
-//                    secondaryButton: .destructive(Text("Batal"))
-//                )
-//            }
-            .padding(.bottom, 20)
-            .navigationTitle("Info Proyek")
+            .padding([.top, .bottom], 20)
+//            .navigationTitle("Info Proyek")
             .navigationBarBackButtonHidden(true)
 //            .toolbar {
 //                ToolbarItem(placement: .navigationBarLeading) {
@@ -121,6 +103,7 @@ struct CreateProjectView: View {
 //                }
 //            }
             .onAppear(perform: initializeArrays)
+            
         }
         .padding(.top, 25)
         .foregroundColor(.black)

@@ -15,6 +15,8 @@ class AuthenticationService: ObservableObject {
 
     /// Current user that successfully signed in
     @Published var user: User?
+    @Published var userInJSON: UserJSON?
+    @Published var role: UserRole = .user
     
     private var authenticationStateHandler: AuthStateDidChangeListenerHandle?
     
@@ -22,7 +24,7 @@ class AuthenticationService: ObservableObject {
         addListeners()
     }
     
-    func signUp(username: String, email: String, phone: String, password: String, completion: @escaping (Result<Void, Error>) -> Void) {
+    func signUp(username: String, email: String, password: String, completion: @escaping (Result<Void, Error>) -> Void) {
         Auth.auth().createUser(withEmail: email, password: password) { authResult, error in
             if let error = error {
                 
@@ -43,8 +45,8 @@ class AuthenticationService: ObservableObject {
                 return
             }
             
-            let newUser = User(id: userId, username: username, email: email, phone: phone)
-            UserRepository().registUserToDatabase(user: newUser) { result in
+            let newUser = User(id: userId, username: username, email: email)
+            UserRepository.shared.registUserToDatabase(user: newUser) { result in
                 switch result {
                 case .success:
                     /// DEBUG
@@ -63,7 +65,7 @@ class AuthenticationService: ObservableObject {
         }
     }
     
-    func signIn(email: String, password: String, completion: @escaping (Result<Void, Error>) -> Void) {
+    func signIn(email: String, password: String, role: UserRole, completion: @escaping (Result<Void, Error>) -> Void) {
         Auth.auth().signIn(withEmail: email, password: password) { [weak self] authResult, error in
             if error != nil {
                 /// DEBUG
@@ -83,21 +85,27 @@ class AuthenticationService: ObservableObject {
             }
             
             /// Fetch additional user information from your database
-            UserRepository().getUserFromDatabase(userId: userId) { [weak self] result in
+            UserRepository.shared.getUserFromDatabase(userId: userId, role: role) { [weak self] result in
                 switch result {
                 case .success(let user):
                     if let user = user {
-                        self?.user = User(id: userId, username: user.username, email: user.email, phone: user.phone)
+                        self!.user = User(id: userId, username: user.username, email: user.email)
+                        self!.userInJSON = UserJSON(id: userId, username: user.username, email: user.email)
+                        self!.role = role
                         
                         /// DEBUG
                         print("AuthService - sign in success with user data: \(String(describing: self?.user))")
-                        
+                       
                         completion(.success(()))
                     } else {
                         /// DEBUG
+                        let error = NSError(domain: "", code: 0, userInfo: [NSLocalizedDescriptionKey: "sign in success but no user data found"])
+                            
                         print("AuthService - sign in success but no user data found: \(String(describing: self?.user))")
                         
-                        return
+                        completion(.failure(error))
+
+                        
                     }
                 case .failure(let error):
                     /// DEBUG
@@ -112,11 +120,16 @@ class AuthenticationService: ObservableObject {
     }
     
     
-    func signOut() {
+    func signOut(completion: @escaping (Bool) -> Void) {
         do {
             try Auth.auth().signOut()
+            self.user = nil
+            self.userInJSON = nil
+            self.role = .user
+            completion(true)
         } catch {
             print("AuthService - sign up error: \(error.localizedDescription)")
+            completion(false)
         }
     }
     
@@ -126,13 +139,33 @@ class AuthenticationService: ObservableObject {
         }
         authenticationStateHandler = Auth.auth().addStateDidChangeListener { [weak self] _, user in
             /// Only update user property when signing in
-            if let user = user, self?.user == nil {
+            if let user = user, self?.user == nil, self?.userInJSON == nil {
                 self?.user = User(id: user.uid, email: user.email!)
-
-                /// DEBUG
-                print("AuthService - addListeners: \(String(describing: self?.user))")
-
+                
+                // When retrieving user defaults
+                if let storedData = UserDefaults.standard.value(forKey: "user") as? [String: Any],
+                   let encodedData = try? JSONSerialization.data(withJSONObject: storedData),
+                   let decodedUser = try? JSONDecoder().decode(UserJSON.self, from: encodedData) {
+                    self?.userInJSON = decodedUser
+                    
+                    self?.user?.id = self?.userInJSON?.id
+                    self?.user?.username = self?.userInJSON?.username ?? "-"
+                    self?.user?.email = self?.userInJSON?.email ?? "-"
+                    self?.user?.postId = self?.userInJSON?.postId ?? []
+                    self?.user?.projectId = self?.userInJSON?.projectId
+                    
+//                    if let savedRole = UserDefaults.standard.string(forKey: UserDefaultKeys.role.rawValue) {
+//                        self?.role = UserRole(rawValue: savedRole)
+//                    } else {
+//                        print("No string data found for key 'role'")
+//                    }
+                }
             }
+            
+           
+            /// DEBUG
+            print("AuthService - addListeners: \(String(describing: self?.user))")
+
         }
     }
 

@@ -19,17 +19,12 @@ class PostListViewModel: ObservableObject {
     private var cancellables: Set<AnyCancellable> = []
     
     init() {
-
-//        for post in testData {
-//            postViewModels.append(PostViewModel(post: post))
-//        }
         postRepository.$posts.map { posts in
             posts.map(PostViewModel.init)
         }
         .assign(to: \.postViewModels, on: self)
         .store(in: &cancellables)
     }
-    
     func add(_ post: Post) {
         postRepository.add(post)
     }
@@ -37,8 +32,17 @@ class PostListViewModel: ObservableObject {
     func add(_ post: Post, withImages imageDatas: [UIImage]) {
            postRepository.add(post, withImages: imageDatas)
     }
-//    func update(_ post: Post) {
-//        postRepository.update(post)
-//        postRepository.objectWillChange.send()
-//    }
+    func updateUsername(newUsername: String) {
+        for postViewModel in postViewModels {
+            if postViewModel.isAllowedToEdit {
+                postViewModel.updateUsername(newUsername: newUsername)
+            }
+        }
+    }
+    func reset() {
+        for postViewModel in postViewModels {
+            postViewModel.reset()
+        }
+        postViewModels.removeAll()
+    }
 }

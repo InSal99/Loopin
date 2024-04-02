@@ -1,18 +1,18 @@
 //
-//  TutorialPage.swift
+//  TutorialPageAdmin.swift
 //  Loopin
 //
-//  Created by Intan Saliya Utomo on 20/11/23.
+//  Created by Intan Saliya Utomo on 06/03/24.
 //
 
 import SwiftUI
 
-struct TutorialPage: View {
+struct TutorialPageAdmin: View {
     let tutorials: [(String, String)] = [
+        ("Tutorial-2", "Glosarium Crochet"),
         ("Tutorial-1", "Cara Memegang Hakpen"),
-        ("Tutorial-2", "Istilah Dasar Pada Proyek Crochet"),
-        ("Tutorial-3", "Cara Membaca Pola Dalam Crochet"),
-        ("Tutorial-4", "Tentang Benang Crochet")
+        ("Tutorial-3", "Pola Crochet"),
+        ("Tutorial-4", "Benang Crochet")
     ]
     
     var body: some View {
@@ -24,16 +24,16 @@ struct TutorialPage: View {
                                 NavigationLink {
                                     switch(item) {
                                     case 1:
-                                        HookTutorialView()
+                                        TermTutorialListViewAdmin()
                                     case 2:
                                         //crochettermtutorialview
-                                        TermTutorialListView()
+                                        HookTutorialViewAdmin()
                                     case 3:
                                         //patterntutorialview
-                                        PatternTutorialListView()
+                                        PatternTutorialListViewAdmin()
                                     case 4:
                                         //yarntutorialview
-                                        YarnTutorialListView()
+                                        YarnTutorialListViewAdmin()
                                     default: EmptyView()
                                     }
                                 } label: {
@@ -50,8 +50,6 @@ struct TutorialPage: View {
     }
 }
 
-struct TutorialPage_Previews: PreviewProvider {
-    static var previews: some View {
-        TutorialPage()
-    }
+#Preview {
+    TutorialPageAdmin()
 }

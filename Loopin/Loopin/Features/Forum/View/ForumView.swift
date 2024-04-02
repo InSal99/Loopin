@@ -9,11 +9,12 @@ import SwiftUI
 
 struct ForumView: View {
     @State private var isPostForumViewPresented = false
-    @ObservedObject var postListViewModel = PostListViewModel.shared
+//    @ObservedObject var postListViewModel = PostListViewModel.shared
+    @EnvironmentObject var postListViewModel : PostListViewModel
     
     var body: some View {
         VStack(alignment: .leading) {
-            NavigationView {
+            VStack {
                 ScrollView(.vertical){
                     VStack (spacing: 15){
                         ForEach(postListViewModel.postViewModels) { postViewModel in

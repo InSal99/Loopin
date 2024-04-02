@@ -10,7 +10,8 @@ import UIKit
 
 struct PatternTutorialView: View {
     @Environment(\.presentationMode) var presentationMode
-    
+    @State private var selectedImage: String? = nil
+    @State private var showOverlay = false
     @State private var showAlert = false
     let pattern: Pattern
     
@@ -24,7 +25,7 @@ struct PatternTutorialView: View {
                     .frame(height: 750)
                     .offset(y: 40)
                     .foregroundColor(Color("White"))
-                VStack (spacing: 30) {
+                VStack (spacing: 20) {
                     Spacer()
                     Spacer()
                     Spacer()
@@ -37,21 +38,26 @@ struct PatternTutorialView: View {
                             .font(.outfit(.medium, size: .heading2))
                             .padding(.horizontal, 20)
                     })
+                    YoutubeVideo(id: pattern.link)
                     TabView {
                         ForEach(pattern.content, id: \.self) { contentItem in
-                            VStack (spacing: 50) {
+                            VStack(spacing: 20) {
                                 Image(contentItem.image)
                                     .resizable()
                                     .aspectRatio(contentMode: .fit)
                                     .frame(width: 300)
                                     .cornerRadius(30)
+                                    .onTapGesture {
+                                        selectedImage = contentItem.image
+                                        showOverlay = true
+                                    }
                                 Text(contentItem.description)
                                     .font(.outfit(.regular, size: .body2))
                                     .multilineTextAlignment(.center)
                             }
                         }
                     }
-                    .frame(maxWidth: 345, maxHeight: 800)
+                    .frame(maxWidth: 345, maxHeight: 700)
                     .tabViewStyle(PageTabViewStyle(indexDisplayMode: .always))
                     .background(Color("White"))
                     .onAppear {
@@ -62,6 +68,7 @@ struct PatternTutorialView: View {
                     Spacer()
                 }
             }
+
             .navigationTitle(pattern.name)
             .navigationBarTitleDisplayMode(.inline)
             .navigationBarBackButtonHidden(true)
@@ -76,12 +83,30 @@ struct PatternTutorialView: View {
                 }
             }
         }
+        .overlay(
+            ZStack {
+                if let selectedImage = selectedImage {
+                    Color.black.opacity(0.5)
+                    Image(selectedImage)
+                        .resizable()
+                        .aspectRatio(contentMode: .fit)
+                        .frame(maxWidth: .infinity, maxHeight: .infinity)
+                        .edgesIgnoringSafeArea(.all)
+                        .onTapGesture {
+                            showOverlay = false
+                        }
+                }
+            }
+            .opacity(showOverlay ? 1 : 0)
+            .animation(.easeInOut)
+        )
+        .ignoresSafeArea()
         .navigationBarBackButtonHidden(true)
     }
 }
 
 struct PatternTutorialView_Previews: PreviewProvider {
     static var previews: some View {
-        PatternTutorialView(pattern: Pattern(name: "name", symbol: "test", abbreviation: "abb", content: []))
+        PatternTutorialView(pattern: Pattern(name: "name", symbol: "test", abbreviation: "abb", link: "id", content: []))
     }
 }

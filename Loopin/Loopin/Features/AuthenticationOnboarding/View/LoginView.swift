@@ -10,10 +10,10 @@ import SwiftUI
 struct LoginView: View {
     @Environment(\.presentationMode) var presentationMode
     @State private var showAlert = false
+    @State private var isToggleOn = false
     
     @State private var email = ""
     @State private var password = ""
-//    @State private var isSignInSuccess = false
     
     @EnvironmentObject var authViewModel: AuthenticationViewModel
     
@@ -32,13 +32,22 @@ struct LoginView: View {
                         ShortTextField(placeholder: "email@address.com", field: $email)
                             .padding(.top, 150)
                         ShortTextField(placeholder: "password", field: $password)
+                        Toggle("Masuk sebagai admin", isOn: $isToggleOn)
+                            .padding(20)
+                            .font(.outfit(.regular, size: .body3))
                         Spacer()
                     }
                     VStack {
                         Spacer()
+                        NavigationLink {
+                            ContentViewAdmin()
+                        } label: {
+                            PrimaryButton(buttonText: "Masuk Admin")
+                        }
+
                         PrimaryButton(buttonText: "Masuk")
                             .onTapGesture {
-                                authViewModel.signIn(email: email, password: password) { isSuccess in
+                                authViewModel.signIn(email: email, password: password, role: isToggleOn ? UserRole.admin : UserRole.user) { isSuccess in
                                     if isSuccess {
                                         print("Masuk - berhasil")
                                     } else {
@@ -48,22 +57,18 @@ struct LoginView: View {
                                 }
                             }
                             .alert(isPresented: $showAlert) {
-                                // Display an alert with the alert message from the ViewModel
+                                
+                                /// Display an alert with the alert message from the ViewModel
                                 Alert(title: Text(authViewModel.alertTitle ?? "Semua data perlu diisi."), message: Text(authViewModel.alertMessage ?? ""), dismissButton: .default(Text("OK")) {
                                     
                                     if authViewModel.errorMessage == nil {
-                                        authViewModel.isSigninSuccess = true
+                                        authViewModel.saveSignInState(role: isToggleOn ? UserRole.admin : UserRole.user)
                                     }
                                     showAlert = false
-                                    
                                 })
                             }
                             .padding(.bottom, -80)
                     }
-                }
-                .navigationDestination(isPresented: $authViewModel.isSigninSuccess) {
-                    ContentView()
-                    
                 }
             }
             .ignoresSafeArea()
@@ -80,6 +85,9 @@ struct LoginView: View {
                         .foregroundColor(.black)
                 }
             }
+        }
+        .onDisappear {
+            presentationMode.wrappedValue.dismiss()
         }
     }
 }

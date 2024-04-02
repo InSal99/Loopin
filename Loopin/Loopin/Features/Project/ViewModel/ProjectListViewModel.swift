@@ -17,16 +17,13 @@ class ProjectListViewModel: ObservableObject {
     private var cancellables: Set<AnyCancellable> = []
     
     init() {
-
-//        for post in testData {
-//            postViewModels.append(PostViewModel(post: post))
-//        }
         projectRepository.$projects.map { posts in
             posts.map(ProjectViewModel.init)
         }
         .assign(to: \.projectViewModels, on: self)
         .store(in: &cancellables)
     }
+    
     
     func add(_ project: Project, completion: @escaping (Bool) -> Void ) {
         projectRepository.add(project) { isSuccess in
@@ -35,5 +32,8 @@ class ProjectListViewModel: ObservableObject {
     }
     func remove(_ project: Project) {
         projectRepository.remove(project)
+    }
+    func reset(){
+        projectViewModels.removeAll()
     }
 }

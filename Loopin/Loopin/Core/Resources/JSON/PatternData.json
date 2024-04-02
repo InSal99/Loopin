@@ -3,6 +3,7 @@
     "name": "Slip Knot",
     "symbol": "SlipKnot-Symbol",
     "abbreviation": "sl",
+    "link": "wJ08Y0XDV8Q",
     "content": [
       {
         "image": "SlipKnot-1",
@@ -22,6 +23,7 @@
     "name": "Single Crochet",
     "symbol": "SingleCrochet-Symbol",
     "abbreviation": "sc",
+    "link": "7FcRdxg0aeY",
     "content": [
       {
         "image": "SingleCrochet-1",
@@ -41,6 +43,7 @@
     "name": "Half Double Crochet",
     "symbol": "HDC-Symbol",
     "abbreviation": "hdc",
+    "link": "f9C1C21MNiM",
     "content": [
       {
         "image": "HDC-1",
@@ -60,6 +63,7 @@
     "name": "Double Crochet",
     "symbol": "DC-Symbol",
     "abbreviation": "dc",
+    "link": "a1whu6Gub1M",
     "content": [
       {
         "image": "DC-1",

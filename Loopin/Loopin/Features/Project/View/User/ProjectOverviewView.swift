@@ -13,8 +13,10 @@ struct ProjectOverviewView: View {
     @State private var navigateToProfile = false
     @State private var isChildViewPresented = false
     
+    @EnvironmentObject var appManager : AppManager
+    
     var body: some View {
-        NavigationView {
+        VStack {
             ScrollView(.vertical){
                 ZStack(alignment: .top) {
                     Image(projectTemplate.image)
@@ -27,9 +29,7 @@ struct ProjectOverviewView: View {
                         .padding(.top, 243)
                         .padding()
                     VStack(alignment: .leading, spacing: 20) {
-                        Spacer()
                         Text(projectTemplate.type)
-
                             .font(.outfit(.semiBold, size: .heading3))
                             .padding(.horizontal)
                         Text(projectTemplate.description)
@@ -47,49 +47,27 @@ struct ProjectOverviewView: View {
                         } label: {
                             PrimaryButton(buttonText: "Buat Proyek")
                         }.padding(.horizontal)
-                            .padding(.top, 50)
+                            .padding(.top, 30)
+                            .padding(.bottom)
                             .sheet(isPresented: $isChildViewPresented) {
                                 CreateProjectView(dismissParent: {
                                     isChildViewPresented = false
                                     presentationMode.wrappedValue.dismiss()
-                                }, project:
-                                                    Project(
-                                                        type: projectTemplate.type,
-                                                        name: projectTemplate.name,
-                                                        image: projectTemplate.image,
-                                                        description: "",
-                                                        preparation: projectTemplate.preparation,
-                                                        yarnType: projectTemplate.yarnType,
-                                                        yarnWeight: projectTemplate.yarnWeight,
-                                                        hookSize: projectTemplate.hookSize,
-                                                        stitchType: projectTemplate.stitchType,
-                                                        subParts: projectTemplate.subParts,
-                                                        sample: projectTemplate.sample),
-                                                  navigateToProfile: $navigateToProfile
-                                )
+                                }, project: Project(
+                                    type: projectTemplate.type,
+                                    name: projectTemplate.name,
+                                    image: projectTemplate.image,
+                                    description: "",
+                                    preparation: projectTemplate.preparation,
+                                    yarnType: projectTemplate.yarnType,
+                                    yarnWeight: projectTemplate.yarnWeight,
+                                    hookSize: projectTemplate.hookSize,
+                                    stitchType: projectTemplate.stitchType,
+                                    subParts: projectTemplate.subParts,
+                                    sample: projectTemplate.sample
+                                    
+                                ), navigateToProfile: $navigateToProfile)
                             }
-                    
-//                        NavigationLink {
-//                            ProjectInfoView(project:
-//                                    Project(
-//                                        type: projectTemplate.type,
-//                                        name: projectTemplate.name,
-//                                        image: projectTemplate.image,
-//                                        description: "",
-//                                        preparation: projectTemplate.preparation,
-//                                        yarnType: projectTemplate.yarnType,
-//                                        yarnWeight: projectTemplate.yarnWeight,
-//                                        hookSize: projectTemplate.hookSize,
-//                                        stitchType: projectTemplate.stitchType,
-//                                        subParts: projectTemplate.subParts,
-//                                        sample: projectTemplate.sample)
-//
-//                            )
-//                        } label: {
-//                            PrimaryButton(buttonText: "Buat Proyek")
-//                        }
-//                        .padding(.horizontal)
-//                        .padding(.top, 50)
                     }
                     .padding(.top, 280)
                     .padding()
@@ -107,7 +85,14 @@ struct ProjectOverviewView: View {
                 }
             }
         }
+        .background(Color("White"))
         .navigationBarBackButtonHidden(true)
+        .onDisappear {
+            if navigateToProfile {
+                appManager.selectedProfileSegment = 0
+                appManager.selectedContentMenuTab = 3
+            }
+        }
     }
 }
 

@@ -31,6 +31,7 @@ extension Font {
         case heading1 = 48.00
         case heading2 = 36.00
         case heading3 = 32.00
+        case heading4 = 18.00
         case body1 = 24.00
         case body2 = 16.00
         case body3 = 20.00
