@@ -39,11 +39,6 @@ struct LoginView: View {
                     }
                     VStack {
                         Spacer()
-                        NavigationLink {
-                            ContentViewAdmin()
-                        } label: {
-                            PrimaryButton(buttonText: "Masuk Admin")
-                        }
 
                         PrimaryButton(buttonText: "Masuk")
                             .onTapGesture {
